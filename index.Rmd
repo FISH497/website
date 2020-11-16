@@ -1,6 +1,6 @@
 ---
-title: "Analysis of Ecological and Environmental Data"
-subtitle: "QERM 514 &nbsp; &nbsp; University of Washington &nbsp; &nbsp; Spring 2020"
+title: "Introduction to Environmental Data Science"
+subtitle: "FISH 497 &nbsp; &nbsp; University of Washington &nbsp; &nbsp; Winter 2021"
 output:
   html_document:
     toc: true
@@ -12,24 +12,54 @@ output:
 
 # Course overview
 
-This course will introduce students to a large class of statistical models commonly used for analyses in ecology and environmental science. These include simple linear models, such as analysis of variance (ANOVA) and regression models, along with Generalized Linear Models (GLMs) that assume non-normal error distributions (_e.g._, logistic and Poisson regression). Students will learn to distinguish the difference between fixed and random effects, and how to implement them in mixed-effects models such as Generalized Linear Mixed Models (GLMMs). This course also covers various aspects of assessing model performance and evaluating model diagnostics. In general, students will focus on conceptualizing analyses, implementing analyses, and making inference from the results.
+Science is about the discovery and sharing of information, but much of the process is often shrouded in mystery. In some cases, questions about what and how things were done have left other scientists unable to successfully reproduce previous findings, bringing into question the integrity of the results. Fortunately, however, we also find ourselves in the midst of an expanding community of developers and practitioners of the tools and skills necessary for more transparent design, analysis, and reporting of scientific studies. These advancements have also supported better documentation, management, and access to data, which has facilitated new and often remote collaborations. This relatively new field of "Data Science" is broadly defined, but generally combines elements of data literacy, computer programming, statistics, and graphic design. A data scientist is generally expected to identify relevant questions, gather data from multiple sources, organize it, extract meaningful information, and communicate the results to others.
 
-This course is also one of the core requirements for graduate students in the Quantitative Ecology & Resource Management (QERM) program at the University of Washington. For more information, [click here](https://quantitative.uw.edu/graduate/).
+This course will provide an overview of some data science tools and best practices that can be used to create transparent and reproducible workflows when working with environmental data. Students will learn how to translate raw data from field and lab studies into databases and "tidy" digital formats, which can then be used for plotting, statistical analyses, etc. Students will learn how to track the history of file changes (version control), collaborate online with others, and generate "recipes" for re-creating one's work. Although failure and frustration in science are common, the open science community tries hard to be welcoming and helpful. Thus, students will also learn how and where to ask for help when attempting something new (*e.g.*, How do I create X from Y?), debugging or fixing code (*e.g.*, What does this error message mean?), etc.
 
+Importantly, this course will also discuss the various types of data used in environmental science, which includes an exploration of what constitutes "raw" data versus derived products, and the implications of using the various types. The course will also focus on the ethical and social consequences of using various data types. For example, some recent studies have inferred gender identities from survey responses based on first names, and used that information to summarize hiring practices, demographics of successful grant applications, etc. However, doing so is widely regarded as inappropriate due to non-binary genders and inaccuracies in gender assignment.
+
+**Please note**: Although statistical analysis and plotting are very important in data science, this course will *not* focus on those aspects because there are others in the College of the Environment that do. Some examples include:
+
+* FISH 454 - Ecological Modeling
+
+* FISH 458 - Modeling and Estimation in Conservation and Resource Management
+
+* FISH 546 - Bioinformatics for Environmental Sciences
+
+* FISH 554 - Beautiful Graphics in R
+
+* FISH 559 - Numerical Computing for the Natural Resources
+
+* FISH 560 - Applied Multivariate Statistics for Ecologists
+
+* QERM 514 - Analysis of Ecological and Environmental Data
+
+
+<br>
 
 # Learning objectives
 
 By the end of the quarter, students should be able to:
 
-* Identify an appropriate statistical model based on the data and specific question
+* Use **Git** to commit changes to files, recover old versions, push/pull changes to remote repositories, and manage merge conflicts
 
-* Understand the assumptions behind a chosen statistical model
+* Use **GitHub** to create repositories, manage projects, open/comment/close issues, and submit pull requests
 
-* Use **R** to fit a variety of linear models to data
+* Create a reproducible example to use in a quest for help
 
-* Evaluate data support for various models and select the most parsimonious model among them
+* Import and clean a messy data file using a variety of {packages}::functions in **R**
 
-* Use **R Markdown** to combine text, equations, code, tables, and figures into reports
+* Properly describe and document data using **Ecological Metadata Language**
+
+* Create and access a relational database with **PostgreSQL** and **R**
+
+* Use unit tests in **R** to evaluate code functionality
+
+* Create a package in **R** and document its contents
+
+* Use **R Markdown** to combine text, equations, code, tables, and figures into reports, websites, and presentations
+
+* Create dynamic html reports with **Shiny**
 
 <br>
 
@@ -40,17 +70,14 @@ Associate Professor, School of Aquatic & Fishery Sciences
 
 Office: Rm 220A Fishery Sciences
 
-Email: [qerm514@uw.edu](mailto:qerm514@uw.edu)
+Email: [scheuerl@uw.edu](mailto:scheuerl@uw.edu)
 
 <br>
 
 # Meeting times & locations
 
 #### Lectures 
-M/W/F from 10:30-11:20 ~~in FSH 213~~ via [Zoom](https://washington.zoom.us/j/831083365)
-
-#### Computer Lab
-Friday from 11:30-1:20 ~~in FSH 136~~ via [Zoom](https://washington.zoom.us/j/946943308)
+M/W/F from 10:30-11:20 via [Zoom](https://washington.zoom.us/j/831083365)
 
 #### Office hours
 By appointment
@@ -59,21 +86,29 @@ By appointment
 
 # Pre-requisites
 
-Students should be comfortable with basic probability and statistics. Students should also have a working knowledge of the [**R**](https://www.r-project.org/) computing software, such as that provided in FISH 552/553.
+Students should have a working knowledge of the [**R**](https://www.r-project.org/) computing software, such as that provided in FISH 552/553.
 
 <br>
 
 # Classroom conduct
 
-I am dedicated to providing a welcoming and supportive environment for all people, regardless of background, identity, physical appearance, or manner of communication. Any form of language or behavior used to exclude, intimidate, or cause discomfort will not be tolerated. This applies to all course participants (instructor, students, guests). In order to foster a positive and professional learning environment, I encourage the following kinds of behaviors:
+I am dedicated to providing a welcoming and supportive learning environment for all students, regardless of their background, identity, physical appearance, or manner of communication. Any form of language or behavior used to exclude, intimidate, or cause discomfort will not be tolerated. This applies to all course participants (instructor, students, guests). In order to foster a positive and professional learning environment, I encourage the following kinds of behaviors:
 
 * Use welcoming and inclusive language
 
-* Be respectful of different viewpoints and experiences
+* Show courtesy and respect towards others
+
+* Acknowledge different viewpoints and experiences
 
 * Gracefully accept constructive criticism
 
-* Show courtesy and respect towards others
+In addition, I ask the following:
+
+* Please let me know if you have a name or set of preferred pronouns that you would like me to use
+
+* If *anyone* in class says something that makes you feel uncomfortable, please talk to me about it
+
+Although I strive to create and use inclusive materials in this course, there may be overt or covert biases in the course material due to the lens with which it was written. Your suggestions about how to improve the value of diversity in this course are encouraged and appreciated.  
 
 **Please note**: If you believe you have been a victim of an alleged violation of the [Student Conduct Code](https://www.washington.edu/admin/rules/policies/WAC/478-121TOC.html) or you are aware of an alleged violation of the [Student Conduct Code](https://www.washington.edu/admin/rules/policies/WAC/478-121TOC.html), you have the right to [report it to the University](https://www.washington.edu/cssc/for-students-2/).
 
@@ -81,7 +116,7 @@ I am dedicated to providing a welcoming and supportive environment for all peopl
 
 # Access & accommodations
 
-All students deserve access to the full range of learning experiences, and the University of Washington is committed to creating inclusive and accessible learning environments consistent with federal and state laws. 
+All students deserve access to the full range of learning experiences, and the University of Washington is committed to creating inclusive and accessible learning environments consistent with federal and state laws. If you feel like your performance in class is being impacted by your experiences outside of class, please talk with me.
 
 ### Disabilities
 
@@ -98,6 +133,10 @@ Students who expect to miss class or assignments as a consequence of their relig
 This course will revolve around hands-on computing exercises that demonstrate the topics of interest. Therefore, students are strongly recommended to bring their own laptop to class, although students are certainly free to work with one another. **For students without access to a personal laptop**: it is possible to check out UW laptops for an entire quarter (see the [Student Services office](https://education.uw.edu/admissions/office-of-student-services) for details).
 
 All of the software we will be using is free and platform independent, meaning students may use macOS, Linux, or Windows operating systems. In addition to a web browser, we will be using the free [**R**](https://www.r-project.org/) software and the desktop version of the [**R Studio**](https://www.rstudio.com/products/rstudio-desktop/) integrated development environment (IDE). We will also be using various packages not contained in the base installation of **R**, but we will wait and install them at the necessary time. The instructor will be available during the first week of class to help students troubleshoot any software installation problems.
+
+We will be using [**Git**](https://git-scm.com/downloads), a free and open source version control system for tracking changes to our files. 
+
+We will be using [**PostgreSQL**](https://www.postgresql.org/download/) to create and access relational databases.
 
 Students will also be required to have a user account on [**GitHub**](https://github.com/), which we will be using for file hosting and communications via "issues". If you do not already have an account, you can sign up for a free one [here](https://github.com/join?source=header-home). The instructor will provide training on how to use the intended features in **GitHub**.
 
