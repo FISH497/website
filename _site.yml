@@ -1,0 +1,20 @@
+name: "docs"
+navbar:
+  title: "QERM 514"
+  right:
+    - text: "Lectures"
+      href: lectures.html
+    - text: "Computer Labs"
+      href: comp_labs.html
+    - text: "Homework"
+      href: homework.html
+    - text: "Final Project"
+      href: final_proj.html
+    - text: ""
+      icon: fa-github
+      href: https://github.com/QERM514
+output_dir: "docs"
+output:
+  html_document:
+    theme: journal
+    highlight: textmate

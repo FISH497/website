@@ -1,0 +1,149 @@
+---
+title: "Homework assignments"
+output: html_document
+---
+
+```{r child = "_timeline.Rmd", include=FALSE}
+```
+
+```{r child = "_list_of_hw.Rmd", include=FALSE}
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Students will use **R Markdown** to complete their homework assignments, which will allow you to execute **R** code and combine the output with additional text and equations into a single pdf file. Each homework assignment will have its own Markdown template for students to fill in and submit. 
+
+**Homework will be assigned each Friday of weeks 1-8 and will be due by 11:59 PM on the following Friday (weeks 2-9).**
+
+Completed homework files should be named
+
+`[lastname]_qerm514_hw_[#].Rmd`
+
+where `[lastname]` is replaced with the student's last name and the `[#]` is replaced with the actual number of the homework assignment. For example,
+
+`king_qerm514_hw_1.Rmd`
+
+Students should attach their completed homework file to an email message and send it to [qerm514@uw.edu](mailto:qerm514@uw.edu).
+
+```{r week_hw, include = FALSE}
+## empty list for labs
+week_hw <- vector("list", 8)
+names(week_hw) <- paste0("L", seq(8))
+## hw topics
+week_hw$L1 <- markdown
+week_hw$L2 <- linear_models
+week_hw$L3 <- diagnostics
+week_hw$L4 <- pvalues
+week_hw$L5 <- model_selection
+week_hw$L6 <- mixed_models
+week_hw$L7 <- logistic_regr
+week_hw$L8 <- count_models
+```
+
+```{r topics, include = FALSE}
+topics <- lapply(week_hw, function(x) { if(is.list(x)) {c(x$topics)} else {""} })
+## topics formatted for html
+topics_html <- sapply(lapply(topics, paste, "<br>", collapse = ""), c)
+names(topics_html) <- NULL
+```
+
+```{r assignment_links, include = FALSE}
+assignment_links <- lapply(week_hw, function(x) { if(is.list(x)) {c(x$pdf)} else {""} })
+assignment_links_html <- sapply(lapply(assignment_links, function(x) {
+  if(length(x)>1) {
+    tmp1 <- paste0("[",
+                   as.character(fontawesome::fa("file-pdf", height = 20, fill = "#eb6864")),
+                   " (", 1:length(x), ")](")
+    } else {
+      tmp1 <- paste0("[",
+                     as.character(fontawesome::fa("file-pdf", height = 20, fill = "#eb6864")),
+                     "](")
+      }
+  tmp2 <- ")"
+  tmp <- paste0(tmp1, x, tmp2)
+  tmp[x==""] <- ""
+  tmp <- paste(tmp, collapse="<br>"); tmp}), c)
+```
+
+```{r template_links, include = FALSE}
+template_links <- lapply(week_hw, function(x) { if(is.list(x)) {c(x$rmd)} else {""} })
+template_links_html <- sapply(lapply(template_links, function(x) {
+  if(length(x)>1) {
+    tmp1 <- paste0("[",
+                   as.character(fontawesome::fa("file-code", height = 20, fill = "#eb6864")),
+                   " (", 1:length(x), ")](")
+    } else {
+      tmp1 <- paste0("[",
+                     as.character(fontawesome::fa("file-code", height = 20, fill = "#eb6864")),
+                     "](")
+      }
+  tmp2 <- ")"
+  tmp <- paste0(tmp1, x, tmp2)
+  tmp[x==""] <- ""
+  tmp <- paste(tmp, collapse="<br>"); tmp}), c)
+```
+
+```{r data_links, include = FALSE}
+data_links <- lapply(week_hw, function(x) { if(is.list(x)) {x$data} else {""} })
+data_links_html <- sapply(lapply(data_links, function(x) {
+  if(length(x)>1) {
+    tmp1 <- paste0("[",
+                   as.character(fontawesome::fa("table", height = 20, fill = "#eb6864")),
+                   " (", 1:length(x), ")](")
+    } else {
+      tmp1 <- paste0("[",
+                     as.character(fontawesome::fa("table", height = 20, fill = "#eb6864")),
+                     "](")
+      }
+  tmp2 <- ")"
+  tmp <- paste0(tmp1, x, tmp2)
+  tmp[x==""] <- ""
+  tmp <- paste(tmp, collapse="<br>"); tmp}), c)
+```
+
+```{r key_links, include = FALSE}
+key_links <- lapply(week_hw, function(x) { if(is.list(x)) {c(x$key)} else {""} })
+key_links_html <- sapply(lapply(key_links, function(x) {
+  if(length(x)>1) {
+    tmp1 <- paste0("[",
+                   as.character(fontawesome::fa("key", height = 20, fill = "#eb6864")),
+                   " (", 1:length(x), ")](")
+    } else {
+      tmp1 <- paste0("[",
+                     as.character(fontawesome::fa("key", height = 20, fill = "#eb6864")),
+                     "](")
+      }
+  tmp2 <- ")"
+  tmp <- paste(tmp1, x, tmp2)
+  tmp[x==""] <- ""
+  tmp <- paste(tmp, collapse = " ")
+  tmp}), c)
+names(key_links_html) <- NULL
+```
+
+```{r generate_table, echo=FALSE}
+## data frame with dates & topics
+syl_txt <- data.frame(
+  date = sub("0(\\d)", "\\1", format(fri[1:8], "%d %B")),
+  topics = topics_html,
+  assignment_links = assignment_links_html,
+  template_links = template_links_html,
+  data_links = data_links_html,
+  key_links = key_links_html
+)
+colnames(syl_txt) <- c("Date", "Topic(s)", "Assignment", "Template", "Data", "Answer key")
+rownames(syl_txt) <- NULL
+
+## generate table
+kable(syl_txt, format = "html", caption = " ",
+      align = "clccc", escape = FALSE) %>%
+  kable_styling(bootstrap_options = "striped",
+                full_width = FALSE,
+                position = "left") %>%
+  column_spec(1, width = "6em") %>%
+  column_spec(c(3,4,5), width = "7em") %>%
+  column_spec(6, width = "8em")
+```
+
