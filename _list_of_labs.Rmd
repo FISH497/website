@@ -1,5 +1,5 @@
 ---
-title: "2019 List of Lectures"
+title: "2021 List of Labs"
 output: html_document
 ---
 
@@ -8,18 +8,6 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r}
-## review of matrix math
-matrixlab <- list(
-  title = "Matrix math in R",
-  topics = c("Matrices & matrix algebra","(review on your own)"),
-  pdf = "labs/week_01/basic-matrix-math.pdf",
-  rmd = "",
-  html = "",
-  zoom = "",
-  data = "",
-  background = c("")
-  )
-
 ## 1 overview of R Markdown
 markdown <- list(
   title = "R Markdown",
@@ -33,126 +21,5 @@ markdown <- list(
                  "[R Markdown cheat sheet](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)",
                  "[LaTeX math codes](labs/week_01/latex_math_sheet.pdf)")
 )
-
-## 2 fitting linear models
-fitting_LMs <- list(
-  title = "Fitting linear models",
-  topics = c("Fitting linear models"),
-  pdf = c(""),
-  rmd = c("labs/week_02/fitting_lm.Rmd"),
-  html = c("labs/week_02/fitting_lm.html"),
-  zoom = "https://washington.zoom.us/rec/share/yusrCq3T2j9LTKP28BjaVq8mNYC1X6a80XAW-aFcxRmxPW2MGrqYzK-eD5eySfcC",
-  data = "",
-  background = c("")
-  )
-
-## 3 model diagnostics & non-IID errors
-diagnostics_and_errors <- list(
-  title = "Model diagnostics",
-  topics = c("Model diagnostics", "Non-IID errors"),
-  pdf = c(""),
-  rmd = c("labs/week_03/diagnostics_and_errors.Rmd"),
-  html = c("labs/week_03/diagnostics_and_errors.html"),
-  zoom = "https://washington.zoom.us/rec/share/3OZfAunW6kRIbrfO-GzUXfZ4WafaT6a8g3RN-_dfzh6lCRPG869aupgkFEw9vsd8",
-  data = "labs/week_03/galton_peas.csv",
-  background = c("")
-  )
-
-## 4 design matrices
-design_matrices <- list(
-  title = "Design matrices",
-  topics = c("Design matrices for", "regression, ANOVA, ANCOVA"),
-  pdf = c(""),
-  rmd = c("labs/week_04/design_matrices.Rmd"),
-  html = c("labs/week_04/design_matrices.html"),
-  zoom = "https://washington.zoom.us/rec/share/xMd7Ne7O83hJRdLSz1nHS60aIKnsX6a8gSEY-KAOzRu4mgpPzxCV--BMSZ50p61F",
-  data = c("labs/week_04/mauna_loa_co2.csv",
-           "labs/week_04/mauna_loa_co2_mon.csv"),
-  background = c("")
-  )
-
-## 5 model selection
-model_selection <- list(
-  title = "Model selection",
-  topics = c("Model selection", "Multimodel inference"),
-  pdf = c(""),
-  rmd = c("labs/week_05/model_selection.Rmd"),
-  html = c("labs/week_05/model_selection.html"),
-  zoom = "https://washington.zoom.us/rec/share/3fBKEuHM2FNLXJ3o-RGPV58jLrrBaaa80SlP8_ZZzxmUw7GBqwJsPBjgxZBlIATj",
-  data = "",
-  background = c("")
-  )
-
-## 6 mixed models
-mixed_models <- list(
-  title = "Fitting mixed models",
-  topics = c("Fitting mixed models"),
-  pdf = c(""),
-  rmd = c("labs/week_06/mixed_models.Rmd"),
-  html = c("labs/week_06/mixed_models.html"),
-  zoom = "https://washington.zoom.us/rec/share/4fwtcrDf3EFOYLf9707vCpc7E4rbaaa80SEerPZfzxnoWuXjDVwi57Iiho6u3gKC",
-  data = "labs/week_06/seabirds.csv",
-  background = "[Bates et al (2015)](references/Bates_2015_lme4_package.pdf)"
-  )
-
-## 7 logistic regression
-fitting_glms <- list(
-  title = "Logistic regression models",
-  topics = c("Logistic regression models"),
-  pdf = c(""),
-  rmd = c("labs/week_07/fitting_glms.Rmd"),
-  html = c("labs/week_07/fitting_glms.html"),
-  zoom = "https://washington.zoom.us/rec/share/9Y9cP53xxGZIebOSxHvuZaBxDMf1eaa8gCIe-vBZmRs9qF05e_Q33v0dGv_fsVwk",
-  data = "",
-  background = c("")
-  )
-
-## 8 fitting counts
-fitting_counts <- list(
-  title = "Models for counts",
-  topics = c("Models for counts"),
-  pdf = c(""),
-  rmd = c("labs/week_08/fitting_count_models.Rmd"),
-  html = c("labs/week_08/fitting_count_models.html"),
-  zoom = "https://washington.zoom.us/rec/share/5ZBFJOjC_DtJAZXr8Vrwc_8lHIXKX6a81nNL_PQIzE520seRZNJO36PgswHFZ1aY",
-  data = "labs/week_08/snakes.csv",
-  background = c("")
-  )
-
-## 9 fitting glmms
-fitting_glmms <- list(
-  title = "Fitting GLMMs",
-  topics = c("Working with GLMMs"),
-  pdf = c(""),
-  rmd = c("labs/week_09/fitting_glmms.Rmd"),
-  html = c("labs/week_09/fitting_glmms.html"),
-  zoom = "https://washington.zoom.us/rec/share/981qLr732H9OcLfwuW3jaP9-FNi9eaa8h3BK8vJfzhkq4tBwtEEyIAhyediIPRb6",
-  data = "",
-  background = c("")
-  )
-
-## preparations for project presentation
-present_prep <- list(
-  title = "Presentation preparation",
-  topics = c("Troubleshooting project analyses", "Final preparation for presentations"),
-  pdf = "",
-  rmd = "",
-  html = "",
-  zoom = "",
-  data = "",
-  background = c("")
-  )
-
-## project presentations
-presentlab <- list(
-  title = "Presentations",
-  topics = "Presentations of class projects",
-  pdf = "",
-  rmd = "",
-  html = "labs/week_10/presentations.html",
-  zoom = "https://washington.zoom.us/rec/share/u8MybKzy2TtIW42WyW2HcK0CGYDKaaa8hnRNqfoFzxq6lWuaKiwrWi2eVklTVpzw",
-  data = "",
-  background = c("")
-  )
 ```
 
