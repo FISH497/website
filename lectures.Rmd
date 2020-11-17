@@ -1,5 +1,5 @@
 ---
-title: "Lecture information"
+title: "Course materials"
 output: html_document
 ---
 
@@ -19,43 +19,43 @@ names(week_lecs) <- paste0("L", seq(30))
 ## week 1
 week_lecs$L1 <- intro
 week_lecs$L2 <- software
-week_lecs$L3 <- data_types
-## week 2
-week_lecs$L4 <- linear_models_1
-week_lecs$L5 <- linear_models_2
-week_lecs$L6 <- inference
-## week 3
-week_lecs$L7 <- diagnostics
-week_lecs$L8 <- non_IID_errors
-week_lecs$L9 <- transformations
-## week 4
-week_lecs$L10 <- design_matrices
-week_lecs$L11 <- review
-week_lecs$L12 <- max_likelihood
-## week 5
-week_lecs$L13 <- model_selection_1
-week_lecs$L14 <- model_selection_2
-week_lecs$L15 <- mixed_models_1
-## week 6
-week_lecs$L16 <- mixed_models_2
-week_lecs$L17 <- guest_lec_01
-week_lecs$L18 <- intro_GLM
-## week 7
-week_lecs$L19 <- binary_GLM
-week_lecs$L20 <- overdispersed_binary
-week_lecs$L21 <- count_GLM
-## week 8
-week_lecs$L22 <- overdispersed_count
-week_lecs$L23 <- zero_models
-week_lecs$L24 <- intro_GLMM
-## week 9
-week_lecs$L25 <- holiday
-week_lecs$L26 <- review_2
-week_lecs$L27 <- synthesis
-## week 10
-week_lecs$L28 <- present_1
-week_lecs$L29 <- present_2
-week_lecs$L30 <- present_3
+# week_lecs$L3 <- NA
+# ## week 2
+# week_lecs$L4 <- NA
+# week_lecs$L5 <- NA
+# week_lecs$L6 <- NA
+# ## week 3
+# week_lecs$L7 <- holiday
+# week_lecs$L8 <- NA
+# week_lecs$L9 <- NA
+# ## week 4
+# week_lecs$L10 <- NA
+# week_lecs$L11 <- NA
+# week_lecs$L12 <- NA
+# ## week 5
+# week_lecs$L13 <- NA
+# week_lecs$L14 <- NA
+# week_lecs$L15 <- NA
+# ## week 6
+# week_lecs$L16 <- NA
+# week_lecs$L17 <- NA
+# week_lecs$L18 <- NA
+# ## week 7
+# week_lecs$L19 <- NA
+# week_lecs$L20 <- NA
+# week_lecs$L21 <- NA
+# ## week 8
+# week_lecs$L22 <- NA
+# week_lecs$L23 <- NA
+# week_lecs$L24 <- NA
+# ## week 9
+# week_lecs$L25 <- NA
+# week_lecs$L26 <- NA
+# week_lecs$L27 <- NA
+# ## week 10
+# week_lecs$L28 <- NA
+# week_lecs$L29 <- NA
+# week_lecs$L30 <- NA
 ```
 
 ```{r topics, include = FALSE, eval = FALSE}
@@ -78,11 +78,11 @@ slide_links <- lapply(week_lecs, function(x) { if(is.list(x)) {c(x$html)} else {
 slide_links_html <- sapply(lapply(slide_links, function(x) {
   if(length(x)>1) {
     tmp1 <- paste0("[",
-                   as.character(fontawesome::fa("file-alt", height = 20, fill = "#eb6864")),
+                   as.character(fontawesome::fa("file-alt", height = 20, fill = "#4582ec")),
                    " (", 1:length(x), ")](")
     } else {
       tmp1 <- paste0("[",
-                     as.character(fontawesome::fa("file-alt", height = 20, fill = "#eb6864")),
+                     as.character(fontawesome::fa("file-alt", height = 20, fill = "#4582ec")),
                      "](")
       }
   tmp2 <- ")"
@@ -96,11 +96,11 @@ source_links <- lapply(week_lecs, function(x) { if(is.list(x)) {c(x$rmd)} else {
 source_links_html <- sapply(lapply(source_links, function(x) {
   if(length(x)>1) {
     tmp1 <- paste0("[",
-                   as.character(fontawesome::fa("file-code", height = 20, fill = "#eb6864")),
+                   as.character(fontawesome::fa("file-code", height = 20, fill = "#4582ec")),
                    " (", 1:length(x), ")](")
     } else {
       tmp1 <- paste0("[",
-                     as.character(fontawesome::fa("file-code", height = 20, fill = "#eb6864")),
+                     as.character(fontawesome::fa("file-code", height = 20, fill = "#4582ec")),
                      "](")
       }
   tmp2 <- ")"
@@ -114,11 +114,11 @@ pdf_links <- lapply(week_lecs, function(x) { if(is.list(x)) {c(x$pdf)} else {""}
 pdf_links_html <- sapply(lapply(pdf_links, function(x) {
   if(length(x)>1) {
     tmp1 <- paste0("[",
-                   as.character(fontawesome::fa("file-pdf", height = 20, fill = "#eb6864")),
+                   as.character(fontawesome::fa("file-pdf", height = 20, fill = "#4582ec")),
                    " (", 1:length(x), ")](")
     } else {
       tmp1 <- paste0("[",
-                     as.character(fontawesome::fa("file-pdf", height = 20, fill = "#eb6864")),
+                     as.character(fontawesome::fa("file-pdf", height = 20, fill = "#4582ec")),
                      "](")
       }
   tmp2 <- ")"
@@ -134,11 +134,11 @@ zoom_links <- lapply(week_lecs, function(x) { if(is.list(x)) {x$zoom} else {""} 
 zoom_links_html <- sapply(lapply(zoom_links, function(x) {
   if(length(x)>1) {
     tmp1 <- paste0("[",
-                   as.character(fontawesome::fa("file-video", height = 20, fill = "#eb6864")),
+                   as.character(fontawesome::fa("file-video", height = 20, fill = "#4582ec")),
                    " (", 1:length(x), ")](")
     } else {
       tmp1 <- paste0("[",
-                     as.character(fontawesome::fa("file-video", height = 20, fill = "#eb6864")),
+                     as.character(fontawesome::fa("file-video", height = 20, fill = "#4582ec")),
                      "](")
       }
   tmp2 <- ")"

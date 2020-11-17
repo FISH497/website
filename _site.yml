@@ -2,12 +2,14 @@ name: "docs"
 navbar:
   title: "FISH 497"
   right:
-    - text: "Lectures"
+    - text: "Materials"
       href: lectures.html
-    - text: "Homework"
+    - text: "Assignments"
       href: homework.html
-    - text: "Final Project"
+    - text: "Projects"
       href: final_proj.html
+    - text: "References"
+      href: references.html
     - text: ""
       icon: fa-github
       href: https://github.com/FISH497

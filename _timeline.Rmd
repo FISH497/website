@@ -14,7 +14,7 @@ wed <- mon + 2
 fri <- wed + 2
 ## all qtr
 qtr <- sort(c(mon, wed, fri))
-qtr <- sub("0(\\d)", "\\1", format(qtr, "%d %B"))
+qtr <- sub("0(\\d)", "\\1", format(qtr, "%d %b"))
 ```
 
 

@@ -21,15 +21,6 @@ week_labs <- vector("list", 10)
 names(week_labs) <- paste0("L", seq(10))
 ## lab topics
 week_labs$L1 <- markdown
-week_labs$L2 <- fitting_LMs
-week_labs$L3 <- diagnostics_and_errors
-week_labs$L4 <- design_matrices
-week_labs$L5 <- model_selection
-week_labs$L6 <- mixed_models
-week_labs$L7 <- fitting_glms
-week_labs$L8 <- fitting_counts
-week_labs$L9 <- fitting_glmms
-week_labs$L10 <- presentlab
 ```
 
 ```{r topics, include = FALSE}
@@ -43,9 +34,9 @@ names(lab_topics_html) <- NULL
 handout_links <- lapply(week_labs, function(x) { if(is.list(x)) {c(x$html)} else {""} })
 handout_links_html <- sapply(lapply(handout_links, function(x) {
   if(length(x)>1) {
-    tmp1 <- paste0("[", as.character(fontawesome::fa("file-alt", height = 20, fill = "#eb6864")), " (", 1:length(x), ")](")
+    tmp1 <- paste0("[", as.character(fontawesome::fa("file-alt", height = 20, fill = "#4582ec")), " (", 1:length(x), ")](")
     } else {
-      tmp1 <- paste0("[", as.character(fontawesome::fa("file-alt", height = 20, fill = "#eb6864")), "](")
+      tmp1 <- paste0("[", as.character(fontawesome::fa("file-alt", height = 20, fill = "#4582ec")), "](")
       }
   tmp2 <- ")"
   tmp <- paste0(tmp1, x, tmp2)
@@ -55,9 +46,9 @@ handout_links_html <- sapply(lapply(handout_links, function(x) {
 source_links <- lapply(week_labs, function(x) { if(is.list(x)) {c(x$rmd)} else {""} })
 source_links_html <- sapply(lapply(source_links, function(x) {
   if(length(x)>1) {
-    tmp1 <- paste0("[", as.character(fontawesome::fa("file-code", height = 20, fill = "#eb6864")), " (", 1:length(x), ")](")
+    tmp1 <- paste0("[", as.character(fontawesome::fa("file-code", height = 20, fill = "#4582ec")), " (", 1:length(x), ")](")
     } else {
-      tmp1 <- paste0("[", as.character(fontawesome::fa("file-code", height = 20, fill = "#eb6864")), "](")
+      tmp1 <- paste0("[", as.character(fontawesome::fa("file-code", height = 20, fill = "#4582ec")), "](")
       }
   tmp2 <- ")"
   tmp <- paste(tmp1, x, tmp2)
@@ -72,11 +63,11 @@ zoom_links <- lapply(week_labs, function(x) { if(is.list(x)) {x$zoom} else {""} 
 zoom_links_html <- sapply(lapply(zoom_links, function(x) {
   if(length(x)>1) {
     tmp1 <- paste0("[",
-                   as.character(fontawesome::fa("file-video", height = 20, fill = "#eb6864")),
+                   as.character(fontawesome::fa("file-video", height = 20, fill = "#4582ec")),
                    " (", 1:length(x), ")](")
     } else {
       tmp1 <- paste0("[",
-                     as.character(fontawesome::fa("file-video", height = 20, fill = "#eb6864")),
+                     as.character(fontawesome::fa("file-video", height = 20, fill = "#4582ec")),
                      "](")
       }
   tmp2 <- ")"
@@ -91,9 +82,9 @@ data_links <- lapply(week_labs, function(x) {if(is.list(x)) {x$data} else {""} }
 ## topics formatted for html
 data_links_html <- sapply(lapply(data_links, function(x) {
   if(length(x)>1) {
-    tmp1 <- paste0("[", as.character(fontawesome::fa("table", height = 20, fill = "#eb6864")), " (", 1:length(x), ")](")
+    tmp1 <- paste0("[", as.character(fontawesome::fa("table", height = 20, fill = "#4582ec")), " (", 1:length(x), ")](")
     } else {
-      tmp1 <- paste0("[", as.character(fontawesome::fa("table", height = 20, fill = "#eb6864")), "](")
+      tmp1 <- paste0("[", as.character(fontawesome::fa("table", height = 20, fill = "#4582ec")), "](")
       }
   tmp2 <- ")"
   tmp <- paste0(tmp1, x, tmp2)
