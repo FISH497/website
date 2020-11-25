@@ -28,8 +28,29 @@ software <- list(
                  "[RStudio](https://resources.rstudio.com/)",
                  "[Intro to R Markdown](https://rmarkdown.rstudio.com/lesson-1.html)",
                  "[Video intro to GitHub](https://www.youtube.com/watch?v=w3jLJU7DT5E)"),
-  zoom = "https://washington.zoom.us/rec/share/ucxNJqvQ6kpJR4nV-Vjnd5N9ALXvT6a82ykaqfdYxR0_zA1nuhdWz6dZRWcQOrrg"
+  zoom = ""
 )
+
+holiday_1 <- list(
+  title = "<b>Martin Luther King Jr. Day- No class</b>",
+  topics = "<b>Martin Luther King Jr. Day - No class</b>",
+  pdf = c(""),
+  rmd = "",
+  html = "",
+  background = "",
+  zoom = ""
+)
+
+holiday_2 <- list(
+  title = "<b>President's Day - No class</b>",
+  topics = "<b>President's Day - No class</b>",
+  pdf = c(""),
+  rmd = "",
+  html = "",
+  background = "",
+  zoom = ""
+)
+
 ```
 
 
