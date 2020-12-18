@@ -26,7 +26,7 @@ week_lecs$L5 <- version_control
 week_lecs$L6 <- workflows
 ## week 3: Jan 18-22
 week_lecs$L7 <- holiday_1
-week_lecs$L8 <- data_formats
+week_lecs$L8 <- working_with_data
 week_lecs$L9 <- data_ingest
 ## week 4: Jan 25-29
 week_lecs$L10 <- metadata
