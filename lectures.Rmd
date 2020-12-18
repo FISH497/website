@@ -18,44 +18,44 @@ names(week_lecs) <- paste0("L", seq(30))
 ## lecture topics
 ## week 1: Jan 4-8
 week_lecs$L1 <- intro
-week_lecs$L2 <- software
-# week_lecs$L3 <- NA
+week_lecs$L2 <- analysis_steps
+week_lecs$L3 <- organization_styles
 ## week 2: Jan 11-15
-# week_lecs$L4 <- NA
-# week_lecs$L5 <- NA
-# week_lecs$L6 <- NA
+week_lecs$L4 <- github
+week_lecs$L5 <- version_control
+week_lecs$L6 <- workflows
 ## week 3: Jan 18-22
 week_lecs$L7 <- holiday_1
-# week_lecs$L8 <- NA
-# week_lecs$L9 <- NA
+week_lecs$L8 <- data_formats
+week_lecs$L9 <- data_ingest
 ## week 4: Jan 25-29
-# week_lecs$L10 <- NA
-# week_lecs$L11 <- NA
-# week_lecs$L12 <- NA
+week_lecs$L10 <- metadata
+week_lecs$L11 <- data_cleaning
+week_lecs$L12 <- guest_woo
 ## week 5: Feb 1-5
-# week_lecs$L13 <- NA
-# week_lecs$L14 <- NA
-# week_lecs$L15 <- NA
+week_lecs$L13 <- databases_1
+week_lecs$L14 <- databases_2
+week_lecs$L15 <- databases_3
 ## week 6: Feb 8-12
-# week_lecs$L16 <- NA
-# week_lecs$L17 <- NA
-# week_lecs$L18 <- NA
+week_lecs$L16 <- visualization
+week_lecs$L17 <- analysis
+week_lecs$L18 <- packages_1
 ## week 7: Feb 15-19
 week_lecs$L19 <- holiday_2
-# week_lecs$L20 <- NA
-# week_lecs$L21 <- NA
+week_lecs$L20 <- packages_2
+week_lecs$L21 <- markdown_1
 ## week 8: Feb 22-26
-# week_lecs$L22 <- NA
-# week_lecs$L23 <- NA
-# week_lecs$L24 <- NA
+week_lecs$L22 <- guest_stawitz
+week_lecs$L23 <- markdown_2
+week_lecs$L24 <- markdown_3
 ## week 9: Mar 1-5
-# week_lecs$L25 <- NA
-# week_lecs$L26 <- NA
-# week_lecs$L27 <- NA
+week_lecs$L25 <- shiny_1
+week_lecs$L26 <- shiny_2
+week_lecs$L27 <- code_reviews
 ## week 10: Mar 8-12
-# week_lecs$L28 <- NA
-# week_lecs$L29 <- NA
-# week_lecs$L30 <- NA
+week_lecs$L28 <- ethics
+week_lecs$L29 <- future
+week_lecs$L30 <- wrap_up
 ```
 
 ```{r topics, include = FALSE, eval = FALSE}
