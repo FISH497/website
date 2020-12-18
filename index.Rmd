@@ -18,7 +18,7 @@ This course will provide an overview of some data science tools and best practic
 
 Importantly, this course will also discuss the various types of data used in environmental science, which includes an exploration of what constitutes "raw" data versus derived products, and the implications of using the various types. The course will also focus on the ethical and social consequences of using various data types. For example, some recent studies have inferred gender identities from survey responses based on first names, and used that information to summarize hiring practices, demographics of successful grant applications, etc. However, doing so is widely regarded as inappropriate due to non-binary genders and inaccuracies in gender assignment.
 
-**Please note**: Although statistical analysis and plotting are very important in data science, this course will not focus on those aspects because there are others in the College of the Environment that do. Some examples include:
+**Please note**: Although statistical analysis and figures/diagrams are very important in data science, this course will not focus on those aspects because there are others in the College of the Environment that do. Some examples include:
 
 * FISH 454 - Ecological Modeling
 
@@ -216,7 +216,7 @@ No student should ever have to choose between buying food or textbooks. The UW F
 
 <br>
 
-# Endnotes
+## Endnotes
 
 [1] If the instructor should be the one to say something that makes a student uncomfortable, the student should feel free to contact the Director of the School of Aquatic and Fishery Sciences.
 
