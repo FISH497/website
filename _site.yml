@@ -6,8 +6,6 @@ navbar:
       href: lectures.html
     - text: "Assignments"
       href: homework.html
-    - text: "Projects"
-      href: final_proj.html
     - text: "References"
       href: references.html
     - text: ""
