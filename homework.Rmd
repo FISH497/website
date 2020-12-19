@@ -22,7 +22,14 @@ All assignments will be submitted, reviewed, and returned via GitHub.
 week_hw <- vector("list", 8)
 names(week_hw) <- paste0("L", seq(8))
 ## hw topics
-week_hw$L1 <- markdown
+week_hw$L1 <- github
+week_hw$L2 <- data_reading
+week_hw$L3 <- data_cleaning
+week_hw$L4 <- databases
+week_hw$L5 <- data_viz
+week_hw$L6 <- packages
+week_hw$L7 <- markdown
+week_hw$L8 <- shiny_apps
 ```
 
 ```{r topics, include = FALSE}
@@ -109,14 +116,14 @@ names(key_links_html) <- NULL
 ```{r generate_table, echo=FALSE}
 ## data frame with dates & topics
 syl_txt <- data.frame(
-  date = sub("0(\\d)", "\\1", format(fri[1:8], "%d %B")),
+  date = sub("0(\\d)", "\\1", format(fri[2:9], "%d %b")),
   topics = topics_html,
   assignment_links = assignment_links_html,
   template_links = template_links_html,
   data_links = data_links_html,
   key_links = key_links_html
 )
-colnames(syl_txt) <- c("Date", "Topic(s)", "Assignment", "Template", "Data", "Answer key")
+colnames(syl_txt) <- c("Date", "Topic(s)", "Instructions", "Template", "Data", "Answer key")
 rownames(syl_txt) <- NULL
 
 ## generate table

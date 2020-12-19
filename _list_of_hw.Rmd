@@ -8,15 +8,92 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r}
-## 1 overview of R Markdown
-markdown <- list(
-  title = "R Markdown",
-  topics = c("Authoring reports with R Markdown"),
-  pdf = "homework/week_01/hw_01_intro_to_markdown.pdf",
-  rmd = "homework/week_01/hw_01_intro_to_markdown.Rmd",
+## week 2
+github <- list(
+  title = "GitHub",
+  topics = c("Collaborating on GitHub"),
+  pdf = "",
+  rmd = "",
   html = "",
   data = "",
-  key = "homework/week_01/hw_01_intro_to_markdown_key.pdf"
+  key = ""
+)
+
+## week 3
+data_reading <- list(
+  title = "Working with data",
+  topics = c("Reading data"),
+  pdf = "",
+  rmd = "",
+  html = "",
+  data = "",
+  key = ""
+)
+
+## week 4
+data_cleaning <- list(
+  title = "Cleaning data",
+  topics = c("Cleaning data"),
+  pdf = "",
+  rmd = "",
+  html = "",
+  data = "",
+  key = ""
+)
+
+## week 5
+databases <- list(
+  title = "Databases",
+  topics = c("Relational databases"),
+  pdf = "",
+  rmd = "",
+  html = "",
+  data = "",
+  key = ""
+)
+
+## week 6
+data_viz <- list(
+  title = "Data visualization",
+  topics = c("Data visualization"),
+  pdf = "",
+  rmd = "",
+  html = "",
+  data = "",
+  key = ""
+)
+
+## week 7
+packages <- list(
+  title = "R packages",
+  topics = c("Building R packages"),
+  pdf = "",
+  rmd = "",
+  html = "",
+  data = "",
+  key = ""
+)
+
+## week 8
+markdown <- list(
+  title = "R Markdown",
+  topics = c("Applications of R Markdown"),
+  pdf = "",
+  rmd = "",
+  html = "",
+  data = "",
+  key = ""
+)
+
+## week 9
+shiny_apps <- list(
+  title = "Shiny apps",
+  topics = c("Shiny apps"),
+  pdf = "",
+  rmd = "",
+  html = "",
+  data = "",
+  key = ""
 )
 ```
 
