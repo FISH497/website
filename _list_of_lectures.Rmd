@@ -13,8 +13,8 @@ intro <- list(
   title = "Introduction",
   topics = c("<b>Course overview</b>", "What is data science?", "Types of questions", "Storytelling"),
   pdf = c(""),
-  rmd = c("lectures/week_01/lec_01_class_overview.Rmd"),
-  html = c("lectures/week_01/lec_01_class_overview.html"),
+  rmd = c(""),
+  html = c(""),
   background = c(""),
   zoom = ""
 )
@@ -121,7 +121,7 @@ metadata <- list(
 ## day 11 ####
 data_cleaning <- list(
   title = "Data cleaning",
-  topics = c("<b>Data cleaning</b>", "Tidyverse", "Reshaping"),
+  topics = c("<b>Data cleaning</b>", "Reshaping", "Filtering", "Summarizing"),
   pdf = c(""),
   rmd = "",
   html = "",

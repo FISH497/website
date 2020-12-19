@@ -3,6 +3,8 @@ title: "Schedule & course materials"
 output: html_document
 ---
 
+Please note that the schedule may change depending on student input and instructor responsiveness.
+
 <br>
 
 ```{r child = "_timeline.Rmd", include=FALSE}
