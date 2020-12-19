@@ -1,0 +1,36 @@
+---
+bibliography: "references.bib"
+csl: "ecology.csl"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("knitcitations")
+cleanbib()
+```
+
+## Cite by DOI
+
+Cite an article by DOI and the full citation information is gathered automatically. By default this now generates a citation in pandoc-flavored-markdown format. We use the inline command `r citep("10.1890/11-0011.1")` to create this citation [@Abrams_2012].
+
+An in-text citation is generated with citet, such as `r citet("10.1098/rspb.2013.1372")` creating the citation to @Boettiger_2013.
+
+## Cite by URL
+
+Not all the literature we may wish to cite includes DOIs, such as arXiv preprints, Wikipedia pages, or other academic blogs. Even when a DOI is present it is not always trivial to locate. With version 0.4-0, knitcitations can produce citations given any URL using the Greycite API. For instance, we can use the call `r citep("http://knowledgeblog.org/greycite")` to generate the citation to the Greycite tool [@greycite2739].
+
+## Cite bibtex and bibentry objects directly
+
+We can also use bibentry objects such as R provides for citing packages (using R's citation() function): `r citep(citation("knitr"))` produces [@Xie_2014; @Xie_2013; @Xie_2014a]. Note that this package includes citations to three objects, and pandoc correctly avoids duplicating the author names. In pandoc mode, we can still use traditional pandoc-markdown citations like @Boettiger2013 which will render as @Boettiger2013 without any R code, provided the citation is already in the .bib file we name (see below).
+
+## Re-using Keys
+
+When the citation is called, a key in the format FirstAuthorsLastName_Year is automatically created for this citation, so we can now continue to cite this article without remembering the DOI, using the command `r citep("Abrams_2012")` creates the citation [@Abrams_2012] without mistaking it for a new article.
+
+## Displaying the final bibliography
+
+```{r}
+write.bibtex(file="references.bib")
+```
+
