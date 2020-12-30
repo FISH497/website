@@ -47,7 +47,7 @@ By the end of the quarter, students should be able to:
 
 * Properly describe and document data using **Ecological Metadata Language**
 
-* Create and access a relational database with **PostgreSQL** and **R**
+* Create and access a relational database with **PostgreSQL**
 
 * Use unit tests in **R** to evaluate code functionality
 
@@ -62,18 +62,30 @@ By the end of the quarter, students should be able to:
 # Instructor
 
 [**Mark Scheuerell**](https://fish.uw.edu/faculty/mark-scheuerell/)  
-Associate Professor, School of Aquatic & Fishery Sciences
+Associate Professor, School of Aquatic & Fishery Sciences  
+[scheuerl@uw.edu](mailto:scheuerl@uw.edu)
 
-Office: Rm 220A Fishery Sciences
+### Special guest appearances by
 
-Email: [scheuerl@uw.edu](mailto:scheuerl@uw.edu)
+[**Kara Woo**](https://karawoo.com/)  
+Principal Bioinformatics Engineer, Sage Bionetworks
+
+[**Jennifer Scheuerell**](https://www.sharperinfo.com/)  
+Chief Technology Officer, Sharper Informatics Solutions
+
+[**Dr. Christine Stawitz**](https://cstawitz.github.io/)  
+Stock Assessment Model Developer, NOAA Fisheries Office of Science and Technology
+
+[**Dr. Margaret Siple**](https://twitter.com/margaretsiple)  
+Research Fishery Biologist, NOAA Alaska Fisheries Science Center
 
 <br>
 
 # Meeting times & locations
 
-#### Lectures 
-M/W/F from 10:30-11:20 via [Zoom](https://washington.zoom.us/j/831083365)
+M/W/F from 10:30-11:20 via [Zoom](https://washington.zoom.us/j/93872111357)
+
+**Note**: All students must sign into their Zoom accounts with their `@wa.edu` email address.
 
 #### Office hours
 By appointment
