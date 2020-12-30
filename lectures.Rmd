@@ -3,9 +3,15 @@ title: "Schedule & course materials"
 output: html_document
 ---
 
-Please note that the schedule may change depending on student input and instructor responsiveness.
+<br>
+
+### Meeting information
+
+M/W/F from 10:30-11:20 via [Zoom](https://washington.zoom.us/j/93872111357)
 
 <br>
+
+#### Please note that the schedule and topics may change as the course progresses.
 
 ```{r child = "_timeline.Rmd", include=FALSE}
 ```
