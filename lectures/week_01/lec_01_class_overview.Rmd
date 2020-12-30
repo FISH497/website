@@ -127,11 +127,65 @@ What is *data science*?
 
 ## {.flexbox .vcenter}
 
-"Good data science is distinguished from bad data science primarily by a repeatable, thoughtful, skeptical application of an analytic process to data in order to arrive at supportable conclusions."
+### Good data science is distinguished from bad data science primarily by a repeatable, thoughtful, skeptical application of an analytic process to data in order to arrive at supportable conclusions.
 
--- Jeff Leek
+### -- Jeff Leek
 
 
+## {.flexbox .vcenter .bigger}
+
+<font size="10">
+Questions in data science
+</font>
+
+
+## {data-background=leek_peng_Q.png data-background-size=80% .futnote}
+
+Leek & Peng (2015) *Science*
+
+
+## Descriptive
+
+Summarizes the information in a single data set without further interpretation
+
+eg, the US Census
+
+
+## Exploratory
+
+Searches for trends, correlations, etc among multiple variables
+
+eg, "data mining"
+
+
+## Inferential
+
+Generalizes to the population from a sample
+
+eg, wearing a mask reduces the spread of COVID
+
+
+## Predictive
+
+Uses a subset of the data to parameterize a model and predicts out-of-sample data
+
+eg, using weather to predict recreational fishing effort
+
+
+## Causal
+
+Seeks to understand the *average* magnitude and direction of a response
+
+eg, experimental analysis of temperature effects on oyster growth
+
+
+## Mechanistic
+
+Seeks to understand the *specific* magnitude and direction of relationships
+
+eg, engineering studies
+
+ 
 ## Things we'll emphasize
 
 * Thinking about data separately from research
