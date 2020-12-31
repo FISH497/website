@@ -1,0 +1,122 @@
+---
+title: "Steps & software for analysis"
+subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+author: "Mark Scheuerell"
+date: "6 January 2021"
+output:
+  ioslides_presentation:
+    css: lecture_slides.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Goals for today
+
+* Examine the steps to a data science analysis
+
+* Understand the software requirements for the course
+
+> - Verify that you have the software installed and working
+
+
+## Steps to an analysis
+
+
+# Software requirements
+
+## R Software | An environment for statistical computing and graphics
+
+> - It's FREE!
+
+> - Enormous developer & support communities
+
+> - [Learn more here](https://www.r-project.org/about.html)
+
+
+## R packages
+
+* Most of R's current capabilities come from *packages*
+
+> - We'll use a variety of them for many different tasks
+
+> - We'll also learn how to create our own!
+
+
+## RStudio | An integrated development environment (IDE) for R
+
+> - Syntax highlighting, code completion, smart indentation  
+
+> - Easily manage multiple working directories using projects  
+
+> - Extensive package development tools  
+
+> - Built-in tools & GUIs for **Git** & **R Markdown**
+
+
+## &nbsp; {data-background=RStudio_desktop.png data-background-size=cover}
+
+
+## RStudio benefits
+
+### [Cheat sheets](https://rstudio.com/resources/cheatsheets/)
+
+<br>
+
+### [Webinars, links, etc](https://resources.rstudio.com/)
+
+
+## &nbsp; {data-background=RStudio_cheatsheet.png data-background-size=cover}
+
+
+## GitHub | Cloud-based code repository & collaboration platform
+
+> - Store, manage, track changes to code
+
+> - Communicate with other team members
+
+> - Uses **Git** for version control
+
+
+## &nbsp; {data-background=GitHub_repo.png data-background-size=100%}
+
+
+## Git | Version control system (VCS)
+
+[Git](https://git-scm.com/about) records changes to a file or set of files over time so that you can recall specific versions later
+
+
+## PostgreSQL | Open source relational database system
+
+> - Uses & extends the SQL language
+
+> - Highly extensible (eg, define your own data types)
+
+> - Active user community
+
+
+## R Markdown
+
+Notebook interface to weave together text, equations, and code into nicely formatted output
+
+Allows you to create and document fully reproducible workflows
+
+
+## R Markdown
+
+Supports dozens of static and dynamic output formats
+
+* HTML  
+* PDF  
+* MS Word  
+* HTML5 slides  
+* Books  
+* Shiny apps  
+* Scientific articles  
+* websites
+
+[Gallery here](https://rmarkdown.rstudio.com/gallery.html)
+
+
+
