@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Goals for today
 
-* Examine the steps to a data science analysis
+* Outline the steps to a data science analysis
 
 * Understand the software requirements for the course
 
@@ -22,6 +22,83 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 ## Steps to an analysis
+
+1. Define the question of interest  
+2. Get the data  
+3. Clean the data  
+4. Explore the data  
+5. Fit statistical models  
+6. Communicate the results  
+7. Make your analysis reproducible  
+
+
+## Steps to an analysis | 1. Define the question of interest  
+
+What makes a good Q?
+
+> - It should be specific  
+> - It should be answerable with available data
+> - It should come with a definition of success  
+> - It should not be designed to discriminate or cause harm
+
+
+## Steps to an analysis | 2. Get the data  
+
+Data sources:
+
+> - You collected your own  
+> - Collaborators  
+> - Public repositories
+
+
+## Steps to an analysis | 3. Clean the data  
+
+This is usually the most time intensive step
+
+It's also the most important & the hardest to teach
+
+
+## &nbsp; {data-background=twitter_data_cleaning.png data-background-size=90%}
+
+
+## Steps to an analysis | 4. Explore the data  
+
+Do the data meet your expectations?
+
+> - Make judicious use of plots
+
+> - Also consider correlation matrics (eg, [{corrplot}](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html))
+
+> - Beware of data mining!
+
+
+## Steps to an analysis | 5. Fit statistical models  
+
+Where to start?
+
+> - Start with first principles
+
+> - Keep it simple
+
+
+## Steps to an analysis | 6. Communicate the results  
+
+Choose your medium
+
+> - Social media, blog posts
+
+> - Presentation
+
+> - manuscript
+
+
+## Steps to an analysis | 7. Make your analysis reproducible  
+
+Consider these scenarios
+
+> - "Can you re-run the analysis with these new data?"
+
+> - "Your closest collaborator is you six months ago, but you don’t reply to emails" (Karl Broman)
 
 
 # Software requirements
