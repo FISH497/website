@@ -179,7 +179,6 @@ names(background_links_html) <- NULL
 ## data frame with dates & topics
 syl_txt <- data.frame(
   date = qtr,
-  # lec_titles = lec_titles_html,
   lec_topics = lec_topics_html,
   lec_links = slide_links_html,
   rmd_links = source_links_html,
@@ -188,7 +187,7 @@ syl_txt <- data.frame(
   # youtube_links = youtube_links_html,
   background_links = background_links_html
 )
-colnames(syl_txt) <- c("Date", "Topic(s)",
+colnames(syl_txt) <- c("Date", "Topics",
                        "Notes (html)", "Source (Rmd)", # "Slides (pdf)",
                        "Zoom recording",
                        "Background")

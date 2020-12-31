@@ -76,8 +76,8 @@ workflows <- list(
 
 ## day 7 ####
 holiday_1 <- list(
-  title = "<b>Martin Luther King Jr. Day- No class</b>",
-  topics = "<b>Martin Luther King Jr. Day - No class</b>",
+  title = "Martin Luther King Jr. Day",
+  topics = c("<i>Martin Luther King, Jr. Day</i>", "<b>No class</b>"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -132,7 +132,7 @@ data_cleaning <- list(
 ## day 12 ####
 guest_woo <- list(
   title = "Guest presentation",
-  topics = c("[Guest presentation]", "<b>Kara Woo</b>", "Principal Bioinformatics Engineer", "Sage Bionetworks"),
+  topics = c("<i>Guest presentation</i>", "<b>Kara Woo</b>", "Principal Bioinformatics Engineer", "Sage Bionetworks"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -143,7 +143,7 @@ guest_woo <- list(
 ## day 13 ####
 databases_1 <- list(
   title = "Intro to relational databases",
-  topics = c("<b>Intro to relational databases</b>", "Key terms", "SQL programming language", "PostgreSQL & its community"),
+  topics = c("<i>Jennifer Scheuerell</i>", "<b>Intro to relational databases</b>", "Key terms", "SQL programming language", "PostgreSQL & its community"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -154,7 +154,7 @@ databases_1 <- list(
 ## day 14 ####
 databases_2 <- list(
   title = "Database design",
-  topics = c("<b>Creating a database</b>", "Creating users & roles", "Creating & modifying tables", "Input/Output"),
+  topics = c("<i>Jennifer Scheuerell</i>", "<b>Creating a database</b>", "Creating users & roles", "Creating & modifying tables", "Input/Output"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -164,8 +164,8 @@ databases_2 <- list(
 
 ## day 15 ####
 databases_3 <- list(
-  title = "Advanced feature",
-  topics = c("<b>Database advanced features</b>", "Stored procedures & function", "Connecting to external db's", "Backup & restore"),
+  title = "Advanced features",
+  topics = c("<i>Jennifer Scheuerell</i>", "<b>Database advanced features</b>", "Stored procedures & function", "Connecting to external db's", "Backup & restore"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -208,8 +208,8 @@ packages_1 <- list(
 
 ## day 19 ####
 holiday_2 <- list(
-  title = "<b>President's Day - No class</b>",
-  topics = "<b>President's Day - No class</b>",
+  title = "President's Day",
+  topics = c("<i>President's Day</i>", "<b>No class</b>"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -242,7 +242,7 @@ markdown_1 <- list(
 ## day 22 ####
 guest_stawitz <- list(
   title = "Guest presentation",
-  topics = c("[Guest presentation]", "<b>Dr. Christine Stawitz</b>", "Stock Assessment Model Developer", "NOAA Fisheries"),
+  topics = c("<i>Guest presentation</i>", "<b>Dr. Christine Stawitz</b>", "Stock Assessment Model Developer", "NOAA Fisheries"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -275,7 +275,7 @@ markdown_3 <- list(
 ## day 25 ####
 shiny_1 <- list(
   title = "Shiny apps",
-  topics = c("<b>Shiny apps</b>", "Introduction"),
+  topics = c("<i>Dr. Margaret Siple</i>", "<b>Shiny apps</b>", "Introduction"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -286,7 +286,7 @@ shiny_1 <- list(
 ## day 26 ####
 shiny_2 <- list(
   title = "Shiny apps",
-  topics = c("<b>Shiny apps</b>", "Development", "Deployment"),
+  topics = c("<i>Dr. Margaret Siple</i>", "<b>Shiny apps</b>", "Development", "Deployment"),
   pdf = c(""),
   rmd = "",
   html = "",
