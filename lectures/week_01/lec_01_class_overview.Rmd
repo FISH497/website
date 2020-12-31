@@ -148,44 +148,89 @@ Leek & Peng (2015) *Science*
 
 Summarizes the information in a single data set without further interpretation
 
-eg, the US Census
+ex: the US Census
 
 
 ## Exploratory
 
 Searches for trends, correlations, etc among multiple variables
 
-eg, "data mining"
+ex: "data mining"
 
 
 ## Inferential
 
 Generalizes to the population from a sample
 
-eg, wearing a mask reduces the spread of COVID
+ex: wearing a mask reduces the spread of COVID
 
 
 ## Predictive
 
 Uses a subset of the data to parameterize a model and predicts out-of-sample data
 
-eg, using weather to predict recreational fishing effort
+ex: using weather to predict recreational fishing effort
 
 
 ## Causal
 
 Seeks to understand the *average* magnitude and direction of a response
 
-eg, experimental analysis of temperature effects on oyster growth
+ex: experimental analysis of temperature effects on oyster growth
 
 
 ## Mechanistic
 
 Seeks to understand the *specific* magnitude and direction of relationships
 
-eg, engineering studies
+ex: engineering studies
 
  
+## {.flexbox .vcenter .bigger}
+
+<font size="10">
+Storytelling in data science
+</font>
+
+
+## Communicating an analysis
+
+Although you may have spent weeks/months on an analysis, most people only want the bottom line
+
+The key is weaving everything into a nice story to achieve both **trust** and **belief**
+
+
+## Trust
+
+Do you accept the analysis per se?
+
+Were the data analyzed properly and thoroughly?
+
+<br>
+
+Trust is specific to the analysis/analyst (internal)
+
+
+## Belief
+
+Do you believe the analysis?
+
+<br>
+
+Belief is more broadly related to previous work and other factors (external)
+
+
+## 3 parts to an analysis
+
+1. The things you did and presented
+
+2. The things you did but did not present
+
+3. The things you did not do
+
+The trick is to strike a balance to achieve trust and belief
+
+
 ## Things we'll emphasize
 
 * Thinking about data separately from research
