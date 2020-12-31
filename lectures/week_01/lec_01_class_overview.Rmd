@@ -100,7 +100,7 @@ What is *data science*?
 * Communication
 
 
-## Data science process
+## Data science process | This should all be reproducible
 
 1. Define the question of interest  
 2. Get the data  
@@ -108,7 +108,6 @@ What is *data science*?
 4. Explore the data  
 5. Fit statistical models  
 6. Communicate the results  
-7. Make your analysis reproducible  
 
 
 ## Data science time
@@ -119,7 +118,8 @@ What is *data science*?
 4. ~~Explore the data~~  
 5. ~~Fit statistical models~~  
 6. **Communicate the results**  
-7. **Make your analysis reproducible**  
+
+**Making this reproducible**  
 
 
 ## &nbsp; {data-background=data_sci_overview.png data-background-size=90%}
