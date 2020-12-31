@@ -1,8 +1,8 @@
 ---
 title: "Course overview"
-subtitle: "Analysis of Ecological and Environmental Data<br>QERM 514"
+subtitle: "Intro to Environmental Data Science<br>FISH 497A"
 author: "Mark Scheuerell"
-date: "30 March 2020"
+date: "4 January 2021"
 output:
   ioslides_presentation:
     css: lecture_slides.css
@@ -15,8 +15,15 @@ knitr::opts_chunk$set(echo = FALSE)
 ## {.flexbox .vcenter .bigger}
 
 <font size="10">
-Who am I? 
+WHO AM I? 
 </font>
+
+
+## Mark Scheuerell
+
+* Asst Unit Leader, USGS WACFWRU
+
+* Assoc Professor, School of Aquatic and Fishery Sciences
 
 
 ## My role as course instructor
@@ -28,166 +35,236 @@ Who am I?
 > - Be a future resource
 
 
+## My role as course instructor
+
+> - I plan to fail
+
+> - A lot
+
+> - In public
+
+
 ## {.flexbox .vcenter .bigger}
 
 <font size="10">
-Who are you? 
+WHO ARE YOU? 
 </font>
 
 
-## Introduce yourself | Tell us via Zoom chat:
+## Introduce yourself via Zoom chat:
 
-1. Your degree program (MS, PhD)
+1. Your degree program (undergrad, grad)
 
 2. Your school/department
 
-3. Your area of study (a phrase or short sentence)
+3. Your major (undergrads) or area of study (grads)
+
+<br>
+
+For example,  
+
+`undergrad, SEFS, ESRM`  
+
+`grad, SAFS, salmon migration timing`
 
 
 ## {.flexbox .vcenter .bigger}
 
 <font size="10">
-What is this course about? 
+What is *data science*? 
 </font>
 
 
-## Two major goals in ecology:
+## Data science is...
 
-<font size="6">
-1. Infer process from pattern   
-</font>
+> - statistics on a Mac
+
+> - 80% preparing data, 20% complaining about preparing data
+
+> - 90% Googling and 10% pasting from Stack Overflow
+
+
+## Data science motto
+
+> If at first you don’t succeed, call it version 1.0
+
+
+## Data science is interdisciplanary
+
+* Math and statistics
+
+* Computer science
+
+* Knowledge about the system
+
+* Communication
+
+
+## Data science process
+
+1. Define the question of interest  
+2. Get the data  
+3. Clean the data  
+4. Explore the data  
+5. Fit statistical models  
+6. Communicate the results  
+7. Make your analysis reproducible  
+
+
+## Data science time
+
+1. ~~Define the question of interest~~  
+2. **Get the data**  
+3. **Clean the data**  
+4. ~~Explore the data~~  
+5. ~~Fit statistical models~~  
+6. **Communicate the results**  
+7. **Make your analysis reproducible**  
+
+
+## &nbsp; {data-background=data_sci_overview.png data-background-size=90%}
 
 
 ## {.flexbox .vcenter}
 
-<font size="10">
-Process $\overset{?}{\Rightarrow}$ Pattern
-</font>
+### Good data science is distinguished from bad data science primarily by a repeatable, thoughtful, skeptical application of an analytic process to data in order to arrive at supportable conclusions.
+
+### -- Jeff Leek
 
 
-## {.flexbox .vcenter}
-
-<font size="10">
-Pattern $= f($Process$)$
-</font>
-
-
-## {.flexbox .vcenter}
+## {.flexbox .vcenter .bigger}
 
 <font size="10">
-Data $= f($Process$)$
+Questions in data science
 </font>
 
 
-## {.flexbox .vcenter}
+## {data-background=leek_peng_Q.png data-background-size=80% .futnote}
 
-<font size="10">
-Data = Process + Noise
-</font>
+Leek & Peng (2015) *Science*
 
 
-## Ecological data often have lots of noise
+## Descriptive
 
-```{r info_noise_barchart}
-dat <- matrix(c(20, 80, 90, 10), 2, 2)
-par(mai = c(0.5, 1, 0.5, 0.5))
-bp <- barplot(dat, las = 1, col = c("blue", "gray"), border = NA, axes = FALSE,
-        ylab = "", names.arg = c("Ecology", "Finance"), cex.names = 1.7)
-text(0.7, 10, adj = c(0.5, 0.5), "Process", col = "white", cex = 1.5)
-text(0.7, 60, adj = c(0.5, 0.5), "Noise", col = "black", cex = 1.5)
-text(1.9, 45, adj = c(0.5, 0.5), "Process", col = "white", cex = 1.5)
-text(1.9, 95, adj = c(0.5, 0.5), "Noise", col = "black", cex = 1.5)
-```
+Summarizes the information in a single data set without further interpretation
 
-## {.flexbox .vcenter}
-
-<font size="10">
-Our challenge is to separate<br>the signal from the noise
-</font>
+ex: the US Census
 
 
-## Two major goals in ecology:
+## Exploratory
 
-<font size="6">
-1. Infer process from pattern   
-</font>
+Searches for trends, correlations, etc among multiple variables
 
-<font size="6">
-2. **Make predictions**
-</font>
+ex: "data mining"
 
 
-## Ecological forecasting
+## Inferential
 
-<font size="6">
-How will [some future scenario] affect<br>[some ecosystem service]?
-</font>
+Generalizes to the population from a sample
 
-
-## General approach
-
-### Question $\rightarrow$ Data $\rightarrow$ Model $\rightarrow$ Inference $\rightarrow$ Prediction
+ex: wearing a mask reduces the spread of COVID
 
 
-## Forms of linear models
+## Predictive
 
-| Errors | Single random process | Multiple random processes |
-|:-------|:--------------:|:------------------:|
-| Normal | Linear Model (LM) | Linear Mixed Model (LMM) |
-| Non-normal | Generalized Linear Model (GLM) | Generalized Linear Mixed Model (GLMM) |
+Uses a subset of the data to parameterize a model and predicts out-of-sample data
+
+ex: using weather to predict recreational fishing effort
 
 
-## Forms of linear models
+## Causal
+
+Seeks to understand the *average* magnitude and direction of a response
+
+ex: experimental analysis of temperature effects on oyster growth
+
+
+## Mechanistic
+
+Seeks to understand the *specific* magnitude and direction of relationships
+
+ex: engineering studies
+
  
-```{r model_diagram, fig.height = 5, fig.width = 7, fig.align = 'center'}
-par(mai = rep(0, 4), omi = rep(0, 4), bg = NA)
+## {.flexbox .vcenter .bigger}
 
-## order: GLM, LM, GLMM, LMM
-xx <- c(1, 2, 2, 3) * 10
-yy <- c(2, 1, 3, 2) * 10
-
-plot(c(7, 33), c(7, 33), type = "n", xlim = c(7, 33), ylim = c(7, 33),
-     xaxt = "n", yaxt = "n", xlab = "", ylab = "",
-     bty = "n")
-symbols(xx, yy, circle = rep(2, 4), inches = 0.5, add = TRUE,
-        lwd = 2, bg = "white")
-text(xx, yy, c("GLM", "LM", "GLMM", "LMM"), cex = 1.5)
-## from LM to GLM
-arrows(xx[2]-2, yy[2]+2, xx[1]+2, yy[1]-2, length = 0.2)
-text(15, 14, "multiple forms of errors", pos = 2)
-## from LM to LMM
-arrows(xx[2]+2, yy[2]+2, xx[4]-2, yy[4]-2, length = 0.2)
-text(25, 14, "multiple random processes", pos = 4)
-## from GLM to GLMM
-arrows(xx[1]+2, yy[1]+2, xx[3]-2, yy[3]-2, length = 0.2)
-text(15, 26, "multiple random processes", pos = 2)
-## from LMM to GLMM
-arrows(xx[4]-2, yy[4]+2, xx[3]+2, yy[3]-2, length = 0.2)
-text(25, 26, "multiple forms of errors", pos = 4)
-```
+<font size="10">
+Storytelling in data science
+</font>
 
 
-## Learning objectives for the course
+## Communicating an analysis
 
-By the end of the quarter, students should be able to:
+Although you may have spent weeks/months on an analysis, most people only want the bottom line
 
-* Identify an appropriate statistical model based on the data and specific question
+The key is weaving everything into a nice story to achieve both **trust** and **belief**
 
-* Understand the assumptions behind a chosen statistical model
 
-* Use **R** to fit a variety of linear models to data
+## Trust
 
-* Evaluate data support for various models and select the most parsimonious model among them
+Do you accept the analysis per se?
 
-* Use **R Markdown** to combine text, equations, code, tables, and figures into reports
+Were the data analyzed properly and thoroughly?
+
+<br>
+
+Trust is specific to the analysis/analyst (internal)
+
+
+## Belief
+
+Do you believe the analysis?
+
+<br>
+
+Belief is more broadly related to previous work and other factors (external)
+
+
+## 3 parts to an analysis
+
+1. The things you did and presented
+
+2. The things you did but did not present
+
+3. The things you did not do
+
+The trick is to strike a balance to achieve trust and belief
+
+
+## Things we'll emphasize
+
+* Thinking about data separately from research
+
+> - Increasing efficiency & reproducibility
+
+> - Facilitating collaboration with others
+
+> - Finding answers from the community
+
+> - Communicating our workflows & results
+
+
+## Things we won't emphasize
+
+* Specific options for cleaning & tidying data (eg, tidyverse)
+
+> - Specific analytical techniques (eg, machine learning)
+
+> - Specific plotting techniques (eg, ggplot)
+
+
+## How are we going to do this?
+
+* Use *lots* of online resources
+
+* Use open/live coding
+
+* Rely on our community for help
 
 
 ## {.flexbox .vcenter .bigger}
 
 <font size="10">
-[__Course information__](https://qerm514.github.io/website)
+[__Course information__](https://fish497.github.io/website)
 </font>
-
-
-
 
