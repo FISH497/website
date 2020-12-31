@@ -21,15 +21,31 @@ knitr::opts_chunk$set(echo = FALSE)
 > - Verify that you have the software installed and working
 
 
+## Credits
+
+This content draws upon material developed by Jeff Leek & Roger Peng for their Advanced Data Science Course at the Johns Hopkins Bloomberg School of Public Health.
+
+
 ## Steps to an analysis
 
-1. Define the question of interest  
+1. Define the question  
 2. Get the data  
 3. Clean the data  
 4. Explore the data  
 5. Fit statistical models  
 6. Communicate the results  
-7. Make your analysis reproducible  
+
+
+## Steps to an analysis
+
+1. Define the question  
+2. Get the data  
+3. Clean the data  
+4. Explore the data  
+5. Fit statistical models  
+6. Communicate the results  
+
+**Make your analysis reproducible!**
 
 
 ## Steps to an analysis | 1. Define the question of interest  
@@ -44,7 +60,7 @@ What makes a good Q?
 
 ## Steps to an analysis | 2. Get the data  
 
-Data sources:
+Data sources (in order of confidence):
 
 > - You collected your own  
 > - Collaborators  
@@ -58,7 +74,9 @@ This is usually the most time intensive step
 It's also the most important & the hardest to teach
 
 
-## &nbsp; {data-background=twitter_data_cleaning.png data-background-size=90%}
+## &nbsp; {data-background=twitter_data_cleaning.png data-background-size=85% .futnote}
+
+[See this on Twitter](https://twitter.com/vboykis/status/1089920316644704256)
 
 
 ## Steps to an analysis | 4. Explore the data  
@@ -83,29 +101,78 @@ Where to start?
 
 ## Steps to an analysis | 6. Communicate the results  
 
-Choose your medium
+Who's your audience? What's your medium?
+
+> - Lab group
 
 > - Social media, blog posts
 
 > - Presentation
 
-> - manuscript
+> - Publication
 
 
 ## Steps to an analysis | 7. Make your analysis reproducible  
 
-Consider these scenarios
+Consider these real scenarios
 
 > - "Can you re-run the analysis with these new data?"
 
 > - "Your closest collaborator is you six months ago, but you don’t reply to emails" (Karl Broman)
 
 
+## Types of analysis | Raw
+
+The goal is to explore the data 
+
+This is your "sandbox"
+
+
+## Types of analysis | Informal
+
+Soften the edges of the raw results
+
+> - Focus the analysis ("refine the arc")
+
+> - Improve the presentation
+
+> - Narrow your conclusions
+
+
+## &nbsp; {data-background=tt_logo.png data-background-size=100% .futnote}
+
+[TidyTuesday](https://github.com/rfordatascience/tidytuesday)
+
+
+## &nbsp; {data-background=siple_tt_post.jpeg data-background-size=75% .futnote}
+
+[M Siple on Twitter](https://twitter.com/margaretsiple/status/1332827208721821698)
+
+
+## Types of analysis | Formal
+
+A refined analysis and presentation
+
+> - Code in supplementary materials (**GitHub**, **Zenodo**, **figshare**)
+
+> - High quality figures
+
+
+## A rubric for analyses
+
+
+
 # Software requirements
 
-## R Software | An environment for statistical computing and graphics
 
-> - It's FREE!
+## Software in this course
+
+Is free
+
+Is well supported by the user community
+
+
+## R Software | An environment for statistical computing and graphics
 
 > - Enormous developer & support communities
 
@@ -114,7 +181,7 @@ Consider these scenarios
 
 ## R packages
 
-* Most of R's current capabilities come from *packages*
+Most of R's current capabilities come from *packages*
 
 > - We'll use a variety of them for many different tasks
 
