@@ -24,24 +24,13 @@ analysis_steps <- list(
   title = "Steps to an analysis",
   topics = c("<b>Steps to an analysis</b>", "Informal vs formal", "Rubrics", "Required software"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
+  rmd = c("lectures/week_01/lec_02_analysis_steps_software.Rmd"),
+  html = c("lectures/week_01/lec_02_analysis_steps_software.html"),
+  background = c("[Cooper & Hsing (2017)](references/BES_guide_to_reproducible_code.pdf)"),
   zoom = ""
 )
 
 ## day 3 ####
-github <- list(
-  title = "Introduction to GitHub",
-  topics = c("<b>Introduction to GitHub</b>", "Repositories", "Issues", "Projects", "Markdown"),
-  pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
-  zoom = ""
-)
-
-## day 4 ####
 organization_styles <- list(
   title = "Organization & styles",
   topics = c("<b>Organization & styles</b>", "Research compendia", "Design documents", "Getting help"),
@@ -49,6 +38,17 @@ organization_styles <- list(
   rmd = c(""),
   html = c(""),
   background = c(""),
+  zoom = ""
+)
+
+## day 4 ####
+github <- list(
+  title = "Introduction to GitHub",
+  topics = c("<b>Introduction to GitHub</b>", "Repositories", "Issues", "Projects", "Markdown"),
+  pdf = c(""),
+  rmd = "",
+  html = "",
+  background = "",
   zoom = ""
 )
 
