@@ -16,9 +16,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Understand the forms of *research compendia*
 
-> - Understand the concept of *design documents*
-
-> - Understand how to ask for help
 
 
 ## The reproducibility crisis in science
@@ -79,9 +76,216 @@ Reproducible can be further broken down
 
 3. Specify the computational environment
 
-> - Which packages and what version?
+> - Which software/package(s) and what version(s)?
 
 > - Ranges from simple text description to self-contained environments
+
+
+## Why use a research compendium?
+
+> - Increased efficiency, simplified file management and streamlined workflows
+
+> - Increased visibility and scientific impact
+
+> - Ability to return later and understand the process
+
+
+## Creating a research compendium | Key principle
+
+Organize your compendium so another person can know what to expect from the plain meaning of the file and directory names
+
+
+## Simple compendium {data-background=compendium_1.png data-background-size=45% .citation}
+
+Marwick et al (2018)
+
+
+## Simple compendium {data-background=compendium_2.png data-background-size=45% .citation}
+
+Marwick et al (2018)
+
+
+## Medium compendium {data-background=compendium_3.png data-background-size=30% .citation}
+
+Marwick et al (2018)
+
+
+## Large {data-background=compendium_4.png data-background-size=30% .citation}
+
+Marwick et al (2018)
+
+
+## Sharing a research compendium | 4 things to consider
+
+1. Licensing
+
+> - Who can (re)use the work?
+
+> - Are there restrictions?
+
+> - Many depositories require Creative Commons licenses
+
+
+## Sharing a research compendium | 4 things to consider
+
+1. Licensing
+
+2. Version control
+
+> - Facilitates private collaboration among colleagues on the project
+
+> - Allows for distribution and maintenance of the compendium in the future
+
+
+## Sharing a research compendium | 4 things to consider
+
+1. Licensing
+
+2. Version control
+
+3. Persistence
+
+> - Consider the "life span" of the analysis
+
+> - A Digital Object Identifier (DOI) is more permanent than a URL
+
+
+
+## Sharing a research compendium | 4 things to consider
+
+1. Licensing
+
+2. Version control
+
+3. Persistence
+
+4. Metadata
+
+> - Publishing data with a DOI requires a description of the data themselves
+
+> - Who, what, where, when, how
+
+
+## Tools for creating a compendium
+
+One could always create a structure from scratch
+
+Alternatively, consider some existing tools
+
+> - Jeff Hollister's [{manuscriptPackage}](https://github.com/jhollist/manuscriptPackage)
+
+> - Carl Boettiger's [{template}](https://github.com/cboettig/template)
+
+> - Ben Marwick's [{rrtools}](https://github.com/benmarwick/rrtools)
+
+
+## A note on directory structure | Does your code begin with something like this? {.smaller}
+
+`setwd("/Users/Mark/Documents/projects/salmon/final_code")`
+
+
+## Relative vs absolute paths
+
+Use relative paths to your work
+
+The [{here}](https://cran.r-project.org/web/packages/here/index.html) package makes this really easy
+
+```
+## Absolute path
+## /Users/Mark/Documents/projects/salmon/data
+
+## Relative path
+> data_dir <- here::here("data")
+> data_dir
+> [1] "/Users/Mark/Documents/projects/salmon/data"
+```
+
+
+# Coding styles
+
+
+## File & code names | 3 principles
+
+1. Human readable
+
+> - The name should convey concise info
+
+> - Longer is better
+
+
+## File & code names | 3 principles
+
+1. Human readable
+
+2. Machine readable
+
+> - Easy to ID with *regular expressions* or *globbing*
+
+> - Avoid spaces, capitalization, punctuation, special characters
+
+> - Consider `_` and `-` as delimiters
+
+
+## Example file names
+
+### Bad
+
+* `resume.docx`
+
+* `Mark's data.xlsx`
+
+* `figure 1.pdf`
+
+### Good
+
+* `scheuerell_resume_2021-01-01.docx`
+
+* `marks_skagit_steelhead_age_composition.xlsx`
+
+* `figure_01_scatterplot_length_mass.pdf`
+
+
+## File & code names | 3 principles
+
+1. Human readable
+
+2. Machine readable
+
+3. Works with default ordering
+
+> - Use a number at the beginning of a name
+
+> - Use the ISO standard for dates (YYYY-MM-DD)
+
+> - "zero-pad" numbers
+
+
+## Example file names
+
+### Chronological order
+
+```
+2019-10-20_skagit_harvest-commerical.csv
+2019-10-20_skagit_harvest-recreational.csv
+2020-09-18_nooksack_harvest-commerical.csv
+2020-09-18_nooksack_harvest-recreational.csv
+```
+
+### Logical order
+
+```
+01_data-ingest.R
+02_data-cleaning.R
+03_model-fitting.R
+04_create-figures.R
+```
+
+
+
+
+
+
+
 
 
 
