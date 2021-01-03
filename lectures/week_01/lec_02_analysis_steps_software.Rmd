@@ -112,7 +112,7 @@ Who's your audience? What's your medium?
 > - Publication
 
 
-## Steps to an analysis | 7. Make your analysis reproducible  
+## Steps to an analysis | Make your analysis reproducible  
 
 Consider these real scenarios
 
@@ -160,6 +160,65 @@ A refined analysis and presentation
 
 ## A rubric for analyses
 
+Here are some useful questions to ask yourself
+
+
+## A rubric | Answering the question
+
+> - Could the question be answered with the available data?
+
+> - Did you understand the context for the question and the scientific application?
+
+> - Did you record the experimental design?
+
+
+## A rubric | Cleaning the data
+
+> - Are the data "tidy"?
+
+> - Did you record the recipe for moving from raw to tidy data?
+
+> - Did you record all parameters, units, and functions applied to the data?
+
+
+## A rubric | Exploratory analysis
+
+> - Did you make univariate plots (histograms, density plots, boxplots)?
+
+> - Did you consider correlations between variables (scatterplots)?
+
+> - Did you check the units of all data points to make sure they are in the right range?
+
+> - Did you try to identify any errors or miscoding of variables?
+
+
+## A rubric | Statistical analysis
+
+> - Did you identify the quantities of interest in your model?
+
+> - How did you select your model(s) (eg, information theory, cross validation)?
+
+> - Is this a correlative or causative study?
+
+
+## A rubric | Communication
+
+> - Did you describe the data set, experimental design, and question you are answering?
+
+> - Did you specify the model you are fitting?
+
+> - Does each table/figure communicate an important piece of information?
+
+
+## A rubric | Reproducibility
+
+> - Did you create a script that reproduces all your analyses?
+
+> - Did you save the raw and processed versions of your data?
+
+> - Did you record all versions of the software you used to process the data?
+
+> - Did you try to have someone else run your analysis code?
 
 
 # Software requirements
