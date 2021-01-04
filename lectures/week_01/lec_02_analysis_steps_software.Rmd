@@ -320,4 +320,8 @@ Supports dozens of static and dynamic output formats
 [Gallery here](https://rmarkdown.rstudio.com/gallery.html)
 
 
+## What's next?
+
+We'll learn about research compendia and style conventions for coding and naming
+
 
