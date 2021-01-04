@@ -33,10 +33,10 @@ analysis_steps <- list(
 ## day 3 ####
 organization_styles <- list(
   title = "Organization & styles",
-  topics = c("<b>Organization & styles</b>", "Research compendia", "Design documents", "Getting help"),
+  topics = c("<b>Organization & styles</b>", "Research compendia", "Coding styles", "Getting help"),
   pdf = c(""),
   rmd = c("lectures/week_01/lec_03_orgs_styles.Rmd"),
-  html = c("lectures/week_01/lec_03_orgs_styles.Rmd"),
+  html = c("lectures/week_01/lec_03_orgs_styles.html"),
   background = c("[Marwick et al (2018)](references/Marwick_etal_2018_research_compendia.pdf)",
                  "[Tidyverse Style Guide](https://style.tidyverse.org/)"),
   zoom = ""
