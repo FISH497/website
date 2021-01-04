@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## The reproducibility crisis in science
 
-### We are witnessing an increasing number of examples where the original analysis cannot be reproduced
+We are witnessing an increasing number of examples where the original analysis cannot be reproduced
 
 > - For example, a group of Amgen scientists could only confirm the results in 6 out of 53 cancer studies (Begley & Ellis 2012) 
 
@@ -94,7 +94,7 @@ Reproducible can be further broken down
 
 ## Creating a research compendium | Key principle
 
-Organize your compendium so another person can know what to expect from the plain meaning of the file and directory names
+Organize your compendium so another person knows what to expect from the plain meaning of the file and directory names
 
 
 ## Simple compendium {data-background=compendium_1.png data-background-size=45% .citation}
@@ -181,9 +181,26 @@ Alternatively, consider some existing tools
 > - Ben Marwick's [{rrtools}](https://github.com/benmarwick/rrtools)
 
 
+# Coding styles
+
+
 ## A note on directory structure | Does your code begin with something like this? {.smaller}
 
 `setwd("/Users/Mark/Documents/projects/salmon/final_code")`
+
+
+## A note on directory structure | Does your code begin with something like this? {.smaller}
+
+`setwd("/Users/Mark/Documents/projects/salmon/final_code")`
+
+Do you see any problems with this approach?
+
+
+## A note on directory structure | Does your code begin with something like this? {.smaller}
+
+`setwd("/Users/Mark/Documents/projects/salmon/final_code")`
+
+This won't work unless your directory structure matches mine
 
 
 ## Relative vs absolute paths
@@ -201,9 +218,6 @@ The [{here}](https://cran.r-project.org/web/packages/here/index.html) package ma
 > data_dir
 > [1] "/Users/Mark/Documents/projects/salmon/data"
 ```
-
-
-# Coding styles
 
 
 ## File & code names | 3 principles
@@ -226,6 +240,17 @@ The [{here}](https://cran.r-project.org/web/packages/here/index.html) package ma
 > - Avoid spaces, capitalization, punctuation, special characters
 
 > - Consider `_` and `-` as delimiters
+
+
+## Example file names
+
+### Bad
+
+* `resume.docx`
+
+* `Mark's data.xlsx`
+
+* `figure 1.pdf`
 
 
 ## Example file names
@@ -273,6 +298,9 @@ The [{here}](https://cran.r-project.org/web/packages/here/index.html) package ma
 2020-09-18_nooksack_harvest-recreational.csv
 ```
 
+
+## Example file names
+
 ### Logical order
 
 ```
@@ -282,7 +310,14 @@ The [{here}](https://cran.r-project.org/web/packages/here/index.html) package ma
 04_create-figures.R
 ```
 
+## An investment
 
+Taking the time to invest in these styles and strategies can save you a lot of time in the future
+
+
+## What's next?
+
+We'll learn about GitHub and how to use it for personal and collaborative projects
 
 
 
