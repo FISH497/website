@@ -33,7 +33,7 @@ analysis_steps <- list(
 ## day 3 ####
 organization_styles <- list(
   title = "Organization & styles",
-  topics = c("<b>Organization & styles</b>", "Research compendia", "Coding styles", "Getting help"),
+  topics = c("<b>Organization & styles</b>", "Research compendia", "Coding styles"),
   pdf = c(""),
   rmd = c("lectures/week_01/lec_03_orgs_styles.Rmd"),
   html = c("lectures/week_01/lec_03_orgs_styles.html"),
@@ -45,7 +45,7 @@ organization_styles <- list(
 ## day 4 ####
 github <- list(
   title = "Introduction to GitHub",
-  topics = c("<b>Introduction to GitHub</b>", "Repositories", "Issues", "Projects", "Markdown"),
+  topics = c("<b>Introduction to GitHub</b>", "Repositories", "Issues", "Projects", "Markdown", "Getting "),
   pdf = c(""),
   rmd = "",
   html = "",
