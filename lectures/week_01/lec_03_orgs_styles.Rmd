@@ -267,9 +267,9 @@ The [{here}](https://cran.r-project.org/web/packages/here/index.html) package ma
 
 * `scheuerell_resume_2021-01-01.docx`
 
-* `marks_skagit_steelhead_age_composition.xlsx`
+* `marks_skagit_steelhead_age-composition.xlsx`
 
-* `figure_01_scatterplot_length_mass.pdf`
+* `figure-01_scatterplot-length-mass.pdf`
 
 
 ## File & code names | 3 principles
@@ -310,9 +310,9 @@ The [{here}](https://cran.r-project.org/web/packages/here/index.html) package ma
 04_create-figures.R
 ```
 
-## An investment
+## An investment rather than an order
 
-Taking the time to invest in these styles and strategies can save you a lot of time in the future
+Taking the time to invest in these styles and strategies can save you a lot of time in the future, but in the end it's up to you
 
 
 ## What's next?
