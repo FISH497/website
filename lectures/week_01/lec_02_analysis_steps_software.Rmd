@@ -16,9 +16,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Outline the steps to a data science analysis
 
-* Understand the software requirements for the course
-
-> - Verify that you have the software installed and working
+> - Understand the software requirements for the course
 
 
 ## Credits
