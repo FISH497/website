@@ -14,7 +14,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Goals for today
 
-* Understand the forms of *research compendia*
+* Understand the elements of a *research compendium*
+
+> - Understand conventions for coding styles
 
 
 
