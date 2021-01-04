@@ -45,7 +45,7 @@ organization_styles <- list(
 ## day 4 ####
 github <- list(
   title = "Introduction to GitHub",
-  topics = c("<b>Introduction to GitHub</b>", "Repositories", "Issues", "Projects", "Markdown", "Getting "),
+  topics = c("<b>Introduction to GitHub</b>", "Repositories", "Issues", "Projects", "Markdown", "Getting help"),
   pdf = c(""),
   rmd = "",
   html = "",
