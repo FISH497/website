@@ -280,6 +280,9 @@ Most of R's current capabilities come from *packages*
 > - Uses **Git** for version control
 
 
+## &nbsp; {data-background=gh_signup.png data-background-size=100%}
+
+
 ## &nbsp; {data-background=GitHub_repo.png data-background-size=100%}
 
 
