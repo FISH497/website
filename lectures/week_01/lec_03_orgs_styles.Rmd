@@ -36,9 +36,9 @@ The calculation of quantitative scientific results by independent researchers us
 
 ## What does it mean to be reproducible?
 
-Reproducible can be further broken down
+Reproducibility can be further broken down
 
-> - empirical (eg, sample identities, sampling gear, instrument settings)
+> - empirical (eg, sample IDs, sampling gear, instrument settings)
 
 > - statistical (eg, which statistical tests, what model parameters)
 
@@ -68,6 +68,21 @@ Reproducible can be further broken down
 > - Separate data from code
 
 > - Separate cleaning, analysis & output code
+
+
+## Example file structure
+
+```
+|-code
+  |-01_data_ingest.R
+  |-02_data_cleaning.R
+  |-03_data_QAQC.R
+  |-04_fit_models.R
+  |-05_draw-plots.R
+|-data
+  |-skagit_steelhead-escapement.csv
+  |-skagit_river-flow.csv
+```
 
 
 ## 3 principles of research compendia
@@ -240,6 +255,22 @@ The [{here}](https://cran.r-project.org/web/packages/here/index.html) package ma
 > - Avoid spaces, capitalization, punctuation, special characters
 
 > - Consider `_` and `-` as delimiters
+
+
+## A cautionary tale from the real world
+
+Consider all of these special characters
+
+~`!@#$%^&()+={}[]|\:";'<,>.?/*
+
+
+## A cautionary tale from the real world
+
+Consider all of these special characters
+
+~`!@#$%^&()+={}[]|\:";'<,>.?/*
+
+The pipe | was the only character available for use as a delimiter in a plain text file for an energy efficiency database
 
 
 ## Example file names
