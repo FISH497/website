@@ -27,7 +27,7 @@ analysis_steps <- list(
   rmd = c("lectures/week_01/lec_02_analysis_steps_software.Rmd"),
   html = c("lectures/week_01/lec_02_analysis_steps_software.html"),
   background = c("[Cooper & Hsing (2017)](references/BES_guide_to_reproducible_code.pdf)"),
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/CuDs50KvFqJYIpY6FS5YkDKCXxXHkqE87389Jmgp-iMvu-0TScoMEED6iANgScFe.XiNQdClLe7mKZ_jc"
 )
 
 ## day 3 ####
