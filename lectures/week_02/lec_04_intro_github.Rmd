@@ -86,7 +86,25 @@ Creating a repository is quite easy. Follow these steps to do so:
 
 # Markdown
 
-Markdown is a simple markup language for creating formatted text using a plain-text editor. It makes use of some special characters for formatting headers and text. GitHub automatically recognizes Markdown files with a `.md` extension and renders them as formatted information. The repo we just created has one file in it: `README.md`, and its contents are displayed at the bottom of the repo
+Markdown is a simple markup language for creating formatted text using a plain-text editor. It makes use of some special characters for formatting headers and text. GitHub automatically recognizes Markdown files with a `.md` extension and renders them as formatted information. The repo we just created has one file in it: `README.md`, and its contents are displayed at the bottom of the repo.
+
+## Edit the README
+
+Let's edit our `README.md` file by clicking on the pencil icon in the upper right.
+
+<br>
+
+![](gh_edit_readme.png)
+<br>
+
+This brings up an editing window where you can add or modify existing text.
+
+<br>
+
+![](gh_edit_readme_md.png)
+
+<br>
+
 
 # Issues
 
