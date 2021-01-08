@@ -3202,10 +3202,10 @@ font-size: 90%;
 
 </article></slide><slide class=""><hgroup><h2>What does it mean to be reproducible?</h2></hgroup><article  id="what-does-it-mean-to-be-reproducible-1">
 
-<p>Reproducible can be further broken down</p>
+<p>Reproducibility can be further broken down</p>
 
 <ul class = 'build'>
-<li>empirical (eg, sample identities, sampling gear, instrument settings)</li>
+<li>empirical (eg, sample IDs, sampling gear, instrument settings)</li>
 </ul>
 
 <ul class = 'build'>
@@ -3248,6 +3248,18 @@ font-size: 90%;
 <ul class = 'build'>
 <li>Separate cleaning, analysis &amp; output code</li>
 </ul>
+
+</article></slide><slide class=""><hgroup><h2>Example file structure</h2></hgroup><article  id="example-file-structure">
+
+<pre >|-code
+  |-01_data-ingest.R
+  |-02_data-cleaning.R
+  |-03_data-QAQC.R
+  |-04_model-fitting.R
+  |-05_create-figures.R
+|-data
+  |-skagit_steelhead-escapement.csv
+  |-skagit_river-flow.csv</pre>
 
 </article></slide><slide class=""><hgroup><h2>3 principles of research compendia</h2></hgroup><article  id="principles-of-research-compendia-2">
 
@@ -3448,6 +3460,20 @@ font-size: 90%;
 <li>Consider <code>_</code> and <code>-</code> as delimiters</li>
 </ul>
 
+</article></slide><slide class=""><hgroup><h2>A cautionary tale from the real world</h2></hgroup><article  id="a-cautionary-tale-from-the-real-world">
+
+<p>Consider all of these special characters</p>
+
+<p>~`!@#$%^&amp;()+={}[]|:&quot;;’&lt;,&gt;.?/*</p>
+
+</article></slide><slide class=""><hgroup><h2>A cautionary tale from the real world</h2></hgroup><article  id="a-cautionary-tale-from-the-real-world-1">
+
+<p>Consider all of these special characters</p>
+
+<p>~`!@#$%^&amp;()+={}[]|:&quot;;’&lt;,&gt;.?/*</p>
+
+<p>The pipe | was the only character available for use as a delimiter in a plain text file for an energy efficiency database <strong>because all the others had been used in variable names</strong>.</p>
+
 </article></slide><slide class=""><hgroup><h2>Example file names</h2></hgroup><article  id="example-file-names">
 
 <h3>Bad</h3>
@@ -3511,8 +3537,9 @@ font-size: 90%;
 
 <pre >01_data-ingest.R
 02_data-cleaning.R
-03_model-fitting.R
-04_create-figures.R</pre>
+03_data-QAQC.R
+04_model-fitting.R
+05_create-figures.R</pre>
 
 </article></slide><slide class=""><hgroup><h2>An investment rather than an order</h2></hgroup><article  id="an-investment-rather-than-an-order">
 

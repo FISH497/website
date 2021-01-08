@@ -36,9 +36,9 @@ The calculation of quantitative scientific results by independent researchers us
 
 ## What does it mean to be reproducible?
 
-Reproducible can be further broken down
+Reproducibility can be further broken down
 
-> - empirical (eg, sample identities, sampling gear, instrument settings)
+> - empirical (eg, sample IDs, sampling gear, instrument settings)
 
 > - statistical (eg, which statistical tests, what model parameters)
 
@@ -68,6 +68,22 @@ Reproducible can be further broken down
 > - Separate data from code
 
 > - Separate cleaning, analysis & output code
+
+
+## Example file structure
+
+```
+|-code
+  |-01_data-ingest.R
+  |-02_data-cleaning.R
+  |-03_data-QAQC.R
+  |-04_model-fitting.R
+  |-05_create-figures.R
+|-data
+  |-skagit_steelhead-escapement.csv
+  |-skagit_river-flow.csv
+```
+
 
 
 ## 3 principles of research compendia
@@ -242,6 +258,22 @@ The [{here}](https://cran.r-project.org/web/packages/here/index.html) package ma
 > - Consider `_` and `-` as delimiters
 
 
+## A cautionary tale from the real world
+
+Consider all of these special characters
+
+~`!@#$%^&()+={}[]|\:";'<,>.?/*
+
+
+## A cautionary tale from the real world
+
+Consider all of these special characters
+
+~`!@#$%^&()+={}[]|\:";'<,>.?/*
+
+The pipe | was the only character available for use as a delimiter in a plain text file for an energy efficiency database **because all the others had been used in variable names**.
+
+
 ## Example file names
 
 ### Bad
@@ -306,8 +338,9 @@ The [{here}](https://cran.r-project.org/web/packages/here/index.html) package ma
 ```
 01_data-ingest.R
 02_data-cleaning.R
-03_model-fitting.R
-04_create-figures.R
+03_data-QAQC.R
+04_model-fitting.R
+05_create-figures.R
 ```
 
 ## An investment rather than an order
