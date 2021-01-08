@@ -74,15 +74,16 @@ Reproducibility can be further broken down
 
 ```
 |-code
-  |-01_data_ingest.R
-  |-02_data_cleaning.R
-  |-03_data_QAQC.R
-  |-04_fit_models.R
-  |-05_draw-plots.R
+  |-01_data-ingest.R
+  |-02_data-cleaning.R
+  |-03_data-QAQC.R
+  |-04_model-fitting.R
+  |-05_create-figures.R
 |-data
   |-skagit_steelhead-escapement.csv
   |-skagit_river-flow.csv
 ```
+
 
 
 ## 3 principles of research compendia
@@ -270,7 +271,7 @@ Consider all of these special characters
 
 ~`!@#$%^&()+={}[]|\:";'<,>.?/*
 
-The pipe | was the only character available for use as a delimiter in a plain text file for an energy efficiency database
+The pipe | was the only character available for use as a delimiter in a plain text file for an energy efficiency database **because all the others had been used in variable names**.
 
 
 ## Example file names
@@ -337,8 +338,9 @@ The pipe | was the only character available for use as a delimiter in a plain te
 ```
 01_data-ingest.R
 02_data-cleaning.R
-03_model-fitting.R
-04_create-figures.R
+03_data-QAQC.R
+04_model-fitting.R
+05_create-figures.R
 ```
 
 ## An investment rather than an order
