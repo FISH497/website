@@ -21,6 +21,8 @@ GitHub is a code hosting platform for version control and collaboration. It lets
 
 GitHub also runs **Git** in the background. Git is a version control software, which means it records changes to a file or set of files over time so that you can recall specific versions later. We'll learn more about Git in the next session.
 
+***
+
 # Repositories
 
 A repository (or "repo" for short) is a directory or storage space for your projects on GitHub. Repositories can contain folders and files, images, videos, spreadsheets, and data sets. Most repos include a **README** file, which contains information about your project. GitHub makes it easy to add one at the same time you create your new repository. It also offers other common options such as a license file.
@@ -35,14 +37,14 @@ Creating a repository is quite easy. Follow these steps to do so:
 
 <br>
 
-![](gh_new_repo.png)
+![](images/gh_new_repo.png)
 <br><br>
 
 3. Give your new repository a name. You can use underscores `_` and hypens `-` as text delimiters if you'd like. For now, call it **testing**.
 
 <br>
 
-![](gh_name_repo.png)
+![](images/gh_name_repo.png)
 
 <br>
 
@@ -50,7 +52,7 @@ Creating a repository is quite easy. Follow these steps to do so:
 
 <br>
 
-![](gh_repo_description.png)
+![](images/gh_repo_description.png)
 
 <br>
 
@@ -58,7 +60,7 @@ Creating a repository is quite easy. Follow these steps to do so:
 
 <br>
 
-![](gh_repo_public.png)
+![](images/gh_repo_public.png)
 
 <br>
 
@@ -66,7 +68,7 @@ Creating a repository is quite easy. Follow these steps to do so:
 
 <br>
 
-![](gh_repo_readme.png)
+![](images/gh_repo_readme.png)
 
 <br>
 
@@ -74,7 +76,7 @@ Creating a repository is quite easy. Follow these steps to do so:
 
 <br>
 
-![](gh_repo_create.png)
+![](images/gh_repo_create.png)
 
 <br>
 
@@ -82,7 +84,9 @@ Creating a repository is quite easy. Follow these steps to do so:
 
 <br>
 
-![](gh_new_repo_view.png)
+![](images/gh_new_repo_view.png)
+
+***
 
 # Markdown
 
@@ -254,7 +258,7 @@ Inserting links to images works much the same as for websites, but you add an ex
 
 which will yield this
 
-![](hexsticker.png)
+![](images/hexsticker.png)
 
 ## Displaying R code
 
@@ -300,7 +304,7 @@ Let's edit our `README.md` file by clicking on the pencil icon in the upper righ
 
 <br>
 
-![](gh_edit_readme.png)
+![](images/gh_edit_readme.png)
 
 <br>
 
@@ -308,7 +312,7 @@ This brings up an editing window where you can add or modify existing text using
 
 <br>
 
-![](gh_edit_readme_md.png)
+![](images/gh_edit_readme_md.png)
 
 <br>
 
@@ -316,7 +320,7 @@ When you are done editing the text, you need to "commit" the changes. To do so, 
 
 <br>
 
-![](gh_commit_readme.png)
+![](images/gh_commit_readme.png)
 
 <br>
 
@@ -324,7 +328,7 @@ This is your first introduction to **Git**. When committing a file, you need to 
 
 <br>
 
-![](gh_commit_readme_msg.png)
+![](images/gh_commit_readme_msg.png)
 
 <br>
 
@@ -332,12 +336,79 @@ You will now see your repo with the edited and formatted `README.md` file.
 
 <br>
 
-![](gh_repo_readme_edited.png)
+![](images/gh_repo_readme_edited.png)
 
 <br>
 
+***
+
 # Issues
 
+Issues are used to track to-do items, bugs, feature requests, and more. Some people will refer to these as "tickets". Go ahead and click on the **Issues** tab in the upper left near the **Code** tab that you are on now.
+
+<br>
+
+![](images/gh_repo_issues.png)
+
+<br>
+
+You will now see a blank slate with a message from GitHub telling you a bit about Issues. Click on the green **New issue** button in the upper right.
+
+<br>
+
+![](images/gh_issues_blank.png)
+
+<br>
+
+Now you will see a window for you to enter details about the issue. Go ahead and give your issue an informative title.
+
+<br>
+
+![](images/gh_new_issue_title.png)
+
+<br>
+
+Most people also include some details concerning a new issue. For example, you might describe a problem you're having or a bug you've encountered that will need to be fixed later. The issue description can also contain formatted text via the same Markdown we used on our `README.md` file. You can also make use of the tool bar to help you with formatting, inserting links, etc.
+
+<br>
+
+![](images/gh_issue_description.png)
+
+<br>
+
+You have some additional options on the righthand side for assigning collaborators to work on an issue, assigning descriptive labels to the issue to help identify its contents, priority, etc. These labels are also searchable from the main Issues page.
+
+<br>
+
+![](images/gh_issue_extras.png)
+
+<br>
+
+When you are finished adding a description, labels, etc, click on the green **Submit new issue** button at the bottom.
+
+<br>
+
+![](images/gh_issue_submit.png)
+
+<br>
+
+You will now see your new issue as a formatted Markdown document with lots of information about it being "Open", the labels you added, and another comment box at the bottom.
+
+<br>
+
+![](images/gh_issue_one.png)
+
+<br>
+
+Now click on the **Issues** tab in the upper left, which will bring you back to the main Issue page (note that there is now a number "1" inside a circle next to the Issues tab, which means there is one open issue at the moment). From here you can add more issues, or click on existing issues to bring up their details. 
+
+<br>
+
+![](images/gh_issues_page.png)
+
+<br>
+
+***
 
 # Projects
 
