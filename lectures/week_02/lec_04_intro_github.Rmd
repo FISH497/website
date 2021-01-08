@@ -412,5 +412,111 @@ Now click on the **Issues** tab in the upper left, which will bring you back to 
 
 # Projects
 
+So-called **Projects** in GitHub are a great way to organize your issues, set tasks, track your progress, etc. Click on the **Projects** tab at the top of the page.
+
+<br>
+
+![](images/gh_goto_projects.png)
+
+<br>
+
+Here you will see some information about Projects and all of the things you can do with them. Go ahead and click on the green **Create a project** button in the upper right.
+
+<br>
+
+![](images/gh_projects_blank.png)
+
+<br>
+
+You will now see a window for creating a new project. Go ahead and give your project an informative title and add a short description as well.
+
+<br>
+
+![](images/gh_project_name.png)
+
+<br>
+
+One of the nice features about Projects is that you can use templates for their structure. You're welcome to create your own from scratch, but for now lets use one of the built-in templates from GitHub. Click on the pull-down **Template** button on the bottom, which will show you a list of template options. Go ahead and select **Basic kanban**.
+
+<br>
+
+![](images/gh_project_template.png)
+
+<br>
+
+Lastly, click on the green **Create project** button.
+
+<br>
+
+![](images/gh_project_create.png)
+
+<br>
+
+You now have a new project to which you can add "cards". By default, GitHub has added 3 cards to the **To do** column on the lefthand side. You will also see an option to **Add cards** on the righthand side, including the new issue we created earlier. This is one of the great features of GitHub. Not only can you create cards from scratch, but you can pull in issues as well to help you manage what's happening, who's doing it, and when it's completed.
+
+You are welcome to follow the tutorial in the first card, but we'll ignore that for now.
+
+<br>
+
+![](images/gh_project_ex.png)
+
+<br>
+
+Let's add the issue we created earlier to this project by clicking and dragging it over to the **To do** column under the existing **Automation** card. After doing so, let's close the **Add cards** window by clicking on the **X** to the right.
+
+<br>
+
+![](images/gh_project_add_issue.png)
+
+<br>
+
+Let's delete the default cards from our project, as they don't really offer any specific information here. To do so, click on the 3 dots in the upper right of a card and select **Delete note**.
+
+<br>
+
+![](images/gh_project_delete_card.png)
+
+<br>
+
+Out current project has two columns: **To do** and **In progress**. Let's add another column for completed items and call it **Finished**. To do so, click on the **Add column** button on the right.
+
+<br>
+
+![](images/gh_project_add_col.png)
+
+<br>
+
+In the **Coumn name** field, type "Finished" (although the actual name doesn't really matter--you coudl name it "completed" or something else). In the **Automation** section below the column name, click on the Preset button and select "Done". When you are finished, click on the green **Create column** button.
+
+<br>
+
+![](images/gh_project_add_col_details.png)
+
+<br>
+
+You now have a complete Project board with one issue already set to go.
+
+<br>
+
+![](images/gh_project_complete.png)
+
+<br>
+
+When you are ready to work on or resolve an issue, drag it over to the **In progress** column.
+
+<br>
+
+![](images/gh_project_in_progress.png)
+
+<br>
+
+From here you can click on the name of the issue and the details will appear off to the righthand side. If you want to work on this issue, click on the button in the lower right titled **Go to issue for full details** and GitHub will redirect you to the issues page with that issue open.
+
+<br>
+
+![](images/gh_project_issue_details.png)
+
+<br>
+
 
 
