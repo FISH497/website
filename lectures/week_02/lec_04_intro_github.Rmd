@@ -62,7 +62,7 @@ Creating a repository is quite easy. Follow these steps to do so:
 
 <br>
 
-6. When you create a repo, you have the option of initializing it with a **README** file, a `.gitignore` file, and a license. For now, just check the box next to **Add a README file**.
+6. When you create a repo, you have the option of initializing it with a `README.md` file, a `.gitignore` file, and a license. For now, just check the box next to **Add a README file**.
 
 <br>
 
@@ -105,10 +105,10 @@ You can specify different levels of headings using the hash tag (pound) symbol `
 
 will render to 
 
-> # Heading 1
-> ## Heading 2
-> ### Heading 3
-> #### Heading 4
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
 
 ### Emphasis
 
@@ -120,9 +120,9 @@ It's easy to add emphasis to text. For *italic* face, wrap the text with either 
 This is *italic*, but then so is _this_.
 ```
 
-will render to 
+will result in
 
-> This is *italic*, but then so is _this_.
+"This is *italic*, but then so is _this_."
 
 #### Bold
 
@@ -134,7 +134,7 @@ This is **bold**, but then so is __this__.
 
 will render to 
 
-> This is **bold**, but then so is __this__.
+This is **bold**, but then so is __this__.
 
 #### Bold & italic
 
@@ -146,7 +146,7 @@ This is ***bold and italic***.
 
 renders to
 
-> This is ***bold and italic***.
+This is ***bold and italic***.
 
 #### Strike-through
 
@@ -158,22 +158,7 @@ Oops, this is ~~a mistake~~.
 
 will render to 
 
-> Oops, this is ~~a mistake~~.
-
-#### Underline
-
-Unfortunately, Markdown does not include a built-in format for <u>underlining text</u>. You can, however, use regular HTML tags to do so. So, for example,
-
-```
-This bit is <u>underlined</u>.
-```
-
-results in
-
-> This bit is <u>underlined</u>.
-
-[Aside: It turns out that you can use all kinds of HTML tags within Markdown documents for additional formatting options.]
-
+Oops, this is ~~a mistake~~.
 
 ### Block quotes
 
@@ -198,8 +183,8 @@ You can include ordered (numbered) lists, unordered (bulleted) lists, or a combi
      
 will render to
      
-> 1. This is item 1  
-> 2. Item 2 comes next
+1. This is item 1  
+2. Item 2 comes next
 
 It also turns out that you don't even have to use consecutive numbers to make it work. For example,
 
@@ -210,10 +195,10 @@ It also turns out that you don't even have to use consecutive numbers to make it
 
 will render to
 
-> 1. This is item 1  
-> 7. Item 2 comes next
+1. This is item 1  
+7. Item 2 comes next
 
-You can specify unordered list with either an asterisk (`*`) or dash (`-`). For example, the following text 
+You can specify an unordered list with either an asterisk (`*`) or dash (`-`). For example, the following text 
 
 ```
 * This is a thing 
@@ -223,9 +208,9 @@ You can specify unordered list with either an asterisk (`*`) or dash (`-`). For 
 
 will render to
 
-> * This is a thing 
-> * Here is another
-> - And yet another
+* This is a thing 
+* Here is another
+- And yet another
 
 Mixed lists simply use a mixture of the two constructs, such that 
 
@@ -239,11 +224,11 @@ Mixed lists simply use a mixture of the two constructs, such that
 
 will render to
 
-> 1. This is item 1
->    * This is a thing
->    * Here is another  
-> 2. Item 2 comes next
->    - And yet another
+1. This is item 1
+  * This is a thing
+  * Here is another  
+2. Item 2 comes next
+  - And yet another
   
 ### Links
 
@@ -255,21 +240,21 @@ Please conduct your search from [this link](http://www.google.com).
 
 will render as
 
-> Please conduct your search from [this link](http://www.google.com).
+Please conduct your search from [this link](http://www.google.com).
 
 ### Inserting pictures
 
 #### Inline
 
-Inserting links to images works much the same as for websites, but you add an exclamation point (`!`) at the beginning of the construct (and the text inside the square brackets in optional). For example, here is how to include a logo for this class, **which must exist in the same directory as the Markdown document**.
+Inserting links to images works much the same as for websites, but you add an exclamation point (`!`) at the beginning of the construct (and the text inside the square brackets in optional). For example, here is how to include a hex logo for this class.
 
 ```
-Check out the hex sticker I made for the class: ![](hexsticker.png)
+![](hexsticker.png)
 ```
 
 which will yield this
 
-> Check out the hex sticker I made for the class: ![](hexsticker.png)
+![](hexsticker.png)
 
 ## Displaying R code
 
@@ -283,29 +268,29 @@ The most common method for including code in your document is via code blocks, w
 `r ''````
 a <- 1
 b <- 2
-a / b
 ```
 ````
 
-By default, Markdown will show the code and the output when the document is rendered, such that above code block would look like
+such that above code block would look like
 
 ```{r, eval=FALSE}
 a <- 1
 b <- 2
-a / b
 ```
+
+Later in the course when we start using **R Markdown**, you'll see that you can execute the code within a document and display the results.
 
 ### Inline
 
-You can also include code snippets within text by surround it with backticks (\`). For example,
+You can also include code snippets within text by surrounding it with backticks (\`). For example,
 
 ```
-I assigned the the temporary data frame to the variable \`tmp\`.
+I assigned the the temporary data frame to the variable `tmp`.
 ```
 
 will result in 
 
-> I assigned the the temporary data frame to the variable `tmp`.
+I assigned the the temporary data frame to the variable `tmp`.
 
 <br>
 
@@ -319,7 +304,7 @@ Let's edit our `README.md` file by clicking on the pencil icon in the upper righ
 
 <br>
 
-This brings up an editing window where you can add or modify existing text.
+This brings up an editing window where you can add or modify existing text using the various formatting options via Markdown. You can preview a formatted version of your text by clicking the **Preview changes** tab.
 
 <br>
 
@@ -327,7 +312,29 @@ This brings up an editing window where you can add or modify existing text.
 
 <br>
 
+When you are done editing the text, you need to "commit" the changes. To do so, scroll down to the bottom of the page to the box marked **Commit changes**.
 
+<br>
+
+![](gh_commit_readme.png)
+
+<br>
+
+This is your first introduction to **Git**. When committing a file, you need to include a "short but informative" commit message to describe the changes you've made. Go ahead and type a commit message in the box and then click the green **Commit changes** button.
+
+<br>
+
+![](gh_commit_readme_msg.png)
+
+<br>
+
+You will now see your repo with the edited and formatted `README.md` file.
+
+<br>
+
+![](gh_repo_readme_edited.png)
+
+<br>
 
 # Issues
 
