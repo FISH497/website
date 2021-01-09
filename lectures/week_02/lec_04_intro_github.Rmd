@@ -530,4 +530,106 @@ You will now see the issue opened under the **Issues** tab with some additional 
 
 <br>
 
+***
+
+# Adding files and folders
+
+Let's address our open issue by adding some more content to our repo. To do so, we'll navigate back to the main page of our repo by clicking on either the **Code** tab or on the **testing** link in the upper left.
+
+<br>
+
+![](images/gh_redirect_home.png)
+
+<br>
+
+We now have the option of either creating files from scratch within GitHub or uploading them from another location on a computer. Let's create a new file by clicking on the **Add file** button next to the green **Code** button and then selecting **Create new file**.
+
+<br>
+
+![](images/gh_create_file.png)
+
+<br>
+
+We now have a window for editing the files contents similar to the one we saw earlier when editing our `README.md` file. At the top left is a box where you can type in the name of the file you'd like to create. If you'd like to create a new file within a new folder, you begin by typing the folder name followed by a `/` and the file name. You'll notice that as soon as you type the `/` after the folder name that GitHub will automatically shift the text box to focus on the file name.
+
+Let's create a new **R** script within a folder called `R`, and name it `00_testing.R`.
+
+<br>
+
+![](images/gh_file_create_name.png)
+
+<br>
+
+Now navigate to the editing box and add some simple **R** code.
+
+<br>
+
+![](images/gh_file_create_code.png)
+
+<br>
+
+When you are finished, scroll down to the bottom, enter a brief but informative commit message, and click on the green **Commit new file** button.
+
+<br>
+
+![](images/gh_file_create_commit.png)
+
+<br>
+
+You can now see the contents of the new `R` folder, which at the moment contains only the new `00_testing.R` file we just created.
+
+<br>
+
+![](images/gh_new_folder_contents.png)
+
+<br>
+
+Go ahead and click on the **Code** tab in the upper left, which will take you back the repo's main page. Here you can see our new `R` folder just above our existing `README.md` file.
+
+<br>
+
+![](images/gh_repo_home_r.png)
+
+<br>
+
+Now let's add a simple data file called `example_data.csv` and place it within a new folder called `data`. Again, click on the **Add file** button next to the green **Code** button and then selecting **Create new file**. Type the folder name and file name in the box and add the following information in the editing box (you can copy and paste if you'd like):
+
+```
+last_name, first_name, role
+Scheuerell, Mark, instructor
+Adams, Mary, TA
+Manion, Lance, student
+```
+
+<br>
+
+![](images/gh_create_data_file.png)
+
+<br>
+
+When you are finished, scroll down to the bottom and commit the file by adding a brief but informative commit message, and clicking on the green **Commit new file** button.
+
+<br>
+
+![](images/gh_data_file_commit.png)
+
+<br>
+
+Just as when we created our **R** script within the `R` folder, you can now see the new `example_data.csv` file we just created within the `data` folder
+
+<br>
+
+![](images/gh_data_folder_view.png)
+
+<br>
+
+Go ahead and click on the **Code** tab in the upper left, which will take you back the repo's main page. Now you will see the new `data` folder just below our existing `R` folder.
+
+<br>
+
+![](images/gh_repo_home_data.png)
+
+<br>
+
+
 
