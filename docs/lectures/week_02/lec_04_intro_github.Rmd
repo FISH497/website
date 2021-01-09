@@ -15,6 +15,8 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+<br>
+
 # What is GitHub?
 
 GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere. GitHub itself is not a development tool, but rather a file hosting and collaboration site. In many ways, a social network like Facebook. You can build a profile, create projects to share with others, and follow the accounts of other users. GitHub is not linked to any one programming language like **R**, as you can find all kinds of projects based upon different languages there.
@@ -25,7 +27,7 @@ GitHub also runs **Git** in the background. Git is a version control software, w
 
 # Repositories
 
-A repository (or "repo" for short) is a directory or storage space for your projects on GitHub. Repositories can contain folders and files, images, videos, spreadsheets, and data sets. Most repos include a **README** file, which contains information about your project. GitHub makes it easy to add one at the same time you create your new repository. It also offers other common options such as a license file.
+A repository (or "repo" for short) is a directory or storage space for your projects on GitHub. Repositories can contain folders and files, images, videos, spreadsheets, and data sets. Most repos include a **`README.md`** file, which contains information about your project. GitHub makes it easy to add one at the same time you create your new repository. It also offers other common options such as a license file.
 
 ## Create a repository
 
@@ -33,7 +35,7 @@ Creating a repository is quite easy. Follow these steps to do so:
 
 1. Log into your account on GitHub
 
-2. Click on the `+` sign in the upper right and select `New repository`
+2. Click on the **+** sign in the upper right and select **New repository**
 
 <br>
 
@@ -101,20 +103,22 @@ The text in a Markdown document can be formatting in a number of ways. At a basi
 You can specify different levels of headings using the hash tag (pound) symbol `#`. By adding more `#` signs you can decrease the heading level. So, for example, the following
 
 ```
-# Heading 1
-## Heading 2
-### Heading 3
-#### Heading 4
+# Level-1 header
+## Level-2 header
+### Level-3 header
+#### Level-4 header
 ```
 
 will render to 
 
-# Heading 1
-## Heading 2
-### Heading 3
-#### Heading 4
+# Level-1 header
+## Level-2 header 
+### Level-3 header
+#### Level-4 header 
 
-### Emphasis
+<br>
+
+### Emphasis 
 
 #### Italics
 
@@ -126,7 +130,9 @@ This is *italic*, but then so is _this_.
 
 will result in
 
-"This is *italic*, but then so is _this_."
+This is *italic*, but then so is _this_.
+
+<br>
 
 #### Bold
 
@@ -140,6 +146,8 @@ will render to
 
 This is **bold**, but then so is __this__.
 
+<br>
+
 #### Bold & italic
 
 For combined ***bold and italics*** face, wrap the text with three asterisks (`***`), such that
@@ -151,6 +159,8 @@ This is ***bold and italic***.
 renders to
 
 This is ***bold and italic***.
+
+<br>
 
 #### Strike-through
 
@@ -308,7 +318,7 @@ Let's edit our `README.md` file by clicking on the pencil icon in the upper righ
 
 <br>
 
-This brings up an editing window where you can add or modify existing text using the various formatting options via Markdown. You can preview a formatted version of your text by clicking the **Preview changes** tab.
+This brings up an editing window where you can add or modify existing text using the various formatting options via Markdown. Below you can see where I've added some MArkdown flavored text. You can preview a formatted version of your text by clicking the **Preview changes** tab.
 
 <br>
 
@@ -344,7 +354,7 @@ You will now see your repo with the edited and formatted `README.md` file.
 
 # Issues
 
-Issues are used to track to-do items, bugs, feature requests, and more. Some people will refer to these as "tickets". Go ahead and click on the **Issues** tab in the upper left near the **Code** tab that you are on now.
+Issues are used to track to-do items, bugs, feature requests, and more. Some people will refer to these as "tickets" or "cards". Go ahead and click on the **Issues** tab in the upper left near the **Code** tab that you are on now.
 
 <br>
 
@@ -384,7 +394,15 @@ You have some additional options on the righthand side for assigning collaborato
 
 <br>
 
-When you are finished adding a description, labels, etc, click on the green **Submit new issue** button at the bottom.
+You can see below that I've added the following labels to the issue:
+
+- **documentation**
+
+- **enhancement**
+
+- **good frist issue**
+
+When you are finished adding a description, labels, etc, click on the green **Submit new issue** button at the bottom. 
 
 <br>
 
@@ -454,7 +472,7 @@ Lastly, click on the green **Create project** button.
 
 You now have a new project to which you can add "cards". By default, GitHub has added 3 cards to the **To do** column on the lefthand side. You will also see an option to **Add cards** on the righthand side, including the new issue we created earlier. This is one of the great features of GitHub. Not only can you create cards from scratch, but you can pull in issues as well to help you manage what's happening, who's doing it, and when it's completed.
 
-You are welcome to follow the tutorial in the first card, but we'll ignore that for now.
+You are welcome to follow the tutorial in the first card under the **To do** column, but we'll ignore that for now.
 
 <br>
 
@@ -462,7 +480,9 @@ You are welcome to follow the tutorial in the first card, but we'll ignore that 
 
 <br>
 
-Let's add the issue we created earlier to this project by clicking and dragging it over to the **To do** column under the existing **Automation** card. After doing so, let's close the **Add cards** window by clicking on the **X** to the right.
+Go ahead and click on the **X** on the righthand side of the blue banner across the top of the page that says "Project created from Basic kanban template".
+
+Let's add the issue we created earlier to this project by clicking and dragging it over to the **To do** column under the existing **Automation** card.
 
 <br>
 
@@ -470,27 +490,11 @@ Let's add the issue we created earlier to this project by clicking and dragging 
 
 <br>
 
-Let's delete the default cards from our project, as they don't really offer any specific information here. To do so, click on the 3 dots in the upper right of a card and select **Delete note**.
+Let's delete the default cards from our project, as they don't really offer any specific information here. To do so, click on the 3 dots in the upper right of a card and select **Delete note**. Let's also close the **Add cards** tab on the righthand side by clicking on the **X**, so we can see the third column of our project board.
 
 <br>
 
 ![](images/gh_project_delete_card.png)
-
-<br>
-
-Out current project has two columns: **To do** and **In progress**. Let's add another column for completed items and call it **Finished**. To do so, click on the **Add column** button on the right.
-
-<br>
-
-![](images/gh_project_add_col.png)
-
-<br>
-
-In the **Coumn name** field, type "Finished" (although the actual name doesn't really matter--you coudl name it "completed" or something else). In the **Automation** section below the column name, click on the Preset button and select "Done". When you are finished, click on the green **Create column** button.
-
-<br>
-
-![](images/gh_project_add_col_details.png)
 
 <br>
 
@@ -510,13 +514,210 @@ When you are ready to work on or resolve an issue, drag it over to the **In prog
 
 <br>
 
-From here you can click on the name of the issue and the details will appear off to the righthand side. If you want to work on this issue, click on the button in the lower right titled **Go to issue for full details** and GitHub will redirect you to the issues page with that issue open.
+At any point here you can click on the name of the issue and the details will appear off to the righthand side. If you want to work on this issue, click on the button in the lower right titled **Go to issue for full details** and GitHub will redirect you to the issues page with that issue open.
 
 <br>
 
 ![](images/gh_project_issue_details.png)
 
 <br>
+
+You will now see the issue opened under the **Issues** tab with some additional information related to its addition to our new project.
+
+<br>
+
+![](images/gh_project_issue_redirect.png)
+
+<br>
+
+***
+
+# Adding files and folders
+
+Let's address our open issue by adding some more content to our repo. To do so, we'll navigate back to the main page of our repo by clicking on either the **Code** tab or on the **testing** link in the upper left.
+
+<br>
+
+![](images/gh_redirect_home.png)
+
+<br>
+
+We now have the option of either creating files from scratch within GitHub or uploading them from another location on a computer. Let's create a new file by clicking on the **Add file** button next to the green **Code** button and then selecting **Create new file**.
+
+<br>
+
+![](images/gh_create_file.png)
+
+<br>
+
+We now have a window for editing the files contents similar to the one we saw earlier when editing our `README.md` file. At the top left is a box where you can type in the name of the file you'd like to create. If you'd like to create a new file within a new folder, you begin by typing the folder name followed by a `/` and the file name. You'll notice that as soon as you type the `/` after the folder name that GitHub will automatically shift the text box to focus on the file name.
+
+Let's create a new **R** script within a folder called `R`, and name it `00_testing.R`.
+
+<br>
+
+![](images/gh_file_create_name.png)
+
+<br>
+
+Now navigate to the editing box and add some simple **R** code.
+
+<br>
+
+![](images/gh_file_create_code.png)
+
+<br>
+
+When you are finished, scroll down to the bottom, enter a brief but informative commit message, and click on the green **Commit new file** button.
+
+<br>
+
+![](images/gh_file_create_commit.png)
+
+<br>
+
+You can now see the contents of the new `R` folder, which at the moment contains only the new `00_testing.R` file we just created.
+
+<br>
+
+![](images/gh_new_folder_contents.png)
+
+<br>
+
+Go ahead and click on the **Code** tab in the upper left, which will take you back the repo's main page. Here you can see our new `R` folder just above our existing `README.md` file.
+
+<br>
+
+![](images/gh_repo_home_r.png)
+
+<br>
+
+Now let's add a simple data file called `example_data.csv` and place it within a new folder called `data`. Again, click on the **Add file** button next to the green **Code** button and then selecting **Create new file**. Type the folder name and file name in the box and add the following information in the editing box (you can copy and paste if you'd like):
+
+```
+last_name, first_name, role
+Scheuerell, Mark, instructor
+Adams, Mary, TA
+Manion, Lance, student
+```
+
+<br>
+
+![](images/gh_create_data_file.png)
+
+<br>
+
+When you are finished, scroll down to the bottom and commit the file by adding a brief but informative commit message, and clicking on the green **Commit new file** button.
+
+<br>
+
+![](images/gh_data_file_commit.png)
+
+<br>
+
+Just as when we created our **R** script within the `R` folder, you can now see the new `example_data.csv` file we just created within the `data` folder
+
+<br>
+
+![](images/gh_data_folder_view.png)
+
+<br>
+
+Go ahead and click on the **Code** tab in the upper left, which will take you back the repo's main page. Now you will see the new `data` folder just below our existing `R` folder.
+
+<br>
+
+![](images/gh_repo_home_data.png)
+
+<br>
+
+***
+
+# Closing an Issue
+
+Now that we've added some new folders and files to our repo, let's return to the Issue we created earlier and "close" it. To do so, click on the **Issues** tab on the top of the page to take you back to our open issue.
+
+<br>
+
+![](images/gh_open_issue_return.png)
+
+<br>
+
+Click on the issue's title, which will open it up and show you all of the details. At the bottom of the issue you will see a comment box with two buttons below it: **Close issue** and **Comment**. You don't need to add a comment when closing an issue, but it's often helpful to do so. Go ahead and add a comment and then click the **Close with comment** button.
+
+<br>
+
+![](images/gh_close_issue_comment.png)
+
+<br>
+
+You'll now see that GitHub has marked the issue with a red "Closed" label under the issue name.
+
+<br>
+
+![](images/gh_issue_closed.png)
+
+<br>
+
+Now click on the **Issues** tab to return to the Issues page. GitHub is now informing you that there aren't any open issues.
+
+<br>
+
+![](images/gh_issues_main_none_open.png)
+
+<br>
+
+Now let's return to our project and move our closed issue to the "Done" column. Click on the **Projects** tab to take you back to the main Projects page where your project is listed. Click on the project name to open it back up.
+
+<br>
+
+![](images/gh_project_main.png)
+
+<br>
+
+Now drag the closed issue card from the **In progress** column over to the **Done** column.
+
+<br>
+
+![](images/gh_project_issue_done.png)
+
+<br>
+
+In the future, you can skip this final step by selecting an automation feature in your project. Go ahead and click on the three dots `...` in the upper right of the **Done** column and select **Manage automation**.
+
+<br>
+
+![](images/gh_project_automate.png)
+
+<br>
+
+Now check the box under **Move issues here when...** marked **Closed** and then click on the green **Update automation** button.
+
+<br>
+
+![](images/gh_auto_close_when_done.png)
+
+<br>
+
+# Endnote
+
+**Congratulations!**
+
+You've now successfully done the following:
+
+* created a new repo on GitHub
+
+* edited your `README.md` file
+
+* created an issue
+
+* created a project
+
+* added some additional content to your repo
+
+* closed an issue
+
+* managed your project
 
 
 

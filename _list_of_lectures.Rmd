@@ -48,7 +48,7 @@ github <- list(
   topics = c("<b>Introduction to GitHub</b>", "Repositories", "Markdown", "Issues", "Projects"),
   pdf = c(""),
   rmd = c("lectures/week_02/lec_04_intro_github.Rmd"),
-  html = c("lectures/week_02/lec_04_intro_github.Rmd"),
+  html = c("lectures/week_02/lec_04_intro_github.html"),
   background = c("[Intro to GitHub](https://guides.github.com/activities/hello-world/)"),
   zoom = ""
 )
