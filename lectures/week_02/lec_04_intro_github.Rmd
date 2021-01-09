@@ -15,6 +15,8 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+<br>
+
 # What is GitHub?
 
 GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere. GitHub itself is not a development tool, but rather a file hosting and collaboration site. In many ways, a social network like Facebook. You can build a profile, create projects to share with others, and follow the accounts of other users. GitHub is not linked to any one programming language like **R**, as you can find all kinds of projects based upon different languages there.
@@ -25,7 +27,7 @@ GitHub also runs **Git** in the background. Git is a version control software, w
 
 # Repositories
 
-A repository (or "repo" for short) is a directory or storage space for your projects on GitHub. Repositories can contain folders and files, images, videos, spreadsheets, and data sets. Most repos include a **README** file, which contains information about your project. GitHub makes it easy to add one at the same time you create your new repository. It also offers other common options such as a license file.
+A repository (or "repo" for short) is a directory or storage space for your projects on GitHub. Repositories can contain folders and files, images, videos, spreadsheets, and data sets. Most repos include a **`README.md`** file, which contains information about your project. GitHub makes it easy to add one at the same time you create your new repository. It also offers other common options such as a license file.
 
 ## Create a repository
 
@@ -33,7 +35,7 @@ Creating a repository is quite easy. Follow these steps to do so:
 
 1. Log into your account on GitHub
 
-2. Click on the `+` sign in the upper right and select `New repository`
+2. Click on the **+** sign in the upper right and select **New repository**
 
 <br>
 
@@ -128,7 +130,9 @@ This is *italic*, but then so is _this_.
 
 will result in
 
-"This is *italic*, but then so is _this_."
+This is *italic*, but then so is _this_.
+
+<br>
 
 #### Bold
 
@@ -142,6 +146,8 @@ will render to
 
 This is **bold**, but then so is __this__.
 
+<br>
+
 #### Bold & italic
 
 For combined ***bold and italics*** face, wrap the text with three asterisks (`***`), such that
@@ -153,6 +159,8 @@ This is ***bold and italic***.
 renders to
 
 This is ***bold and italic***.
+
+<br>
 
 #### Strike-through
 
@@ -310,7 +318,7 @@ Let's edit our `README.md` file by clicking on the pencil icon in the upper righ
 
 <br>
 
-This brings up an editing window where you can add or modify existing text using the various formatting options via Markdown. You can preview a formatted version of your text by clicking the **Preview changes** tab.
+This brings up an editing window where you can add or modify existing text using the various formatting options via Markdown. Below you can see where I've added some MArkdown flavored text. You can preview a formatted version of your text by clicking the **Preview changes** tab.
 
 <br>
 
@@ -346,7 +354,7 @@ You will now see your repo with the edited and formatted `README.md` file.
 
 # Issues
 
-Issues are used to track to-do items, bugs, feature requests, and more. Some people will refer to these as "tickets". Go ahead and click on the **Issues** tab in the upper left near the **Code** tab that you are on now.
+Issues are used to track to-do items, bugs, feature requests, and more. Some people will refer to these as "tickets" or "cards". Go ahead and click on the **Issues** tab in the upper left near the **Code** tab that you are on now.
 
 <br>
 
@@ -386,7 +394,15 @@ You have some additional options on the righthand side for assigning collaborato
 
 <br>
 
-When you are finished adding a description, labels, etc, click on the green **Submit new issue** button at the bottom.
+You can see below that I've added the following labels to the issue:
+
+- **documentation**
+
+- **enhancement**
+
+- **good frist issue**
+
+When you are finished adding a description, labels, etc, click on the green **Submit new issue** button at the bottom. 
 
 <br>
 
@@ -456,7 +472,7 @@ Lastly, click on the green **Create project** button.
 
 You now have a new project to which you can add "cards". By default, GitHub has added 3 cards to the **To do** column on the lefthand side. You will also see an option to **Add cards** on the righthand side, including the new issue we created earlier. This is one of the great features of GitHub. Not only can you create cards from scratch, but you can pull in issues as well to help you manage what's happening, who's doing it, and when it's completed.
 
-You are welcome to follow the tutorial in the first card, but we'll ignore that for now.
+You are welcome to follow the tutorial in the first card under the **To do** column, but we'll ignore that for now.
 
 <br>
 
@@ -466,7 +482,7 @@ You are welcome to follow the tutorial in the first card, but we'll ignore that 
 
 Go ahead and click on the **X** on the righthand side of the blue banner across the top of the page that says "Project created from Basic kanban template".
 
-Let's add the issue we created earlier to this project by clicking and dragging it over to the **To do** column under the existing **Automation** card. After doing so, let's close the **Add cards** window by clicking on the **X** to the right.
+Let's add the issue we created earlier to this project by clicking and dragging it over to the **To do** column under the existing **Automation** card.
 
 <br>
 
