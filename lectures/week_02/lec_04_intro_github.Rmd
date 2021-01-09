@@ -101,20 +101,22 @@ The text in a Markdown document can be formatting in a number of ways. At a basi
 You can specify different levels of headings using the hash tag (pound) symbol `#`. By adding more `#` signs you can decrease the heading level. So, for example, the following
 
 ```
-# Heading 1
-## Heading 2
-### Heading 3
-#### Heading 4
+# Level-1 header
+## Level-2 header
+### Level-3 header
+#### Level-4 header
 ```
 
 will render to 
 
-# Heading 1
-## Heading 2
-### Heading 3
-#### Heading 4
+# Level-1 header
+## Level-2 header 
+### Level-3 header
+#### Level-4 header 
 
-### Emphasis
+<br>
+
+### Emphasis 
 
 #### Italics
 
@@ -462,6 +464,8 @@ You are welcome to follow the tutorial in the first card, but we'll ignore that 
 
 <br>
 
+Go ahead and click on the **X** on the righthand side of the blue banner across the top of the page that says "Project created from Basic kanban template".
+
 Let's add the issue we created earlier to this project by clicking and dragging it over to the **To do** column under the existing **Automation** card. After doing so, let's close the **Add cards** window by clicking on the **X** to the right.
 
 <br>
@@ -470,27 +474,11 @@ Let's add the issue we created earlier to this project by clicking and dragging 
 
 <br>
 
-Let's delete the default cards from our project, as they don't really offer any specific information here. To do so, click on the 3 dots in the upper right of a card and select **Delete note**.
+Let's delete the default cards from our project, as they don't really offer any specific information here. To do so, click on the 3 dots in the upper right of a card and select **Delete note**. Let's also close the **Add cards** tab on the righthand side by clicking on the **X**, so we can see the third column of our project board.
 
 <br>
 
 ![](images/gh_project_delete_card.png)
-
-<br>
-
-Out current project has two columns: **To do** and **In progress**. Let's add another column for completed items and call it **Finished**. To do so, click on the **Add column** button on the right.
-
-<br>
-
-![](images/gh_project_add_col.png)
-
-<br>
-
-In the **Coumn name** field, type "Finished" (although the actual name doesn't really matter--you coudl name it "completed" or something else). In the **Automation** section below the column name, click on the Preset button and select "Done". When you are finished, click on the green **Create column** button.
-
-<br>
-
-![](images/gh_project_add_col_details.png)
 
 <br>
 
@@ -510,7 +498,7 @@ When you are ready to work on or resolve an issue, drag it over to the **In prog
 
 <br>
 
-From here you can click on the name of the issue and the details will appear off to the righthand side. If you want to work on this issue, click on the button in the lower right titled **Go to issue for full details** and GitHub will redirect you to the issues page with that issue open.
+At any point here you can click on the name of the issue and the details will appear off to the righthand side. If you want to work on this issue, click on the button in the lower right titled **Go to issue for full details** and GitHub will redirect you to the issues page with that issue open.
 
 <br>
 
@@ -518,5 +506,12 @@ From here you can click on the name of the issue and the details will appear off
 
 <br>
 
+You will now see the issue opened under the **Issues** tab with some additional information related to its addition to our new project.
+
+<br>
+
+![](images/gh_project_issue_redirect.png)
+
+<br>
 
 
