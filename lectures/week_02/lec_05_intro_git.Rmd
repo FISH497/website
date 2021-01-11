@@ -93,43 +93,101 @@ When you’re done working on a branch, you can merge your changes back to the m
 
 ***
 
-# Configuring Git
+# Using the command line
 
-Before using Git for version control, you'll need to configure it to use your name and email address. The first step is to tell Git who you are. Replace `first last` with your first and last names, and be sure to include the quotation marks.
+We'll start by using Git via its standard command line interface, which means you'll have to do a bit of typing. Begin by opening either **Terminal** (Mac OS) or **Bash** (Windows). The command shell will look a bit different depending on which OS you are using. In either case, `$` marks the beginning of the command line where you can start typing commands.
+
+**Mac OS**
 
 ```
-git config --global user.name "first last"
+computername:~ username$
+```
+
+**Windows**
+
+```
+username@computername ~
+$
+```
+
+The tilde `~` indicates that you are in your root directory. You can check check the full path name with `pwd`, which stands for "print working directory".
+
+```
+$ pwd
+```
+
+On a Mac this returns
+
+```
+/Users/username
+```
+
+# Configuring Git
+
+Before using Git for version control, you'll need to configure it to use your name and email address. The first step is to tell Git who you are. Replace `first last` with your first and last names, and be sure to include the quotation marks. (Note these command line instructions will just begin with a `$` so as to be platform independent.) 
+
+```
+$ git config --global user.name "first last"
 ```
 
 The next step is to give Git your email address. Replace `your_email` with your actual email address and again be sure to include the quotation marks.
 
 ```
-git config --global user.email "your_email"
+$ git config --global user.email "your_email"
 ```
 
 You can now check that your user name and email are set correctly with the following command
 
 ```
-git config --list
+$ git config --list
 ```
 
 # Initializing a repo
 
-### Starting a completely new project
+## Create a new folder
 
-Step 1: Make a new repository on github and grab the link from the clone with SSH option.
-
-Step 2: Make a new project in R studio with Git control and copy the link.
-
-### An existing project on your PC that is not yet tracked by Git
-First make a remote repository on Github and grab the link from the clone with SSH option.
-
-Browse through the right folder in the command line, or browse in your normal explorer to the right folder and right click “Git Bash here”:
+We'll begin by creating a new folder/directory from the command line. Go ahead and type the following command to create a new directory called `tryout`:
 
 ```
-#-- Initialize git tracking
-$ git init
+$ mkdir ~/tryout
+```
 
+The function `mkdir` is short for "make directory"; it's not a Git command, so we don't have to preface it with `git`. The `~/` before `tryout` simply tells the operating system to create the new directory in the user's root directory. Now navigate into the new `tryout` folder by typing
+
+```
+$ cd tryout
+```
+
+The command `cd` is short for "change directory". Notice that the `~` has now changed to `tryout` to indicate you are in the `tryout` folder.
+
+You can type `ls` to list the contents of a directory. If you do that now, nothing happens because the folder is empty
+
+```
+$ ls
+$
+```
+
+## Initialize a repo
+
+Before Git will start tracking the changes to files and folders, you need to "initialize" the project folder. To do so, type
+
+```
+$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /Users/username/tryout/.git/
+$ 
+```
+
+```
 -- Add the remote repository
 $ git remote add origin YourGithubLink
 
@@ -183,6 +241,36 @@ $ git push -u origin master
 <br>
 
 At this point **RStudio** will open a new instance with all of the project files listed. You are now ready to do work with your project in **RStudio**.
+
+
+# Misc
+
+### Starting a completely new project
+
+Step 1: Make a new repository on github and grab the link from the clone with SSH option.
+
+Step 2: Make a new project in R studio with Git control and copy the link.
+
+### An existing project on your PC that is not yet tracked by Git
+First make a remote repository on Github and grab the link from the clone with SSH option.
+
+Browse through the right folder in the command line, or browse in your normal explorer to the right folder and right click “Git Bash here”:
+
+```
+#-- Initialize git tracking
+$ git init
+
+-- Add the remote repository
+$ git remote add origin YourGithubLink
+
+-- Add and commit the files
+$ git add -A
+$ git commit m "commit message"
+
+-- Make the link between the local and remote repository
+$ git push -u origin master
+```
+
 
 ## Basic GIT workflow
 
@@ -417,6 +505,4 @@ Alternative option in multiple steps:
 Delete current remote: `$ git remote rm origin`  
 Add new remote: `$ git remote add origin YourNewLink`    
 Confirm the link: `$ git push -u origin master`  
-
-
 
