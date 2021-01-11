@@ -318,7 +318,7 @@ Let's edit our `README.md` file by clicking on the pencil icon in the upper righ
 
 <br>
 
-This brings up an editing window where you can add or modify existing text using the various formatting options via Markdown. Below you can see where I've added some MArkdown flavored text. You can preview a formatted version of your text by clicking the **Preview changes** tab.
+This brings up an editing window where you can add or modify existing text using the various formatting options via Markdown. Below you can see where I've added some Markdown flavored text. You can preview a formatted version of your text by clicking the **Preview changes** tab.
 
 <br>
 
