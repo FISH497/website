@@ -23,7 +23,7 @@ Git is a version control software, which means it records changes to a file or s
 
 ***
 
-# Git Vocabulary
+# Git vocabulary
 
 **repository (repo)**: folder containing all tracked files as well as the version control history
 
@@ -52,10 +52,11 @@ Git is a version control software, which means it records changes to a file or s
 
 **pull request**: a message sent by one GitHub user to another with a request to merge their commits from their remote repository into another user's remote repository
 
+***
 
 # Git commands
 
-To begin, we will be using Git via the command line, which means having to type out each instruction. Every Git command begins with the word `git`.
+To begin, we will be using Git via the command line, which means having to type out each instruction. Every Git command begins with the word `git`. If you are running Mac OS, you'll use **Terminal**. If you are running Windows, you'll use the **Git Bash** app that comes with your installation of Git.
 
 `git help`  
 This will bring up the 21 most common Git commands. You can also type `git help blah` where `blah` is the name of a specific command to get more specific information.
@@ -73,7 +74,7 @@ Check the status of your repository. See which files are inside it and which cha
 This is a bit misleading as it doesn't actually add new files to your repository. Rather, it merely alerts Git to start paying attention to a file.
 
 `git commit`  
-This is the *most important* command, as it tells Git to take a snapshot of any changed files in the repository.
+This is *the most important* command, as it tells Git to take a snapshot of any changed files in the repository.
 
 `git push`  
 This moves ("pushes") changes from your local repo up to a remote repository like GitHub.
@@ -92,9 +93,30 @@ When you’re done working on a branch, you can merge your changes back to the m
 
 ***
 
-# Initializing your repository set up
+# Configuring Git
+
+Before using Git for version control, you'll need to configure it to use your name and email address. The first step is to tell Git who you are. Replace `first last` with your first and last names, and be sure to include the quotation marks.
+
+```
+git config --global user.name "first last"
+```
+
+The next step is to give Git your email address. Replace `your_email` with your actual email address and again be sure to include the quotation marks.
+
+```
+git config --global user.email "your_email"
+```
+
+You can now check that your user name and email are set correctly with the following command
+
+```
+git config --list
+```
+
+# Initializing a repo
 
 ### Starting a completely new project
+
 Step 1: Make a new repository on github and grab the link from the clone with SSH option.
 
 Step 2: Make a new project in R studio with Git control and copy the link.
@@ -120,14 +142,47 @@ $ git push -u origin master
 ```
 
 
-### An existing project on Github but not yet on your pc
-Browse to the right root folder and type in Bash:
-```
--- Making a copy of the repository
-$ git clone TheGithubLink
-```
+# Create a project in **RStudio**
 
-<br><hr>
+**RStudio** provides a nice interface for using Git for version control via "Projects". Note that these are different than the [GitHub Projects we learned about last time](https://fish497.github.io/website/lectures/week_02/lec_04_intro_github.html#Projects).
+
+1. Start **RStudio**
+
+2. Select *File* --> *New Project...*, which will bring up a dialogue box.
+
+3. Select **Version Control**
+
+![](images/rstudio_create_project.png)
+
+<br>
+
+4. Select **Git**
+
+![](images/rstudio_create_project_kind.png)
+
+<br>
+
+5. In the **Repository URL** box, copy/paste the full repo address from GitHub (note that `YOUR_USERNAME` in the location below should be *your* **GitHub** user name):
+
+![](images/rstudio_create_project_url.png)
+
+<br>
+
+6. Tab to the next box **Project directory name**, which should auto-fill with the repo name `testing`.
+
+7. Select the directory location where you'd like this to live. I **strongly** suggest choosing a location that is not under some other version control software such as **Dropbox**.
+
+![](images/rstudio_create_project_dir.png)
+
+<br>
+
+7. Check the box in the lower left that says "Open in new session" and then click on the **Create Project** button.
+
+![](images/rstudio_create_project_new.png)
+
+<br>
+
+At this point **RStudio** will open a new instance with all of the project files listed. You are now ready to do work with your project in **RStudio**.
 
 ## Basic GIT workflow
 
