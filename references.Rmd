@@ -19,6 +19,8 @@ Hadley Wickham & Garrett Grolemund [*R for Data Science*](https://r4ds.had.co.nz
 
 Natalie Cooper & Pen-Yuan Hsing (Editors) [*A Guide to Reproducible Code in Ecology and Evolution*](https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf)
 
+Scott Chacon & Ben Straub [Pro Git](https://git-scm.com/book/en/v2)
+
 ## Tutorials
 
 R-bloggers [*R tutorials for Data Science*](https://www.r-bloggers.com/2016/06/curated-list-of-r-tutorials-for-data-science/) 
