@@ -50,7 +50,7 @@ github <- list(
   rmd = c("lectures/week_02/lec_04_intro_github.Rmd"),
   html = c("lectures/week_02/lec_04_intro_github.html"),
   background = c("[Intro to GitHub](https://guides.github.com/activities/hello-world/)"),
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/G2495j6sl9XrUNDDjv1Crp4HGrp87C076SuiyALx4C4mvI-PebUYl6GVhsdJ-XyV.SDEAhBm7UVDk0rNq"
 )
 
 ## day 5 ####
@@ -58,8 +58,8 @@ version_control <- list(
   title = "Version control",
   topics = c("<b>Version control with Git</b>", "Tracking changes", "Exploring history", "Ignoring things"),
   pdf = c(""),
-  rmd = c("lectures/week_02/lec_05_intro_git.Rmd"),
-  html = c("lectures/week_02/lec_05_intro_git.html"),
+  rmd = c(""),
+  html = c(""),
   background = c("[Blischak et al (2016)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668)"),
   zoom = ""
 )
