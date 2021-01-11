@@ -58,9 +58,9 @@ version_control <- list(
   title = "Version control",
   topics = c("<b>Version control with Git</b>", "Tracking changes", "Exploring history", "Ignoring things"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
+  rmd = c("lectures/week_02/lec_05_intro_git.Rmd"),
+  html = c("lectures/week_02/lec_05_intro_git.html"),
+  background = c("[Blischak et al (2016)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668)"),
   zoom = ""
 )
 
