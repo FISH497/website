@@ -414,6 +414,100 @@ The log lists all commits made to a repository in reverse chronological order. T
 * the date/time stamp of when it was created  
 * the commit message passed to Git
 
+# Making changes to a file
+
+Let's now imagine you wanted to return to the R script we created earlier and add some more lines of code, or make some changes to the existing code. Again, we can use **nano** to edit our script.
+
+**Input**
+
+```
+$ nano test_script.R
+```
+
+Go ahead and add the following lines of r code to the script. When you are finished, press `control+x` to exit, followed by `y` to save the file, and `return` to accept the same file name.
+
+```
+## an operation
+a + b
+```
+
+![](images/nano_script_edit.png)
+
+<br>
+
+You can inspect the contents of a file from the terminal with `cat`. Use that to inspect your R script to make sure the changes took effect.
+
+**Input**
+
+```
+$ cat test_script.R
+```
+
+**Output**
+
+```
+## a test script
+a <- 1
+b <- 2
+## an operation
+a + b
+
+```
+
+Let's now check on the status of our repo.
+
+**Input**
+
+```
+$ git status
+```
+
+**Output**
+
+```
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   test_script.R
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+This output indicates that there is one file (`test_script.R`) that has been modified, but importantly, nothing has yet been added to the staging area. This is what the last line of the output is telling us.
+
+Before adding the file to staging, it's a good idea to inspect the changes that we made to a file. To do this in Git, we'll use `git diff`, which is short for "difference".
+
+**Input**
+
+```
+$ git diff
+```
+
+**Output**
+
+```
+diff --git a/test_script.R b/test_script.R
+index 05922e5..4cdf1a7 100644
+--- a/test_script.R
++++ b/test_script.R
+@@ -1,3 +1,6 @@
+ ## a test script
+ a <- 1
+ b <- 2
++## an operation
++a + b
++
+```
+
+Hmm, this output is definitely a bit cryptic.
+
+* The first line indicates that the Git output is similar to the Unix `diff` command comparing the old (`a/test_script.R`) and new (`b/test_script.R`) versions of the file.  
+* The second line indicates which versions of the file Git is comparing (i.e., `05922e5` and `4cdf1a7` are their unique version-specific labels).  
+* The third and fourth lines once again show the name of the file being changed (`test_script.R`).  
+* The remaining lines show the actual differences and the lines on which they occur.  
+    - `@@ -1,3 +1,6 @@` means there was info on lines 1-3 and now there is info on lines 1-6  
+    - the next 6 lines show the file contents before and after it was modified; the `+` sign in the first column shows the lines that were added most recently (note that the last line of the file is blank).
 
 # Create a project in **RStudio**
 
