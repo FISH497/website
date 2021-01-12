@@ -86,7 +86,7 @@ This moves ("pulls") changes from a remote repository like GitHub to your local 
 This creates a new branch in the current repo.
 
 `git checkout`  
-This essentially discards any changes to a local file and reverts it back to the way it was at the last commit.
+This command has two uses: 1) inspect a new branch, and 2) discard any changes to a local file and revert it back to the way it was at the last commit.
 
 `git merge`  
 When you’re done working on a branch, you can merge your changes back to the master branch, which is visible to all collaborators. git merge cats would take all the changes you made to the “cats” branch and add them to the master.
@@ -142,7 +142,7 @@ You can now check that your user name and email are set correctly with the follo
 $ git config --list
 ```
 
-# Initializing a repo
+# Setting up a repo
 
 ## Create a new folder
 
@@ -160,6 +160,19 @@ $ cd tryout
 
 The command `cd` is short for "change directory". Notice that the `~` has now changed to `tryout` to indicate you are in the `tryout` folder.
 
+**Mac OS**
+
+```
+computername:tryout username$
+```
+
+**Windows**
+
+```
+username@computername /c/tryout
+$
+```
+
 You can type `ls` to list the contents of a directory. If you do that now, nothing happens because the folder is empty
 
 ```
@@ -167,7 +180,7 @@ $ ls
 $
 ```
 
-## Initialize a repo
+## Initialize the repo
 
 Before Git will start tracking the changes to files and folders, you need to "initialize" the project folder. To do so, type
 
@@ -187,7 +200,30 @@ Initialized empty Git repository in /Users/username/tryout/.git/
 $ 
 ```
 
-You can see that Git responded to your command with a helpful reminder about branch names. In the not so distant past, GitHub used the term "master" to refer to the main branch of a repo. However, in light of the negative connotations of the word, that has been changed to "main", so Git is suggesting you might want to change it as well.
+You can see that Git responded to your command with a helpful reminder about branch names. In the not so distant past, Git and GitHub used the term "master" to refer to the main branch of a repo. However, in light of the negative connotations of the word, many have advocated to change it to "main", so Git is suggesting you might want to do that as well. Let's go ahead and change our branch name to `main` (note that this is another silent command, so it won't return anything). The `-m` option for `git branch` is short for "rename".
+
+```
+$ git branch -m main
+```
+
+The command `git status` will report all kinds of information related to the contents of a repo. Running that now shows the following:
+
+* you are on the main branch  
+* there are no commits  
+* there is nothing to commit at the moment
+
+```
+$ git status
+On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+```
+
+## Adding files
+
+Before you can commit a file to the tracking history, you need to "add" it to the list of things for Git to track. To do so, we'll use `git add`, but at the moment our folder is empty so we need to populate it with something.
 
 
 
@@ -254,27 +290,6 @@ At this point **RStudio** will open a new instance with all of the project files
 Step 1: Make a new repository on github and grab the link from the clone with SSH option.
 
 Step 2: Make a new project in R studio with Git control and copy the link.
-
-### An existing project on your PC that is not yet tracked by Git
-First make a remote repository on Github and grab the link from the clone with SSH option.
-
-Browse through the right folder in the command line, or browse in your normal explorer to the right folder and right click “Git Bash here”:
-
-```
-#-- Initialize git tracking
-$ git init
-
--- Add the remote repository
-$ git remote add origin YourGithubLink
-
--- Add and commit the files
-$ git add -A
-$ git commit m "commit message"
-
--- Make the link between the local and remote repository
-$ git push -u origin master
-```
-
 
 ## Basic GIT workflow
 

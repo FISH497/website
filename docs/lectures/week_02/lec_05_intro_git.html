@@ -11,7 +11,7 @@
 
 <meta name="author" content="Mark Scheuerell" />
 
-<meta name="date" content="2021-01-11" />
+<meta name="date" content="2021-01-13" />
 
 <title>Introduction to Git</title>
 
@@ -267,7 +267,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Introduction to Git</h1>
 <h4 class="author">Mark Scheuerell</h4>
-<h4 class="date">11 January 2021</h4>
+<h4 class="date">13 January 2021</h4>
 
 </div>
 
@@ -319,7 +319,7 @@ This moves (“pulls”) changes from a remote repository like GitHub to your lo
 <p><code>git branch</code><br />
 This creates a new branch in the current repo.</p>
 <p><code>git checkout</code><br />
-This essentially discards any changes to a local file and reverts it back to the way it was at the last commit.</p>
+This command has two uses: 1) inspect a new branch, and 2) discard any changes to a local file and revert it back to the way it was at the last commit.</p>
 <p><code>git merge</code><br />
 When you’re done working on a branch, you can merge your changes back to the master branch, which is visible to all collaborators. git merge cats would take all the changes you made to the “cats” branch and add them to the master.</p>
 <hr />
@@ -346,8 +346,8 @@ $</code></pre>
 <p>You can now check that your user name and email are set correctly with the following command</p>
 <pre><code>$ git config --list</code></pre>
 </div>
-<div id="initializing-a-repo" class="section level1">
-<h1>Initializing a repo</h1>
+<div id="setting-up-a-repo" class="section level1">
+<h1>Setting up a repo</h1>
 <div id="create-a-new-folder" class="section level2">
 <h2>Create a new folder</h2>
 <p>We’ll begin by creating a new folder/directory from the command line. Go ahead and type the following command to create a new directory called <code>tryout</code>:</p>
@@ -355,12 +355,17 @@ $</code></pre>
 <p>The function <code>mkdir</code> is short for “make directory”; it’s not a Git command, so we don’t have to preface it with <code>git</code>. The <code>~/</code> before <code>tryout</code> simply tells the operating system to create the new directory in the user’s root directory. Now navigate into the new <code>tryout</code> folder by typing</p>
 <pre><code>$ cd tryout</code></pre>
 <p>The command <code>cd</code> is short for “change directory”. Notice that the <code>~</code> has now changed to <code>tryout</code> to indicate you are in the <code>tryout</code> folder.</p>
+<p><strong>Mac OS</strong></p>
+<pre><code>computername:tryout username$</code></pre>
+<p><strong>Windows</strong></p>
+<pre><code>username@computername /c/tryout
+$</code></pre>
 <p>You can type <code>ls</code> to list the contents of a directory. If you do that now, nothing happens because the folder is empty</p>
 <pre><code>$ ls
 $</code></pre>
 </div>
-<div id="initialize-a-repo" class="section level2">
-<h2>Initialize a repo</h2>
+<div id="initialize-the-repo" class="section level2">
+<h2>Initialize the repo</h2>
 <p>Before Git will start tracking the changes to files and folders, you need to “initialize” the project folder. To do so, type</p>
 <pre><code>$ git init
 hint: Using &#39;master&#39; as the name for the initial branch. This default branch name
@@ -375,6 +380,25 @@ hint:
 hint:   git branch -m &lt;name&gt;
 Initialized empty Git repository in /Users/username/tryout/.git/
 $ </code></pre>
+<p>You can see that Git responded to your command with a helpful reminder about branch names. In the not so distant past, Git and GitHub used the term “master” to refer to the main branch of a repo. However, in light of the negative connotations of the word, many have advocated to change it to “main”, so Git is suggesting you might want to do that as well. Let’s go ahead and change our branch name to <code>main</code> (note that this is another silent command, so it won’t return anything). The <code>-m</code> option for <code>git branch</code> is short for “rename”.</p>
+<pre><code>$ git branch -m main</code></pre>
+<p>The command <code>git status</code> will report all kinds of information related to the contents of a repo. Running that now shows the following:</p>
+<ul>
+<li>you are on the main branch<br />
+</li>
+<li>there are no commits<br />
+</li>
+<li>there is nothing to commit at the moment</li>
+</ul>
+<pre><code>$ git status
+On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use &quot;git add&quot; to track)</code></pre>
+</div>
+<div id="adding-files" class="section level2">
+<h2>Adding files</h2>
 <pre><code>-- Add the remote repository
 $ git remote add origin YourGithubLink
 
@@ -425,23 +449,6 @@ $ git push -u origin master</code></pre>
 <h3>Starting a completely new project</h3>
 <p>Step 1: Make a new repository on github and grab the link from the clone with SSH option.</p>
 <p>Step 2: Make a new project in R studio with Git control and copy the link.</p>
-</div>
-<div id="an-existing-project-on-your-pc-that-is-not-yet-tracked-by-git" class="section level3">
-<h3>An existing project on your PC that is not yet tracked by Git</h3>
-<p>First make a remote repository on Github and grab the link from the clone with SSH option.</p>
-<p>Browse through the right folder in the command line, or browse in your normal explorer to the right folder and right click “Git Bash here”:</p>
-<pre><code>#-- Initialize git tracking
-$ git init
-
--- Add the remote repository
-$ git remote add origin YourGithubLink
-
--- Add and commit the files
-$ git add -A
-$ git commit m &quot;commit message&quot;
-
--- Make the link between the local and remote repository
-$ git push -u origin master</code></pre>
 </div>
 <div id="basic-git-workflow" class="section level2">
 <h2>Basic GIT workflow</h2>
