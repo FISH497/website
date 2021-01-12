@@ -9,7 +9,7 @@ navbar:
     - text: "References"
       href: references.html
     - text: ""
-      icon: fa-github
+      icon: fab fa-github
       href: https://github.com/FISH497
 output_dir: "docs"
 output:
