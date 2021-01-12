@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Git"
 author: "Mark Scheuerell"
-date: "11 January 2021"
+date: "13 January 2021"
 output:
   html_document:
     theme: readable
@@ -86,7 +86,7 @@ This moves ("pulls") changes from a remote repository like GitHub to your local 
 This creates a new branch in the current repo.
 
 `git checkout`  
-This essentially discards any changes to a local file and reverts it back to the way it was at the last commit.
+This command has two uses: 1) inspect a new branch, and 2) discard any changes to a local file and revert it back to the way it was at the last commit.
 
 `git merge`  
 When you’re done working on a branch, you can merge your changes back to the master branch, which is visible to all collaborators. git merge cats would take all the changes you made to the “cats” branch and add them to the master.
@@ -142,7 +142,7 @@ You can now check that your user name and email are set correctly with the follo
 $ git config --list
 ```
 
-# Initializing a repo
+# Setting up a repo
 
 ## Create a new folder
 
@@ -160,19 +160,46 @@ $ cd tryout
 
 The command `cd` is short for "change directory". Notice that the `~` has now changed to `tryout` to indicate you are in the `tryout` folder.
 
-You can type `ls` to list the contents of a directory. If you do that now, nothing happens because the folder is empty
+**Mac OS**
 
 ```
-$ ls
+computername:tryout username$
+```
+
+**Windows**
+
+```
+username@computername /c/tryout
 $
 ```
 
-## Initialize a repo
+You can type `ls` to list the contents of a directory. If you do that now, nothing happens because the folder is empty
+
+**Input**
+
+```
+$ ls
+```
+
+**Output**
+
+```
+$
+```
+
+## Initialize the repo
 
 Before Git will start tracking the changes to files and folders, you need to "initialize" the project folder. To do so, type
 
+**Input**
+
 ```
 $ git init
+```
+
+**Output**
+
+```
 hint: Using 'master' as the name for the initial branch. This default branch name
 hint: is subject to change. To configure the initial branch name to use in all
 hint: of your new repositories, which will suppress this warning, call:
@@ -184,20 +211,208 @@ hint: 'development'. The just-created branch can be renamed via this command:
 hint: 
 hint: 	git branch -m <name>
 Initialized empty Git repository in /Users/username/tryout/.git/
-$ 
 ```
 
-```
--- Add the remote repository
-$ git remote add origin YourGithubLink
+You can see that Git responded to your command with a helpful reminder about branch names. In the not so distant past, Git and GitHub used the term "master" to refer to the main branch of a repo. However, in light of the negative connotations of the word, many have advocated to change it to "main", so Git is suggesting you might want to do that as well. Let's go ahead and change our branch name to `main` (note that this is another silent command, so it won't return anything). The `-m` option for `git branch` is short for "rename".
 
--- Add and commit the files
-$ git add -A
-$ git commit m "commit message"
+**Input**
 
--- Make the link between the local and remote repository
-$ git push -u origin master
 ```
+$ git branch -m main
+```
+
+**Output**
+
+```
+$
+```
+
+The command `git status` will report all kinds of information related to the contents of a repo. Running that now shows the following:
+
+* you are on the main branch  
+* there are no commits  
+* there is nothing to commit at the moment
+
+**Input**
+
+```
+$ git status
+```
+
+**Output**
+
+```
+On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+```
+
+# Adding files
+
+Before you can commit a file to the tracking history, you need to "add" it to the list of things for Git to track. To do so, we'll use `git add`, but at the moment our folder is empty so we need to populate it with something. We'll use a built-in text editor called **nano** to create a simple R script as an example. Type the following
+
+**Input**
+
+```
+$ nano test_script.R
+```
+
+which will automatically open **nano** with a blank slate. You will see the software name in the upper left and the name of the file at the top (`File: test_script.R`). There is also a block cursor in the upper left and a note at the bottom that this is a new file (`[ New File ]`). There are also some commands listed at the bottom. The caret `^` refers to the "control" key on your keyboard, so for example, `control+X` will exit **nano** (the `X` can be lowercase `x`). (Note that your text and background color for **nano** may be different than the examples below.)
+
+![](images/nano_blank.png)
+
+<br>
+
+Now go ahead and add the following lines of code to your new test script:
+
+```
+## a test script
+a <- 1
+b <- 2
+```
+
+![](images/nano_script_init.png)
+
+<br>
+
+You can see that now **nano** sees this file as modified as indicated in the upper right (`Modified`). When you are finished, hit `control+X`, which will bring up a message asking if you want to save the modified file. Press `Y` (or `y`) to save your changes and then hit `return` to accept the same file name you set at its creation.
+
+![](images/nano_file_save.png)
+
+![](images/nano_file_save_name.png)
+
+<br>
+
+At this point you will be returned to the regular terminal window.
+
+Now that we have a new file in our `tryout` folder, we can check the status of Git.
+
+**Input**
+
+```
+$ git status
+```
+
+**Output**
+
+```
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	test_script.R
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+Here Git is reporting that `test_script.R` is "untracked" and it suggests that you use `git add` to track it. Let's do that by using `git add filename` where `filename` is the name ouf our R script (we'll see other ways to add files later).
+
+**Input**
+
+```
+$ git add test_script.R
+```
+
+**Output**
+
+```
+$
+```
+
+Again this command doesn't return anything, so we should check the status of our repo.
+
+**Input**
+
+```
+$ git status
+```
+
+**Output**
+
+```
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   test_script.R
+
+```
+
+Now we're getting somewhere. Git reports back that our new file `test_script.R` is "staged" and ready to be committed to the Git history.
+
+# Committing a file
+
+Committing files in Git is the backbone of the whole version control process. To do so, we'll use `git commit` with some additional information about what we're committing via a "commit message". Commit messages should be "short but informative", which means they should include enough information to help you and others understand what was done without being verbose. Some examples might be:
+
+* "created new R script for data ingest"  
+* "started work on background info for analysis"
+* "added new year of data to samples.csv"  
+
+Let's go ahead and commit our new R script with the following (you must include the quotes):
+
+**Input**
+
+```
+$ git commit -m "created test R script"
+```
+
+The `-m` flag stands for "message".
+
+**Output**
+
+```
+[main (root-commit) 5e40183] created test R script
+ 1 file changed, 3 insertions(+)
+ create mode 100644 test_script.R
+```
+
+When we run `git commit`, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special `.git` directory. This permanent copy is called a commit and its short identifier is `5e40183` (note that your commit will likely have a different identifier).
+
+We can now check the status of our repo and see where things stand.
+
+**Input**
+
+```
+$ git status
+```
+
+**Output**
+
+```
+On branch main
+nothing to commit, working tree clean
+```
+
+Now Git is reporting that everything is up to date. If you want a report of your recent activity, you can ask Git to show you the project's history using `git log`.
+
+**Input**
+
+```
+$ git log
+```
+
+**Output**
+
+```
+commit 5e401831a92cf9e6980d0ee78a19966d6b310b78 (HEAD -> main)
+Author: First Last <email@domain.edu>
+Date:   Tue Jan 12 07:05:06 2021 -0800
+
+    created test R script
+```
+
+The log lists all commits made to a repository in reverse chronological order. The listing for each commit includes:
+
+* a full 40-character identifier (i.e., the "SHA-1 checksum"), starting with the same 7 characters as the short identifier printed by the `git commit` command we used earlier  
+* the commit author's name and email address  
+* the date/time stamp of when it was created  
+* the commit message passed to Git
 
 
 # Create a project in **RStudio**
@@ -245,21 +460,7 @@ At this point **RStudio** will open a new instance with all of the project files
 
 # Misc
 
-### Starting a completely new project
-
-Step 1: Make a new repository on github and grab the link from the clone with SSH option.
-
-Step 2: Make a new project in R studio with Git control and copy the link.
-
-### An existing project on your PC that is not yet tracked by Git
-First make a remote repository on Github and grab the link from the clone with SSH option.
-
-Browse through the right folder in the command line, or browse in your normal explorer to the right folder and right click “Git Bash here”:
-
 ```
-#-- Initialize git tracking
-$ git init
-
 -- Add the remote repository
 $ git remote add origin YourGithubLink
 
@@ -271,6 +472,12 @@ $ git commit m "commit message"
 $ git push -u origin master
 ```
 
+
+### Starting a completely new project
+
+Step 1: Make a new repository on github and grab the link from the clone with SSH option.
+
+Step 2: Make a new project in R studio with Git control and copy the link.
 
 ## Basic GIT workflow
 
