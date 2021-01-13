@@ -829,6 +829,12 @@ Super. Everything seems to be in proper working order.
 
 ***
 
+# Git clients
+
+It can be tricky to learn all of the ins and outs of Git, especially when typing a bunch of cryptic text into the command line. Fortunately, there are several graphical user interfaces (GUIs) for Git that help visualize what is being done. We'll see next time that RStudio offers a relatively simple interface to Git, but there are others that have much more functionality. I suggest reading Jenny Bryan's treatment of them [here](https://happygitwithr.com/git-client.html).
+
+***
+
 # Endnote
 
 **Congratulations!**
