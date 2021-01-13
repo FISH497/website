@@ -607,11 +607,18 @@ Author: First Last &lt;email@domain.edu&gt;
 Date:   Tue Jan 12 07:05:06 2021 -0800
 
     created test R script</code></pre>
-<p>Now we see both of our commits, with the most recent one at the top.</p>
+<p>Now we can see both of our commits, with the most recent one at the top.</p>
 <hr />
 </div>
-<div id="reviewing-history" class="section level1">
-<h1>Reviewing history</h1>
+<div id="reviewing-file-history" class="section level1">
+<h1>Reviewing file history</h1>
+<p>One of the major advantages to using a formal version control system like Git is that you can go back in time and examine changes that were made to files. You can also restore files to the state they were at some previous commit. We saw previously that we can use <code>git diff</code> to inspect the changes that were made to a staged file. Here we’ll expand that functionality to look back further in time.</p>
+<p>Let’s examine the changes to our R script with <code>git diff</code>.</p>
+<p><strong>Input</strong></p>
+<pre><code>$ git diff test_script.R</code></pre>
+<p><strong>Output</strong></p>
+<pre><code>$</code></pre>
+<p>In this case there have been no new changes to our file, so the output is blank. Git refers to the most recent version of a file as its <code>HEAD</code>. Earlier versions of a file are referenced with the tilde <code>~</code> and an integer, such that <code>HEAD~1</code> is the version that immediately precedes the current version. Similarly, <code>HEAD~10</code> refers to the version 10 steps prior to the current version.</p>
 </div>
 
 

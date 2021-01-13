@@ -594,10 +594,28 @@ Date:   Tue Jan 12 07:05:06 2021 -0800
     created test R script
 ```
 
-Now we see both of our commits, with the most recent one at the top.
+Now we can see both of our commits, with the most recent one at the top.
 
 ***
 
-# Reviewing history
+# Reviewing file history
+
+One of the major advantages to using a formal version control system like Git is that you can go back in time and examine changes that were made to files. You can also restore files to the state they were at some previous commit. We saw previously that we can use `git diff` to inspect the changes that were made to a staged file. Here we'll expand that functionality to look back further in time.
+
+Let's examine the changes to our R script with `git diff`.
+
+**Input**
+
+```
+$ git diff test_script.R
+```
+
+**Output**
+
+```
+$
+```
+
+In this case there have been no new changes to our file, so the output is blank. Git refers to the most recent version of a file as its `HEAD`. Earlier versions of a file are referenced with the tilde `~` and an integer, such that `HEAD~1` is the version that immediately precedes the current version. Similarly, `HEAD~10` refers to the version 10 steps prior to the current version.
 
 
