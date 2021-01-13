@@ -13,7 +13,7 @@ Students are not required to purchase any materials for the course, as we will r
 
 ## Online books
 
-Jenny Bryan (and others) [*Happy Git and GitHub for the useR*](https://happygitwithr.com/)
+Jenny Bryan (and others) [*Happy Git and GitHub for the useR*](https://happygitwithr.com/) [abbreviated "HGG" elsewhere on this site]
 
 Hadley Wickham & Garrett Grolemund [*R for Data Science*](https://r4ds.had.co.nz/index.html)
 
