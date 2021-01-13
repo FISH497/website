@@ -352,6 +352,20 @@ Changes to be committed:
 
 Now we're getting somewhere. Git reports back that our new file `test_script.R` is "staged" and ready to be committed to the Git history.
 
+### Other options for `git add`
+
+Here we've been adding only one file at a time. Here are some additional options for `git add` that afford you more flexibility in adding multiple files.
+
+* `git add *.R` will stage all .R files  
+
+* `git add data/` will stage the data folder and its contents
+
+* `git add .` will stage all new and modified files, but does not remove any deleted files
+
+* `git add -u` will stage all modified and deleted files, but does not stage any new files  
+
+* `git add -A` stages all new, modified and deleted files
+
 ***
 
 # Committing a file
@@ -421,6 +435,12 @@ The log lists all commits made to a repository in reverse chronological order. T
 * the commit author's name and email address  
 * the date/time stamp of when it was created  
 * the commit message passed to Git
+
+### Summary
+
+At this point you've seen how to initialize a Git repository, add (stage) a file to be committed, and committed a file to the repository. This figure from [Blischak et al. (2018)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668) shows that process graphically.
+
+![](images/git_workflow.png)
 
 ***
 
@@ -515,9 +535,7 @@ Hmm, this output is definitely a bit cryptic.
 * The first line indicates that the Git output is similar to the Unix `diff` command comparing the old (`a/test_script.R`) and new (`b/test_script.R`) versions of the file.  
 * The second line indicates which versions of the file Git is comparing (i.e., `05922e5` and `4cdf1a7` are their unique version-specific labels).  
 * The third and fourth lines once again show the name of the file being changed (`test_script.R`).  
-* The remaining lines show the actual differences and the lines on which they occur.  
-    - `@@ -1,3 +1,6 @@` means there was info on lines 1-3 and now there is info on lines 1-6  
-    - the next 6 lines show the file contents before and after it was modified; the `+` sign in the first column shows the lines that were added most recently (note that the last line of the R script is blank).
+* The remaining lines show the actual differences and the lines on which they occur; the `+` sign in the first column shows the lines that were added most recently (note that the last line of the R script is blank).
     
 That all sounds OK, so let's commit the new changes to our R script.
 
@@ -596,11 +614,46 @@ Date:   Tue Jan 12 07:05:06 2021 -0800
 
 Now we can see both of our commits, with the most recent one at the top.
 
+Let's add another operation to our R test script with the following lines of code. (For now ignore the fact that this code is problematic--we'll return to that later.)
+
+```
+## another operation
+(a + b) / 0
+```
+
+**Input**
+
+```
+$ nano test_script.R
+```
+
+**Output**
+
+![](images/nano_script_edit_2.png)
+
+<br>
+
+When you are finished, press `control+x` to exit and `y` to save the file with the same name. Now it's time to add this file and commit it.
+
+**Input**
+
+```
+$ git add test_script.R
+$ git commit -m "added a division operation to R test script"
+```
+
+**Output**
+
+```
+[main 17c1a74] added a division operation to R test script
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+```
+
 ***
 
 # Reviewing file history
 
-One of the major advantages to using a formal version control system like Git is that you can go back in time and examine changes that were made to files. You can also restore files to the state they were at some previous commit. We saw previously that we can use `git diff` to inspect the changes that were made to a staged file. Here we'll expand that functionality to look back further in time.
+One of the major advantages to using a formal version control system like Git is that you can go back in time and examine changes that were made to files. We saw previously that we can use `git diff` to inspect the changes that were made to a staged file. Here we'll expand that functionality to look back further in time.
 
 Let's examine the changes to our R script with `git diff`.
 
@@ -616,6 +669,178 @@ $ git diff test_script.R
 $
 ```
 
-In this case there have been no new changes to our file, so the output is blank. Git refers to the most recent version of a file as its `HEAD`. Earlier versions of a file are referenced with the tilde `~` and an integer, such that `HEAD~1` is the version that immediately precedes the current version. Similarly, `HEAD~10` refers to the version 10 steps prior to the current version.
+In this case there have been no new changes to our file, so the output is blank.
 
+Git refers to the most recent version of a file as its `HEAD`. Earlier versions of a file are referenced with the tilde `~` and an integer, such that `HEAD~1` is the version that immediately precedes the current version. Similarly, `HEAD~10` refers to the version 10 steps prior to the current version. We can use `git diff HEAD filename` to inspect changes to the current version, but in this case it will yield the same thing as `git diff filename`.
 
+**Input**
+
+```
+$ git diff HEAD test_script.R
+```
+
+**Output**
+
+```
+$
+```
+
+Now let's take a peek back at the version prior to our current version and compare their differences.
+
+**Input**
+
+```
+$ git diff HEAD~1 test_script.R
+```
+
+**Output**
+
+```
+diff --git a/test_script.R b/test_script.R
+index 4cdf1a7..faed447 100644
+--- a/test_script.R
++++ b/test_script.R
+@@ -3,4 +3,5 @@ a <- 1
+ b <- 2
+ ## an operation
+ a + b
+-
++## another operation
++(a + b) / 0
+```
+
+Here we can see that we deleted the blank line at the end of the script as indicated by the `-`, and replaced it with the 2 lines beginning with `## another operation`.
+
+Let's go back and look at the changes relative to our first version of the script.
+
+**Input**
+
+```
+$ git diff HEAD~2 test_script.R
+```
+
+**Output**
+
+```
+diff --git a/test_script.R b/test_script.R
+index 05922e5..faed447 100644
+--- a/test_script.R
++++ b/test_script.R
+@@ -1,3 +1,7 @@
+ ## a test script
+ a <- 1
+ b <- 2
++## an operation
++a + b
++## another operation
++(a + b) / 0
+```
+
+Here you can see that the first version had only 3 lines of code and since then we've added 4 new lines of code.
+
+***
+
+# Recovering an old version
+
+Let's imagine we weren't happy with the current version of our test script because perhaps we broke something or simply can't get it to work. Because Git is a version control system, we can easily restore files to a state they were in at some previous commit. We can use `git checkout` to restore a previous version of a file by referencing it with `HEAD~n` where `n` refers to the version we'd like.
+
+The last operation we added to our file will clearly create some problems for us because it contains a divide-by-zero. Let's revert our script to the version just prior to that when everything was working properly.
+
+**Input**
+
+```
+$ git checkout HEAD~1 test_script.R
+```
+
+**Output**
+
+```
+Updated 1 path from b478816
+```
+
+That did something, but it's not immediately clear if it was what we wanted. Let's inspect the script to see if it was indeed switched back to the prior version.
+
+**Input**
+
+```
+$ cat test_script.R
+```
+
+**Output**
+
+```
+## a test script
+a <- 1
+b <- 2
+## an operation
+a + b
+
+```
+
+Alright, our script is back to the previous working version. Let's check on the status of things.
+
+**Input**
+
+```
+$ git status
+```
+
+**Output**
+
+```
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   test_script.R
+
+```
+
+Once again Git is telling us that we still need to commit the changes to our file, so let's do that.
+
+**Input**
+
+```
+$ git commit -m "changed test script back to version before division op"
+```
+
+**Output**
+
+```
+[main 2743b47] changed test script back to version before division op
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+```
+
+Finally, let's run `git status` again to make sure we've gotten everything cleaned up.
+
+**Input**
+
+```
+$ git status
+```
+
+**Output**
+
+```
+On branch main
+nothing to commit, working tree clean
+```
+
+Super. Everything seems to be in proper working order.
+
+***
+
+# Endnote
+
+**Congratulations!**
+
+You've now successfully done the following:
+
+* Initialized a Git repository
+
+* Staged and added files to be tracked
+
+* Commited a file to the Git history
+
+* Compared changes to previous versions of a file
+
+* Reverted a file back to a previous state
