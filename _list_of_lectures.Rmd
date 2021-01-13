@@ -56,11 +56,12 @@ github <- list(
 ## day 5 ####
 version_control <- list(
   title = "Version control",
-  topics = c("<b>Version control with Git</b>", "Tracking changes", "Exploring history", "Ignoring things"),
+  topics = c("<b>Version control with Git</b>", "Adding files", "Committing file", "Exploring history", "Reverting files"),
   pdf = c(""),
-  rmd = c(""),
-  html = c(""),
-  background = c("[Blischak et al (2016)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668)"),
+  rmd = c("lectures/week_02/lec_05_intro_git.Rmd"),
+  html = c("lectures/week_02/lec_05_intro_git.html"),
+  background = c("[Blischak et al (2016)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668)",
+                 "[Chap 20 of HGG](https://happygitwithr.com/git-basics.html)"),
   zoom = ""
 )
 
