@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Git remotes"
+title: "Introduction to GitHub remotes"
 author: "Mark Scheuerell"
 date: "15 January 2021"
 output:
@@ -17,305 +17,254 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br>
 
-#
+# Remote repositories
+
+Remote repositories like GitHub allow you to store you code, data, and other information in a convenient online location. However, most of the time you will want to work on your personal computer and take advantage of a nicer programming interface, or so-called *integrated development environment* (IDE) like **RStudio**. Using remotes also allows for easier collaboration among people working in different places. This lesson will introduce you to working with remote repositories and show how to move your files back and forth from the cloud to a local computer. In general, our model for this process looks something like this.
+
+![](images/github_model.png)
 
 ***
 
 # Create a project in **RStudio**
 
-**RStudio** provides a nice interface for using Git for version control via "Projects". Note that these are different than the [GitHub Projects we learned about last time](https://fish497.github.io/website/lectures/week_02/lec_04_intro_github.html#Projects).
+There are several ways to connect a remote repository to your local computer. Here we will see how to do so from within **RStudio**. **RStudio** provides a nice interface for using Git for version control via "Projects". Note that these are different than the [GitHub Projects we learned about here](https://fish497.github.io/website/lectures/week_02/lec_04_intro_github.html#Projects).
 
-1. Start **RStudio**
+1. Navigate to the **testing** repo we created on GitHub in the lesson on [Intro to GitHub](https://fish497.github.io/website/lectures/week_02/lec_04_intro_github.html). Highlight and copy the full URL from your browser's address bar.
 
-2. Select *File* --> *New Project...*, which will bring up a dialogue box.
+![](images/gh_copy_address.png)
 
-3. Select **Version Control**
+2. Start **RStudio**
+
+3. Select *File* --> *New Project...*, which will bring up a dialogue box.
+
+4. Select **Version Control**
 
 ![](images/rstudio_create_project.png)
 
 <br>
 
-4. Select **Git**
+5. Select **Git**
 
 ![](images/rstudio_create_project_kind.png)
 
 <br>
 
-5. In the **Repository URL** box, copy/paste the full repo address from GitHub (note that `YOUR_USERNAME` in the location below should be *your* **GitHub** user name):
+6. In the **Repository URL** box, copy/paste the full repo address from GitHub (note that `YOUR_USERNAME` in the location below should be *your* **GitHub** user name):
 
 ![](images/rstudio_create_project_url.png)
 
 <br>
 
-6. Tab to the next box **Project directory name**, which should auto-fill with the repo name `testing`.
+7. Tab to the next box **Project directory name**, which should auto-fill with the repo name `testing`.
 
-7. Select the directory location where you'd like this to live. I **strongly** suggest choosing a location that is not under some other version control software such as **Dropbox**.
+8. Select the directory location where you'd like this to live. I **strongly** suggest choosing a location that is not under some other version control software such as **Dropbox**.
 
 ![](images/rstudio_create_project_dir.png)
 
 <br>
 
-7. Check the box in the lower left that says "Open in new session" and then click on the **Create Project** button.
+9. Check the box in the lower left that says "Open in new session" and then click on the **Create Project** button.
 
 ![](images/rstudio_create_project_new.png)
 
 <br>
 
-At this point **RStudio** will open a new instance with all of the project files listed. You are now ready to do work with your project in **RStudio**.
+10. **RStudio** will open a new instance with all of the project files listed. You are now ready to do work with your project in **RStudio**. (Note that the files shown in your project may look different than the image below.)
 
+![](images/rstudio_new_proj.png)
 
-# Misc
+***
 
-```
--- Add the remote repository
-$ git remote add origin YourGithubLink
+# Working on remotes from RStudio
 
--- Add and commit the files
-$ git add -A
-$ git commit m "commit message"
+There are several things to note here in **RStudio** (note that your views may differ depending on how you have the window panes set up). In the **Files** tab, you should see a `README.md` file plus the **R** and **data** folders we that we previously created from within GitHub. In addition, you should see a `.gitignore` and a `testing.Rproj` file.
 
--- Make the link between the local and remote repository
-$ git push -u origin master
-```
+![](images/rstudio_file_pane.png)
 
+<br> 
 
-### Starting a completely new project
-
-Step 1: Make a new repository on github and grab the link from the clone with SSH option.
-
-Step 2: Make a new project in R studio with Git control and copy the link.
-
-## Basic GIT workflow
-
-Basic workflow:
-+ `git add` to add from your working directory to your staging area
-+ `git commit` to add the files to your local GIT
-+ `git push` to add the files to your remote GIT  
-
+Click on the `.gitignore` file to display its contents in the code pane. You should see 4 file extensions listed there:
 
 ```
--- Add all the files to the staging area
-$ git add -A
-
--- Make a commit on your work
-$ git commit -m "enter your commit message"
-
--- Push your latest commit to github
-$ git push
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
 ```
 
-Optional elements:
-+ `git status`: shows which files have changed/new.  
-+ `git diff`: shows the changes you made to the file  
-
-Different ways to **add** elements to the staging area:
-+ `git add filename.ext` will only stage the specific file  
-+ `git add *.R` will stage all .R files  
-+ `git add data/` will add the data folder and its contents
-+ `git add .` stages all new and modified files, but does not remove any deleted files  
-+ `git add -u` stages all modified and deleted files, but does not stage any new (and therefore untracked) files  
-+ `git add -A` stages all new, modified and deleted
-
-**Cleaning up your working directory:**
-+ `git clean -n`: dry run, shows all files that will be deleted
-+ `git clean -df`: removes all untracked files/folders
-
-
-Note on adding files to the remote:  
-+ When it is your first push from a repo, you will first have to make the link between the local and remote repository via: `git push  --set-upstream origin master`, or shorter `git push -u origin master`. As of then, `git push` will refer to the upstream branch you've set: i.e. origin/master.
-
-
-**Gitignore:**  
-Add a file `.gitignore` which lists all files that should be ignored by GIT. To add files to `.gitignore` within the command line:
-
-+ `touch .gitignore`: will create a .gitignore file
-+ `echo *.Rproj > .gitignore`: create and add R project file to ignore
-
+![](images/rstudio_gitignore.png)
 
 <br>
 
-**Notes for collaborative repos:**
+This `.gitignore` file contains information about the things that you **don't** want **Git** to pay attention to when tracking different versions of your files and folder contents. For example, some people want to exclude `.html` files that are generated by `.Rmd` source files, or environment files unique to **R** and **RStudio**. You can see a list of common options for **R** [here](https://github.com/github/gitignore/blob/master/R.gitignore).
 
-If a collaborative repo, the origin/master might be ahead of yours due to work from other people, and you won't be able to just push content.  
+***
 
-Options:
-+ `git pull`: with fetch the latest from the remote and merge them into you changes. this might result in a merge conflict that has to be resolved.
+# Using Git from RStudio
 
-+ `git fetch`: will only fetch the latest changes but not merge them. it will tell you which branches have changed. by running `git diff master origin/master` you can find out what the changes are, and merge manually.
+Now locate the **Git** tab in the pane with other tabs for **Environment**, **History**, etc. and click on it. You should see both the `.gitignore` and `testing.Rproj` files listed there with an empty box and 2 yellow question marks to the left of each of their names. This is the **Git** staging area and **Git** shows these 2 files as new (i.e., it's a graphical means for showing the results of `git status`).
 
-+ `git pull --rebase`: will pull commits from remote, and rebase your current commits on top of the upstream changes. it will commit your changes on top of what others have done.
-
-You can use git diff to check the difference between the remote and the local repo: `git diff master origin/master` will check the differences between the latest commit locally (master) and latest commit remotely (origin/master)
-
-
-
-<br><hr>
-
-## Working with branches
-
-Bigger changes are best made on a branch first, and only merged onto the master after the work is completed.
-You can create the remote branch at any time, after checkout or only just before the first push. I find it easiest to make it straight after creation so I don’t forget
-Adding -u ensures that the local and remote branch are connected.  
-
-
-Optional useful commands:
-+ `git branch -a`: lists all existing branches (local and remote)
-+ `git branch --merged`: lists all merged branches
-
-Step 1: Create the new branch and check it out so you start working on that branch:
-
-```
--- Creating a new branch locally:
-$ git branch YourBranchName
-
--- Creating the new branch remotely:
-$ git push -u origin YourBranchName
-
--- Swapping to the new branch to work on:
-$ git checkout YourBranchName
-```
-Step 2: Work on the branch as you are used to: add, commit, push to the new branch (link is already cemented in previous `git push -u` so no need to keep repeating it).
-```
-git add -A
-git commit -m "added something to new branch"
-git push origin YourBranchName
-```
-
-Steps 1 & 2 in one go:
-```
--- checkout a newly made branch:
-$ git checkout -b NewBranch
-
--- make your changes and create remote branch when pushing the first time:
-$ git add -A
-$ git commit -m "message"
-$ git push -u origin Newbranch
-```
-
-Step 3: If you are ready to merge:
-```
--- Changing back to master branch:
-$ git checkout master
-
--- Make sure your copy of master is up to date:
-$ git pull origin master
-
--- Merging the branch on the master:
-$ git merge YourBranchName
-
--- Push the changes to master to the remote repository:
-$ git push origin master
-
--- Deleting the branch remotely:
-$ git push --delete origin YourBranchName
-
--- Deleting the branch locally:
-$ git branch -d YourBranchName
-```
-
-When there are no changes to the master, the branch can be merged "fast forward". Sometimes it's good to force a merge commit, so the information is in the history. To do so: `$ git merge --no-ff BranchName`.  
-
-Instead of merging, you can also `git rebase` (see later).  
-
+![](images/rstudio_git_tab.png)
 
 <br>
-<hr>
 
-## GIT tags
+## Add a file to staging
 
-To tag the current state of master (tag will be added to the last commit):
-```
-$ git tag v0.1
-```
+Go ahead and click the check box in the column marked "Staged" to the left of the `.gitignore` file and you will see that a green **A** appears in the column marked "Status". This is equivalent to typing `git add .gitignore` via command-line **Git**.
 
+![](images/rstudio_git_add.png)
 
-Useful:
-+ `git tag`: To list all tags
-+ `git tag --force TagName`: Updates a previous tag to the latest commit
-+ `git tag --delete TagName`: Deletes a tag
+## Commit a file
 
+Now click on the "Commit" button just above the file name, which will bring up a new commit window.
 
-<br><hr>
-
-## GIT Stash
-
-To stash some changes to perhaps use later again. By making a stash, you bring the repo back to the previous committed stage.
-
-Making a new stash
-```
--- to stash tracked files:
-$ git stash save
-
--- to also stash untracked files:
-$ git stash save -u
-```
-
-Restoring the stashed changes: default the latst stash
-```
-$ git stash pop
-```
-
-
-Useful:
-+ `git stash list`: lists stashes
-+ `git stash drop`: discards the most recent stash
-+ `git stash clear`: clearing all previous stashes
-
-
+![](images/rstudio_git_commit.png)
 
 <br>
-<hr>
 
+![](images/rstudio_git_commit_window.png)
 
+<br>
 
-## Renaming, moving and deleting
+There are several important things to pay attention to here. The first is the menu bar across the top, which has buttons for "Changes" and "History" in the upper left, and "Pull" and "Push" in the upper right. At the moment, the "Changes" button is active, so you can see the contents of the `.gitignore` file displayed below in green. In this case, the file is brand new to **Git**, so everything is highlighted in green. Later you will see how this changes.
 
-### Files and folders
+![](images/rstudio_git_commit_menu.png)
 
-If you've renamed or moved a file, GIT by default will see it as a deletion and a new addition of a file, and not realize that these files are related.  
-You can also get GIT to rename/move a file via `git mv` in which case history will be preserved. After renaming/moving, `git status` will not show an addition/deletion but a rename that is already staged and ready to be committed.
+<br>
 
-To rename a file:
+Now go ahead and click on the "History" button just to the left of the "Changes" button, which will bring up a log of your commit history. In the example below, the last file committed was `ex_data.csv` that we had previously created and committed directly from **GitHub**. You can see information about the the commit author, the date, and the first 7 characters from the unique commit SHA.
+
+![](images/rstudio_git_commit_history.png)
+
+<br>
+
+Now click back on the "Changes" tab and type a *short but informative* commit message in the box in the upper right. When you are finished, click the **Commit** button in the lower right. This is the equivalent of typing `git commit -m "added gitignore"` via command-line **Git**.
+
+![](images/rstudio_git_commit_msg.png)
+
+<br>
+
+**RStudio** now pops open a commit window that displays the commit command and the top and the resulting reply from **Git**:
+
 ```
-$ git mv oldname.ext newname.ext
-```
-
-To move a file to a folder:
-```
-$ git mv file.ext foldername/file.ext
-```
-
-If the new location already has a file with the same filename that you want to overwrite, use `--force` or shorter `-f`
-```
-$ git mv --force file.ext foldername/file.ext
-```
-
-To delete a file:
-```
-$ git rm file.ext
-```
-
-To delete a folder with files:
-```
--- dry run first to see what check what is inside:
-$ git rm -r --dry-run folder/
-
---delete folder and files inside:
-$ git rm -r folder/
+[main d20897b] added gitignore
+ 1 file changed, 4 insertions(+)
+ create mode 100644 .gitignore
 ```
 
-### Renaming a remote repository
+![](images/rstudio_git_commit_popup.png)
 
-If you've changed your repository name on Github, you'll have to you change your local repository's remote links. You can delete and re-clone of course, but you can also just change your remote link.  
+<br>
 
-To view your current remote links:   
-`$ git remote -v`  
+Go ahead and click the "Close" button in the upper right, which will return you to the main commit window. Close that window, which will return you to the main **RStudio** viewer. Note that now the `.gitignore` file has disappeared from the **Git** tab, and only the `testing.Rproj` file remains.
 
-To change your remote URL in one go:  
-`$ git remote set-url origin YourNewLink`  
+![](images/rstudio_git_window_2.png)
 
-Alternative option in multiple steps:  
-Delete current remote: `$ git remote rm origin`  
-Add new remote: `$ git remote add origin YourNewLink`    
-Confirm the link: `$ git push -u origin master`  
+<br>
+
+# Pushing to GitHub
+
+Now that we've committed our `.gitignore` file to history, we can *push* it up to our remote repo on **GitHub**. To do so in **RStudio**, you click on the green up arrow.
+
+![](images/rstudio_git_push.png)
+
+<br>
+
+Now you will see a smaller **Git Push** window with the following information from **Git**.
+
+```
+>>> /usr/bin/git push origin HEAD:refs/heads/main
+To https://github.com/mdscheuerell/testing
+   226daed..d20897b  HEAD -> main
+```
+
+The first line is the actual **Git** command for pushing to a remote repo, and the second and third lines are the results of that command.
+
+![](images/rstudio_git_push_window.png)
+
+<br>
+
+You've now successfully pushed a change on your local computer to your remote repo on **GitHub**.
+
+## Viewing your changes on GitHub
+
+You can now check to see that your committed `.gitignore` file was indeed pushed up to **GitHub**. Switch over to your browser and navigate back to the **testing** repo at `https://github.com/YOUR-USER-NAME/testing`. You will now see the `.gitignore` file listed along with the `README.md` file and the other folders. Next to the file name, you will also see the commit message you used and a time stamp for how long ago you made the commit and push. (Note: if you don't see the file, try refreshing the view on your browser.)
+
+![](images/gh_new_pushed_file.png)
+
+<br>
+
+***
+
+# Pulling from GitHub
+
+Now let's see how to *pull* changes from a remote repo to your local computer. To do so, we'll make some changes to our `README.md` file on **GitHub**, commit them, and then pull them down. Go ahead and click on the pencil icon in the upper right to edit the `README.md` file, which will bring up the editing window.
+
+![](images/gh_edit_readme_pencil.png)
+
+<br>
+
+Make a few changes to the file and then scroll down to the bottom where you can commit those changes.
+
+<br>
+
+![](images/gh_edit_readme_pull.png)
+
+<br>
+
+Type a *short but informative* commit message and press the green **Commit changes** button.
+
+![](images/gh_edit_readme_pull_commit.png)
+
+<br>
+
+Click on either the **testing** link or eh **Code** tab to return to the main repo. Here you will see the commit message and time stamp of your newly changed file, as well as its contents.
+
+![](images/gh_new_readme.png)
+
+<br>
+
+Now return to **RStudio** and look in the **Git** tab for the blue downward arrow. This is how you *pull* files from your remote repo to your local project.
+
+![](images/rstudio_pull_arrow.png)
+
+<br>
+
+Go ahead and click on the pull arrow, which will open up a **Git Pull** window with the following information:
+
+```
+>>> /usr/bin/git pull
+From https://github.com/mdscheuerell/testing
+   d20897b..4222226  main       -> origin/main
+Updating d20897b..4222226
+Fast-forward
+ README.md | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
+```
+
+The first line is the actual **Git** command and the remaining lines are what **Git** is reporting back from `git pull`, including the file name and its contents.
+
+![](images/rstudio_pull_window.png)
+
+<br>
+
+Go ahead and close this window and then click on the `README.md` file in the **File** viewer, which will display its contents in an editing window. Notice that it reflects the recent changes you made to the file from **GitHub**
+
+![](images/rstudio_readme_pulled.png)
+
+<br>
+
+## Begin by pulling / End with pushing
+
+The trick to version control is keeping all of your local and remote repositories synced with one another. Thus, whenever you begin working on a project in **RStudio**, you should ***always begin by pulling any changes from your remote repo into your RStudio project***.
+
+Similarly, when you are finished editing all of your local files, you should ***always end by committing those changes and pushing them up to your remote repo***.
+
+
+
+
+
+ 
+
+
 
