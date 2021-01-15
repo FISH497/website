@@ -70,9 +70,10 @@ workflows <- list(
   title = "Collaboration",
   topics = c("<b>Collaboration</b>", "Remotes in GitHub", "Pull requests", "Managing conflicts"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
+  rmd = c("lectures/week_02/lec_06_git_remotes.Rmd"),
+  html = c("lectures/week_02/lec_06_git_remotes.html"),
+  background = c("[RStudio cheatsheet](references/rstudio_cheatsheet)",
+                 "[Chaps 9 & 10 of HGG](https://happygitwithr.com/)"),
   zoom = ""
 )
 
