@@ -162,8 +162,109 @@ Go ahead and click the "Close" button in the upper right, which will return you 
 
 <br>
 
+# Pushing to GitHub
+
+Now that we've committed our `.gitignore` file to history, we can *push* it up to our remote repo on **GitHub**. To do so in **RStudio**, you click on the green up arrow.
+
+![](images/rstudio_git_push.png)
+
+<br>
+
+Now you will see a smaller **Git Push** window with the following information from **Git**.
+
+```
+>>> /usr/bin/git push origin HEAD:refs/heads/main
+To https://github.com/mdscheuerell/testing
+   226daed..d20897b  HEAD -> main
+```
+
+The first line is the actual **Git** command for pushing to a remote repo, and the second and third lines are the results of that command.
+
+![](images/rstudio_git_push_window.png)
+
+<br>
+
+You've now successfully pushed a change on your local computer to your remote repo on **GitHub**.
+
+## Viewing your changes on GitHub
+
+You can now check to see that your committed `.gitignore` file was indeed pushed up to **GitHub**. Switch over to your browser and navigate back to the **testing** repo at `https://github.com/YOUR-USER-NAME/testing`. You will now see the `.gitignore` file listed along with the `README.md` file and the other folders. Next to the file name, you will also see the commit message you used and a time stamp for how long ago you made the commit and push. (Note: if you don't see the file, try refreshing the view on your browser.)
+
+![](images/gh_new_pushed_file.png)
+
+<br>
+
+***
+
+# Pulling from GitHub
+
+Now let's see how to *pull* changes from a remote repo to your local computer. To do so, we'll make some changes to our `README.md` file on **GitHub**, commit them, and then pull them down. Go ahead and click on the pencil icon in the upper right to edit the `README.md` file, which will bring up the editing window.
+
+![](images/gh_edit_readme_pencil.png)
+
+<br>
+
+Make a few changes to the file and then scroll down to the bottom where you can commit those changes.
+
+<br>
+
+![](images/gh_edit_readme_pull.png)
+
+<br>
+
+Type a *short but informative* commit message and press the green **Commit changes** button.
+
+![](images/gh_edit_readme_pull_commit.png)
+
+<br>
+
+Click on either the **testing** link or eh **Code** tab to return to the main repo. Here you will see the commit message and time stamp of your newly changed file, as well as its contents.
+
+![](images/gh_new_readme.png)
+
+<br>
+
+Now return to **RStudio** and look in the **Git** tab for the blue downward arrow. This is how you *pull* files from your remote repo to your local project.
+
+![](images/rstudio_pull_arrow.png)
+
+<br>
+
+Go ahead and click on the pull arrow, which will open up a **Git Pull** window with the following information:
+
+```
+>>> /usr/bin/git pull
+From https://github.com/mdscheuerell/testing
+   d20897b..4222226  main       -> origin/main
+Updating d20897b..4222226
+Fast-forward
+ README.md | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
+```
+
+The first line is the actual **Git** command and the remaining lines are what **Git** is reporting back from `git pull`, including the file name and its contents.
+
+![](images/rstudio_pull_window.png)
+
+<br>
+
+Go ahead and close this window and then click on the `README.md` file in the **File** viewer, which will display its contents in an editing window. Notice that it reflects the recent changes you made to the file from **GitHub**
+
+![](images/rstudio_readme_pulled.png)
+
+<br>
+
+## Begin by pulling / End with pushing
+
+The trick to version control is keeping all of your local and remote repositories synced with one another. Thus, whenever you begin working on a project in **RStudio**, you should ***always begin by pulling any changes from your remote repo into your RStudio project***.
+
+Similarly, when you are finished editing all of your local files, you should ***always end by committing those changes and pushing them up to your remote repo***.
 
 
+
+
+
+ 
 
 
 
