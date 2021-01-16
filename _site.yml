@@ -8,6 +8,8 @@ navbar:
       href: homework.html
     - text: "References"
       href: references.html
+    - text: "Get help"
+      href: https://github.com/FISH497/assistance
     - text: ""
       icon: fab fa-github
       href: https://github.com/FISH497
