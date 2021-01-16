@@ -26,19 +26,19 @@ This assignment will allow you to demonstrate your ability to set up a remote re
 
 # Task 1
 
-Create a new repository on **GitHub** called `assignment-1`. When setting up your repo, select the following features:
+Create a new repository on **GitHub** called `fish497`. When setting up your repo, select the following features:
 
 * Make the repo **Private**
 
 * Add a `README.md`
     
-* Add a `.gitignore` file, selecing **R** from the .gitignore template dropdown menu that appears when you check the box (you can type "R" in the filter box to jump there quickly)
+* Add a `.gitignore` file, selecting **R** from the .gitignore template dropdown menu that appears when you check the box (you can type "R" in the filter box to jump there quickly)
 
 ***
 
 # Task 2
 
-After you create your new repo,
+After you create your new `fish497` repo,
 
 * Click on the Settings tab
 
@@ -54,26 +54,32 @@ After you create your new repo,
 
 # Task 3
 
-Create a new project in **RStudio** with a connection to the **GitHub** repo you just created.
+Create a new project in **RStudio** with a connection to the **GitHub** repo you just created. Recall that Mark strongly suggests you put this project folder in a location not under some other form of version control (e.g., Dropbox, Google Docs).
 
 ***
 
 # Task 4
 
-Add, commit, and push the `.gitgnore` and `assignment-1.Rproj` files to your remote repo on **GitHub**.
+Add, commit, and push the `.gitgnore` and `fish497.Rproj` files to your remote repo on **GitHub**.
 
 ***
 
-## Task 5
+# Task 5
 
-Begin a simple research compendium. Start by creating a folder called `analysis`. You can create the folder using Finder (Mac), Explorer (Windows), or by clicking on the "New Folder" button located in the upper left of the **Files** pane of **RStudio**.
+Begin a simple research compendium. Start by creating a folder called `analysis`. You have several options to do so:
 
-Now add an **R** script named `01_read_data.R` to the `/analysis/` folder with the following contents (you can use as few/many `#` for comments as you'd like):
+* Use a command line function
+
+* Add a folder inside your new project folder created in Task 3 using Finder (Mac) or Explorer (Windows)
+
+* Click on the "New Folder" button located in the upper left of the **Files** pane of **RStudio**
+
+Now add an **R** script named `01_read-data.R` to the `/analysis/` folder with the following contents (you can use as few/many `#` for comments as you'd like):
 
 ```
 ## This script will read in the raw data
 
-## load the here library
+## load libraries
 library(here)
 
 ## set data directory
@@ -84,7 +90,7 @@ Add, commit, and push this **R** script to your remote repo on **GitHub**.
 
 ***
 
-## Task 6
+# Task 6
 
 Create a folder called `data` using any of the methods mentioned in Task 5. Download the data set on Palmer penguins located [here](palmer_penguins.csv) and place it in the `/data/` folder you just created.
 
@@ -92,7 +98,7 @@ Add, commit, and push this data file to your remote repo on **GitHub**.
 
 ***
 
-## Task 7
+# Task 7
 
 Edit your `README.md` file to describe the current contents of your repo. This should include something about the folders and files (you don't have to describe the `.gitignore` or `.Rproj` files).
 
@@ -100,14 +106,18 @@ Add, commit, and push this data file to your remote repo on **GitHub**.
 
 ***
 
-## Task 8
+# Task 8
 
 When you are finished, create a new issue in your repo with the title:
 
-`Assignment 1 completed`
+`Assignment 1`
 
-Leave a comment on the issue that *briefly* describes what you did and then assign Mark to the issue by selecting his username from the dropdown menu under **Assignees**. Also assign the **help wanted** label from the **Labels**. Finally, click on the green **Submit new issue** button.
+Leave a comment on the issue that *briefly* describes what you've done for this assignment. After doing so, assign Mark to the issue by selecting his username from the dropdown menu under **Assignees**. Also assign the "help wanted" label from the **Labels**. Finally, click on the green **Submit new issue** button.
 
+***
 
+# Task 9
+
+Navigate back to your **GitHub** repo and create a new Project based on a "basic kanban" template and name it "Assignments". Delete the 3 default cards that automatically populated the project and then add the issue you created in Task 8 to the **To do** column.
 
 

@@ -205,16 +205,17 @@ summary {
 </div>
 <div id="task-1" class="section level1">
 <h1>Task 1</h1>
-<p>Create a new repository on <strong>GitHub</strong> called <code>assignment-1</code>. When setting up your repo, select the following features:</p>
+<p>Create a new repository on <strong>GitHub</strong> called <code>fish497</code>. When setting up your repo, select the following features:</p>
 <ul>
 <li><p>Make the repo <strong>Private</strong></p></li>
 <li><p>Add a <code>README.md</code></p></li>
-<li><p>Add a <code>.gitignore</code> file, selecing <strong>R</strong> from the .gitignore template dropdown menu that appears when you check the box (you can type “R” in the filter box to jump there quickly)</p></li>
+<li><p>Add a <code>.gitignore</code> file, selecting <strong>R</strong> from the .gitignore template dropdown menu that appears when you check the box (you can type “R” in the filter box to jump there quickly)</p></li>
 </ul>
+<hr />
 </div>
 <div id="task-2" class="section level1">
 <h1>Task 2</h1>
-<p>After you create your new repo,</p>
+<p>After you create your new <code>fish497</code> repo,</p>
 <ul>
 <li><p>Click on the Settings tab</p></li>
 <li><p>Click on “Manage access” from the menu on the left</p></li>
@@ -222,30 +223,59 @@ summary {
 <li><p>In the search box that appears, type <code>mdscheuerell</code> and select Mark’s name/username</p></li>
 <li><p>Click on the green button that says <strong>Add mdscheuerell to this repository</strong></p></li>
 </ul>
+<hr />
 </div>
 <div id="task-3" class="section level1">
 <h1>Task 3</h1>
-<p>Create a new project in <strong>RStudio</strong> with a connection to the <strong>GitHub</strong> repo you just created.</p>
+<p>Create a new project in <strong>RStudio</strong> with a connection to the <strong>GitHub</strong> repo you just created. Recall that Mark strongly suggests you put this project folder in a location not under some other form of version control (e.g., Dropbox, Google Docs).</p>
+<hr />
 </div>
 <div id="task-4" class="section level1">
 <h1>Task 4</h1>
-<p>Add, commit, and push the <code>.gitgnore</code> and <code>assignment-1.Rproj</code> files to your remote repo on <strong>GitHub</strong>.</p>
-<div id="task-5a" class="section level2">
-<h2>Task 5a</h2>
-<p>Create a simple research compendium. Begin by creating a folder called <code>analysis</code> and add an <strong>R</strong> script named <code>01_read_data.R</code> to the <code>/analysis/</code> folder with the following contents (you can use as few/many <code>#</code> for comments as you’d like):</p>
+<p>Add, commit, and push the <code>.gitgnore</code> and <code>fish497.Rproj</code> files to your remote repo on <strong>GitHub</strong>.</p>
+<hr />
+</div>
+<div id="task-5" class="section level1">
+<h1>Task 5</h1>
+<p>Begin a simple research compendium. Start by creating a folder called <code>analysis</code>. You have several options to do so:</p>
+<ul>
+<li><p>Use a command line function</p></li>
+<li><p>Add a folder inside your new project folder created in Task 3 using Finder (Mac) or Explorer (Windows)</p></li>
+<li><p>Click on the “New Folder” button located in the upper left of the <strong>Files</strong> pane of <strong>RStudio</strong></p></li>
+</ul>
+<p>Now add an <strong>R</strong> script named <code>01_read-data.R</code> to the <code>/analysis/</code> folder with the following contents (you can use as few/many <code>#</code> for comments as you’d like):</p>
 <pre><code>## This script will read in the raw data
 
-## load the here library
+## load libraries
 library(here)
 
 ## set data directory
 data_dir &lt;- here(&quot;data&quot;)</code></pre>
-<p>Add, commit, and push this file to your remote repo on <strong>GitHub</strong>.</p>
+<p>Add, commit, and push this <strong>R</strong> script to your remote repo on <strong>GitHub</strong>.</p>
+<hr />
 </div>
-<div id="task-5b" class="section level2">
-<h2>Task 5b</h2>
-<p>Create a folder called <code>data</code>. Download the data set on Palmer penguins <a href="palmer_penguins.csv">here</a> and place it in the <code>/data/</code> folder you just created.</p>
+<div id="task-6" class="section level1">
+<h1>Task 6</h1>
+<p>Create a folder called <code>data</code> using any of the methods mentioned in Task 5. Download the data set on Palmer penguins located <a href="palmer_penguins.csv">here</a> and place it in the <code>/data/</code> folder you just created.</p>
+<p>Add, commit, and push this data file to your remote repo on <strong>GitHub</strong>.</p>
+<hr />
 </div>
+<div id="task-7" class="section level1">
+<h1>Task 7</h1>
+<p>Edit your <code>README.md</code> file to describe the current contents of your repo. This should include something about the folders and files (you don’t have to describe the <code>.gitignore</code> or <code>.Rproj</code> files).</p>
+<p>Add, commit, and push this data file to your remote repo on <strong>GitHub</strong>.</p>
+<hr />
+</div>
+<div id="task-8" class="section level1">
+<h1>Task 8</h1>
+<p>When you are finished, create a new issue in your repo with the title:</p>
+<p><code>Assignment 1</code></p>
+<p>Leave a comment on the issue that <em>briefly</em> describes what you’ve done for this assignment. After doing so, assign Mark to the issue by selecting his username from the dropdown menu under <strong>Assignees</strong>. Also assign the “help wanted” label from the <strong>Labels</strong>. Finally, click on the green <strong>Submit new issue</strong> button.</p>
+<hr />
+</div>
+<div id="task-9" class="section level1">
+<h1>Task 9</h1>
+<p>Navigate back to your <strong>GitHub</strong> repo and create a new Project based on a “basic kanban” template and name it “Assignments”. Delete the 3 default cards that automatically populated the project and then add the issue you created in Task 8 to the <strong>To do</strong> column.</p>
 </div>
 
 
