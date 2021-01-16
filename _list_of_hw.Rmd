@@ -11,11 +11,11 @@ knitr::opts_chunk$set(echo = FALSE)
 ## week 2
 github <- list(
   title = "GitHub",
-  topics = c("Collaborating on GitHub"),
+  topics = c("Creating a new project"),
   pdf = "",
-  rmd = "",
-  html = "",
-  data = "",
+  rmd = "homework/week_01/hw_01_github_remotes.Rmd",
+  html = "homework/week_01/hw_01_github_remotes.html",
+  data = "homework/week_01/palmer_penguins.csv",
   key = ""
 )
 
