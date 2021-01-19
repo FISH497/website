@@ -180,6 +180,35 @@ git pull origin marys-feature
 git push 
 ```
 
+# Forking workflow
+
+
+## Forking workflow | How it works
+
+* Start with a central remote repo
+
+> - Instead of cloning a repo, team members *fork* the repo, which creates a remote copy
+
+> - Each team member then clones their remote fork to their local machine
+
+> - A new local `feature` branch is created
+
+
+## Forking workflow | How it works (cont'd)
+
+* Team member makes changes on the `feature` branch
+
+> - Commits are pushed to the developer's own remote copy
+
+> - Team member opens a pull request from the `feature` branch to the "official" repository
+
+> - Pull request gets approved & is merged into the original remote repository
+
+
+## Forking workflow
+
+This is the preferred method for contributing to other packages/projects
+
 
 ## What's next?
 
