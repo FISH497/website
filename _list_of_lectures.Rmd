@@ -66,9 +66,9 @@ version_control <- list(
 )
 
 ## day 6 ####
-workflows <- list(
-  title = "Collaboration",
-  topics = c("<b>Collaboration</b>", "Remotes in GitHub", "Pull requests", "Managing conflicts"),
+remotes <- list(
+  title = "Remote repositories",
+  topics = c("<b>Remote repositories</b>", "Remotes in GitHub", "RStudio projects", "Pushing/pulling"),
   pdf = c(""),
   rmd = c("lectures/week_02/lec_06_git_remotes.Rmd"),
   html = c("lectures/week_02/lec_06_git_remotes.html"),
@@ -89,6 +89,18 @@ holiday_1 <- list(
 )
 
 ## day 8 ####
+workflows <- list(
+  title = "Understanding workflows",
+  topics = c("<b>Understanding workflows</b>", "Centralized", "Feature branch", "Forking"),
+  pdf = c(""),
+  rmd = "lectures/week_03/lec_08_workflows.Rmd",
+  html = "lectures/week_03/lec_08_workflows.html",
+  background = c("[Sec VI of HGG](https://happygitwithr.com/workflows-intro.html)",
+                 "[Learn Git branching](https://pcottle.github.com/learnGitBranching/)"),
+  zoom = ""
+)
+
+## day 9a ####
 working_with_data <- list(
   title = "Working with data",
   topics = c("<b>Working with data</b>", "Chain of custody", "Manual entry", "Tidy data"),
@@ -99,7 +111,7 @@ working_with_data <- list(
   zoom = ""
 )
 
-## day 9 ####
+## day 9b ####
 data_ingest <- list(
   title = "Getting data",
   topics = c("<b>Getting data</b>", "Importing text files", "Reading from Excel & Google"),
