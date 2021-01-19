@@ -44,6 +44,9 @@ It *should not* be a burden
 ### Forking
 
 
+# Centralized workflow
+
+
 ## Centralized workflow | Uses a single repo for all changes to the project
 
 ![](images/central_work.svg)
@@ -89,16 +92,93 @@ It *should not* be a burden
 ![](images/central_ex_6.svg)
 
 
-## Centralized workflow | `git add  git rebase --continue`
+## Centralized workflow
 
-![](images/central_diverge_3.svg)
+![](images/mary_repo.png)
 
+```
+git add
+git rebase --continue
+```
 
 ## Centralized workflow | Mary pushes her commits `(git push origin main)`
 
 ![](images/central_ex_7.svg)
 
 
+# Feature branch workflow
+
+
+## Feature branch workflow | How it works
+
+* A central repo with a `main` branch for official history
+
+> - Developers create a new branch for every new feature
+
+> - Updates are made via *pull requests*
+
+
+## Pull requests
+
+* Changes are not immediately merged into `main` branch
+
+> - Rather, the `feature` branch is pushed to remote repo
+
+> - Changes are reviewed by the team
+
+> - Accepted changes are merged into `main` and pushed to remote repo
+
+
+## Feature branch | Mary creates a new development branch 
+
+![](images/branch_ex_1.svg)
+
+```
+git checkout -b marys-feature main
+```
+
+
+## Feature branch | Mary pushes `(git push -u origin marys-feature)` 
+
+![](images/branch_ex_2.svg)
+
+
+## Feature branch | Mary finishes her changes & submits a pull request
+
+![](images/branch_ex_3.svg)
+
+
+## Feature branch | John receives pull request
+
+![](images/branch_ex_4.svg)
+
+
+## Feature branch | John & Mary discuss changes
+
+![](images/branch_ex_4.svg)
+
+
+## Feature branch | Mary makes changes
+
+![](images/branch_ex_5.svg)
+
+
+## Feature branch | Changes are accepted & merged (by John or Mary)
+
+![](images/branch_ex_6.svg)
+
+<br>
+
+```
+## switch to main branch
+git checkout main
+## pull changes from main
+git pull
+## pull changes from feature
+git pull origin marys-feature
+## push changes to main
+git push 
+```
 
 
 ## What's next?
