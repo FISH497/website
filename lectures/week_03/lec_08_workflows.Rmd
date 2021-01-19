@@ -39,7 +39,11 @@ It *should not* be a burden
 
 ### Centralized
 
+<br>
+
 ### Feature branch
+
+<br>
 
 ### Forking
 
@@ -84,7 +88,7 @@ It *should not* be a burden
 
 ## Centralized workflow | `rebase` moves Mary's commits to tip
 
-![](images/central_diverge_2.svg)
+![](images/mary_repo.png)
 
 
 ## Centralized workflow | Mary resolves her *merge conflict*
@@ -94,9 +98,10 @@ It *should not* be a burden
 
 ## Centralized workflow
 
-![](images/mary_repo.png)
+![](images/mary_repo_2.png)
 
 ```
+git status
 git add
 git rebase --continue
 ```
@@ -104,6 +109,13 @@ git rebase --continue
 ## Centralized workflow | Mary pushes her commits `(git push origin main)`
 
 ![](images/central_ex_7.svg)
+
+
+## Centralized workflow | Pros and cons
+
+* Easy for new team members to pick up
+
+> - Can lead to lots of merge conflicts
 
 
 # Feature branch workflow
@@ -180,6 +192,14 @@ git pull origin marys-feature
 git push 
 ```
 
+
+## Feature branch workflow | Pros and cons
+
+* Keeps development separate from production
+
+> - Can be hard for beginners to understand
+
+
 # Forking workflow
 
 
@@ -205,14 +225,18 @@ git push
 > - Pull request gets approved & is merged into the original remote repository
 
 
-## Forking workflow
+## Forking workflow | Pros and cons
 
-This is the preferred method for contributing to other packages/projects
+* This is the preferred method for contributing to other packages/projects
+
+* Each team member has their own copy of the repo
+
+> - It can be hard to keep track of others
 
 
 ## What's next?
 
-We'll learn about GitHub and how to use it for personal and collaborative projects
+We'll learn about best practices for creating, reading, and sharing data 
 
 
 
