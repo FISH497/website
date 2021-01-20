@@ -72,7 +72,7 @@ remotes <- list(
   pdf = c(""),
   rmd = c("lectures/week_02/lec_06_git_remotes.Rmd"),
   html = c("lectures/week_02/lec_06_git_remotes.html"),
-  background = c("[RStudio cheatsheet](references/rstudio_cheatsheet)",
+  background = c("[RStudio cheatsheet](references/rstudio_cheatsheet.pdf)",
                  "[Chaps 9 & 10 of HGG](https://happygitwithr.com/)"),
   zoom = "https://washington.zoom.us/rec/share/tHfuTE4jFXIwk3hmNTPOgaLfIb3l0zazWBkYPCAQXMw9i5GFzigIZiCIO5-dp69h.HGCrSO0Lj5tGNUar"
 )
