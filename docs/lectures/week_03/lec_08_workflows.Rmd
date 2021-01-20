@@ -229,7 +229,7 @@ git push
 
 * This is the preferred method for contributing to other packages/projects
 
-* Each team member has their own copy of the repo
+> -  Each team member has their own copy of the repo
 
 > - It can be hard to keep track of others
 
