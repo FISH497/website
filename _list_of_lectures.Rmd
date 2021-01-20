@@ -93,8 +93,10 @@ workflows <- list(
   title = "Understanding workflows",
   topics = c("<b>Understanding workflows</b>", "Centralized", "Feature branch", "Forking"),
   pdf = c(""),
-  rmd = "lectures/week_03/lec_08_workflows.Rmd",
-  html = "lectures/week_03/lec_08_workflows.html",
+  rmd = c("lectures/week_03/lec_08_workflows.Rmd",
+          "lectures/week_03/lec_08_workflows_ex.Rmd"),
+  html = c("lectures/week_03/lec_08_workflows.html",
+           "lectures/week_03/lec_08_workflows_ex.html"),
   background = c("[Sec VI of HGG](https://happygitwithr.com/workflows-intro.html)",
                  "[Learn Git branching](https://pcottle.github.com/learnGitBranching/)"),
   zoom = ""
