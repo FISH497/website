@@ -167,8 +167,64 @@ If your branch was created solely for the purpose of working on a specific featu
 
 # Forking workflow
 
+Forking workflows are based upon the following plan:
 
+* Start with a central remote repo
+
+* Instead of cloning a repo, team members *fork* the repo, which creates a remote copy
+
+* Each team member then clones their remote fork to their local machine
+
+* [optional] A new local `feature` branch is created
+
+* [optional] A team member makes changes on their local `feature` branch
+
+* Commits are pushed to the team member's own remote repo
+
+* A team member opens a pull request from their (optionally `feature`) branch to the original central repository
+
+* The pull request gets approved & is merged into the original remote repository
+
+To fork a repo, navigate to its location on **GitHub** and look for the **Fork** button in the upper right. Press that button, which will bring up a dialogue box asking you where you would like to fork the repo. Click on the user or organization where you'd like to fork the repo and **GitHub** will do the rest.
+
+![](images/forking_gh_orig_repo.png)
+
+<br>
+
+You will now see a new forked version of the original repository with some information in the upper left about its location and from where it came. You'll also see some information above the repo contents about the current branch being even with the "upstream" source.
+
+![](images/forking_gh_forked_repo.png)
+
+<br>
+
+At this point, you should create a new project in **RStudio** based upon this forked repo. After you've made changes to files in your local repo, go ahead and commit and push them to the remote repo on **GitHub**. After doing so, navigate to the forked repo on **GitHub** where you'll see a message about this branch being 1 (or more) commit(s) ahead of original-repo:main (where `original-repo` is the username or organization name from whom you forked the repo).
+
+![](images/forking_gh_forked_ahead.png)
+
+<br>
+
+Now you can open a pull request by clicking on "Pull request" in the information window. This will take you to the standard page for a pull request, just as we saw in the **Feature branch** workflow above. In this case, however, there is additional information about both the branches and locations of the repositories.
+
+![](images/forking_gh_forked_ahead.png)
+
+<br>
+
+Now you can click on the green **Create pull request** button and follow the same steps as we did above in the section on **Feature branches**. 
+
+![](images/forking_gh_pr_open.png)
+
+<br>
+
+Again, click on the green **Create pull request** button, which will open up a window for merging the pull request. Here **GitHub** reports that there are no conflicts with the base branch and that everything is okay. Click on the green **Merge pull request** button and then again on the green **Confirm merge** button.
+
+![](images/forking_gh_pr_merge.png)
+
+<br>
+
+At this point, everything is all good and you'll see the purple **Merged** button in the upper left.
  
+![](images/forking_gh_pr_merged_ok.png)
 
+<br>
 
-
+**Note**: In this example, both the original repo and the forked repo were owned by the same individual, but usually the orginal repo belongs to someone or an organization that you'd like to assist in developing a new feature or fixing a bug.
