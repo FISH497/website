@@ -99,7 +99,7 @@ workflows <- list(
            "lectures/week_03/lec_08_workflows_ex.html"),
   background = c("[Sec VI of HGG](https://happygitwithr.com/workflows-intro.html)",
                  "[Learn Git branching](https://pcottle.github.com/learnGitBranching/)"),
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/Yp03AKOsgLghHHIQWofxEpf6hehdYFdDwJBzJ9ZEXmIKxzYIjsa8VMbVstD-FOnd.NYOvESQX8eDj11fb"
 )
 
 ## day 9a ####
