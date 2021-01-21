@@ -102,7 +102,7 @@ workflows <- list(
   zoom = "https://washington.zoom.us/rec/share/Yp03AKOsgLghHHIQWofxEpf6hehdYFdDwJBzJ9ZEXmIKxzYIjsa8VMbVstD-FOnd.NYOvESQX8eDj11fb"
 )
 
-## day 9a ####
+## day 9 ####
 working_with_data <- list(
   title = "Working with data",
   topics = c("<b>Working with data</b>", "Chain of custody", "Manual entry", "Tidy data"),
@@ -113,21 +113,10 @@ working_with_data <- list(
   zoom = ""
 )
 
-## day 9b ####
+## day 10 ####
 data_ingest <- list(
   title = "Getting data",
   topics = c("<b>Getting data</b>", "Importing text files", "Reading from Excel & Google"),
-  pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
-  zoom = ""
-)
-
-## day 10 ####
-metadata <- list(
-  title = "Metadata",
-  topics = c("<b>Metadata</b>", "Data about data", "Ecological metadata language"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -191,6 +180,17 @@ databases_3 <- list(
 )
 
 ## day 16 ####
+metadata <- list(
+  title = "Metadata",
+  topics = c("<b>Metadata</b>", "Data about data", "Ecological metadata language"),
+  pdf = c(""),
+  rmd = "",
+  html = "",
+  background = "",
+  zoom = ""
+)
+
+## day 17 ####
 visualization <- list(
   title = "Data visualization",
   topics = c("<b>Data visualization</b>", "Design principles", "Exploratory figures", "Expository figures"),
@@ -201,21 +201,10 @@ visualization <- list(
   zoom = ""
 )
 
-## day 17 ####
+## day 18 ####
 analysis <- list(
   title = "Data analysis",
   topics = c("<b>Data analysis</b>", "Data summaries"),
-  pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
-  zoom = ""
-)
-
-## day 18 ####
-packages_1 <- list(
-  title = "R packages",
-  topics = c("<b>R packages</b>", "Functions", "Unit tests"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -235,9 +224,9 @@ holiday_2 <- list(
 )
 
 ## day 20 ####
-packages_2 <- list(
+packages_1 <- list(
   title = "R packages",
-  topics = c("<b>R packages</b>", "Documentation", "Vignettes", "Websites"),
+  topics = c("<b>R packages</b>", "Functions", "Unit tests"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -246,9 +235,9 @@ packages_2 <- list(
 )
 
 ## day 21 ####
-markdown_1 <- list(
-  title = "R Markdown",
-  topics = c("<b>R Markdown</b>", "Introduction", "Publishing papers"),
+packages_2 <- list(
+  title = "R packages",
+  topics = c("<b>R packages</b>", "Documentation", "Vignettes", "Websites"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -268,9 +257,9 @@ guest_stawitz <- list(
 )
 
 ## day 23 ####
-markdown_2 <- list(
+markdown_1 <- list(
   title = "R Markdown",
-  topics = c("<b>R Markdown</b>", "Publishing papers", "Reporting"),
+  topics = c("<b>R Markdown</b>", "Introduction", "Publishing papers"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -279,9 +268,9 @@ markdown_2 <- list(
 )
 
 ## day 24 ####
-markdown_3 <- list(
+markdown_2 <- list(
   title = "R Markdown",
-  topics = c("<b>R Markdown</b>", "Designing presentations", "Building websites"),
+  topics = c("<b>R Markdown</b>", "Publishing papers", "Reporting"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -312,6 +301,17 @@ shiny_2 <- list(
 )
 
 ## day 27 ####
+markdown_3 <- list(
+  title = "R Markdown",
+  topics = c("<b>R Markdown</b>", "Designing presentations", "Building websites"),
+  pdf = c(""),
+  rmd = "",
+  html = "",
+  background = "",
+  zoom = ""
+)
+
+## day 28 ####
 code_reviews <- list(
   title = "Code reviews",
   topics = c("<b>Code reviews</b>", "Checklists", "Do's and Don'ts"),
@@ -322,21 +322,10 @@ code_reviews <- list(
   zoom = ""
 )
 
-## day 28 ####
+## day 29 ####
 ethics <- list(
   title = "Ethics in data science",
   topics = c("<b>Ethics in data science</b>", "Data selection", "Analysis & inference"),
-  pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
-  zoom = ""
-)
-
-## day 29 ####
-future <- list(
-  title = "Future considerations",
-  topics = c("<b>Future considerations</b>"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -355,6 +344,16 @@ wrap_up <- list(
   zoom = ""
 )
 
+## extra ####
+future <- list(
+  title = "Future considerations",
+  topics = c("<b>Future considerations</b>"),
+  pdf = c(""),
+  rmd = "",
+  html = "",
+  background = "",
+  zoom = ""
+)
 ```
 
 
