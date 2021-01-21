@@ -42,8 +42,89 @@ In a pure sense, raw data have not been subjected to analysis
 Data may be raw to you, but they may have been pre-processed by someone prior to you receiving them
 
 
+## Data chain of custody
+
+Data *chain of custody* refers to a process whereby every analyst should 
+
+1. keep a copy of the *raw* data  
+2. record all of the operations used to generate the *clean* data  
+3. document the contents of the *clean* data  
+
+This process insures reproducibility
 
 
+## Data formats
 
+There are many different *data formats*
+
+* flat files (`.csv`, `.txt`)
+
+> - spreadsheets (Excel, Google)
+
+> - **J**ava**S**cript **O**bject **N**otation (JSON)
+
+> - databases (SQL, Access)
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+Be consistent
+
+* variable names (`female` and not `Female` or `F`)
+
+> - missing values (`NA` and not `N/A` or `-999`)
+
+> - date formats (`2021-01-22` and not `January 22, 2021`)
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+Choose good names
+
+| Good name   | Alternative | Avoid |
+|:------------|:------------|:------|
+| fish_mass_g | FishMassG   | Fish mass (g) |
+| sex         | Sex         | M/F |
+| obs_01      | first_obs   | 1st Obs. |
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+No empty cells -- use `NA` or some other placeholder
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig2.png data-background-size=90%}
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+One thing per cell, for example
+
+* change `lat-lon` to `lat` and `lon`
+
+> - no notes or comments like "`0 (below detection limit)`"
+
+> - don't merge cells
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+Use a *tidy* format where
+
+* the file is rectangular
+
+> - one variable per column
+
+> - one observation (record) per row
+
+> - one table for each kind of data
+
+> - linked IDs for columns
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig5.png data-background-size=90%}
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig6.png data-background-size=90%}
 
 
