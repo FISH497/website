@@ -124,7 +124,72 @@ Use a *tidy* format where
 
 ## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig5.png data-background-size=90%}
 
+<br><br><br><br><br><br><br><br><br><br><br>
 
-## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig6.png data-background-size=90%}
+These are *not* tidy
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig6.png data-background-position="50% 60%" data-background-size=90%}
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+2 tables with linked IDs
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+Create a *data dictionary*, which includes info like
+
+* exact variable name as in the data file  
+
+> - [optional] short variable name that might be used in plots  
+
+> - A detailed definition of what the variable is  
+
+> - measurement units  
+
+> - summary statistics (eg, min & max values)  
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig9.png data-background-position="50% 55%" data-background-size=80%}
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+Example data dictionary
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+Be very cautious of Excel workbooks and Google sheets
+
+> - they allow for calculations within cells (`C1=A1+B1`)
+
+> - they allow for fonts, highlighting, shading, in-cell comments, etc
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/bad_sheets.png data-background-position="50% 45%" data-background-size=80%}
+
+<br><br><br><br><br><br><br><br>
+
+How many issues can you identify?
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+For data entry in Excel, consider *data validation* options
+
+(see how to do this [here](https://support.microsoft.com/en-us/office/apply-data-validation-to-cells-29fecbcc-d1b9-42c1-9d76-eff3ce5f7249))
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+Save the data in plain text
+
+* `.csv` files are generally preferred
+
+> - `.txt` with tabs or space delimiters are more popular in languages where a "`,`" indicates a decimal
+
+
+
 
 
