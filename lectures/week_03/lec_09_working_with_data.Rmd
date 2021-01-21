@@ -1,0 +1,49 @@
+---
+title: "Working with data"
+subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+author: "Mark Scheuerell"
+date: "22 January 2021"
+output:
+  ioslides_presentation:
+    css: lecture_slides.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Goals for today
+
+* Understand the concept of "raw" vs "cleaned" data
+
+
+## What are data?
+
+Data are a set of values of qualitative or quantitative variables collected through observations
+
+
+## What are raw data?
+
+Raw data have **not** been "cleaned" to remove outliers, instrument/observation errors, or data entry errors
+
+
+## What are raw data?
+
+Raw data have **not** been "cleaned" to remove outliers, instrument/observation errors, or data entry errors
+
+
+## What are raw data?
+
+In a pure sense, raw data have not been subjected to analysis
+
+
+## Raw data can be relative
+
+Data may be raw to you, but they may have been pre-processed by someone prior to you receiving them
+
+
+
+
+
+
+
