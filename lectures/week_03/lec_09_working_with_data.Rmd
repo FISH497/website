@@ -16,6 +16,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Understand the concept of "raw" vs "cleaned" data
 
+> - Understand the different forms of data
+
+> - Understand basic tenets for organizing data
+
 
 ## What are data?
 
@@ -190,6 +194,23 @@ Save the data in plain text
 > - `.txt` with tabs or space delimiters are more popular in languages where a "`,`" indicates a decimal
 
 
+## Record your recipe
+
+A reproducible analysis should include step-by-step instructions for moving from raw to clean data
+
+Items to include:
+
+> - explicit instructions
+
+> - versions of software/packages
+
+> - values for non-constants
 
 
+## An example using R Markdown {data-background=images/recipe_ex.png data-background-position="50% 70%" data-background-size=55%}
+
+
+## What's next?
+
+We'll learn about reading data from different sources
 
