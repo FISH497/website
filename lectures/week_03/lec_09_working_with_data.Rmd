@@ -31,16 +31,6 @@ Data are a set of values of qualitative or quantitative variables collected thro
 Raw data have **not** been "cleaned" to remove outliers, instrument/observation errors, or data entry errors
 
 
-## What are raw data?
-
-Raw data have **not** been "cleaned" to remove outliers, instrument/observation errors, or data entry errors
-
-
-## What are raw data?
-
-In a pure sense, raw data have not been subjected to analysis
-
-
 ## Raw data can be relative
 
 Data may be raw to you, but they may have been pre-processed by someone prior to you receiving them
