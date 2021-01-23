@@ -111,7 +111,7 @@ working_with_data <- list(
   html = "lectures/week_03/lec_09_working_with_data.html",
   background = c("[Ellis & Leek (2017)](references/Ellis_Leek_2017_how_to_share_data.pdf)",
                  "[Broman & Woo (2018)](references/Broman_Woo_2018_data_in_spreadsheets.pdf)"),
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/CiPCUFYjxOKhbFHXjCsbeg9Kc4JK3EMn6H4_Vv2ccyPI17TJRuVbXayJ59ehQZod.JdT2X4wtWiEHbvBX"
 )
 
 ## day 10 ####
