@@ -20,7 +20,7 @@ github <- list(
 )
 
 ## week 3
-data_reading <- list(
+forking_workflows <- list(
   title = "Forking workflows",
   topics = c("Forking workflows"),
   pdf = "",
