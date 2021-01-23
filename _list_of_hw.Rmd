@@ -21,11 +21,11 @@ github <- list(
 
 ## week 3
 data_reading <- list(
-  title = "Working with data",
-  topics = c("Reading data"),
+  title = "Forking workflows",
+  topics = c("Forking workflows"),
   pdf = "",
-  rmd = "",
-  html = "",
+  rmd = "homework/week_02/hw_02_forking_workflow.Rmd",
+  html = "homework/week_02/hw_02_forking_workflow.html",
   data = "",
   key = ""
 )
