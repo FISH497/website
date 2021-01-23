@@ -1,6 +1,6 @@
 ---
 title: "Forking a repo and submitting a pull request"
-subtitle: "Assignment #1"
+subtitle: "Assignment #2"
 author: "FISH 497 - Intro to Environmental Data Science"
 date: "22 January 2021"
 output:
