@@ -173,6 +173,8 @@ If your branch was created solely for the purpose of working on a specific featu
 
 # Forking workflow
 
+Recall that a forking workflow is commonly used when a developer is *not* a member of the project/organization on **GitHub**. This workflow allows the developer to work with a copy of the owner's repo and potentially submit a pull request for the owner to consider adopting the changes.
+
 ## Step 1: Fork the repo
 
 ![](images/gh_fork_1.png)
@@ -181,13 +183,13 @@ If your branch was created solely for the purpose of working on a specific featu
 
 To fork a repo, navigate to its location on **GitHub** and look for the **Fork** button in the upper right. Press that button, which will bring up a dialogue box asking you where you would like to fork the repo. Click on the user or organization where you'd like to fork the repo and **GitHub** will do the rest.
 
-![](images/forking_gh_orig_repo.png)
+![](images/gh_fork_orig_repo.png)
 
 <br>
 
 You will now see a new forked version of the original repository with some information in the upper left about its location and from where it came. You'll also see some information above the repo contents about the current branch being even with the "upstream" source.
 
-![](images/forking_gh_forked_repo.png)
+![](images/gh_fork_repo_forked.png)
 
 <br>
 
@@ -276,7 +278,7 @@ upstream        https://github.com/FISH497/ex-fork (push)
 
 <br>
 
-## Step 4: Make changes in your local repo
+## Step 4: Make local changes
 
 ![](images/gh_fork_4.png)
 
@@ -290,19 +292,13 @@ To do so, again navigate to the **Terminal** tab in **RStudio** and type:
 $ git pull upstream main --ff-only
 ```
 
-If nothing has changed, you'll see message like this:
+If nothing has changed, you'll see a message like this:
 
 ```
 From https://github.com/FISH497/ex-fork
  * branch            main       -> FETCH_HEAD
  * [new branch]      main       -> upstream/main
 Already up to date.
-```
-
-**Note**: the above command assumes you want to pull changes from the `main` branch of the `upstream` remote. If there is a different branch you want to pull from, change `main` in the command above to the branch from which you'd like to work. For example, if you were interested in the `develop` branch on `upstream`, you'd type:
-
-```
-$ git pull upstream develop --ff-only
 ```
 
 ### Setting the local branch
@@ -325,7 +321,7 @@ which will bring up a message box from **Git** informing you that you've created
 
 <br>
 
-Go ahead and close the window and you will see that the branch name in the **Git** pane of **RStudio** is set to `develop`. If you click on the `develop` button it will now show that you can track the `develop` and `main` branches on
+Go ahead and close the window and you will see that the branch name in the **Git** pane of **RStudio** is set to `develop`. If you again click on the `develop` button it will now show that you can track the `develop` and `main` branches on
 
 1. your local repo
 
@@ -337,18 +333,25 @@ Go ahead and close the window and you will see that the branch name in the **Git
 
 <br>
 
+Let's create a new file in our local repo so we have something to commit and push to our own remote repo, and then ultimately submit it as a pull request to the original repo's owner (here `FISH497`).
 
-## Step 5: Push changes to GitHub
+Go ahead and make a simple **R** script and commit it (I'm calling mine `simple_addition.R`).
+
+![](images/gh_fork_ex_script.png)
+
+![](images/gh_fork_ex_commit.png)
+
+<br>
+
+## Step 5: Push to GitHub
 
 ![](images/gh_fork_5.png)
 
 <br>
 
-Let's now assume you've made some changes to a local file on your branch of interest. It's time to add, commit, and push them to your own remote at
+Now it's time to push your simple script to your own remote located at
 
 `https://github.com/USER/ex-fork`
-
-For example, let's edit the `README.md` file on our local `develop` branch to include some additional information.
 
 <br>
 
@@ -358,35 +361,28 @@ For example, let's edit the `README.md` file on our local `develop` branch to in
 
 <br>
 
+Navigate to your forked repo on **GitHub** where you'll see a message about this branch having a recent push and a new green button labeled **Compare & pull request**.
 
-After you've made changes to files in your local repo, go ahead and commit and push them to the remote repo on **GitHub**. After doing so, navigate to the forked repo on **GitHub** where you'll see a message about this branch being 1 (or more) commit(s) ahead of original-repo:main (where `original-repo` is the username or organization name from whom you forked the repo).
-
-![](images/forking_gh_forked_ahead.png)
-
-<br>
-
-Now you can open a pull request by clicking on "Pull request" in the information window. This will take you to the standard page for a pull request, just as we saw in the **Feature branch** workflow above. In this case, however, there is additional information about both the branches and locations of the repositories.
-
-![](images/forking_gh_forked_ahead.png)
+![](images/gh_fork_remote_ahead.png)
 
 <br>
 
-Now you can click on the green **Create pull request** button and follow the same steps as we did above in the section on **Feature branches**. 
+Now you can open a pull request by clicking on the green **Compare & pull request** button. This will take you to the standard page for a pull request, just as we saw in the **Feature branch** workflow above. In this case, however, there is additional information about
 
-![](images/forking_gh_pr_open.png)
+* the repo location (here it's the `upstream` at `https://github.com/FISH497/ex-fork`)
 
-<br>
+* both the *branches* (here `develop`) and *locations* of the repositories
 
-Again, click on the green **Create pull request** button, which will open up a window for merging the pull request. Here **GitHub** reports that there are no conflicts with the base branch and that everything is okay. Click on the green **Merge pull request** button and then again on the green **Confirm merge** button.
-
-![](images/forking_gh_pr_merge.png)
+![](images/gh_fork_submit_pr.png)
 
 <br>
 
-At this point, everything is all good and you'll see the purple **Merged** button in the upper left.
- 
-![](images/forking_gh_pr_merged_ok.png)
+It's good practice to give your pull request an informative title and add some additional information about the substance of the pull request, so that the owner of the original repo has some understanding of what you've done. After that, you can click on the green **Create pull request** button, which will take you to a page showing the details of your pull request. 
+
+![](images/gh_fork_submit_pr_2.png)
 
 <br>
 
-**Note**: In this example, both the original repo and the forked repo were owned by the same individual, but usually the orginal repo belongs to someone or an organization that you'd like to assist in developing a new feature or fixing a bug.
+No you just have to wait for the repo's owner to review the pull request and either accept it as is, or come back to you with additional comments or requests for changes.
+
+
