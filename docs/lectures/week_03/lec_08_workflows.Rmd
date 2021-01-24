@@ -61,9 +61,7 @@ It *should not* be a burden
 ![](images/central_ex_1.svg)
 
 
-## Centralized workflow
-
-![](images/central_diverge.svg)
+## Centralized workflow{data-background=images/central_diverge.svg data-background-position="50% 50%" data-background-size=90%}
 
 
 ## Centralized workflow | Mary works on her code
