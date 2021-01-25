@@ -17,22 +17,6 @@ knitr::opts_chunk$set(echo = TRUE,
                       fig.align = "center", out.width = '90%')
 ```
 
-Before we begin, you will need to install
-these packages
-
-```{r,eval=FALSE}
-install.packages("jsonlite")
-install.packages("rvest")
-```
-
-Now we load a few R packages
-
-```{r, message=FALSE, warning=FALSE}
-library(tidyverse)
-library(jsonlite)
-library(rvest)
-```
-
 # Motivation
 
 Today we are going to talk about getting data, examples of common data formats, and useful tools to access data. 
@@ -186,7 +170,7 @@ flow_url <- paste0("https://waterdata.usgs.gov/nwis/dv",
 
 Next we retrieve the raw data file and print its metadata.
 
-```{r get_flow_metadata, cache=TRUE}
+```{r get_flow_metadata}
 ## load `readr` package
 library("readr")
 
