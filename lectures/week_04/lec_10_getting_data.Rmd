@@ -6,7 +6,7 @@ output:
   html_document:
     theme: readable
     highlight: textmate
-    toc: false
+    toc: true
     toc_float: true
     toc_depth: 3
 ---
@@ -235,29 +235,68 @@ head(dat_flow)
 ```
 
 
+## Reading .csv files
 
-## Reading in CSV files
+### Base functions
 
-We also see there is a `palmer_penguins.csv` file in the `data` folder. Let's read it into R with the `readr` package. 
+The `read.table()` function, and its specific variants `read.csv()` and `read.delim()` is one of the most commonly used functions for reading data into **R**. The help file for `read.table()` provides a lot of useful information (see `?read.table`).
 
-```{r here_ex_read}
-data_raw <- readr::read_csv(here("lectures", "week_04", "data", "palmer_penguins.csv"))
-data_raw
+The read.table() function has a few important arguments:
+
+* `file`: the name of a file, or a connection  
+* `header`: a logical value indicating if the file has a header line  
+* `sep`: a string indicating how the columns are separated  
+* `colClasses`: a character vector indicating the class of each column in the dataset  
+* `nrows`: the number of rows in the dataset (by default `read.table()` reads an entire file)
+* `comment.char`: a character string indicating the comment character, which defaults to `#`. If there are no commented lines in your file, it’s worth setting this to be the empty string `""`.  
+* `skip`: the number of lines to skip from the beginning  
+* `stringsAsFactors`: should character variables be coded as factors? Note that as of **R** version 4.0, this defaults to `FALSE`
+
+Note that for small to moderately sized files, you can usually call `read.table()` without specifying any other arguments. For example, the following line
+
+```{r ex_readtable, eval = FALSE}
+raw_data <- read.table("flat_file.txt")
 ```
 
-From there, we can read in the `palmer_penguins.csv`
-like we have already learned how to do using the 
-`readr::read_csv()` function: 
+would
+
+* skip lines that begin with a `#`  
+* figure out how many rows there are (and how much memory needs to be allocated)  
+* figure what type of variable is in each column of the table  
+
+On the other hand, explicitly specifying all of these arguments directly makes **R** run faster and more efficiently.
+
+The `read.csv()` function is identical to read.table except that some of the defaults are set differently (e.g., `sep` argument). There is a `palmer_penguins.csv` file located deep in our working directory structure. 
+
+```{r here_ex_read_base}
+## read penguin data
+data_raw <- read.csv(here("lectures", "week_04", "data", "palmer_penguins.csv"))
+
+## inspect its content
+head(data_raw)
+```
+
+
+### Tidyverse
+
+The newer **Tidyverse** collection of packages includes [`readr`](https://readr.tidyverse.org/) for reading in data files and assigning them the `tibble` object class. Click [here](readr_cheatsheet.pdf) to see the cheat sheet.
+
+Let's read it into **R** with the `readr` package. 
+
+```{r here_ex_readr}
+## read penguin data
+data_raw <- read_csv(here("lectures", "week_04", "data", "palmer_penguins.csv"))
+
+## inspect its content
+head(data_raw)
+```
+
 
 ## Reading in a JSON file using `jsonlite`
 
 ### What is JSON? 
 
-JSON (or JavaScript Object Notation) is a file
-format that stores information in human-readable, 
-organized, logical, easy-to-access manner.
-
-For example, here is what a JSON file looks 
+JSON (or JavaScript Object Notation) is a file format that stores information in an organized, logical, easy-to-access manner (i.e., "human readable"). For example, here is what a JSON file looks 
 like: 
 
 ```{javascript, eval=FALSE}
@@ -282,74 +321,75 @@ var mark = {
 
 Some features about `JSON` object: 
 
-* JSON objects are surrounded by curly braces `{}`
-* JSON objects are written in key/value pairs
-* Keys must be strings, and values must be a valid JSON data type (string, number, object, array, boolean)
-* Keys and values are separated by a colon
-* Each key/value pair is separated by a comma
+* JSON objects are surrounded by curly braces `{}`  
+* JSON objects are written in `key : value` pairs (separated by a colon)  
+* Keys must be strings  
+* Values must be a valid JSON data type (string, number, object, array, boolean)   
+* Each `key : value` pair is separated by a comma  
 
-### Using GitHub API
+### Using the GitHub API
 
-Let's say we want to use the 
-[GitHub API](https://developer.github.com/v3/?)
-to find out how many of my GitHub repositories
-have open issues? 
+Many organizations provide an application programming interface (API) for accessing their data **GitHub** has an [API](https://developer.github.com/v3/?) that allows you to explore information about users. Let's use this API to explore some of Mark's GitHub activities.
 
-We will use the 
-[jsonlite](https://cran.r-project.org/web/packages/jsonlite/index.html)
-R package and the `fromJSON()` function
-to convert from a JSON object to a data frame. 
+To do so, we'll use the `fromJSON()` function from the
+[`jsonlite`](https://cran.r-project.org/web/packages/jsonlite/index.html) package to convert the data from a JSON object to a data frame. 
 
-We will read in a JSON file located at 
-[https://api.github.com/users/mark_scheuerell/repos](https://api.github.com/users/mark_scheuerell/repos)
+Let's begin by reading in the JSON file located at 
+[https://api.github.com/users/mdscheuerell/repos](https://api.github.com/users/mdscheuerell/repos)
 
-```{r github_ex}
-github_url = "https://api.github.com/users/mark_scheuerell/repos"
+```{r json_github_ex}
+## load the pckage
 library(jsonlite)
-jsonData <- fromJSON(github_url)
+
+## set the URL
+github_url = "https://api.github.com/users/mdscheuerell/repos"
+
+## get the JSON data
+data_json <- fromJSON(github_url)
 ```
 
 The function `fromJSON()` has now converted 
 the JSON file into a data frame with the names: 
 
-```{r}
-names(jsonData)
+```{r json_names}
+## all of the JSON names
+names(data_json)
 ```
 
-How many are private repos? How many have forks? 
+Now we can query these data to answer some questions about Mark's **GitHub** profile and activities. (Note that the following results are only based upon the first 30 repos listed in Mark's account.)
 
-```{r}
-table(jsonData$private)
-table(jsonData$forks)
+For example, how many of Mark's repos have been forked? 
+
+```{r gh_count_forks}
+## table of the number of forks
+table(data_json$forks)
 ```
 
-What's the most popular language? 
+Only a total of 5 of the firt 30 repos have been forked.
 
-```{r}
-table(jsonData$language)
+What's the most popular language used in these repos? 
+
+```{r, eval = FALSE}
+## table number of the different languages
+table(data_json$language)
 ```
 
-To find out how many repos that I have
-with open issues, we can just create 
-a table: 
+How many repos have open issues that Mark shoudl really address?
 
-```{r}
-# how many repos have open issues? 
-table(jsonData$open_issues_count)
+```{r gh_open_issues}
+## how many repos have open issues? 
+table(data_json$open_issues_count)
 ```
 
-Whew! Not as many as I thought.
+Not too bad, but clearly he's behind on some things...
 
-How many do you have? 
-
-Finally, I will leave you with a few 
-other examples of using GitHub API: 
+FYI, here are some other examples:
 
 * [How long does it take to close a GitHub Issue in the `dplyr` package?](https://blog.exploratory.io/analyzing-issue-data-with-github-rest-api-63945017dedc)
-* [How to retrieve all commits for a branch](https://stackoverflow.com/questions/9179828/github-api-retrieve-all-commits-for-all-branches-for-a-repo)
-* [Getting my GitHub Activity](https://masalmon.eu/2017/12/21/wherehaveyoubeen/)
 
-![](https://masalmon.eu/figure/source/2017-12-21-wherehaveyoubeen/unnamed-chunk-5-1.png)
+* [How to retrieve all commits for a branch](https://stackoverflow.com/questions/9179828/github-api-retrieve-all-commits-for-all-branches-for-a-repo)
+
+* [Getting my GitHub activity](https://masalmon.eu/2017/12/21/wherehaveyoubeen/)
 
 
 ## Reading in XML or HTML files using `rvest`
@@ -378,20 +418,20 @@ few things:
 We're going to be scraping [this page](http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/product-reviews/0387981403/ref=cm_cr_dp_qt_see_all_top?ie=UTF8&showViewpoints=1&sortBy=helpful): it just contains the (first page of) reviews of the 
 ggplot2 book by Hadley Wickham. 
 
-```{r}
+```{r, eval = FALSE}
 url <- "http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/product-reviews/0387981403/ref=cm_cr_dp_qt_see_all_top?ie=UTF8&showViewpoints=1&sortBy=helpful"
 ```
 
 We use the `rvest` package to download this page.
 
-```{r}
+```{r, eval = FALSE}
 library(rvest)
 h <- read_html(url)
 ```
 
 Now `h` is an `xml_document` that contains the contents of the page:
 
-```{r}
+```{r, eval = FALSE}
 h
 ```
 
@@ -423,14 +463,14 @@ your HTML object along with that selector
 into the `html_nodes` function, to select 
 just those nodes:
 
-```{r}
+```{r, eval = FALSE}
 h %>%
   html_nodes(".a-text-bold span")
 ```
 
 But you need the text from each of these, not the full tags. Pipe to the `html_text` function to pull these out:
 
-```{r}
+```{r, eval = FALSE}
 review_titles <- h %>%
   html_nodes(".a-text-bold span") %>%
   html_text()
@@ -442,7 +482,7 @@ let's grab the format (hardcover or paperback).
 Some experimentation with SelectorGadget 
 shows it's:
 
-```{r}
+```{r, eval = FALSE}
 h %>%
   html_nodes(".a-size-mini.a-color-secondary") %>%
   html_text()
@@ -452,7 +492,7 @@ Now, we may be annoyed that it always
 starts with `Format: `. Let's introduce 
 the `stringr` package.
 
-```{r}
+```{r, eval = FALSE}
 formats <- h %>%
   html_nodes(".a-size-mini.a-color-secondary") %>%
   html_text() %>%
