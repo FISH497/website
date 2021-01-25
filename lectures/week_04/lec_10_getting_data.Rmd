@@ -1,5 +1,5 @@
 ---
-title: "Getting data"
+title: "Getting data in R"
 author: "Mark Scheuerell"
 date: "25 January 2021"
 output:
@@ -26,6 +26,7 @@ install.packages("rvest")
 ```
 
 Now we load a few R packages
+
 ```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(jsonlite)
@@ -42,83 +43,47 @@ One of the keys to creating a reproducible workflow is maintaining the proper fo
 
 ## Absolute paths
 
-In the early days of **R** programming, many people worked with *absolute* paths. When you open up someone's R code or analysis, 
-you might also see the `setwd()` function being used
-which explicitly tells R to change the absolute path 
-or absolute location of which directory to move into. 
+In the early days of **R** programming, many people worked with *absolute* paths. When you open up someone's **R** code or analysis, you would often see the `setwd()` function being used. This explicitly tells **R** to change the absolute path to the folder/directory where work is being done. Although this may work fine for an individual who works by themselves on a single computer, it will quickly lead to headaches and long trails of work when projects are shared with others.
 
-For example, say I want to clone a GitHub repo from 
-Roger, which has 100 R script files, and in every 
-one of those files at the top is: 
+For example, if I had a series of scripts scattered throughout a repo, and each of them began with something like 
 
 ```{r setwd_ex, eval=FALSE}
 setwd("~/Users/Mark/Dcouments/folder/that/only/Mark/has")
 ```
 
-The problem is, if I want to use his code, I will 
-need to go and hand-edit every single one of those 
-paths (`C:\Users\Roger\path\only\that\Roger\has`)
-to the path that I want to use on my computer 
-or wherever I saved the folder on my computer (e.g. 
-`/Users/Stephanie/Documents/path/only/I/have`). 
-
-1. This is an unsustainable practice. 
-2. I can go in and manually edit the path, but this 
-assumes I know how to set a working directory. Not 
-everyone does. 
+you would need to go into each script and edit every single one of those *absolute* paths, such that they worked on your own computer.
 
 ## Relative paths
 
-So, instead of using absolute paths along the lines of: 
-
-```{r setwd_exs, eval=FALSE}
-setwd("/Users/Mark/data")
-setwd("~/Desktop/files/data")
-setwd("C:\\Users\\Mark\\Downloads")
-```
-
-A better idea is to use relative paths: 
+An alternative to using absolute paths is to use relative paths. For example, the following command would set the working directory to the `/data/` folder in someone's root directory.
 
 ```{r setwd_relative, eval=FALSE}
-setwd("./data/")
 setwd("~/data/")
 ```
 
 ### RStudio `.Rproj` files
 
-We have already seen how to set up projects in **RStudio** and make use of the relative file paths associated with a project's `.Rproj` file. When you start a project by opening a `.Rproj` file, **RStudio** automatically changes the path to the folder/directory where the `.Rproj` file is located. 
-
-After opening up a `.Rproj` file, you can test this with
+We have already seen how to set up projects in **RStudio** and make use of the relative file paths associated with a project's `.Rproj` file. When you start a project by opening a `.Rproj` file, **RStudio** automatically changes the path to the folder/directory where the `.Rproj` file is located. After opening up a `.Rproj` file, you can test this with
 
 ```{r chk_wd, eval=FALSE}
 getwd()
 ```
 
+### The `here` package
 
-## The `here` package
+Within **R**, the [here](https://github.com/r-lib/here) package will automatically identify the top-level directory of a **Git** repo, and then direct all other paths relative to that. For more on project-oriented workflows, check out [this blog post](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) by Jenny Bryan.
 
-Within R, an even better idea is to use the 
-[here](https://github.com/r-lib/here)
-R package will recognize the top-level directory 
-of a Git repo and supports building all paths 
-relative to that. For more on project-oriented 
-workflow suggestions, read 
-[this post](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
-from Jenny Bryan.
+Instead of using `setwd()` at the top your `.R` or `.Rmd` file, Jenny suggests: 
 
-In her post, she writes 
+* Organize each logical project into a folder on your computer (i.e., use a research compendium).
 
-> "I suggest organizing each data analysis into a project: a folder on your computer that holds all the files relevant to that particular piece of work."
+* Make sure the top-level folder advertises itself as such. This can be as simple as having an empty file named `.here`. If you use **RStudio** and/or **Git**, those both leave characteristic files behind that will get the job done.
 
-Instead of using `setwd()` at the top your `.R` or `.Rmd` file, she suggests: 
-
-* Organize each logical project into a folder on your computer.
-* Make sure the top-level folder advertises itself as such. This can be as simple as having an empty file named `.here`. Or, if you use RStudio and/or Git, those both leave characteristic files behind that will get the job done.
 * Use the `here()` function from the `here` package to build the path when you read or write a file. Create paths relative to the top-level directory.
-* Whenever you work on this project, launch the R process from the project’s top-level directory. If you launch R from the shell, `cd` to the correct folder first.
 
-Let's test this out. We can use `getwd()` to see our current 
-working directory path and the files available using `list.file()`  
+* Whenever you work on this project, launch the **R** process from the project's top-level directory. If you launch **R** from the shell, use `cd` to move to the correct folder before beginning.
+
+We can use `getwd()` to see our current working directory path and the files available using `list.file()` or `dir()`.
 
 ```{r chk_dir_files}
 ## what is the working directory?
@@ -129,12 +94,12 @@ list.files()
 dir()
 ```
 
-OK so our current location is in the `lectures` sub-folder 
-of the `2019` course repository. Let's try using the 
-`here` package. 
+Our current location is in the `week_04` sub-folder buried relatively deeply within the course `website` repository. 
+
+Using `here()` returns the following information:
 
 ```{r here_ex}
-## load {here} package
+## load here package
 library(here)
 
 ## show files in base directory
@@ -144,38 +109,48 @@ list.files(here())
 list.files(here("references"))
 ```
 
-We can also use `here()` to check the path for specific files
+We can also use `here()` to check the path for specific files:
 
 ```{r}
 here("data", "palmer_penguins.csv")
 ```
 
+So the `here::here()` function creates a path *relative* to the folder/directory where the `.Rproj` file exists. 
 
-Now we see that using the `here::here()` function is a 
-_relative_ path (relative to the `.Rproj` file in our `2019` 
-repository. We also see there is a `palmer_penguins.csv` file in 
-the `data` folder. Let's read it into R with the `readr` package. 
+## Checking for local files
 
-```{r here_ex_read}
-data_raw <- readr::read_csv(here("lectures", "week_04", "data", "palmer_penguins.csv"))
-data_raw
-```
+You may run into situations where you'd like to 
 
-## Finding and creating files locally
+1. check if a file already exists, and
 
-If you want to download a file, one way to use the 
-`file.exists()`, `dir.create()` and `list.files()`
-functions. 
+2. if not, perhaps create a new folder/directory before downloading or saving the file.
 
-* `file.exists(here("my", "relative", "path"))` = logical test if the file exists
-* `dir.create(here("my", "relative", "path"))` = create a folder
-* `list.files(here("my", "relative", "path"))` = list contents of folder
+The function `file.exists()` will test for the presence of a file and return `TRUE` or `FALSE`. For example,
 
-```{r, eval=FALSE}
-if(!file.exists(here("my", "relative", "path"))){
-  dir.create(here("my", "relative", "path"))
+`file.exists(here("my", "relative", "path", "filename.csv"))`
+
+will look for the `filename.csv` within the folder/directory `/my/relative/path`.
+
+For example, fitting statistical models in **JAGS** or **Stan** can take a lot of time (hours), and I don't want to have to refit the same models when doing an analysis. Therefore, I often use `file.exists()` within an `if` statement to first check if the folder/file exists, and if not,  create the folder and save the file.
+
+```{r here_ex_save, eval = FALSE}
+## set analysis directory
+analysis_dir <- here("analysis")
+
+## check if the `/analysis/cache` folder exists
+## if not, create it
+if(!file.exists(here("analysis_dir", "cache"))) {
+  dir.create(here("analysis_dir", "cache"))
 }
-list.files(here("my", "relative", "path"))
+
+## check for saved file named `fit_ipm_JAGS.rds`
+## if it doesn't exists, fit the model and save it
+if(!file.exists(here("analysis_dir", "cache", "fit_ipm_JAGS.rds"))) {
+  ## fit the model
+  fit_ipm_JAGS <- rjags(...)
+  ## save the model fit
+  saveRDS(fit_ipm_JAGS, here("analysis_dir", "cache", "fit_ipm_JAGS.rds"))
+}
 ```
 
 # Getting data
@@ -206,14 +181,16 @@ list.files(here("data"))
 
 ## Reading in CSV files
 
+We also see there is a `palmer_penguins.csv` file in the `data` folder. Let's read it into R with the `readr` package. 
+
+```{r here_ex_read}
+data_raw <- readr::read_csv(here("lectures", "week_04", "data", "palmer_penguins.csv"))
+data_raw
+```
+
 From there, we can read in the `palmer_penguins.csv`
 like we have already learned how to do using the 
 `readr::read_csv()` function: 
-
-```{r}
-cameras <- readr::read_csv(here("data", "palmer_penguins.csv"))
-cameras
-```
 
 ## Reading in a JSON file using `jsonlite`
 
@@ -269,7 +246,7 @@ to convert from a JSON object to a data frame.
 We will read in a JSON file located at 
 [https://api.github.com/users/mark_scheuerell/repos](https://api.github.com/users/mark_scheuerell/repos)
 
-```{r}
+```{r github_ex}
 github_url = "https://api.github.com/users/mark_scheuerell/repos"
 library(jsonlite)
 jsonData <- fromJSON(github_url)
