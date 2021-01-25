@@ -1,0 +1,452 @@
+---
+title: "Getting data"
+author: "Mark Scheuerell"
+date: "25 January 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: false
+    toc_float: true
+    toc_depth: 3
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      fig.align = "center", out.width = '90%')
+```
+
+Before we begin, you will need to install
+these packages
+
+```{r,eval=FALSE}
+install.packages("jsonlite")
+install.packages("rvest")
+```
+
+Now we load a few R packages
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(jsonlite)
+library(rvest)
+```
+
+# Motivation
+
+Today we are going to talk about getting data, examples of common data formats, and useful tools to access data. 
+
+# Working directories
+
+One of the keys to creating a reproducible workflow is maintaining the proper folder/directory structures across computers, platforms, etc. 
+
+## Absolute paths
+
+In the early days of **R** programming, many people worked with *absolute* paths. When you open up someone's R code or analysis, 
+you might also see the `setwd()` function being used
+which explicitly tells R to change the absolute path 
+or absolute location of which directory to move into. 
+
+For example, say I want to clone a GitHub repo from 
+Roger, which has 100 R script files, and in every 
+one of those files at the top is: 
+
+```{r setwd_ex, eval=FALSE}
+setwd("~/Users/Mark/Dcouments/folder/that/only/Mark/has")
+```
+
+The problem is, if I want to use his code, I will 
+need to go and hand-edit every single one of those 
+paths (`C:\Users\Roger\path\only\that\Roger\has`)
+to the path that I want to use on my computer 
+or wherever I saved the folder on my computer (e.g. 
+`/Users/Stephanie/Documents/path/only/I/have`). 
+
+1. This is an unsustainable practice. 
+2. I can go in and manually edit the path, but this 
+assumes I know how to set a working directory. Not 
+everyone does. 
+
+## Relative paths
+
+So, instead of using absolute paths along the lines of: 
+
+```{r setwd_exs, eval=FALSE}
+setwd("/Users/Mark/data")
+setwd("~/Desktop/files/data")
+setwd("C:\\Users\\Mark\\Downloads")
+```
+
+A better idea is to use relative paths: 
+
+```{r setwd_relative, eval=FALSE}
+setwd("./data/")
+setwd("~/data/")
+```
+
+### RStudio `.Rproj` files
+
+We have already seen how to set up projects in **RStudio** and make use of the relative file paths associated with a project's `.Rproj` file. When you start a project by opening a `.Rproj` file, **RStudio** automatically changes the path to the folder/directory where the `.Rproj` file is located. 
+
+After opening up a `.Rproj` file, you can test this with
+
+```{r chk_wd, eval=FALSE}
+getwd()
+```
+
+
+## The `here` package
+
+Within R, an even better idea is to use the 
+[here](https://github.com/r-lib/here)
+R package will recognize the top-level directory 
+of a Git repo and supports building all paths 
+relative to that. For more on project-oriented 
+workflow suggestions, read 
+[this post](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
+from Jenny Bryan.
+
+In her post, she writes 
+
+> "I suggest organizing each data analysis into a project: a folder on your computer that holds all the files relevant to that particular piece of work."
+
+Instead of using `setwd()` at the top your `.R` or `.Rmd` file, she suggests: 
+
+* Organize each logical project into a folder on your computer.
+* Make sure the top-level folder advertises itself as such. This can be as simple as having an empty file named `.here`. Or, if you use RStudio and/or Git, those both leave characteristic files behind that will get the job done.
+* Use the `here()` function from the `here` package to build the path when you read or write a file. Create paths relative to the top-level directory.
+* Whenever you work on this project, launch the R process from the project’s top-level directory. If you launch R from the shell, `cd` to the correct folder first.
+
+Let's test this out. We can use `getwd()` to see our current 
+working directory path and the files available using `list.file()`  
+
+```{r chk_dir_files}
+## what is the working directory?
+getwd()
+
+## what files exist in the working directory?
+list.files()
+dir()
+```
+
+OK so our current location is in the `lectures` sub-folder 
+of the `2019` course repository. Let's try using the 
+`here` package. 
+
+```{r here_ex}
+## load {here} package
+library(here)
+
+## show files in base directory
+list.files(here())
+
+## show files in references directory
+list.files(here("references"))
+```
+
+We can also use `here()` to check the path for specific files
+
+```{r}
+here("data", "palmer_penguins.csv")
+```
+
+
+Now we see that using the `here::here()` function is a 
+_relative_ path (relative to the `.Rproj` file in our `2019` 
+repository. We also see there is a `palmer_penguins.csv` file in 
+the `data` folder. Let's read it into R with the `readr` package. 
+
+```{r here_ex_read}
+data_raw <- readr::read_csv(here("lectures", "week_04", "data", "palmer_penguins.csv"))
+data_raw
+```
+
+## Finding and creating files locally
+
+If you want to download a file, one way to use the 
+`file.exists()`, `dir.create()` and `list.files()`
+functions. 
+
+* `file.exists(here("my", "relative", "path"))` = logical test if the file exists
+* `dir.create(here("my", "relative", "path"))` = create a folder
+* `list.files(here("my", "relative", "path"))` = list contents of folder
+
+```{r, eval=FALSE}
+if(!file.exists(here("my", "relative", "path"))){
+  dir.create(here("my", "relative", "path"))
+}
+list.files(here("my", "relative", "path"))
+```
+
+# Getting data
+
+## Downloading files
+
+
+```{r, eval=FALSE}
+file_url <- paste0("")
+download.file(file_url,
+              destfile=here("data", "palmer_penguins.csv"))
+list.files(here("data"))
+```
+
+Alternatively, if we want to only download
+the file once each time we knit our reproducible
+report or homework or project, we can us wrap
+the code above into a `!file.exists()` function. 
+
+```{r}
+if(!file.exists(here("data", "palmer_penguins.csv"))){
+  file_url <- paste0("")
+  download.file(file_url,
+                destfile=here("data", "palmer_penguins.csv"))
+}
+list.files(here("data"))
+```
+
+## Reading in CSV files
+
+From there, we can read in the `palmer_penguins.csv`
+like we have already learned how to do using the 
+`readr::read_csv()` function: 
+
+```{r}
+cameras <- readr::read_csv(here("data", "palmer_penguins.csv"))
+cameras
+```
+
+## Reading in a JSON file using `jsonlite`
+
+### What is JSON? 
+
+JSON (or JavaScript Object Notation) is a file
+format that stores information in human-readable, 
+organized, logical, easy-to-access manner.
+
+For example, here is what a JSON file looks 
+like: 
+
+```{javascript, eval=FALSE}
+var mark = {
+  "city" : "Seattle",
+  "state" : "WA", 
+  "hobbies" : {
+    "hobby1" : "cycling",
+    "hobby2" : "skiing"
+  }
+  "bikes" : {
+    "bike1" : "Ridley Helium",
+    "bike2" : "Niner RLT",
+    "bike3" : "Santa Cruz Tallboy"
+  }
+  "skis" : {
+    "skis1" : "K2 Hardside",
+    "skis2" : "DPS Wailer"
+  }
+}
+```
+
+Some features about `JSON` object: 
+
+* JSON objects are surrounded by curly braces `{}`
+* JSON objects are written in key/value pairs
+* Keys must be strings, and values must be a valid JSON data type (string, number, object, array, boolean)
+* Keys and values are separated by a colon
+* Each key/value pair is separated by a comma
+
+### Using GitHub API
+
+Let's say we want to use the 
+[GitHub API](https://developer.github.com/v3/?)
+to find out how many of my GitHub repositories
+have open issues? 
+
+We will use the 
+[jsonlite](https://cran.r-project.org/web/packages/jsonlite/index.html)
+R package and the `fromJSON()` function
+to convert from a JSON object to a data frame. 
+
+We will read in a JSON file located at 
+[https://api.github.com/users/mark_scheuerell/repos](https://api.github.com/users/mark_scheuerell/repos)
+
+```{r}
+github_url = "https://api.github.com/users/mark_scheuerell/repos"
+library(jsonlite)
+jsonData <- fromJSON(github_url)
+```
+
+The function `fromJSON()` has now converted 
+the JSON file into a data frame with the names: 
+
+```{r}
+names(jsonData)
+```
+
+How many are private repos? How many have forks? 
+
+```{r}
+table(jsonData$private)
+table(jsonData$forks)
+```
+
+What's the most popular language? 
+
+```{r}
+table(jsonData$language)
+```
+
+To find out how many repos that I have
+with open issues, we can just create 
+a table: 
+
+```{r}
+# how many repos have open issues? 
+table(jsonData$open_issues_count)
+```
+
+Whew! Not as many as I thought.
+
+How many do you have? 
+
+Finally, I will leave you with a few 
+other examples of using GitHub API: 
+
+* [How long does it take to close a GitHub Issue in the `dplyr` package?](https://blog.exploratory.io/analyzing-issue-data-with-github-rest-api-63945017dedc)
+* [How to retrieve all commits for a branch](https://stackoverflow.com/questions/9179828/github-api-retrieve-all-commits-for-all-branches-for-a-repo)
+* [Getting my GitHub Activity](https://masalmon.eu/2017/12/21/wherehaveyoubeen/)
+
+![](https://masalmon.eu/figure/source/2017-12-21-wherehaveyoubeen/unnamed-chunk-5-1.png)
+
+
+## Reading in XML or HTML files using `rvest`
+
+Do we want to purchase a book on Amazon? 
+
+Next we are going to learn about what to do if
+your data is on a website (XML or HTML) formatted 
+to be read by humans instead of R.
+
+We will use the (really powerful)
+[rvest](https://cran.r-project.org/web/packages/rvest/rvest.pdf)
+R package to do what is often called 
+"scraping data from the web". 
+
+Before we do that, we need to set up a 
+few things:
+
+* [SelectorGadget tool](http://selectorgadget.com/)
+* [rvest and SelectorGadget guide](https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html)
+* [Awesome tutorial for CSS Selectors](http://flukeout.github.io/#)
+* [Introduction to stringr](https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html)
+* [Regular Expressions/stringr tutorial](https://stat545-ubc.github.io/block022_regular-expression.html)
+* [Regular Expression online tester](https://regex101.com/#python)- explains a regular expression as it is built, and confirms live whether and how it matches particular text.
+
+We're going to be scraping [this page](http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/product-reviews/0387981403/ref=cm_cr_dp_qt_see_all_top?ie=UTF8&showViewpoints=1&sortBy=helpful): it just contains the (first page of) reviews of the 
+ggplot2 book by Hadley Wickham. 
+
+```{r}
+url <- "http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/product-reviews/0387981403/ref=cm_cr_dp_qt_see_all_top?ie=UTF8&showViewpoints=1&sortBy=helpful"
+```
+
+We use the `rvest` package to download this page.
+
+```{r}
+library(rvest)
+h <- read_html(url)
+```
+
+Now `h` is an `xml_document` that contains the contents of the page:
+
+```{r}
+h
+```
+
+How can you actually pull the interesting 
+information out? That's where CSS selectors come in.
+
+### CSS Selectors
+
+CSS selectors are a way to specify a subset of 
+nodes (that is, units of content) on a web page
+(e.g., just getting the titles of reviews). 
+CSS selectors are very powerful and not too 
+challenging to master- here's 
+[a great tutorial](http://flukeout.github.io/#) 
+But honestly you can get a lot done even with 
+very little understanding, by using a tool 
+called SelectorGadget.
+
+Install the [SelectorGadget](http://selectorgadget.com/) 
+on your web browser. (If you use Chrome you can
+use the Chrome extension, otherwise drag the 
+provided link into your bookmarks bar). 
+[Here's a guide for how to use it with rvest to "point-and-click" your way to a working selector](http://selectorgadget.com/).
+
+For example, if you just wanted the titles, 
+you'll end up with a selector that looks 
+something like `.a-text-bold span`. You can pipe
+your HTML object along with that selector 
+into the `html_nodes` function, to select 
+just those nodes:
+
+```{r}
+h %>%
+  html_nodes(".a-text-bold span")
+```
+
+But you need the text from each of these, not the full tags. Pipe to the `html_text` function to pull these out:
+
+```{r}
+review_titles <- h %>%
+  html_nodes(".a-text-bold span") %>%
+  html_text()
+review_titles
+```
+
+Now we've extracted something useful! Similarly, 
+let's grab the format (hardcover or paperback).
+Some experimentation with SelectorGadget 
+shows it's:
+
+```{r}
+h %>%
+  html_nodes(".a-size-mini.a-color-secondary") %>%
+  html_text()
+```
+
+Now, we may be annoyed that it always
+starts with `Format: `. Let's introduce 
+the `stringr` package.
+
+```{r}
+formats <- h %>%
+  html_nodes(".a-size-mini.a-color-secondary") %>%
+  html_text() %>%
+  stringr::str_replace("Format: ", "")
+formats
+```
+
+We could do similar exercise for extracting
+the number of stars and whether or not someone
+found a review useful. This would help us decide
+if we were interested in purchasing the book! 
+
+# Summary
+
+* Best practices for sharing data
+* Best practices for downloading and reading in data
+  * Relative versus absolute paths
+  * Finding and creating files locally
+* Best practices for getting data 
+  * `jsonlite` for JSON (e.g. GitHub API)
+  * `rvest` to grab all the exact elements you want (e.g. book reviews)
+      * Check out selector gadget 
+  * `DBI`, `RSQLite`, `dbplyr` for interacting with `SQLite` databses
+  * Other APIs
+      * Huffington Post API
+    
+## Other good R packages to know about 
+
+* [`httr`](https://cran.r-project.org/web/packages/httr/index.html) for tools to work with URLs and HTTP
+* [`googlesheets`](https://cran.r-project.org/web/packages/googlesheets/vignettes/basic-usage.html) to interact with Google Sheets in R
+* [`googledrive`](https://googledrive.tidyverse.org](http://googledrive.tidyverse.org/) to interact with your Google Drive
