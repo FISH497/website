@@ -119,9 +119,12 @@ data_ingest <- list(
   title = "Getting data",
   topics = c("<b>Getting data</b>", "Importing text files", "Reading from Excel & Google"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = c(""),
+  rmd = "lectures/week_04/lec_10_getting_data.Rmd",
+  html = "lectures/week_04/lec_10_getting_data.html",
+  background = c("[readr pkg](https://readr.tidyverse.org/)",
+                 "[readxl pkg](https://readxl.tidyverse.org/)",
+                 "[googlesheets pkg](https://googlesheets4.tidyverse.org/index.html)",
+                 "[jsonlite pkg](https://cran.r-project.org/web/packages/jsonlite/vignettes/json-aaquickstart.html)"),
   zoom = ""
 )
 
