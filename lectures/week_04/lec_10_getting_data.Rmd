@@ -153,6 +153,8 @@ if(!file.exists(here("analysis_dir", "cache", "fit_ipm_JAGS.rds"))) {
 }
 ```
 
+***
+
 # Getting data
 
 ## Downloading files
@@ -324,15 +326,69 @@ head(cc_data)
 If you are only interested in a certain subset of the data, the `range` argument can be used to select which cells to read. For example, to read in the columns related to cereal yield for the years 1990 through 1995 for country names that start with "B" in the Data tab, we would only want to read in the rectangle of cells from G481 to L498:
 
 ```{r}
-data <- read_excel("data/world_bank_climate_change.xls",
-                   sheet     = "Data",
-                   range     = "G481:L498",
-                   col_names = as.character(c(1990:1995)),
-                   na        = "..")
-data
+cc_data <- read_excel("data/world_bank_climate_change.xls",
+                      sheet     = "Data",
+                      range     = "G481:L498",
+                      col_names = as.character(c(1990:1995)),
+                      na        = "..")
+head(cc_data)
 ```
 
-## Reading in a JSON file using `jsonlite`
+
+## Reading a Google Sheet
+
+The `googlesheets4` package allows you to inspect and read Google Sheets. The `gs_ls()` function returns a data frame of the sheets listed in your Google Sheets home screen located at https://docs.google.com/spreadsheets/. This will include sheets that you own and sheets owned by others that you have permission to access.
+
+To begin, you need to authorize `googlesheets4` to access the contents of your Google Drive where the Sheets are stored. Here I'm allowing only access to public sheets.
+
+```{r googlesheet_setup}
+## load the packge
+library(googlesheets4)
+
+## authorize for reading public-only sheets
+gs4_deauth()
+```
+
+Now we can read in a sheet by one of two methods:
+
+1. specify the entire URL  
+2. specify only the sheet ID
+
+```{r googlesheet_read}
+## specify URL
+gs_url <- "https://docs.google.com/spreadsheets/d/1ct3MMMzEX82BeqJcUw3uYD5b4CJrKUmRYCK-wVA3yig/edit#gid=0"
+
+## read from URL
+read_sheet(gs_url)
+
+## assign it to an object
+gs_raw <- read_sheet(gs_url)
+
+## specify ID
+gs_id <- as_sheets_id(gs_url)
+
+## read from ID
+read_sheet(gs_id)
+
+## assign it to an object
+gs_raw <- read_sheet(gs_id)
+```
+
+We can browse the sheet's metadata with `gs4_browse()`:
+
+```{r gs_browse}
+## browse sheet contents
+gs4_get(gs_id)
+```
+
+We can also read in just a subset of cells by specifying the `range` argument. 
+
+```{r}
+read_sheet(gs_id, range = "A1:B10")
+```
+
+
+## Reading a JSON file
 
 ### What is JSON? 
 
@@ -414,7 +470,7 @@ What's the most popular language used in these repos?
 table(data_json$language)
 ```
 
-How many repos have open issues that Mark shoudl really address?
+How many repos have open issues that Mark should really address?
 
 ```{r gh_open_issues}
 ## how many repos have open issues? 
@@ -423,17 +479,10 @@ table(data_json$open_issues_count)
 
 Not too bad, but clearly he's behind on some things...
 
-FYI, here are some other examples:
-
-* [How long does it take to close a GitHub Issue in the `dplyr` package?](https://blog.exploratory.io/analyzing-issue-data-with-github-rest-api-63945017dedc)
-
-* [How to retrieve all commits for a branch](https://stackoverflow.com/questions/9179828/github-api-retrieve-all-commits-for-all-branches-for-a-repo)
-
-* [Getting my GitHub activity](https://masalmon.eu/2017/12/21/wherehaveyoubeen/)
-
+***
 
 # Other good R packages
 
 * [`httr`](https://cran.r-project.org/web/packages/httr/index.html) for tools to work with URLs and HTTP
-* [`googlesheets`](https://cran.r-project.org/web/packages/googlesheets/vignettes/basic-usage.html) to interact with Google Sheets in R
-* [`googledrive`](https://googledrive.tidyverse.org](http://googledrive.tidyverse.org/) to interact with your Google Drive
+
+* [`googledrive`](http://googledrive.tidyverse.org/) to interact with your Google Drive
