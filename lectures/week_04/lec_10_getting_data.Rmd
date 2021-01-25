@@ -292,6 +292,46 @@ head(data_raw)
 ```
 
 
+## Reading Excel files
+
+Excel is very popular for entering and storing data, although we've already seen some of the pitfalls that you might encounter. There is a great package called [`readxl`](https://readxl.tidyverse.org/) that allows you to read Excel files directly into **R**. 
+Here's an example that uses an Excel file called `world_bank_climate_change.xls` from the World Bank's [website](https://datacatalog.worldbank.org/dataset/climate-change-data). It looks like this:
+
+![](wb_excel_view.png)
+
+<br>
+
+We can get a list of the individual worksheets within the workbook with `excel_sheets()`.
+
+```{r examine_wb_file, warning = FALSE}
+## load readxl
+library(readxl)
+
+## inpect the sheet names
+excel_sheets("data/world_bank_climate_change.xls")
+```
+
+We can read in a specific worksheet with `read_excel()`.
+
+```{r read_wb_sheet, warning = FALSE}
+## read in the "Data" worksheet
+cc_data <- read_excel("data/world_bank_climate_change.xls", sheet = "Data")
+
+## inspect it
+head(cc_data)
+```
+
+If you are only interested in a certain subset of the data, the `range` argument can be used to select which cells to read. For example, to read in the columns related to cereal yield for the years 1990 through 1995 for country names that start with "B" in the Data tab, we would only want to read in the rectangle of cells from G481 to L498:
+
+```{r}
+data <- read_excel("data/world_bank_climate_change.xls",
+                   sheet     = "Data",
+                   range     = "G481:L498",
+                   col_names = as.character(c(1990:1995)),
+                   na        = "..")
+data
+```
+
 ## Reading in a JSON file using `jsonlite`
 
 ### What is JSON? 
@@ -392,134 +432,7 @@ FYI, here are some other examples:
 * [Getting my GitHub activity](https://masalmon.eu/2017/12/21/wherehaveyoubeen/)
 
 
-## Reading in XML or HTML files using `rvest`
-
-Do we want to purchase a book on Amazon? 
-
-Next we are going to learn about what to do if
-your data is on a website (XML or HTML) formatted 
-to be read by humans instead of R.
-
-We will use the (really powerful)
-[rvest](https://cran.r-project.org/web/packages/rvest/rvest.pdf)
-R package to do what is often called 
-"scraping data from the web". 
-
-Before we do that, we need to set up a 
-few things:
-
-* [SelectorGadget tool](http://selectorgadget.com/)
-* [rvest and SelectorGadget guide](https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html)
-* [Awesome tutorial for CSS Selectors](http://flukeout.github.io/#)
-* [Introduction to stringr](https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html)
-* [Regular Expressions/stringr tutorial](https://stat545-ubc.github.io/block022_regular-expression.html)
-* [Regular Expression online tester](https://regex101.com/#python)- explains a regular expression as it is built, and confirms live whether and how it matches particular text.
-
-We're going to be scraping [this page](http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/product-reviews/0387981403/ref=cm_cr_dp_qt_see_all_top?ie=UTF8&showViewpoints=1&sortBy=helpful): it just contains the (first page of) reviews of the 
-ggplot2 book by Hadley Wickham. 
-
-```{r, eval = FALSE}
-url <- "http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/product-reviews/0387981403/ref=cm_cr_dp_qt_see_all_top?ie=UTF8&showViewpoints=1&sortBy=helpful"
-```
-
-We use the `rvest` package to download this page.
-
-```{r, eval = FALSE}
-library(rvest)
-h <- read_html(url)
-```
-
-Now `h` is an `xml_document` that contains the contents of the page:
-
-```{r, eval = FALSE}
-h
-```
-
-How can you actually pull the interesting 
-information out? That's where CSS selectors come in.
-
-### CSS Selectors
-
-CSS selectors are a way to specify a subset of 
-nodes (that is, units of content) on a web page
-(e.g., just getting the titles of reviews). 
-CSS selectors are very powerful and not too 
-challenging to master- here's 
-[a great tutorial](http://flukeout.github.io/#) 
-But honestly you can get a lot done even with 
-very little understanding, by using a tool 
-called SelectorGadget.
-
-Install the [SelectorGadget](http://selectorgadget.com/) 
-on your web browser. (If you use Chrome you can
-use the Chrome extension, otherwise drag the 
-provided link into your bookmarks bar). 
-[Here's a guide for how to use it with rvest to "point-and-click" your way to a working selector](http://selectorgadget.com/).
-
-For example, if you just wanted the titles, 
-you'll end up with a selector that looks 
-something like `.a-text-bold span`. You can pipe
-your HTML object along with that selector 
-into the `html_nodes` function, to select 
-just those nodes:
-
-```{r, eval = FALSE}
-h %>%
-  html_nodes(".a-text-bold span")
-```
-
-But you need the text from each of these, not the full tags. Pipe to the `html_text` function to pull these out:
-
-```{r, eval = FALSE}
-review_titles <- h %>%
-  html_nodes(".a-text-bold span") %>%
-  html_text()
-review_titles
-```
-
-Now we've extracted something useful! Similarly, 
-let's grab the format (hardcover or paperback).
-Some experimentation with SelectorGadget 
-shows it's:
-
-```{r, eval = FALSE}
-h %>%
-  html_nodes(".a-size-mini.a-color-secondary") %>%
-  html_text()
-```
-
-Now, we may be annoyed that it always
-starts with `Format: `. Let's introduce 
-the `stringr` package.
-
-```{r, eval = FALSE}
-formats <- h %>%
-  html_nodes(".a-size-mini.a-color-secondary") %>%
-  html_text() %>%
-  stringr::str_replace("Format: ", "")
-formats
-```
-
-We could do similar exercise for extracting
-the number of stars and whether or not someone
-found a review useful. This would help us decide
-if we were interested in purchasing the book! 
-
-# Summary
-
-* Best practices for sharing data
-* Best practices for downloading and reading in data
-  * Relative versus absolute paths
-  * Finding and creating files locally
-* Best practices for getting data 
-  * `jsonlite` for JSON (e.g. GitHub API)
-  * `rvest` to grab all the exact elements you want (e.g. book reviews)
-      * Check out selector gadget 
-  * `DBI`, `RSQLite`, `dbplyr` for interacting with `SQLite` databses
-  * Other APIs
-      * Huffington Post API
-    
-## Other good R packages to know about 
+# Other good R packages
 
 * [`httr`](https://cran.r-project.org/web/packages/httr/index.html) for tools to work with URLs and HTTP
 * [`googlesheets`](https://cran.r-project.org/web/packages/googlesheets/vignettes/basic-usage.html) to interact with Google Sheets in R
