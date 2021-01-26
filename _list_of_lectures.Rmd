@@ -125,7 +125,7 @@ data_ingest <- list(
                  "[readxl pkg](https://readxl.tidyverse.org/)",
                  "[googlesheets pkg](https://googlesheets4.tidyverse.org/index.html)",
                  "[jsonlite pkg](https://cran.r-project.org/web/packages/jsonlite/vignettes/json-aaquickstart.html)"),
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/hlJqbcxGwXB_XdGUM1qQw4VXdJuinBv4bVUQGa57Cz7KZV_MFx-u_gpUeMcSQeyB.Bxiw7wIOazetcAOu"
 )
 
 ## day 11 ####
