@@ -143,9 +143,9 @@ if(!file.exists(here("analysis_dir", "cache", "fit_ipm_JAGS.rds"))) {
 
 ## Downloading files
 
-One option for reading data is to pull files directly from a website. Here is an example of downloading some river flow data from the U.S. Geological survey [National Water Information System](http://waterdata.usgs.gov/nwis).
+One option for reading data is to pull files directly from a website. Here is an example of downloading some river flow data from the U.S. Geological Survey [National Water Information System](http://waterdata.usgs.gov/nwis).
 
-We will use the direct link to the gauge data from the Skagit River near Mount Vernon, WA (gauge #12178000), beginning with the first year of fish data.
+We will use the direct link to the gauge data from the Skagit River near Mount Vernon, WA (gauge #12178000). Before beginning, we need to specify the first and last years, and gauge's ID.
 
 ```{r get_flow_user_inputs}
 ## first & last years of flow data

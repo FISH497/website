@@ -386,8 +386,8 @@ if(!file.exists(here(&quot;analysis_dir&quot;, &quot;cache&quot;, &quot;fit_ipm_
 <h1>Getting data</h1>
 <div id="downloading-files" class="section level2">
 <h2>Downloading files</h2>
-<p>One option for reading data is to pull files directly from a website. Here is an example of downloading some river flow data from the U.S. Geological survey <a href="http://waterdata.usgs.gov/nwis">National Water Information System</a>.</p>
-<p>We will use the direct link to the gauge data from the Skagit River near Mount Vernon, WA (gauge #12178000), beginning with the first year of fish data.</p>
+<p>One option for reading data is to pull files directly from a website. Here is an example of downloading some river flow data from the U.S. Geological Survey <a href="http://waterdata.usgs.gov/nwis">National Water Information System</a>.</p>
+<p>We will use the direct link to the gauge data from the Skagit River near Mount Vernon, WA (gauge #12178000). Before beginning, we need to specify the first and last years, and gauge’s ID.</p>
 <pre class="r"><code>## first &amp; last years of flow data
 yr_frst &lt;- 2001
 yr_last &lt;- 2020
@@ -427,7 +427,7 @@ print(flow_raw[hdr_flow], quote = FALSE)</code></pre>
 ## [11] # Automated-retrieval info: https://help.waterdata.usgs.gov/faq/automated-retrievals      
 ## [12] #                                                                                         
 ## [13] # Contact:   gs-w_support_nwisweb@usgs.gov                                                
-## [14] # retrieved: 2021-01-25 10:24:32 EST       (vaww01)                                       
+## [14] # retrieved: 2021-01-25 13:27:02 EST       (sdww01)                                       
 ## [15] #                                                                                         
 ## [16] # Data for the following 1 site(s) are contained in this file                             
 ## [17] #    USGS 12178000 SKAGIT RIVER AT NEWHALEM, WA                                           
