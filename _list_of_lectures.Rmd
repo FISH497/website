@@ -139,6 +139,18 @@ data_cleaning <- list(
   zoom = ""
 )
 
+## day 11 ####
+getting_help <- list(
+  title = "Getting help",
+  topics = c("<b>Getting help</b>", "Minimal", "Complete", "Reproducible"),
+  pdf = c(""),
+  rmd = "lectures/week_04/lec_11_getting_help.Rmd",
+  html = "lectures/week_04/lec_11_getting_help.html",
+  background = c("[Maelle Salmon's blog](https://masalmon.eu/2018/07/22/wheretogethelp/)",
+                 "[Reprex do's & don'ts](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html)"),
+  zoom = ""
+)
+
 ## day 12 ####
 guest_woo <- list(
   title = "Guest presentation",

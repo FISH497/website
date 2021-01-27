@@ -38,7 +38,7 @@ week_lecs$L8 <- workflows
 week_lecs$L9 <- working_with_data
 ## week 4: Jan 25-29
 week_lecs$L10 <- data_ingest
-week_lecs$L11 <- data_cleaning
+week_lecs$L11 <- getting_help
 week_lecs$L12 <- guest_woo
 ## week 5: Feb 1-5
 week_lecs$L13 <- databases_1
