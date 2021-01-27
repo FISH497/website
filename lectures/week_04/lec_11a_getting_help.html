@@ -300,14 +300,14 @@ div.tocify {
 </ul>
 <p>The bottom line is that you should</p>
 <ul>
-<li><p>use the least amount of code possible to produce the problem (minimal)</p></li>
-<li><p>provide <em>everything</em> (code, data) someone would need to reproduce your problem (complete)</p></li>
-<li><p>verify that the code you’re about to share reproduces the problem (reproducible)</p></li>
+<li><p>Use the least amount of code possible to produce the problem (minimal)</p></li>
+<li><p>Provide <em>everything</em> (code, data) someone would need to reproduce your problem (complete)</p></li>
+<li><p>Verify that the code you’re about to share reproduces the problem (reproducible)</p></li>
 </ul>
 <p>In addition, you should phrase your question in manner that is polite and free of jargon or other language constructs that might confuse people. The data science community is global, so recognize that someone reading your question might not speak English as a first language. Also consider that others may very well stumble across your question and, hopefully, the correct answer years after it was solved. As such, using plain, descriptive language in the title and body of a post will allows to find it when searching for answers. For example, <a href="https://stackoverflow.com/questions/36634641/formatting-table-headings-in-rmarkdown">this problem</a> I posted on Stack Overflow in 2016 has since received over 1000 views!</p>
 <div id="minimal" class="section level2">
 <h2>Minimal</h2>
-<p>There tends to be a strong negative correlation between the length of your code and the likelihood someone will 1) read all the way through it, and 2) actually solve your problem. Therefore, you should streamline your example along the following lines of advice.</p>
+<p>There tends to be a strong negative correlation between the length of your code and the likelihood that someone will 1) read all the way through it, and 2) actually be able to solve your problem. Therefore, you should consider the following points.</p>
 <ul>
 <li><p>Consider creating a new script, including <em>only those elements germane to the problem</em></p></li>
 <li><p>Remove extraneous information that doesn’t influence the problematic code</p></li>
@@ -318,19 +318,25 @@ div.tocify {
 </div>
 <div id="complete" class="section level2">
 <h2>Complete</h2>
-<p>Make sure all information necessary to reproduce the problem is included in the question itself:</p>
-<p>If the problem requires some server-side code as well as some XML-based configuration, include code for both. If a web page problem requires HTML, some JavaScript, and a stylesheet, include code for all three. The problem might not be in the code that you think it is in.</p>
-<p>Use individual code blocks for each file or snippet you include. Provide a description for the purpose of each block.</p>
-<p>Use Stack Snippets to include runnable HTML, JavaScript, or CSS.</p>
-<p>DO NOT use images of code. Copy the actual text from your code editor, paste it into the question, then format it as code. This helps others more easily read and test your code.</p>
+<p>It’s important to include <strong>all</strong> of the information necessary to reproduce the problem <em>within the question itself</em>. Don’t put other people in a position where their first response to you is a request for more information. In addition, please consider the following advice.</p>
+<ul>
+<li><p>If there are data involved, include a small subset of the data along with any necessary code</p></li>
+<li><p>Break your problem down into small code blocks and include a description of each block’s purpose</p></li>
+<li><p>It’s OK to include an image or figure in your question, but</p></li>
+<li><p><strong>Do not</strong> use images of code; rather, copy/paste the actual code so others don’t have to re-type anything</p></li>
+<li><p>Include information or links to other problems/solutions that you’ve tried or are referencing</p></li>
+</ul>
 </div>
 <div id="reproducible" class="section level2">
 <h2>Reproducible</h2>
-<p>To help you solve your problem, others will need to verify that it exists:</p>
-<p>Describe the problem. “It doesn’t work” isn’t descriptive enough to help people understand your problem. Instead, tell other readers what the expected behavior should be. Tell other readers what the exact wording of the error message is, and which line of code is producing it. Use a brief but descriptive summary of your problem as the title of your question.</p>
-<p>Eliminate any issues that aren’t relevant to the problem. If your question isn’t about a compiler error, ensure that there are no compile-time errors. Use a program such as JSLint to validate interpreted languages. Validate any HTML or XML.</p>
-<p>Double-check that your example reproduces the problem! If you inadvertently fixed the problem while composing the example but didn’t test it again, you’d want to know that before asking someone else to help.</p>
-<p>It might help to shut the system down and restart it, or transport the example to a fresh environment to confirm it really does provide an example of the problem.</p>
+<p>In order to help you, other people will need to verify that they can indeed reproduce the problem you’re having. Phrases like “Help!”, “This won’t work!”, or “Why does this happen?” don’t offer much information. Instead, use descriptive language that gets to the question at hand, including:</p>
+<ul>
+<li><p>Explain what the expected behavior should be</p></li>
+<li><p>Provide the exact wording of any error messages</p></li>
+<li><p>Indicate which line(s) of code produce(s) the problem</p></li>
+<li><p>Use a brief, descriptive summary of your problem as the title of your question</p></li>
+</ul>
+<p>You should also double-check that your example reproduces the problem. As such, it’s good practice to quit <strong>RStudio</strong> (or other software) and restart it from scratch. If possible, consider testing your example on another computer or operating system.</p>
 <hr />
 </div>
 </div>
