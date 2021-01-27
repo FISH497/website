@@ -148,7 +148,7 @@ getting_help <- list(
   html = "lectures/week_04/lec_11_getting_help.html",
   background = c("[Maelle Salmon's blog](https://masalmon.eu/2018/07/22/wheretogethelp/)",
                  "[Reprex do's & don'ts](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html)"),
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/VtnEOSz3M_QO2KQkM6IQfSQeyTmzjWdMbdDim04wZyffJ5jYNuCwbBBBXbw1VfJm.uIQc0GOOEYtb_3h1"
 )
 
 ## day 12 ####
