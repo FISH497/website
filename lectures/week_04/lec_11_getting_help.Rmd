@@ -114,11 +114,58 @@ In addition to minimal, complete, and reproducible code (and possibly data), you
 
 ***
 
-# The `reprex` package
+# Creating a "reprex"
 
-Creating a reproducible example (reprex) can be a lot of work, but so is answering other people's questions. As Jenny Bryan says, "Help me help you." The process of creating a reprex can also introduce unintended mistakes in your code during a copy/paste or retyping. As an instructor at UBC, Jenny found herself responding to hundreds of issues and questions per semester, so she (and others) created the [`reprex` package](https://reprex.tidyverse.org/).
+Creating a reproducible example (reprex) can be a lot of work, but so is answering other people's questions. As Jenny Bryan says, "Help me help you." Here are some options for helping to create a reprex.
 
-## `reprex` from the command line
+## Using `dput()`
+
+Copying/pasting code is relatively easy, but trying to include any data necessary to create a complete reprex can be tricky. In general, including a `.csv` file or other data format is difficult without pointing someone to an external source, link, etc. Fortunately, the `dput()` function in **R** provides a convenient way of writing all of the information in a data frame in a compact manner.
+
+Here's an example of using `dput()` on the [Palmer penguins data set](https://github.com/allisonhorst/palmerpenguins). This data set is actually quite large, so we'll only use the first 10 rows of the data frame.
+
+```{r dput_palmer}
+## load the library
+library(palmerpenguins)
+
+## get the data & inspect them
+data(package = 'palmerpenguins')
+head(penguins)
+
+## write the data
+dput(penguins[1:10,])
+```
+
+The output from `dput()` may look a bit strange, but it's **R**'s way of storing the information in a data frame. You can now copy/paste the output above into a post with your code and someone could simply assign it to an object and it will render just fine.
+
+```{r dget_penguins}
+## assign output to an object
+dat <- structure(list(species = structure(c(1L, 1L, 1L, 1L, 1L, 1L, 
+1L, 1L, 1L, 1L), .Label = c("Adelie", "Chinstrap", "Gentoo"), class = "factor"), 
+    island = structure(c(3L, 3L, 3L, 3L, 3L, 3L, 3L, 3L, 3L, 
+    3L), .Label = c("Biscoe", "Dream", "Torgersen"), class = "factor"), 
+    bill_length_mm = c(39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 
+    39.2, 34.1, 42), bill_depth_mm = c(18.7, 17.4, 18, NA, 19.3, 
+    20.6, 17.8, 19.6, 18.1, 20.2), flipper_length_mm = c(181L, 
+    186L, 195L, NA, 193L, 190L, 181L, 195L, 193L, 190L), body_mass_g = c(3750L, 
+    3800L, 3250L, NA, 3450L, 3650L, 3625L, 4675L, 3475L, 4250L
+    ), sex = structure(c(2L, 1L, 1L, NA, 1L, 2L, 1L, 2L, NA, 
+    NA), .Label = c("female", "male"), class = "factor"), year = c(2007L, 
+    2007L, 2007L, 2007L, 2007L, 2007L, 2007L, 2007L, 2007L, 2007L
+    )), row.names = c(NA, -10L), class = c("tbl_df", "tbl", "data.frame"
+))
+
+## inspect the object
+dat
+```
+
+<br>
+
+## The `reprex` package
+
+The process of creating a reprex can also introduce unintended mistakes in your code during a copy/paste or retyping. As an instructor at UBC, Jenny Bryan found herself responding to hundreds of issues and questions per semester, so she (and others) created the [`reprex` package](https://reprex.tidyverse.org/).
+
+### `reprex` from the command line
 
 Begin by loading the `reprex` package.
 
@@ -157,7 +204,7 @@ a / b
 
 There are a number of additional options you can pass to `reprex()` that will format the output for a particular forum for help (e.g., `venue = gh` for GitHub) or to also include the session information (e.g., `session_info = TRUE`).
 
-## `reprex` in RStudio
+### `reprex` in RStudio
 
 `reprex` is also designed to work seamlessly within **RStudio** and will do most of the work for you. To do so, access it via the **Addins** pulldown menu (click [here](https://rstudio.github.io/rstudioaddins/) to learn more about **RStudio** addins).
 
