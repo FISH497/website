@@ -103,6 +103,33 @@ In order to help you, other people will need to verify that they can indeed repr
 
 You should also double-check that your example reproduces the problem. As such, it's good practice to quit **RStudio** (or other software) and restart it from scratch. If possible, consider testing your example on another computer or operating system.
 
+
+***
+
+# Where to get help
+
+Now that you know *how* to ask for help, let's consider some places *where* you can find help. One of the first things I often do is to simply use Google to search for my problem or error message. Sometimes you can find the answer rather quickly, but often you'll be presented with an array of possible solutions that require you to read through the various questions and corresponding answers that others have posed. In the end, your desire for a quick resolution can be countered by the time you'll spend combing through lots of extraneous information. Therefore, you might want to consider these other options.
+
+## Colleagues
+
+Your friends, colleagues, advisor, and committee members can be a great resource for help. Asking people you know can be much less intimidating than engaging with anonymous strangers. Turning to your officemate and asking them for help can be quick and also gratifying for them if they were able to help. Many labs have Slack channels dedicated to `coding` or `programming`, so consider asking there as well.
+
+## RStudio community
+
+The **RStudio** community provides a [nice forum](https://community.rstudio.com/) for people to ask questions specific to **R**, **RStudio**, and various packages (e.g., the "tidyverse"). The people tend to be compassionate and caring--they genuinely want to help rather than simply espousing their knowledge to whomever will listen.
+
+## Twitter
+
+In general, Twitter is a great source of information on **R** and data science. I follow lots of people who are developers and users of **R** and various packages (e.g., [Hadley Wickham](https://twitter.com/hadleywickham), [Jenny Bryan](https://twitter.com/JennyBryan), [Mara Averick](https://twitter.com/dataandme), [Kara Woo](https://twitter.com/kara_woo), [Thomas Lin Pedersen](https://twitter.com/thomasp85)). Although it's difficult to squeeze a reprex into 280 characters, you can share links to locations where you've posted a reprex (e.g., a [GitHub Gist](https://gist.github.com/)). Also consider checking in on the [#rstats](https://twitter.com/search?q=%23RStats) hashtag or including it in a post asking for help.
+
+## GitHub
+
+In some cases, you may encounter a problem or discover a bug in a particular **R** package. Although [CRAN](https://cran.r-project.org/) is the primary location for hosting pacakges, many developers also maintain **GitHub** repos for their packages. These developers typically ask people to file an issue with the stipulation that you be polite and follow some general guidelines. Issues along the lines of "this doesn't work" or "why won't you update this" have a pretty good chance of being ignored. Very few people are paid to develop and maintain packages, so treat their time and effort with respect.
+
+## Stack Overflow
+
+If you tried searching for an answer to your problem, there's a good chance you've come across some posts on [Stack Overflow](https://stackoverflow.com/), or "SO" as it's often referred. SO has keywords or tags that people can use to highlight the software or packages they're using (e.g., "R", "dplyr"), which allows you to filter results. SO also has a reputation of being an intimidating forum with often snarky comments on posts. However, if you've taken the time to create a good reprex, you shouldn't encounter any problems.
+
 ***
 
 # The `reprex` package
