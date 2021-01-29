@@ -157,8 +157,8 @@ guest_woo <- list(
   topics = c("<i>Guest presentation</i>", "<b>Kara Woo</b>", "Principal Bioinformatics Engineer", "Sage Bionetworks"),
   pdf = c(""),
   rmd = "",
-  html = "",
-  background = "",
+  html = "lectures/week_04/lec_12_kara_woo.html",
+  background = "[Kara's wesbite](https://karawoo.com/)",
   zoom = ""
 )
 
