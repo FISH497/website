@@ -26,6 +26,8 @@ knitr::opts_chunk$set(echo = TRUE,
 
 * Washington State University
 
+* RStudio
+
 * Sage Bionetworks
 
 
