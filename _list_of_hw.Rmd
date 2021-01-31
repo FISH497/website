@@ -31,12 +31,12 @@ forking_workflows <- list(
 )
 
 ## week 4
-data_cleaning <- list(
-  title = "Cleaning data",
-  topics = c("Cleaning data"),
+getting_help <- list(
+  title = "Getting help",
+  topics = c("Getting help"),
   pdf = "",
-  rmd = "",
-  html = "",
+  rmd = "homework/week_03/hw_03_getting_help.Rmd",
+  html = "homework/week_03/hw_03_getting_help.html",
   data = "",
   key = ""
 )
