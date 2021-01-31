@@ -153,13 +153,14 @@ getting_help <- list(
 
 ## day 12 ####
 guest_woo <- list(
-  title = "Guest presentation",
-  topics = c("<i>Guest presentation</i>", "<b>Kara Woo</b>", "Principal Bioinformatics Engineer", "Sage Bionetworks"),
+  title = "Data science for fun and nonprofit",
+  topics = c("<i>Kara Woo</i>", "<b>Data science for fun and nonprofit</b>",
+             "Guest presentation"),
   pdf = c(""),
   rmd = "",
   html = "lectures/week_04/lec_12_kara_woo.html",
-  background = "[Kara's wesbite](https://karawoo.com/)",
-  zoom = ""
+  background = "[Kara's website](https://karawoo.com/)",
+  zoom = "https://washington.zoom.us/rec/share/gfb6c0AWKY9EbTNxVgyoRDKyjohZwuaGarfNUaalAcPnk-dD8x12jADwayLmFhS_.Dc3bJ2QYK1Q52MGj"
 )
 
 ## day 13 ####
@@ -264,7 +265,8 @@ packages_2 <- list(
 ## day 22 ####
 guest_stawitz <- list(
   title = "Guest presentation",
-  topics = c("<i>Guest presentation</i>", "<b>Dr. Christine Stawitz</b>", "Stock Assessment Model Developer", "NOAA Fisheries"),
+  topics = c("<i>Dr. Christine Stawitz</i>", "<b>Data science skills for a career in fisheries management</b>",
+             "Guest presentation"),
   pdf = c(""),
   rmd = "",
   html = "",
