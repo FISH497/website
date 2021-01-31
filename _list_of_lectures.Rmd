@@ -166,7 +166,7 @@ guest_woo <- list(
 ## day 13 ####
 databases_1 <- list(
   title = "Intro to relational databases",
-  topics = c("<i>Jennifer Scheuerell</i>", "<b>Intro to relational databases</b>", "SQL programming language", "Creating a database", "Users and roles", "Tables"),
+  topics = c("<i>Jennifer Scheuerell</i>", "<b>Intro to relational databases</b>", "SQL programming language", "PostgreSQL & its community", "Creating a database"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -177,7 +177,7 @@ databases_1 <- list(
 ## day 14 ####
 databases_2 <- list(
   title = "Database design",
-  topics = c("<i>Jennifer Scheuerell</i>", "<b>PostgreSQL & its community</b>", "Queries and joins", "Views", "Data I/O", "Cloud databases"),
+  topics = c("<i>Jennifer Scheuerell</i>", "<b>Manipulating data</b>", "Queries and joins", "Views & materialized views", "Backup & restore"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -188,7 +188,7 @@ databases_2 <- list(
 ## day 15 ####
 databases_3 <- list(
   title = "Advanced features",
-  topics = c("<i>Jennifer Scheuerell</i>", "<b>Moving data around</b>", "Stored procedures & functions", "Triggers & automation", "Backup & restore", "Performance"),
+  topics = c("<i>Jennifer Scheuerell</i>", "<b>Advanced features</b>", "Stored procedures & functions", "Triggers & automation", "Foreign data wrappers"),
   pdf = c(""),
   rmd = "",
   html = "",
