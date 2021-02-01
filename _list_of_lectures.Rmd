@@ -169,8 +169,8 @@ databases_1 <- list(
   topics = c("<i>Jennifer Scheuerell</i>", "<b>Intro to relational databases</b>", "SQL programming language", "PostgreSQL & its community", "Creating a database"),
   pdf = c(""),
   rmd = "",
-  html = "",
-  background = "",
+  html = "lectures/week_05/lec_13_intro_databases_1.html",
+  background = "[About PostgreSQL](https://www.postgresql.org/about/)",
   zoom = ""
 )
 

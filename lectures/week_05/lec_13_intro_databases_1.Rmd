@@ -1,0 +1,36 @@
+---
+title: "Introduction to relational databases"
+subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+author: "Jennifer Scheuerell"
+date: "1 February 2021"
+output: ioslides_presentation
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      fig.align = "center", out.width = '90%')
+```
+
+## Jennifer Scheuerell
+
+**Education**
+
+* BS, Forestry, University of Washington
+
+* MS, SAFS, University of Washington
+
+**Appointments**
+
+* UW Alaska Salmon Program (2004-2007)
+
+* Founder, Sound Data Management (2008-present)
+
+* Co-founder, Sharper Informatics Solutions (2020-present)
+
+
+## {.flexbox .vcenter}
+
+<p style="font-size:2em">
+[**Intro to relational databases**](https://gist.github.com/sureL/d1a02d2242d6c424a67600eef430d828)
+</p>
