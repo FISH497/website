@@ -1,7 +1,7 @@
 ---
 title: "Set up a PostgreSQL database with ecological data"
 author: "Jennifer Scheuerell"
-date: "1 February 2021"
+date: "3 February 2021"
 output:
   html_document:
     theme: readable
