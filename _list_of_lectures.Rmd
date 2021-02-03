@@ -184,7 +184,7 @@ databases_2 <- list(
   rmd = "lectures/week_05/lec_14_intro_databases.Rmd",
   html = "lectures/week_05/lec_14_intro_databases.html",
   background = "",
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/gMupKoeq-H2bZcwzj8zbodoUfLvGWwqQQ5A6_sm7_LBpIHe_UJqgl3B8ZZm1UsSb.JsTUGKA81pnLBMOc"
 )
 
 ## day 15 ####
