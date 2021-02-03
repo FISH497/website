@@ -131,13 +131,137 @@ slide:not(.current) .plotly.html-widget{
 <li><p>Co-founder, Sharper Informatics Solutions (2020-present)</p></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2></h2></hgroup><article  id="section" class="flexbox vcenter">
+</article></slide><slide class=""><hgroup><h2>Relational Theory </h2><h3> Definition from Wikipedia</h3></hgroup><article  id="relational-theory-definition-from-wikipedia">
 
-<p style="font-size:2em">
+<p>&ldquo;A relational database is a digital database based on the relational model of data, as proposed by E. F. Codd in 1970.&rdquo;</p>
 
-<a href='https://gist.github.com/sureL/d1a02d2242d6c424a67600eef430d828' title=''><strong>Intro to relational databases</strong></a>
+</article></slide><slide class=""><hgroup><h2>High level concepts</h2></hgroup><article  id="high-level-concepts">
 
-</p></article></slide>
+<p>Relational databases are created and manipulated using Structured Query Language (SQL)</p>
+
+<p>Relational database software (RDBMS) allow users to create relational databases using SQL</p>
+
+<p>Some well know RDBMS include</p>
+
+<ul>
+<li>PostgreSQL<br/></li>
+<li>MySQL<br/></li>
+<li>Oracle<br/></li>
+<li>Microsoft SQL Server</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Organizing data in tables</h2></hgroup><article  id="organizing-data-in-tables">
+
+<p>Relational databases store data in tables</p>
+
+<ul>
+<li>Each database table is a named collection of rows</li>
+</ul>
+
+<ul class = 'build'>
+<li>Each row of a given table has the same set of named columns</li>
+</ul>
+
+<ul class = 'build'>
+<li>Each column is of a specific data type</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Jargon</h2></hgroup><article  id="jargon">
+
+<ul>
+<li>Table, field/column, record</li>
+</ul>
+
+<ul class = 'build'>
+<li>Primary and foreign keys</li>
+</ul>
+
+<ul class = 'build'>
+<li>Joins</li>
+</ul>
+
+<ul class = 'build'>
+<li>Atomic values</li>
+</ul>
+
+<ul class = 'build'>
+<li>Null values</li>
+</ul>
+
+<ul class = 'build'>
+<li>Query and result set</li>
+</ul>
+
+<ul class = 'build'>
+<li>View</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Table concept</h2></hgroup><article  id="table-concept">
+
+<ul>
+<li>Data are stored in <em>tables</em></li>
+</ul>
+
+<ul class = 'build'>
+<li>Columns in a table are fixed <em>fields</em></li>
+</ul>
+
+<ul class = 'build'>
+<li>Fields have unique data types (eg, <code>INTEGER</code>, <code>TEXT</code>)</li>
+</ul>
+
+<ul class = 'build'>
+<li>Rows are unique <em>records</em></li>
+</ul>
+
+<ul class = 'build'>
+<li>Columns have a fixed order in each table, but SQL does not guarantee the order of the rows within a table</li>
+</ul>
+
+<ul class = 'build'>
+<li>Tables are grouped into databases</li>
+</ul>
+
+<ul class = 'build'>
+<li>A collection of databases managed by a single PostgreSQL server instance constitutes a <em>database cluster</em></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>An example table</h2></hgroup><article  id="an-example-table">
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">Field_ID</th>
+<th align="center">Color</th>
+<th align="center">Smell</th>
+<th align="center">Count</th>
+<th align="right">Last_updated</th>
+</tr>
+<tr class="odd">
+<td align="left">Record_one</td>
+<td align="center">Green</td>
+<td align="center">Pine trees</td>
+<td align="center">13</td>
+<td align="right">2/1/2021</td>
+</tr>
+<tr class="even">
+<td align="left">Record_two</td>
+<td align="center">Yellow</td>
+<td align="center">Lemon</td>
+<td align="center">20</td>
+<td align="right">1/21/2021</td>
+</tr>
+<tr class="odd">
+<td align="left">Record_three</td>
+<td align="center">Red</td>
+<td align="center">Cherry</td>
+<td align="center">4.5</td>
+<td align="right">2/1/2021</td>
+</tr>
+</table>
+
+</article></slide><slide class=""><hgroup><h2>Data Normalization </h2><h3> Third Normal Form</h3></hgroup><article  id="data-normalization-third-normal-form">
+
+<p>&ldquo;[every] non-key [attribute] must provide a fact about the key, the whole key, and nothing but the key, so help me Codd.&rdquo;</p></article></slide>
 
 
   <slide class="backdrop"></slide>
