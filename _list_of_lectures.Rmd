@@ -166,21 +166,23 @@ guest_woo <- list(
 ## day 13 ####
 databases_1 <- list(
   title = "Intro to relational databases",
-  topics = c("<i>Jennifer Scheuerell</i>", "<b>Intro to relational databases</b>", "SQL programming language", "PostgreSQL & its community", "Creating a database"),
+  topics = c("<i>Jennifer Scheuerell</i>", "<b>Intro to relational databases</b>", "SQL programming language", "PostgreSQL & its community"),
   pdf = c(""),
   rmd = "",
   html = "lectures/week_05/lec_13_intro_databases_1.html",
-  background = "[About PostgreSQL](https://www.postgresql.org/about/)",
+  background = c("[About PostgreSQL](https://www.postgresql.org/about/)",
+                 "[Installing PostgreSQL](https://github.com/sureL/postgres-tutorial/issues/4)",
+                 "[Troubleshooting PostgreSQL](https://github.com/sureL/postgres-tutorial/issues/23)"),
   zoom = "https://washington.zoom.us/rec/share/AU0_6ez03Nx_S6gJN2t9DlgaIeGsyh8TnFXAg_MXO78WNI8DsEh_nxLD2MDih-rB.epOCnzJqi_vx0Ov9"
 )
 
 ## day 14 ####
 databases_2 <- list(
   title = "Database design",
-  topics = c("<i>Jennifer Scheuerell</i>", "<b>Manipulating data</b>", "Queries and joins", "Views & materialized views", "Backup & restore"),
+  topics = c("<i>Jennifer Scheuerell</i>", "Creating a database", "<b>Manipulating data</b>", "Queries and joins", "Views & materialized views", "Backup & restore"),
   pdf = c(""),
   rmd = "",
-  html = "",
+  html = "lectures/week_05/lec_14_intro_databases.html",
   background = "",
   zoom = ""
 )
