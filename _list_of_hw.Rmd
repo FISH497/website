@@ -20,23 +20,23 @@ github <- list(
 )
 
 ## week 3
-data_reading <- list(
-  title = "Working with data",
-  topics = c("Reading data"),
+forking_workflows <- list(
+  title = "Forking workflows",
+  topics = c("Forking workflows"),
   pdf = "",
-  rmd = "",
-  html = "",
+  rmd = "homework/week_02/hw_02_forking_workflow.Rmd",
+  html = "homework/week_02/hw_02_forking_workflow.html",
   data = "",
   key = ""
 )
 
 ## week 4
-data_cleaning <- list(
-  title = "Cleaning data",
-  topics = c("Cleaning data"),
+getting_help <- list(
+  title = "Getting help",
+  topics = c("Getting help"),
   pdf = "",
-  rmd = "",
-  html = "",
+  rmd = "homework/week_03/hw_03_getting_help.Rmd",
+  html = "homework/week_03/hw_03_getting_help.html",
   data = "",
   key = ""
 )

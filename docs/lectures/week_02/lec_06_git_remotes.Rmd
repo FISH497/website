@@ -230,7 +230,7 @@ Now return to **RStudio** and look in the **Git** tab for the blue downward arro
 
 <br>
 
-Go ahead and click on the pull arrow, which will open up a **Git Pull** window with the following information:
+Go ahead and click on the pull arrow, which will open up a **Git Pull** window with the following information (note that the alpa-numeric codes on the 3rd and 4th lines will likely differ from your output):
 
 ```
 >>> /usr/bin/git pull
@@ -254,9 +254,13 @@ Go ahead and close this window and then click on the `README.md` file in the **F
 
 <br>
 
-## Begin by pulling / End with pushing
+# Workflow notes
 
-The trick to version control is keeping all of your local and remote repositories synced with one another. Thus, whenever you begin working on a project in **RStudio**, you should ***always begin by pulling any changes from your remote repo into your RStudio project***.
+## Begin by pulling
+
+Proper version control requires you to keep all of your local and remote repositories synced with one another. Thus, whenever you begin working on a project in **RStudio** (or elsewhere, for that matter), you should ***always begin by pulling any changes from your remote repo into your RStudio project***.
+
+## End with pushing
 
 Similarly, when you are finished editing all of your local files, you should ***always end by committing those changes and pushing them up to your remote repo***.
 

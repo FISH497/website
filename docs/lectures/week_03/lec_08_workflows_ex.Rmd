@@ -21,6 +21,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This document demonstrates some of the workflows we saw in class [here](https://fish497.github.io/website/lectures/week_03/lec_08_workflows.html). All of these workflows have some pros and cons. It's up to you and your team as to which one you adopt. Also note that your preferences might change, depending on the composition of your team and the task at hand.
 
+***
+
 # Centralized workflow
 
 A centralized workflow uses a single repo for all changes to the project. All team members pull from and push to the same repo.
@@ -99,6 +101,8 @@ Now John is all set on his side, but Mary should make sure that she pulls John's
 
 This scenario does not necessarily require two or more collaborators. For example, I know from personal experience that someone can do some work on a computer in their office, commit those changes, and then forget to push them before heading home. Upon arriving home, you could pull your changes to your laptop, make additional changes, and then commit and push them to the remote. Upon returning back to the office, you can encounter problems with committing a pushing those changes you forgot about the day before.
 
+***
+
 # Feature branch workflow
 
 The feature branch workflow is designed around multiple *branches* within a repo. These branches can contain copies of files on the `main` branch, and are typically used for the development of specific features.
@@ -165,66 +169,220 @@ After doing so, **GitHub** will now report **Pull request successfully merged an
 
 If your branch was created solely for the purpose of working on a specific feature, then you can go ahead and delete it. If, however, you want to maintain a development (or other) branch, then you can just ignore this message and keeping working on it as well.
 
+***
+
 # Forking workflow
 
-Forking workflows are based upon the following plan:
+Recall that a forking workflow is commonly used when a developer is *not* a member of the project/organization on **GitHub**. This workflow allows the developer to work with a copy of the owner's repo and potentially submit a pull request for the owner to consider adopting the changes.
 
-* Start with a central remote repo
+## Step 1: Fork the repo
 
-* Instead of cloning a repo, team members *fork* the repo, which creates a remote copy
+![](images/gh_fork_1.png)
 
-* Each team member then clones their remote fork to their local machine
-
-* [optional] A new local `feature` branch is created
-
-* [optional] A team member makes changes on their local `feature` branch
-
-* Commits are pushed to the team member's own remote repo
-
-* A team member opens a pull request from their (optionally `feature`) branch to the original central repository
-
-* The pull request gets approved & is merged into the original remote repository
+<br>
 
 To fork a repo, navigate to its location on **GitHub** and look for the **Fork** button in the upper right. Press that button, which will bring up a dialogue box asking you where you would like to fork the repo. Click on the user or organization where you'd like to fork the repo and **GitHub** will do the rest.
 
-![](images/forking_gh_orig_repo.png)
+![](images/gh_fork_orig_repo.png)
 
 <br>
 
 You will now see a new forked version of the original repository with some information in the upper left about its location and from where it came. You'll also see some information above the repo contents about the current branch being even with the "upstream" source.
 
-![](images/forking_gh_forked_repo.png)
+![](images/gh_fork_repo_forked.png)
 
 <br>
 
-At this point, you should create a new project in **RStudio** based upon this forked repo. After you've made changes to files in your local repo, go ahead and commit and push them to the remote repo on **GitHub**. After doing so, navigate to the forked repo on **GitHub** where you'll see a message about this branch being 1 (or more) commit(s) ahead of original-repo:main (where `original-repo` is the username or organization name from whom you forked the repo).
+## Step 2: Clone the repo
 
-![](images/forking_gh_forked_ahead.png)
-
-<br>
-
-Now you can open a pull request by clicking on "Pull request" in the information window. This will take you to the standard page for a pull request, just as we saw in the **Feature branch** workflow above. In this case, however, there is additional information about both the branches and locations of the repositories.
-
-![](images/forking_gh_forked_ahead.png)
+![](images/gh_fork_2.png)
 
 <br>
 
-Now you can click on the green **Create pull request** button and follow the same steps as we did above in the section on **Feature branches**. 
-
-![](images/forking_gh_pr_open.png)
+Now you should clone the remote repo to a local repo by creating a new project in **RStudio** based upon the newly forked repo. Click [here](https://fish497.github.io/website/lectures/week_02/lec_06_git_remotes.html) if you need a reminder as to how to do that.
 
 <br>
 
-Again, click on the green **Create pull request** button, which will open up a window for merging the pull request. Here **GitHub** reports that there are no conflicts with the base branch and that everything is okay. Click on the green **Merge pull request** button and then again on the green **Confirm merge** button.
+## Step 3: Add remote repo
 
-![](images/forking_gh_pr_merge.png)
-
-<br>
-
-At this point, everything is all good and you'll see the purple **Merged** button in the upper left.
- 
-![](images/forking_gh_pr_merged_ok.png)
+![](images/gh_fork_3.png)
 
 <br>
 
-**Note**: In this example, both the original repo and the forked repo were owned by the same individual, but usually the orginal repo belongs to someone or an organization that you'd like to assist in developing a new feature or fixing a bug.
+At this point, your local copy of the remote repo can only pull changes from your remote at 
+
+`https://github.com/USER/ex-fork`
+
+where `USER` is you. Unfortunately there is no way to update your remote repo directly from the owner's repo at
+
+`https://github.com/FISH497/ex-fork`.
+
+Instead, we have to set up our local repo to pull changes from the owner's remote repo and then we can push those up to our remote copy. By convention, we will refer to the owner's repo as the `upstream` repo, but you could give it any name.
+
+At this point you have 2 options for adding the `upstream` repo.
+
+### Option 1: Command line
+
+Navigate to the folder/directory on your computer where your local repository exists and type the following in **Terminal** (Mac) or **Git Bash** (Windows):
+
+```
+git remote add upstream https://github.com/FISH497/ex-fork
+```
+
+### Option 2: RStudio
+
+Open up your project in **Rstudio** and click on the "New branch" button in the **Git** pane (i.e., the button with the 2 purple rectangles and a diamond).
+
+![](images/gh_fork_rs_add_remote_1.png)
+
+<br>
+
+Next, click on the button labeled "Add remote...".
+
+![](images/gh_fork_rs_add_remote_2.png)
+
+<br>
+
+In the "Remote Name:" box, type `upstream`. In the "Remore URL:" box, enter the name of the **owner's** repo you forked in Step 1: `https://github.com/FISH497/ex-fork` (you can copy/paste if you'd like). When you are finished, click the **Add** button.
+
+![](images/gh_fork_rs_add_remote_3.png)
+
+<br>
+
+Go ahead and click on the **Cancel** button (don't worry, everything is still OK).
+
+![](images/gh_fork_rs_add_remote_4.png)
+
+<br>
+
+Now you need to verify that the remote `upstream` is set up properly. To do that, click on the **Terminal** tab in your Console pane.
+
+![](images/gh_fork_rs_add_remote_5.png)
+
+<br>
+
+At the command prompt, type this:
+
+```
+$ git remote -v
+```
+
+which should return the following, where `USER` is your user name.
+
+```
+origin  https://github.com/USER/ex-fork (fetch)
+origin  https://github.com/USER/ex-fork (push)
+upstream        https://github.com/FISH497/ex-fork (fetch)
+upstream        https://github.com/FISH497/ex-fork (push)
+```
+
+<br>
+
+## Step 4: Make local changes
+
+![](images/gh_fork_4.png)
+
+<br>
+
+Now you are ready to make any changes you'd like to the files or folders in your local repo. However, **before doing so**, make sure to **pull** any changes that might have been made to the owner's `upstream` remote. 
+
+To do so, again navigate to the **Terminal** tab in **RStudio** and type:
+
+```
+$ git pull upstream main --ff-only
+```
+
+If nothing has changed, you'll see a message like this:
+
+```
+From https://github.com/FISH497/ex-fork
+ * branch            main       -> FETCH_HEAD
+ * [new branch]      main       -> upstream/main
+Already up to date.
+```
+
+### Setting the local branch
+
+In this example, if you examine either the owner's original repo or your forked copy on **GitHub**, you'll notice that they both contain 2 branches: `main` and `develop`. However, if you inspect the branches in your current project in **Rstudio**, you'll see that only `main` exists there.
+
+![](images/gh_fork_branch_view_1.png)
+
+<br>
+
+To set the local branch to `develop` (where we'd like to do our work), click on `develop` under (REMOTE: ORIGIN):
+
+![](images/gh_fork_branch_view_2.png)
+
+<br>
+
+which will bring up a message box from **Git** informing you that you've created and switched over to a new branch called `develop`.
+
+![](images/gh_fork_branch_switch.png)
+
+<br>
+
+Go ahead and close the window and you will see that the branch name in the **Git** pane of **RStudio** is set to `develop`. If you again click on the `develop` button it will now show that you can track the `develop` and `main` branches on
+
+1. your local repo
+
+2. your remote origin (located at `https://github.com/USER/ex-fork`)
+
+3. your remote upstream (located at `https://github.com/FISH497/ex-fork`)
+
+![](images/gh_fork_branch_view_3.png)
+
+<br>
+
+Let's create a new file in our local repo so we have something to commit and push to our own remote repo, and then ultimately submit it as a pull request to the original repo's owner (here `FISH497`).
+
+Go ahead and make a simple **R** script and commit it (I'm calling mine `simple_addition.R`).
+
+![](images/gh_fork_ex_script.png)
+
+![](images/gh_fork_ex_commit.png)
+
+<br>
+
+## Step 5: Push to GitHub
+
+![](images/gh_fork_5.png)
+
+<br>
+
+Now it's time to push your simple script to your own remote located at
+
+`https://github.com/USER/ex-fork`
+
+<br>
+
+## Step 6: Submit a pull request
+
+![](images/gh_fork_6.png)
+
+<br>
+
+Navigate to your forked repo on **GitHub** where you'll see a message about this branch having a recent push and a new green button labeled **Compare & pull request**.
+
+![](images/gh_fork_remote_ahead.png)
+
+<br>
+
+Now you can open a pull request by clicking on the green **Compare & pull request** button. This will take you to the standard page for a pull request, just as we saw in the **Feature branch** workflow above. In this case, however, there is additional information about
+
+* the repo location (here it's the `upstream` at `https://github.com/FISH497/ex-fork`)
+
+* both the *branches* (here `develop`) and *locations* of the repositories
+
+![](images/gh_fork_submit_pr.png)
+
+<br>
+
+It's good practice to give your pull request an informative title and add some additional information about the substance of the pull request, so that the owner of the original repo has some understanding of what you've done. After that, you can click on the green **Create pull request** button, which will take you to a page showing the details of your pull request. 
+
+![](images/gh_fork_submit_pr_2.png)
+
+<br>
+
+No you just have to wait for the repo's owner to review the pull request and either accept it as is, or come back to you with additional comments or requests for changes.
+
+

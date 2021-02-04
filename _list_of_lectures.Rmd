@@ -102,37 +102,30 @@ workflows <- list(
   zoom = "https://washington.zoom.us/rec/share/Yp03AKOsgLghHHIQWofxEpf6hehdYFdDwJBzJ9ZEXmIKxzYIjsa8VMbVstD-FOnd.NYOvESQX8eDj11fb"
 )
 
-## day 9a ####
+## day 9 ####
 working_with_data <- list(
   title = "Working with data",
-  topics = c("<b>Working with data</b>", "Chain of custody", "Manual entry", "Tidy data"),
+  topics = c("<b>Working with data</b>", "Chain of custody", "Tidy data", "Manual entry"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
-  zoom = ""
+  rmd = "lectures/week_03/lec_09_working_with_data.Rmd",
+  html = "lectures/week_03/lec_09_working_with_data.html",
+  background = c("[Ellis & Leek (2017)](references/Ellis_Leek_2017_how_to_share_data.pdf)",
+                 "[Broman & Woo (2018)](references/Broman_Woo_2018_data_in_spreadsheets.pdf)"),
+  zoom = "https://washington.zoom.us/rec/share/CiPCUFYjxOKhbFHXjCsbeg9Kc4JK3EMn6H4_Vv2ccyPI17TJRuVbXayJ59ehQZod.JdT2X4wtWiEHbvBX"
 )
 
-## day 9b ####
+## day 10 ####
 data_ingest <- list(
   title = "Getting data",
   topics = c("<b>Getting data</b>", "Importing text files", "Reading from Excel & Google"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
-  zoom = ""
-)
-
-## day 10 ####
-metadata <- list(
-  title = "Metadata",
-  topics = c("<b>Metadata</b>", "Data about data", "Ecological metadata language"),
-  pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
-  zoom = ""
+  rmd = "lectures/week_04/lec_10_getting_data.Rmd",
+  html = "lectures/week_04/lec_10_getting_data.html",
+  background = c("[readr pkg](https://readr.tidyverse.org/)",
+                 "[readxl pkg](https://readxl.tidyverse.org/)",
+                 "[googlesheets pkg](https://googlesheets4.tidyverse.org/index.html)",
+                 "[jsonlite pkg](https://cran.r-project.org/web/packages/jsonlite/vignettes/json-aaquickstart.html)"),
+  zoom = "https://washington.zoom.us/rec/share/hlJqbcxGwXB_XdGUM1qQw4VXdJuinBv4bVUQGa57Cz7KZV_MFx-u_gpUeMcSQeyB.Bxiw7wIOazetcAOu"
 )
 
 ## day 11 ####
@@ -146,43 +139,58 @@ data_cleaning <- list(
   zoom = ""
 )
 
+## day 11 ####
+getting_help <- list(
+  title = "Getting help",
+  topics = c("<b>Getting help</b>", "Minimal", "Complete", "Reproducible"),
+  pdf = c(""),
+  rmd = "lectures/week_04/lec_11_getting_help.Rmd",
+  html = "lectures/week_04/lec_11_getting_help.html",
+  background = c("[Maelle Salmon's blog](https://masalmon.eu/2018/07/22/wheretogethelp/)",
+                 "[Reprex do's & don'ts](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html)"),
+  zoom = "https://washington.zoom.us/rec/share/VtnEOSz3M_QO2KQkM6IQfSQeyTmzjWdMbdDim04wZyffJ5jYNuCwbBBBXbw1VfJm.uIQc0GOOEYtb_3h1"
+)
+
 ## day 12 ####
 guest_woo <- list(
-  title = "Guest presentation",
-  topics = c("<i>Guest presentation</i>", "<b>Kara Woo</b>", "Principal Bioinformatics Engineer", "Sage Bionetworks"),
+  title = "Data science for fun and nonprofit",
+  topics = c("<i>Kara Woo</i>", "<b>Data science for fun and nonprofit</b>",
+             "Guest presentation"),
   pdf = c(""),
   rmd = "",
-  html = "",
-  background = "",
-  zoom = ""
+  html = "lectures/week_04/lec_12_kara_woo.html",
+  background = "[Kara's website](https://karawoo.com/)",
+  zoom = "https://washington.zoom.us/rec/share/gfb6c0AWKY9EbTNxVgyoRDKyjohZwuaGarfNUaalAcPnk-dD8x12jADwayLmFhS_.Dc3bJ2QYK1Q52MGj"
 )
 
 ## day 13 ####
 databases_1 <- list(
   title = "Intro to relational databases",
-  topics = c("<i>Jennifer Scheuerell</i>", "<b>Intro to relational databases</b>", "SQL programming language", "Creating a database", "Users and roles", "Tables"),
+  topics = c("<i>Jennifer Scheuerell</i>", "<b>Intro to relational databases</b>", "SQL programming language", "PostgreSQL & its community"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
-  zoom = ""
+  rmd = "lectures/week_05/lec_13_intro_databases.Rmd",
+  html = "lectures/week_05/lec_13_intro_databases.html",
+  background = c("[About PostgreSQL](https://www.postgresql.org/about/)",
+                 "[Installing PostgreSQL](https://github.com/sureL/postgres-tutorial/issues/4)",
+                 "[Troubleshooting PostgreSQL](https://github.com/sureL/postgres-tutorial/issues/23)"),
+  zoom = "https://washington.zoom.us/rec/share/AU0_6ez03Nx_S6gJN2t9DlgaIeGsyh8TnFXAg_MXO78WNI8DsEh_nxLD2MDih-rB.epOCnzJqi_vx0Ov9"
 )
 
 ## day 14 ####
 databases_2 <- list(
   title = "Database design",
-  topics = c("<i>Jennifer Scheuerell</i>", "<b>PostgreSQL & its community</b>", "Queries and joins", "Views", "Data I/O", "Cloud databases"),
+  topics = c("<i>Jennifer Scheuerell</i>", "<b>Creating a database</b>", "Manipulating data", "Queries and joins", "Views & materialized views", "Backup & restore"),
   pdf = c(""),
-  rmd = "",
-  html = "",
+  rmd = "lectures/week_05/lec_14_intro_databases.Rmd",
+  html = "lectures/week_05/lec_14_intro_databases.html",
   background = "",
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/gMupKoeq-H2bZcwzj8zbodoUfLvGWwqQQ5A6_sm7_LBpIHe_UJqgl3B8ZZm1UsSb.JsTUGKA81pnLBMOc"
 )
 
 ## day 15 ####
 databases_3 <- list(
   title = "Advanced features",
-  topics = c("<i>Jennifer Scheuerell</i>", "<b>Moving data around</b>", "Stored procedures & functions", "Triggers & automation", "Backup & restore", "Performance"),
+  topics = c("<i>Jennifer Scheuerell</i>", "<b>Advanced features</b>", "Stored procedures & functions", "Triggers & automation", "Foreign data wrappers"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -191,6 +199,17 @@ databases_3 <- list(
 )
 
 ## day 16 ####
+metadata <- list(
+  title = "Metadata",
+  topics = c("<b>Metadata</b>", "Data about data", "Ecological metadata language"),
+  pdf = c(""),
+  rmd = "",
+  html = "",
+  background = "",
+  zoom = ""
+)
+
+## day 17 ####
 visualization <- list(
   title = "Data visualization",
   topics = c("<b>Data visualization</b>", "Design principles", "Exploratory figures", "Expository figures"),
@@ -201,21 +220,10 @@ visualization <- list(
   zoom = ""
 )
 
-## day 17 ####
+## day 18 ####
 analysis <- list(
   title = "Data analysis",
   topics = c("<b>Data analysis</b>", "Data summaries"),
-  pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
-  zoom = ""
-)
-
-## day 18 ####
-packages_1 <- list(
-  title = "R packages",
-  topics = c("<b>R packages</b>", "Functions", "Unit tests"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -235,6 +243,17 @@ holiday_2 <- list(
 )
 
 ## day 20 ####
+packages_1 <- list(
+  title = "R packages",
+  topics = c("<b>R packages</b>", "Functions", "Unit tests"),
+  pdf = c(""),
+  rmd = "",
+  html = "",
+  background = "",
+  zoom = ""
+)
+
+## day 21 ####
 packages_2 <- list(
   title = "R packages",
   topics = c("<b>R packages</b>", "Documentation", "Vignettes", "Websites"),
@@ -245,7 +264,19 @@ packages_2 <- list(
   zoom = ""
 )
 
-## day 21 ####
+## day 22 ####
+guest_stawitz <- list(
+  title = "Guest presentation",
+  topics = c("<i>Dr. Christine Stawitz</i>", "<b>Data science skills for a career in fisheries management</b>",
+             "Guest presentation"),
+  pdf = c(""),
+  rmd = "",
+  html = "",
+  background = "",
+  zoom = ""
+)
+
+## day 23 ####
 markdown_1 <- list(
   title = "R Markdown",
   topics = c("<b>R Markdown</b>", "Introduction", "Publishing papers"),
@@ -256,32 +287,10 @@ markdown_1 <- list(
   zoom = ""
 )
 
-## day 22 ####
-guest_stawitz <- list(
-  title = "Guest presentation",
-  topics = c("<i>Guest presentation</i>", "<b>Dr. Christine Stawitz</b>", "Stock Assessment Model Developer", "NOAA Fisheries"),
-  pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
-  zoom = ""
-)
-
-## day 23 ####
+## day 24 ####
 markdown_2 <- list(
   title = "R Markdown",
   topics = c("<b>R Markdown</b>", "Publishing papers", "Reporting"),
-  pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
-  zoom = ""
-)
-
-## day 24 ####
-markdown_3 <- list(
-  title = "R Markdown",
-  topics = c("<b>R Markdown</b>", "Designing presentations", "Building websites"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -312,6 +321,17 @@ shiny_2 <- list(
 )
 
 ## day 27 ####
+markdown_3 <- list(
+  title = "R Markdown",
+  topics = c("<b>R Markdown</b>", "Designing presentations", "Building websites"),
+  pdf = c(""),
+  rmd = "",
+  html = "",
+  background = "",
+  zoom = ""
+)
+
+## day 28 ####
 code_reviews <- list(
   title = "Code reviews",
   topics = c("<b>Code reviews</b>", "Checklists", "Do's and Don'ts"),
@@ -322,21 +342,10 @@ code_reviews <- list(
   zoom = ""
 )
 
-## day 28 ####
+## day 29 ####
 ethics <- list(
   title = "Ethics in data science",
   topics = c("<b>Ethics in data science</b>", "Data selection", "Analysis & inference"),
-  pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
-  zoom = ""
-)
-
-## day 29 ####
-future <- list(
-  title = "Future considerations",
-  topics = c("<b>Future considerations</b>"),
   pdf = c(""),
   rmd = "",
   html = "",
@@ -355,6 +364,16 @@ wrap_up <- list(
   zoom = ""
 )
 
+## extra ####
+future <- list(
+  title = "Future considerations",
+  topics = c("<b>Future considerations</b>"),
+  pdf = c(""),
+  rmd = "",
+  html = "",
+  background = "",
+  zoom = ""
+)
 ```
 
 

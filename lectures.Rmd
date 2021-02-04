@@ -35,34 +35,34 @@ week_lecs$L6 <- remotes
 ## week 3: Jan 18-22
 week_lecs$L7 <- holiday_1
 week_lecs$L8 <- workflows
-week_lecs$L9 <- data_ingest
+week_lecs$L9 <- working_with_data
 ## week 4: Jan 25-29
-week_lecs$L10 <- metadata
-week_lecs$L11 <- data_cleaning
+week_lecs$L10 <- data_ingest
+week_lecs$L11 <- getting_help
 week_lecs$L12 <- guest_woo
 ## week 5: Feb 1-5
 week_lecs$L13 <- databases_1
 week_lecs$L14 <- databases_2
 week_lecs$L15 <- databases_3
 ## week 6: Feb 8-12
-week_lecs$L16 <- visualization
-week_lecs$L17 <- analysis
-week_lecs$L18 <- packages_1
+week_lecs$L16 <- metadata
+week_lecs$L17 <- visualization
+week_lecs$L18 <- analysis
 ## week 7: Feb 15-19
 week_lecs$L19 <- holiday_2
-week_lecs$L20 <- packages_2
-week_lecs$L21 <- markdown_1
+week_lecs$L20 <- packages_1
+week_lecs$L21 <- packages_2
 ## week 8: Feb 22-26
 week_lecs$L22 <- guest_stawitz
-week_lecs$L23 <- markdown_2
-week_lecs$L24 <- markdown_3
+week_lecs$L23 <- markdown_1
+week_lecs$L24 <- markdown_2
 ## week 9: Mar 1-5
 week_lecs$L25 <- shiny_1
 week_lecs$L26 <- shiny_2
-week_lecs$L27 <- code_reviews
+week_lecs$L27 <- markdown_3
 ## week 10: Mar 8-12
-week_lecs$L28 <- ethics
-week_lecs$L29 <- future
+week_lecs$L28 <- code_reviews
+week_lecs$L29 <- ethics
 week_lecs$L30 <- wrap_up
 ```
 
