@@ -7,7 +7,7 @@ output:
   html_document:
     theme: readable
     highlight: textmate
-    toc: false
+    toc: true
     toc_float: true
     toc_depth: 3
 ---
@@ -195,7 +195,7 @@ mean_count
 
 # Endnote
 
-There are 2 more hints that `ex_data` is not a `data.frame`. First, the character values in `site` have quotes around them instead of simply being displayed as normal text. For example, here is a comparison of `ex_data` before and after converting it to a `data.frame`:
+There are 3 more hints that `ex_data` is not a `data.frame`. First, the character values in `site` have quotes around them instead of simply being displayed as normal text. For example, here is a comparison of `ex_data` before and after converting it to a `data.frame`:
 
 ```{r}
 ## original
@@ -205,9 +205,9 @@ ex_data
 as.data.frame(ex_data)
 ```
 
-Second, all of the values in the columns are left-justified in the original matrix form of `ex_data`, but right-justified in the data frame.
+Second, the row names in a matrix appear as standard row notation (`[#,]`) rather than a simple integer (`#`) as in a data frame. Third, all of the values in the columns are left-justified in the original matrix form of `ex_data`, but right-justified in the data frame.
 
-The data structure I used here is rather uncommon and something that very few people would ever use. That is, I created a `matrix` wherein each element was itself a `list` with only one value in it. In so doing, I was able to combine integer/numeric and character values into the same matrix, which otherwise would not work. For example, the following will convert the `1` and `2` to `"1"` and `"2"` so that the class of each of the rows or columns is `character`.
+The data structure I used here is rather uncommon and something that very few people would ever use. That is, I created a `matrix` wherein each element was itself a `list` with only one value in it. In so doing, I was able to combine integer/numeric and character values into the same matrix, which otherwise would not work. For example, the following line of code will convert the numeric `1` and `2` to the characters `"1"` and `"2"`.
 
 ```{r}
 ## create matrix
@@ -220,12 +220,5 @@ mm %>% apply(1, class)
 mm %>% apply(2, class)
 ```
 
-
-
-
 <br><br><br><br><br>
-
-
-
-
 
