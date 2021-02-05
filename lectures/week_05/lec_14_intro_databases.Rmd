@@ -159,7 +159,7 @@ CREATE DATABASE lake_wa
 
 Now we have our user and our database, and we can next make the data tables that will hold our data. But before we start making the data tables, we need to inspect the data to know what their tables should look like.  
 
-# Preparing the data to go into the database
+## Preparing the data to go into the database
 
 The data for this example are available as two `.csv` files
 
@@ -175,14 +175,34 @@ Generally we need to know the field (column) names in the data files and what ty
 
 - Open up the [Convert CSV to SQL tool](https://www.convertcsv.com/csv-to-sql.htm)
 
-- Under step one, click on the tab that says `Choose File` and then browse to wherever you saved the `lwa_limno.csv` file and select it
+- Under **Step 1**
 
-- The converter will read in the `.csv` file
+    - choose any of the 3 following options to select the `lwa_limno.csv` file:
 
-- In the converter, scroll down to the table where field names and data types are presented
+        1) "Enter Data" allows you to copy/paste from the raw csv format [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/lwa_limno.csv)
+        2) "Choose File" allows you to navigate to and select the location for your locally saved `lwa_limno.csv` file
+        3) "Enter URL" allows you to copy the URL for the raw data [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/lwa_limno.csv) and paste it into the box
+    
+    - After selecting the input, the converter will read in the `.csv` file
 
-- Add underscores to field names to separate words (e.g., `Otheralgae` becomes `Other_algae`)
+- (You can skip **Step 2**)
 
+- Under **Step 3**
+
+    - add underscores (`_`) to 3 of the field names to separate words:
+
+        1) `Otheralgae` becomes `Other_algae`  
+        2) `Nondaphnidcladocerans` becomes `Non_daphnid_cladocerans`
+        3) `Noncolonialrotifers` becomes `Non_colonial_rotifers`
+    
+    ![](sql_csv_s3a.png)
+    
+    - In the **Field Name** for `Year`, uncheck the box under **Key**
+    
+    - In the **Required** column, leave the check marks for `Year` and `Month` and uncheck **all** of the rest of the fields
+    
+    ![](sql_csv_s3.png)
+    
 - Under the `field name` and `data type` section, look for the option to specify the `Schema.Table` name and enter `public.stage_lake_wa`
 
 - Under `For INSERT`, click the box next to `Use one INSERT/REPLACE statement with multiple VALUES clauses` and enter 400 for `How many?` 
