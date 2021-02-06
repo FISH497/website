@@ -126,6 +126,8 @@ CREATE ROLE lake_wa WITH
 
 - Click `Save` and then verify that your user now appears under `Login/Group Roles`
 
+***
+
 # Switch users
 
 - Right click on `PostgreSQL 13` in the object browser, and then click `Disconnect Server` 
@@ -222,7 +224,7 @@ which can be found in the `data` directory [here](https://github.com/sureL/postg
 
 Generally we need to know the field (column) names in the data files and what type of data are contained in each field before we can set up the tables. Fortunately for us, some nice people made a [free tool](https://www.convertcsv.com/csv-to-sql.htm) that will give you the **SQL** for a `.csv` file that we can use to quickstart the process.
 
-### Lake Washington limnology
+### Lake Washington limnology {#create-lwa}
 
 - Open up the [Convert CSV to SQL tool](https://www.convertcsv.com/csv-to-sql.htm)
 
@@ -309,31 +311,74 @@ Now Repeat those steps for the `pdo_data` replacing `lwa_limno` with `pdo_data` 
 
 ***
 
+# Create a new Schema
+
+Before we import our data from the `.csv` files, we need to create a new *Schema*. 
+
+- Right-click on **Schemas** and select `Create > Schema...`
+
+<br>
+![](images/create_schema_1.png)
+<br><br>
+
+- In the dialogue box that opens up, click on the `General` tab and enter `staging` in the `Name` field
+
+<br>
+![](images/create_schema_2.png)
+<br><br>
+
+- Click on the `SQL` tab and you should see the following SQL commands
+
+```
+CREATE SCHEMA staging
+    AUTHORIZATION lake_wa;
+```
+
+<br>
+![](images/create_schema_3.png)
+<br><br>
+
+
+***
+
 # Creating the tables
 
 We now need to create the tables for the data within the database. 
 
 - In **pgAdmin**, click the `Tools` tab at the top and then select `Query Tool`
 
+<br>
+![](images/query_tool_1.png)
+<br><br>
+
 - A query editor window will open in **pgAdmin**
 
-- Copy and paste the SQL from your `lwa_limno.sql` file into the query editor
+- Click on the open folder icon, which will allow you to select the SQL file we [saved above](#create-lwa)
 
-- Click the play button at the top to execute the **SQL**
+<br>
+![](images/query_tool_2.png)
+<br><br>
 
-- An error will be raised that says:
+- Navigate to the location where you saved your `lwa_limno.sql`, select it, and then click the blue **Select** button
+
+<br>
+![](images/query_tool_3.png)
+<br><br>
+
+- You will now see the SQL code in the editor window, that begins with 
 
 ```
-ERROR:  duplicate key value violates unique constraint "lake_wa_pkey"
-DETAIL:  Key (year)=(1962) already exists.
-SQL state: 23505
+CREATE TABLE staging.limno(
+   Year                  INTEGER  NOT NULL
+  ,Month                 INTEGER  NOT NULL
 ```
 
-- Scroll up to the top of the **SQL** in the query editor and you will see that the CSV converter guessed that `Year` is our primary key, but `Year` isn't unique in the data
+- Click the triangular play button at the top to execute the **SQL**
 
-- Remove the words `PRIMARY KEY` from the `Year` line in the create table statement
+<br>
+![](images/run_sql_1.png)
+<br><br>
 
-- Click the play button again to execute the **SQL**
 
 - The code should execute now and **pgAdmin** should respond
 
@@ -345,13 +390,25 @@ Query returned successfully in 92 msec.
 
 (Note that the time it took the query to run will depend on your computer resources.)
 
-- In the **pgAdmin** object browser, click on `Tables` to see your new table `stage_lake_wa`
+<br>
+![](images/run_sql_2.png)
+<br><br>
 
-- Right click on the `stage_lake_wa` table and then click `View/Edit Data` and then `All Rows`
+- In the **pgAdmin** object browser, click on `Schemas > staging > Tables > limno` to see your new table `stage_lake_wa`
 
-The query editor will show you the following query used to call all records for the table in the upper pane and show the result set for that query in the lower pane. 
+- Right click on the `limno` table and then click `View/Edit Data` and then `All Rows`
+
+<br>
+![](images/view_table_1.png)
+<br><br>
+
+- The query editor will show you the following query used to call all records for the table in the upper pane and show the result set for that query in the lower pane. 
 
 ```
-SELECT * FROM public.stage_lake_wa
+SELECT * FROM staging.limno
 ```
+
+<br>
+![](images/view_table_2.png)
+<br><br>
 
