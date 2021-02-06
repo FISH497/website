@@ -41,17 +41,13 @@ The first time you open **pgAdmin** you will be prompted to set a password.
 
 The **pgAdmin** dashboard provides a database object browser along the left side of the window. In the object brower click on `Servers`. Then click on `PostgreSQL 13`. You will be asked for the `postgres` superuser password you set up when you first installed **PostgreSQL**. Provide the password and **pgAdmin** will connect to the database. 
 
-Under `**PostgreSQL** 13` you will then see `Databases`, `Login/Group Roles`, and `Tablespaces`.
+Under `PostgreSQL 13` you will then see `Databases`, `Login/Group Roles`, and `Tablespaces`.
 
 ## Databases
 
-- Click on `Databases` to see one database named `postgres`. 
-
-  - The `postgres` database is the only database created automatically when **PostgreSQL** is installed.
+- Click on `Databases` to see one database named `postgres`. The `postgres` database is the only database created automatically when **PostgreSQL** is installed.
   
-- Click on the `postgres` database and then click on `Schemas` at the bottom of the submenu.
-
-  - You will see there is one schema in the database named `public`. 
+- Click on the `postgres` database and then click on `Schemas` at the bottom of the submenu. You will see there is one schema in the database named `public`. 
   
 - Click on the `public` schema to see the long list of database object typeslisted alphabetically.
 
@@ -83,16 +79,34 @@ Right now we're connected to the database as the `postgres` super user, so we wa
 
 - click on `Login/Group Roles ...`, which will open a window in **pgAdmin** to create a new Login/Group Role  
 
-- Under the general tab, give the new role a name, for this example I am naming my user `lake_wa` 
+<br>
+![](images/new_user_1.png)
+<br><br>
+
+- Under the `General` tab, give the new role a name, for this example I am naming my user `lake_wa` 
+
+<br>
+![](images/new_user_2.png)
+<br><br>
+
 - Click on the `Definition` tab at the top of the window and provide a password for your user
+
+<br>
+![](images/new_user_3.png)
+<br><br>
 
 - Click on the `Privileges` tab at the top of the window to assign permissions for the role
 
   - Change `Can login?` to "Yes"  
-  - Change `Create databases?` to "Yes"  
-  - Click on the SQL tab to see the actual SQL that **pgAdmin** is generating for you (note that the SQL view masks the password you provided)  
+  - Change `Create databases?` to "Yes" 
+  
+- Click the blue **Save** button when you are done
 
-Here's the SQL to create my new user:
+<br>
+![](images/new_user_4.png)
+<br><br>
+
+- Click on the SQL tab to see the actual SQL that **pgAdmin** is generating for you (note that the SQL view masks the password you provided). Here's the SQL to create my new user:
 
 ```
 CREATE ROLE lake_wa WITH
@@ -106,25 +120,47 @@ CREATE ROLE lake_wa WITH
 	PASSWORD 'xxxxxx';
 ```
 
-- Click `Save` and then verify that your user now appears under `Login/Group Roles` 
+<br>
+![](images/new_user_5.png)
+<br><br>
 
-- Right click on `**PostgreSQL** 13` in the object browser, and then click `Disconnect Server` 
+- Click `Save` and then verify that your user now appears under `Login/Group Roles`
+
+# Switch users
+
+- Right click on `PostgreSQL 13` in the object browser, and then click `Disconnect Server` 
+
+<br>
+![](images/switch_user_1.png)
+<br><br>
 
 - A window will pop up asking if you are sure you want to disconnect--click `Ok` 
 
-- Right click on `**PostgreSQL** 13` in the object browser and then select `Properties` 
+- Right click on `PostgreSQL 13` in the object browser and then select `Properties` 
+
+<br>
+![](images/switch_user_2.png)
+<br><br>
 
 - A window will pop up titled **PostgreSQL** 13; click the `Connection` tab at the top
 
-- Under `User name` change `postgres` to `lake_wa` (or whatever you named your user)
+- Under `Username` change `postgres` to `lake_wa` (or whatever you named your user)
 
-- Click `Ok` to close the window and save your changes
+<br>
+![](images/switch_user_3.png)
+<br><br>
 
-- Double click on `**PostgreSQL** 13` in the object browser
+- Click the blue **Save** to close the window and save your changes
+
+- Double click on `PostgreSQL 13` in the object browser
 
 - A window will pop up asking for the password for the `lake_wa` user
 
-- Input the password and click `Ok`
+- Input the password and click the blue **OK** button
+
+<br>
+![](images/switch_user_4.png)
+<br><br>
 
 - You are now connected to **PostgreSQL** as your new user
 
@@ -136,9 +172,17 @@ Next we are going to create a new database to hold our Lake Washington and PDO d
 
 - Right click on `Databases` and then select `Create >` and then `Database ...`
 
+<br>
+![](images/create_db_1.png)
+<br><br>
+
 - A window will pop up called `Create - Database`
 
 - Give your new database a name, I named mine `lake_wa` (note that **PostgreSQL** assumes we want the current user `lake_wa` to own the new database, which is OK, so there is nothing to change here) 
+
+<br>
+![](images/create_db_2.png)
+<br><br>
 
 - Click on SQL to see the statement that **pgAdmin** is writing for you to create the database. 
 
@@ -152,10 +196,17 @@ CREATE DATABASE lake_wa
     CONNECTION LIMIT = -1;
 ```
 
-- Click `Save` and then verify you now see `lake_wa` as a second database beside `postgres` in the object browser
+<br>
+![](images/create_db_3.png)
+<br><br>
+
+- Click the blue **Save** button and then verify you now see `lake_wa` as a second database beside `postgres` in the object browser
 
 - Click on the `lake_wa` database to connect to it
 
+<br>
+![](images/create_db_4.png)
+<br><br>
 
 Now we have our user and our database, and we can next make the data tables that will hold our data. But before we start making the data tables, we need to inspect the data to know what their tables should look like.  
 
