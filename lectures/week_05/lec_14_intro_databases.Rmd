@@ -167,11 +167,11 @@ The data for this example are available as two `.csv` files
 
 2. `pdo_data.csv`
 
-which can be found in the `data` directory [here](https://github.com/sureL/postgres-tutorial). 
+which can be found in the `data` directory [here](https://github.com/sureL/postgres-tutorial). Download both data files to your local computer either directly from the repo or by cloning or forking the repo.
 
-Generally we need to know the field (column) names in the data files and what type of data are contained in each field before we can set up the tables. Fortunately for us, some nice people made a [free tool](https://www.convertcsv.com/csv-to-sql.htm) that will give you the **SQL** for a `.csv` file that we can use to quickstart the process. To do so,
+Generally we need to know the field (column) names in the data files and what type of data are contained in each field before we can set up the tables. Fortunately for us, some nice people made a [free tool](https://www.convertcsv.com/csv-to-sql.htm) that will give you the **SQL** for a `.csv` file that we can use to quickstart the process.
 
-- Download the data files to your local computer either directly from the repo or by cloning or forking the repo
+### Lake Washington limnology
 
 - Open up the [Convert CSV to SQL tool](https://www.convertcsv.com/csv-to-sql.htm)
 
@@ -181,8 +181,8 @@ Generally we need to know the field (column) names in the data files and what ty
 
         1) "Enter Data" allows you to copy/paste from the raw csv format [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/lwa_limno.csv)
         2) "Choose File" allows you to navigate to and select the location for your locally saved `lwa_limno.csv` file
-        3) "Enter URL" allows you to copy the URL for the raw data [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/lwa_limno.csv) and paste it into the box
-    
+        3) "Enter URL" allows you to copy the URL for the raw data [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/lwa_limno.csv) and paste it into the box  
+
     - After selecting the input, the converter will read in the `.csv` file
 
 - (You can skip **Step 2**)
@@ -194,28 +194,67 @@ Generally we need to know the field (column) names in the data files and what ty
         1) `Otheralgae` becomes `Other_algae`  
         2) `Nondaphnidcladocerans` becomes `Non_daphnid_cladocerans`
         3) `Noncolonialrotifers` becomes `Non_colonial_rotifers`
-    
-    ![](sql_csv_s3a.png)
+
+    <br>
+    ![](images/sql_csv_convert_s1.png)
+    <br><br>
     
     - In the **Field Name** for `Year`, uncheck the box under **Key**
     
+    <br>
+    ![](images/sql_csv_convert_s2.png)
+    <br><br>
+    
     - In the **Required** column, leave the check marks for `Year` and `Month` and uncheck **all** of the rest of the fields
+
+    <br>
+    ![](images/sql_csv_convert_s3.png)
+    <br><br>
     
-    ![](sql_csv_s3.png)
+    - Under the `field name` and `data type` section, look for the option to specify the `Schema.Table` name and enter `staging.limno`
+
+    <br>
+    ![](images/sql_csv_convert_s4.png)
+    <br><br>
     
-- Under the `field name` and `data type` section, look for the option to specify the `Schema.Table` name and enter `public.stage_lake_wa`
+    - Scroll down further and under **For INSERT**,
+    
+        1) check the box next to **Use one INSERT/REPLACE statement with multiple VALUES clauses**, and  
+        2) enter 400 for **How many?**
 
-- Under `For INSERT`, click the box next to `Use one INSERT/REPLACE statement with multiple VALUES clauses` and enter 400 for `How many?` 
+    <br>
+    ![](images/sql_csv_convert_s5.png)
+    <br><br>
+    
+- Under **Step 4**
 
-- Continue down to `Step 4` in the converter and click the `CSV to SQL INSERT` button to bring in the new configuration options you just set
+    - Click the **CSV To SQL Insert** button to bring in the new configuration options you just set
 
-- In the `Save your result` box, enter `lwa_limno`
+    <br>
+    ![](images/sql_csv_convert_s6.png)
+    <br><br>
+    
+    - In the **Save your result** box, enter `lwa_limno`
 
-- For the line endings, choose `CRLF` if you are on a Windows computer and `LF` otherwise
+    <br>
+    ![](images/sql_csv_convert_s7.png)
+    <br><br>
+    
+    - For the line endings, choose either `CRLF` if you are on a Windows computer and `LF` otherwise
 
-- Click the blue `Download Results` button to download the `lwa_limno.sql` file to your computer 
+    <br>
+    ![](images/sql_csv_convert_s8.png)
+    <br><br>
+    
+    - Click the blue `Download Results` button to download the `lwa_limno.sql` file to your computer 
 
-Repeat those steps for the `pdo_data` replacing `lwa_limno` with `pdo_data` throughout.
+    <br>
+    ![](images/sql_csv_convert_s9.png)
+    <br><br>
+    
+### Pacific Decadal Oscillation
+
+Now Repeat those steps for the `pdo_data` replacing `lwa_limno` with `pdo_data` throughout.
 
 ***
 
