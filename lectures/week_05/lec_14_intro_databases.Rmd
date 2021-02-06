@@ -212,7 +212,7 @@ CREATE DATABASE lake_wa
 
 Now we have our user and our database, and we can next make the data tables that will hold our data. But before we start making the data tables, we need to inspect the data to know what their tables should look like.  
 
-## Preparing the data to go into the database
+## Preparing the data
 
 The data for this example are available as two `.csv` files
 
@@ -230,7 +230,7 @@ Generally we need to know the field (column) names in the data files and what ty
 
 - Under **Step 1**
 
-    - choose any of the 3 following options to select the `lwa_limno.csv` file:
+    - Choose any of the 3 following options to select the `lwa_limno.csv` file:
 
         1) "Enter Data" allows you to copy/paste from the raw csv format [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/lwa_limno.csv)
         2) "Choose File" allows you to navigate to and select the location for your locally saved `lwa_limno.csv` file
@@ -309,6 +309,65 @@ Generally we need to know the field (column) names in the data files and what ty
 
 Now Repeat those steps for the `pdo_data` replacing `lwa_limno` with `pdo_data` throughout.
 
+- Begin by returning to **Step 1** in the [Convert CSV to SQL tool](https://www.convertcsv.com/csv-to-sql.htm)
+
+    - Click on the blue **Clear Input** button to clear all of the information from `lwa_limno.csv`
+    
+    - Choose any of the 3 following options to select the `pdo_data.csv` file:
+
+        1) "Enter Data" allows you to copy/paste from the raw csv format [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/pdo_data.csv)
+        2) "Choose File" allows you to navigate to and select the location for your locally saved `pdo_data.csv` file
+        3) "Enter URL" allows you to copy the URL for the raw data [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/pdo_data.csv) and paste it into the box  
+
+    - After selecting the input, the converter will read in the `.csv` file
+
+    <br>
+    ![](images/sql_csv_convert_pdo_s0.png)
+    <br><br>
+    
+- (You can skip **Step 2**)
+
+- Under **Step 3**
+
+    - Leave everything as is in the **Field Name**, **Key**, and **Required** columns
+    
+    <br>
+    ![](images/sql_csv_convert_pdo_s1.png)
+    <br><br>
+    
+    - Under the `field name` and `data type` section, look for the option to specify the `Schema.Table` name and enter `public.pdo`
+
+    <br>
+    ![](images/sql_csv_convert_pdo_s2.png)
+    <br><br>
+    
+    - Scroll down further and under **For INSERT**,
+    
+        1) check the box next to **Use one INSERT/REPLACE statement with multiple VALUES clauses**, and  
+        2) enter 2005 for **How many?**
+
+    <br>
+    ![](images/sql_csv_convert_pdo_s3.png)
+    <br><br>
+    
+- Under **Step 4**
+
+    - Click the **CSV To SQL Insert** button to bring in the new configuration options you just set
+
+    <br>
+    ![](images/sql_csv_convert_pdo_s4.png)
+    <br><br>
+    
+    - In the **Save your result** box, enter `pdo_data`
+
+    - For the line endings, choose either `CRLF` if you are on a Windows computer and `LF` otherwise
+
+    - Click the blue `Download Results` button to download the `lwa_limno.sql` file to your computer 
+
+    <br>
+    ![](images/sql_csv_convert_pdo_s5.png)
+    <br><br>
+    
 ***
 
 # Create a new Schema
