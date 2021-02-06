@@ -192,10 +192,10 @@ databases_3 <- list(
   title = "Advanced features",
   topics = c("<i>Jennifer Scheuerell</i>", "<b>Advanced features</b>", "Stored procedures & functions", "Triggers & automation", "Foreign data wrappers"),
   pdf = c(""),
-  rmd = "",
-  html = "",
+  rmd = "lectures/week_05/lec_15_intro_databases.Rmd",
+  html = "lectures/week_05/lec_15_intro_databases.html",
   background = "",
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/3qznqH_bNpYf5_itme7PGOuNUdGZaqknSKk98MP9VTTfuYpbxqS-DgWjf72z-tbz.Z73gHgrdUvYmO5pG"
 )
 
 ## day 16 ####
