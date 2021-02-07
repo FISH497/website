@@ -305,9 +305,9 @@ Generally we need to know the field (column) names in the data files and what ty
     ![](images/sql_csv_convert_s9.png)
     <br><br>
     
-### Pacific Decadal Oscillation
+### Pacific Decadal Oscillation {#pdo_sql_csv}
 
-Now Repeat those steps for the `pdo_data` replacing `lwa_limno` with `pdo_data` throughout.
+Now we'll repeat those steps for the `pdo_data`.
 
 - Begin by returning to **Step 1** in the [Convert CSV to SQL tool](https://www.convertcsv.com/csv-to-sql.htm)
 
