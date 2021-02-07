@@ -132,14 +132,14 @@ CREATE ROLE lake_wa WITH
 - Right click on `PostgreSQL 13` in the object browser, and then click `Disconnect Server` 
 
 <br>
-![](images/switch_user_1.png)
+![](images/switch_user_a.png)
 <br><br>
 
 - A window will pop up asking if you are sure you want to disconnect--click `Ok` 
 - Right click on `PostgreSQL 13` in the object browser and then select `Properties` 
 
 <br>
-![](images/switch_user_2.png)
+![](images/switch_user_b.png)
 <br><br>
 
 - A window will pop up titled **PostgreSQL** 13; click the `Connection` tab at the top
@@ -147,7 +147,7 @@ CREATE ROLE lake_wa WITH
 - Under `Username` change `postgres` to `lake_wa` (or whatever you named your user)
 
 <br>
-![](images/switch_user_3.png)
+![](images/switch_user_c.png)
 <br><br>
 
 - Click the blue **Save** to close the window and save your changes
@@ -159,7 +159,7 @@ CREATE ROLE lake_wa WITH
 - Input the password and click the blue **OK** button
 
 <br>
-![](images/switch_user_4.png)
+![](images/switch_user_d.png)
 <br><br>
 
 - You are now connected to **PostgreSQL** as your new user
@@ -167,6 +167,8 @@ CREATE ROLE lake_wa WITH
 ***
 
 # Creating a new database
+
+[**Note**: If at any point you feel like you want to return to this location in the workflow, [click here](#truman_1) for instructions on how to do so.]
 
 Next we are going to create a new database to hold our Lake Washington and PDO data. 
 
@@ -238,7 +240,7 @@ CREATE SCHEMA staging
 <br><br>
 
 
-## Preparing the data
+# The data
 
 The data for this example are available as two `.csv` files
 
@@ -250,16 +252,83 @@ which can be found in the `data` directory [here](https://github.com/sureL/postg
 
 Generally we need to know the field (column) names in the data files and what type of data are contained in each field before we can set up the tables. Fortunately for us, some nice people made a [free tool](https://www.convertcsv.com/csv-to-sql.htm) that will give you the **SQL** for a `.csv` file that we can use to quickstart the process.
 
-### Lake Washington limnology {#create-lwa}
+## Pacific Decadal Oscillation {#pdo_sql_csv}
+
+We'll begin by bringing in the PDO data located in `pdo_data`.
 
 - Open up the [Convert CSV to SQL tool](https://www.convertcsv.com/csv-to-sql.htm)
 
 - Under **Step 1**
 
+    - Choose any of the 3 following options to select the `pdo_data.csv` file:
+
+        1) "Enter Data" allows you to copy/paste from the raw csv format [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/pdo_data.csv)
+        
+        2) "Choose File" allows you to navigate to and select the location for your locally saved `pdo_data.csv` file
+        
+        3) "Enter URL" allows you to copy the URL for the raw data [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/pdo_data.csv) and paste it into the box  
+
+    - After selecting the input, the converter will read in the `.csv` file
+
+    <br>
+    ![](images/sql_csv_convert_pdo_s0.png)
+    <br><br>
+    
+- (You can skip **Step 2**)
+
+- Under **Step 3**
+
+    - Leave everything as is in the **Field Name**, **Key**, and **Required** columns
+    
+    <br>
+    ![](images/sql_csv_convert_pdo_s1.png)
+    <br><br>
+    
+    - Under the `field name` and `data type` section, look for the option to specify the `Schema.Table` name and enter `public.pdo`
+
+    <br>
+    ![](images/sql_csv_convert_pdo_s2.png)
+    <br><br>
+    
+    - Scroll down further and under **For INSERT**,
+    
+        1) check the box next to **Use one INSERT/REPLACE statement with multiple VALUES clauses**, and  
+        2) enter 2005 for **How many?**
+
+    <br>
+    ![](images/sql_csv_convert_pdo_s3.png)
+    <br><br>
+    
+- Under **Step 4**
+
+    - Click the **CSV To SQL Insert** button to bring in the new configuration options you just set
+
+    <br>
+    ![](images/sql_csv_convert_pdo_s4.png)
+    <br><br>
+    
+    - In the **Save your result** box, enter `pdo_data`
+
+    - For the line endings, choose either `CRLF` if you are on a Windows computer and `LF` otherwise
+
+    - Click the blue `Download Results` button to download the `lwa_limno.sql` file to your computer 
+
+    <br>
+    ![](images/sql_csv_convert_pdo_s5.png)
+    <br><br>
+    
+## Lake Washington limnology {#create-lwa}
+
+- Return to **Step 1** of the [Convert CSV to SQL tool](https://www.convertcsv.com/csv-to-sql.htm)
+
+    - Click on the blue **Clear Input** button to clear all of the information from `pdo_data.csv`
+    
     - Choose any of the 3 following options to select the `lwa_limno.csv` file:
 
         1) "Enter Data" allows you to copy/paste from the raw csv format [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/lwa_limno.csv)
+        
         2) "Choose File" allows you to navigate to and select the location for your locally saved `lwa_limno.csv` file
+        
         3) "Enter URL" allows you to copy the URL for the raw data [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/lwa_limno.csv) and paste it into the box  
 
     - After selecting the input, the converter will read in the `.csv` file
@@ -331,69 +400,6 @@ Generally we need to know the field (column) names in the data files and what ty
     ![](images/sql_csv_convert_s9.png)
     <br><br>
     
-### Pacific Decadal Oscillation {#pdo_sql_csv}
-
-Now we'll repeat those steps for the `pdo_data`.
-
-- Begin by returning to **Step 1** in the [Convert CSV to SQL tool](https://www.convertcsv.com/csv-to-sql.htm)
-
-    - Click on the blue **Clear Input** button to clear all of the information from `lwa_limno.csv`
-    
-    - Choose any of the 3 following options to select the `pdo_data.csv` file:
-
-        1) "Enter Data" allows you to copy/paste from the raw csv format [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/pdo_data.csv)
-        2) "Choose File" allows you to navigate to and select the location for your locally saved `pdo_data.csv` file
-        3) "Enter URL" allows you to copy the URL for the raw data [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/pdo_data.csv) and paste it into the box  
-
-    - After selecting the input, the converter will read in the `.csv` file
-
-    <br>
-    ![](images/sql_csv_convert_pdo_s0.png)
-    <br><br>
-    
-- (You can skip **Step 2**)
-
-- Under **Step 3**
-
-    - Leave everything as is in the **Field Name**, **Key**, and **Required** columns
-    
-    <br>
-    ![](images/sql_csv_convert_pdo_s1.png)
-    <br><br>
-    
-    - Under the `field name` and `data type` section, look for the option to specify the `Schema.Table` name and enter `public.pdo`
-
-    <br>
-    ![](images/sql_csv_convert_pdo_s2.png)
-    <br><br>
-    
-    - Scroll down further and under **For INSERT**,
-    
-        1) check the box next to **Use one INSERT/REPLACE statement with multiple VALUES clauses**, and  
-        2) enter 2005 for **How many?**
-
-    <br>
-    ![](images/sql_csv_convert_pdo_s3.png)
-    <br><br>
-    
-- Under **Step 4**
-
-    - Click the **CSV To SQL Insert** button to bring in the new configuration options you just set
-
-    <br>
-    ![](images/sql_csv_convert_pdo_s4.png)
-    <br><br>
-    
-    - In the **Save your result** box, enter `pdo_data`
-
-    - For the line endings, choose either `CRLF` if you are on a Windows computer and `LF` otherwise
-
-    - Click the blue `Download Results` button to download the `lwa_limno.sql` file to your computer 
-
-    <br>
-    ![](images/sql_csv_convert_pdo_s5.png)
-    <br><br>
-    
 ***
 
 # Creating the tables
@@ -440,7 +446,7 @@ CREATE TABLE staging.limno(
 ```
 INSERT 0 396
 
-Query returned successfully in 92 msec.
+Query returned successfully in 58 msec.
 ```
 
 (Note that the time it took the query to run will depend on your computer resources.)
@@ -466,4 +472,56 @@ SELECT * FROM staging.limno
 <br>
 ![](images/view_table_2.png)
 <br><br>
+
+## The Truman options
+
+There can be times when it simply seems easiest to burn it all down and start over, so don't feel bad if you find yourself here.
+
+### Delete a database{#truman_1}
+
+If, for whatever reason, you want to delete a database, do this in **pgAdmin**
+
+* Right-click on the `lake_wa` database and select `Delete/Drop`
+
+![](images/db_drop.png)
+
+### Delete a user
+
+You cannot delete a user while you are logged in as that person. To remove the `lake_wa` user we created here, we'll have to first disconnect from the database, and then log back in as the `postgres` super user. To do so in **pgAdmin**, follow these steps
+
+1) Right-click on **PostgreSQL 13** in the object browser and select `Disconnect Server`
+
+<br>
+![](images/lwa_user_disconnect.png)
+<br>
+
+2) Right-click on **PostgreSQL 13** again and select `Properties`
+
+<br>
+![](images/switch_user_1.png)
+<br>
+
+3) Click on the `Connection` tab and change `username` to `postgres`; when you are done, click the blue **Save** button
+
+<br>
+![](images/switch_user_2.png)
+<br>
+
+4) Right-click on **PostgreSQL 13** and select `Connect Server`
+
+<br>
+![](images/switch_user_3.png)
+<br>
+
+5) When prompted, enter the password you used when you first installed **PostgreSQL** and click the blue **OK** button
+
+<br>
+![](images/switch_user_4.png)
+<br>
+
+6) Under **Login/Group Roles** in the object browser, right-click on `lake_wa` and select `Delete/Drop`
+
+<br>
+![](images/drop_lwa_user.png)
+<br>
 
