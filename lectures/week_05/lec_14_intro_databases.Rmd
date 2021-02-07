@@ -22,12 +22,10 @@ knitr::opts_chunk$set(echo = TRUE,
 # Introduction
 
 This is a step-by-step guide to create a new database, user, and tables 
-for Lake Washington (Seattle, WA, USA) plankton data and the Pacific Decadal Oscillation (PDO) 
+for Lake Washington (Seattle, WA, USA) limnological data and the Pacific Decadal Oscillation (PDO) 
 climate variability index.
 
-***
-
-# Requirements
+## Requirements
 
 To begin, you should have **PostgreSQL** and **pgAdmin** installed. (Please note that the following steps were tested on **PostgreSQL** v13 and **pgAdmin** v4.3 running on macOS Big Sur.) 
 
@@ -35,7 +33,7 @@ To begin, you should have **PostgreSQL** and **pgAdmin** installed. (Please note
 
 # Getting oriented in pgAdmin
 
-Before we can create anything, we need to connect to **PostgreSQL** with **pgAdmin**. It is important to note that current version of **pgAdmin** runs in your web browser. 
+Before we can create anything, we need to connect to **PostgreSQL** with our **pgAdmin** client. It is important to note that the current version of **pgAdmin** runs in your web browser. 
 
 The first time you open **pgAdmin** you will be prompted to set a password. 
 
@@ -49,7 +47,7 @@ Under `PostgreSQL 13` you will then see `Databases`, `Login/Group Roles`, and `T
   
 - Click on the `postgres` database and then click on `Schemas` at the bottom of the submenu. You will see there is one schema in the database named `public`. 
   
-- Click on the `public` schema to see the long list of database object typeslisted alphabetically.
+- Click on the `public` schema to see the long list of database object types listed alphabetically.
 
 ## Login/Group Roles
 
@@ -71,7 +69,7 @@ Under `PostgreSQL 13` you will then see `Databases`, `Login/Group Roles`, and `T
 
 # Create a new user
 
-Right now we're connected to the database as the `postgres` super user, so we want to set up a new user and new database for our project and then disconnect as `postgres` and sign in as our new user. To create a new user  
+Right now we're connected to the database as the `postgres` super user, so we want to set up a new user for our project and then disconnect as `postgres` and sign in as our new user. To create a new user  
 
 - right click on `Login/Group Roles`  
 
@@ -98,8 +96,9 @@ Right now we're connected to the database as the `postgres` super user, so we wa
 - Click on the `Privileges` tab at the top of the window to assign permissions for the role
 
   - Change `Can login?` to "Yes"  
-  - Change `Create databases?` to "Yes" 
   
+  - Change `Create databases?` to "Yes" 
+
 - Click the blue **Save** button when you are done
 
 <br>
@@ -137,7 +136,6 @@ CREATE ROLE lake_wa WITH
 <br><br>
 
 - A window will pop up asking if you are sure you want to disconnect--click `Ok` 
-
 - Right click on `PostgreSQL 13` in the object browser and then select `Properties` 
 
 <br>
@@ -172,15 +170,15 @@ CREATE ROLE lake_wa WITH
 
 Next we are going to create a new database to hold our Lake Washington and PDO data. 
 
-- Right click on `Databases` and then select `Create >` and then `Database ...`
+- Right click on `Databases` and then select `Create > Database ...`
 
 <br>
 ![](images/create_db_1.png)
 <br><br>
 
-- A window will pop up called `Create - Database`
+- A window will pop up called **Create - Database**
 
-- Give your new database a name, I named mine `lake_wa` (note that **PostgreSQL** assumes we want the current user `lake_wa` to own the new database, which is OK, so there is nothing to change here) 
+- Give your new database a name; here we called it `lake_wa` (note that **PostgreSQL** assumes we want the current user `lake_wa` to own the new database, which is OK, so there is nothing to change here) 
 
 <br>
 ![](images/create_db_2.png)
@@ -211,6 +209,34 @@ CREATE DATABASE lake_wa
 <br><br>
 
 Now we have our user and our database, and we can next make the data tables that will hold our data. But before we start making the data tables, we need to inspect the data to know what their tables should look like.  
+
+## Create a new schema
+
+Before we import our data from the `.csv` files, we need to create a new *Schema*. 
+
+- Right-click on **Schemas** and select `Create > Schema...`
+
+<br>
+![](images/create_schema_1.png)
+<br><br>
+
+- In the dialogue box that opens up, click on the `General` tab and enter `staging` in the `Name` field
+
+<br>
+![](images/create_schema_2.png)
+<br><br>
+
+- Click on the `SQL` tab and you should see the following SQL commands
+
+```
+CREATE SCHEMA staging
+    AUTHORIZATION lake_wa;
+```
+
+<br>
+![](images/create_schema_3.png)
+<br><br>
+
 
 ## Preparing the data
 
@@ -368,36 +394,6 @@ Now we'll repeat those steps for the `pdo_data`.
     ![](images/sql_csv_convert_pdo_s5.png)
     <br><br>
     
-***
-
-# Create a new Schema
-
-Before we import our data from the `.csv` files, we need to create a new *Schema*. 
-
-- Right-click on **Schemas** and select `Create > Schema...`
-
-<br>
-![](images/create_schema_1.png)
-<br><br>
-
-- In the dialogue box that opens up, click on the `General` tab and enter `staging` in the `Name` field
-
-<br>
-![](images/create_schema_2.png)
-<br><br>
-
-- Click on the `SQL` tab and you should see the following SQL commands
-
-```
-CREATE SCHEMA staging
-    AUTHORIZATION lake_wa;
-```
-
-<br>
-![](images/create_schema_3.png)
-<br><br>
-
-
 ***
 
 # Creating the tables
