@@ -40,6 +40,8 @@ Here we will learn how to:
 SQL scripts for each step are available [here](https://github.com/sureL/postgres-tutorial/tree/main/sql/ecology_example). 
 As you've seen elsewhere in class, all of the SQL scripts have number prefixes to show the order in which they should be run.
 
+***
+
 # Joining tables
 
 One of the essential elements to be able to join the monthly data in `limno` and `pdo` together is to insure the fields we will use to join the tables have the same data format. In `lwa_limno.csv` we have one field for `Year` and 
@@ -65,9 +67,11 @@ Date
 
 We could convert either data set to match the other, but here we'll convert the `limno` data to a concatenated year plus month value to match `pdo`. 
 
-## Create new field
+***
 
-The next thing we need to do is create a new field in the `limno` table where we can write our new `year_month` concatenation. To add a field to an existing table, we use the SQL `ALTER TABLE` command. Note that fields added to tables via the `ALTER TABLE` command are appended to the end of the existing table fields. 
+# Create new field
+
+Now we need to create a new field in the `limno` table where we can write a new `year_month` concatenation. To add a field to an existing table, we use the SQL `ALTER TABLE` command. Note that fields added to tables via the `ALTER TABLE` command are appended to the end of the existing table fields. 
 
 * Go back to **pgAdmin** and from the menu at the top, select `Tools > Query Tool` to open up the query editing tool
 
@@ -83,7 +87,9 @@ ADD COLUMN year_month text;
 
 * [*Alternatively*] Use the open file button to select the saved SQL file `2_alter_table_staging_limno.sql` and then run it
 
-## Concatenate fields
+***
+
+# Concatenate fields
 
 Now that we have a field we can write our new concatenation into, we need to create SQL to concatenate two fields into one field. The PostgreSQL concatenation operator is double pipes `||`. Because the `year` and `month` fields in the table are integers, we need to cast their data types to text so that we can contenate them together. To cast a field to a different data type in
 PostgreSQL, you follow the field name with double colons `::` and then the data type (eg, `Year::text`).
@@ -124,7 +130,7 @@ SELECT
 
 That all looks good, so now we can add the new `year_month` column to our table with the `UPDATE` command
 
-* To expand our concatenation statement with conditional logic to include a `0` for single digit months, copy/paste the following SQl code into the editor and press play
+* To update our table using the concatenation statement with conditional logic to include a `0` for single digit months, copy/paste the following SQl code into the editor and press play
 
 ```
 UPDATE staging.limno
@@ -133,15 +139,11 @@ SET year_month = year::text || CASE WHEN month < 10 then '0' ELSE '' END || mont
 
  * [*Alternatively*] Use the open file button to select the saved SQL file `3__staging_limno.sql` and then run it
 
-Now we are generating a concatenation that is always six digits and matches the `pdo` table. 
+***
 
-## ORPHAN?
+# Changing `NA` to `NULL`
 
-Now that we have the right SQL to create the values we want, we need to write those values into our new `year_month` field in the `staging.limno` table. To  update data in a table we use the `UPDATE` SQL command.
-
-## Changing `NA` to `NULL`
-
-Recall that the notion of a missing value in a SQL database is different than in **R**. In **R** we use `NA` to designate a missing values,but in SQL we use `NULL`. Therefore, we need to clean up the `limno` table by replacing the text `NA` with `NULL`. Because we are updating data in a table, we again will use the SQL `UPDATE` command. We can string all of our `UPDATE` commands together in one script and change all of the `NA` values for each field
+Recall that the notion of a missing value in a SQL database is different than in **R**. In **R** we use `NA` to designate a missing values,but in SQL we use `NULL`. Therefore, we need to clean up the `limno` table by replacing the text `NA` with `NULL`. Because we are updating data in a table, we again will use the SQL `UPDATE` command. We can string all of our `UPDATE` commands together in one script and change all of the `NA` values for each field.
 
 * Copy/paste the following code into the SQL editor in **pgAdmin** (recall that you can use `/*` to delineate the start/end a comment in SQL)
 
@@ -174,7 +176,9 @@ UPDATE staging.limno SET non_colonial_rotifers = NULL WHERE non_colonial_rotifer
 
 * [*Alternatively*] Use the open file button to select the saved SQL file `4_clean_up_NA_in_limno.sql` and then run it
 
-## Create final table
+***
+
+# Create final table
 
 Now that the `staging.limno` data are cleaned up and ready to go, we need to make our final data table where the cleaned up data will reside. This will be an otherwise identical table to `staging.limno` except we will
 
@@ -222,8 +226,9 @@ ALTER TABLE public.limno
 
 * [*Alternatively*] Use the open file button to select the saved SQL file `5_create_table_public_limno.sql` and then run it
 
+***
 
-## Move from staging to public
+# Move from staging to public
 
 Our last step for the `limno` data is to write the data from `staging.limno` to `public.limno`. For thsi step, we'll use the `INSERT INTO` command in SQL
 
@@ -257,7 +262,9 @@ INSERT INTO public.limno(
 
 * [*Alternatively*] Use the open file button to select the saved SQL file `6_write_clean_data_into_public_limno.sql` and then run it
 
-## Add PDO data
+***
+
+# Add PDO data
 
 The good news is that the data in `pdo_data.csv` are already clean and can be written directly into `public.pdo`. To do so, we'll again use `CREATE TABLE`.
 
@@ -287,7 +294,9 @@ INSERT INTO public.pdo(date,pdo) VALUES
 
 * [*Alternatively*] Use the open file button to select the saved SQL file `7_create_insert_public_pdo.sql` and then run it
 
-## Join `limno` and `pdo`
+***
+
+# Join `limno` and `pdo`
 
 Now we both of our data tables cleaned up and ready to be queried and joined. We can now bring the `pdo` and `limno` data together into a single result set for analysis. To begin, let's run the following script to view the result set and verify that everything looks right.
 
