@@ -1,6 +1,6 @@
 ---
 title: "Set up a PostgreSQL database with ecological data"
-author: "Jennifer Scheuerell"
+author: "Jennifer Scheuerell, Mark Scheuerell"
 date: "3 February 2021"
 output:
   html_document:
@@ -214,7 +214,7 @@ Now we have our user and our database, and we can next make the data tables that
 
 ## Create a new schema
 
-Before we import our data from the `.csv` files, we need to create a new *Schema*. 
+Before we import our data from the `.csv` files, we need to create a new *schema* that we'll use to stage and clean the Lake Washington limnology data.
 
 - Right-click on **Schemas** and select `Create > Schema...`
 
@@ -311,7 +311,7 @@ We'll begin by bringing in the PDO data located in `pdo_data`.
 
     - For the line endings, choose either `CRLF` if you are on a Windows computer and `LF` otherwise
 
-    - Click the blue `Download Results` button to download the `lwa_limno.sql` file to your computer 
+    - Click the blue `Download Results` button to download the `pdo_data.sql` file to your computer 
 
     <br>
     ![](images/sql_csv_convert_pdo_s5.png)
