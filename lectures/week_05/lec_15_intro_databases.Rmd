@@ -1,6 +1,6 @@
 ---
 title: "Set up a PostgreSQL database with ecological data"
-author: "Jennifer Scheuerell"
+author: "Jennifer Scheuerell, Mark Scheuerell"
 date: "5 February 2021"
 output:
   html_document:
@@ -14,18 +14,18 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, 
-                      fig.align = "center", out.width = '90%')
+                      fig.align = "center", out.width = '70%')
 ```
 
 <br>
 
 # Background 
 
-We [saw previously](lec_14_intro_databases.html) how to create a PostgreSQL database and schema for staging our data. Recall that we used the [Convert CSV to SQL](https://www.convertcsv.com/csv-to-sql.htm) website to generate the `CREATE TABLE` and `INSERT INTO` SQL statements used to import our csv data. We also created a `staging` schema in our database, which will allow us to write our limno data there so we can clean it up and then write the cleaned version into our final table with numeric data types. 
+We [saw previously](lec_14_intro_databases.html) how to create a PostgreSQL database for staging our data. We also created a `staging` schema in our database, which  allowed us to write and clean our limnology data before writing it into our final table with numeric data types. Recall that we used the [Convert CSV to SQL](https://www.convertcsv.com/csv-to-sql.htm) website to generate the `CREATE TABLE` and `INSERT INTO` SQL statements we then ran in **pgAdmin** to write our csv data into the database.  
 
 Here we will learn how to:
 
-- Insert data into our tables 
+- Cast data into new data types
 
 - Clean up the data
 
@@ -42,10 +42,9 @@ As you've seen elsewhere in class, all of the SQL scripts have number prefixes t
 
 ***
 
-# Joining tables
+# Looking at the data we have
 
-One of the essential elements to be able to join the monthly data in `limno` and `pdo` together is to insure the fields we will use to join the tables have the same data format. In `lwa_limno.csv` we have one field for `Year` and 
-a second field for `Month`, but in the `pdo_data.csv` we have only one field called `Date` that has the year and month concatenated together. 
+One of the essential elements necessary to join two data tables together is for both tables to have a common field upon which to join them. Both of our data tables contain monthly data, so we will join them using a year-month ocombination. When we look at our example data, the `lwa_limno.csv` has one field for `Year` and a second field for `Month`, but in the `pdo_data.csv` we have only one field called `Date`, which has the year and month concatenated together.
 
 Year/month format in `limno`
 
@@ -61,17 +60,17 @@ Year/month format in `pdo`
 ```
 Date
 ------
-199001
-199002
+196201
+196202
 ```
 
-We could convert either data set to match the other, but here we'll convert the `limno` data to a concatenated year plus month value to match `pdo`. 
+We could convert either data set to match the other, but here we'll convert the `limno` data to a concatenated year-month value to match `pdo`. 
 
 ***
 
 # Create new field
 
-Now we need to create a new field in the `limno` table where we can write a new `year_month` concatenation. To add a field to an existing table, we use the SQL `ALTER TABLE` command. Note that fields added to tables via the `ALTER TABLE` command are appended to the end of the existing table fields. 
+To standardize between the two tables, we are going to create a new field in the `limno` table where we can write a new `year_month` concatenation. To add a field to an existing table, we use the SQL `ALTER TABLE` command. Note that fields added to tables via the `ALTER TABLE` command are appended to the end of the existing table fields. 
 
 * Go back to **pgAdmin** and from the menu at the top, select `Tools > Query Tool` to open up the query editing tool
 
@@ -91,10 +90,9 @@ ADD COLUMN year_month text;
 
 # Concatenate fields
 
-Now that we have a field we can write our new concatenation into, we need to create SQL to concatenate two fields into one field. The PostgreSQL concatenation operator is double pipes `||`. Because the `year` and `month` fields in the table are integers, we need to cast their data types to text so that we can contenate them together. To cast a field to a different data type in
-PostgreSQL, you follow the field name with double colons `::` and then the data type (eg, `Year::text`).
+Now that we have a field we can write our new year-month concatenation into, we need to write some SQL to concatenate two fields into one field. The PostgreSQL concatenation operator is double pipes `||`. Because the `year` and `month` fields in the table are integers, we need to cast their data types to text so that we can concatenate them together. To cast a field to a different data type in PostgreSQL, you follow the field name with double colons `::` and then the data type (eg, `Year::text`).
 
-If we query `limno` to try our concatenation, we can run the following to check if that gives us what we need for the concatenated field.
+If we query `limno` to test our concatenation, we can run the following to check if that gives us what we need for the concatenated field.
 
 ```
 SELECT year::text || month::text FROM staging.limno
@@ -103,7 +101,7 @@ SELECT year::text || month::text FROM staging.limno
 ![](images/create_field_2.png)
 <br>
 
-That looks pretty good, but all of the `Date` values in `pdo_data.csv` are six digits--for single digit months the month is written `01` instead of `1` - and our `limno` concatenation doesn't match that. Therefore, we need to pad the month with a `0` in the concatenation, but only for January through September (ie, single digit months).
+That looks pretty good, but all of the `Date` values in `pdo_data.csv` are six digits--for single digit months the month is written `01` instead of `1`--and our `limno` concatenation doesn't match that. Therefore, we need to pad the month with a `0` in the concatenation, but only for January through September (ie, single digit months).
 
 To write conditional logic in SQL we use the `CASE` statement. The `CASE` statement context is
 
@@ -111,7 +109,7 @@ To write conditional logic in SQL we use the `CASE` statement. The `CASE` statem
 CASE WHEN XX THEN YY ELSE ZZ END
 ```
 
-Note that we can make case statements more complicated by nesting additional `WHEN` clauses like
+Note that we can make `CASE` statements more complicated by nesting additional `WHEN` clauses like
 
 ```
 CASE WHEN XX THEN YY WHEN AA THEN BB ELSE ZZ END
@@ -174,7 +172,7 @@ UPDATE staging.limno SET non_daphnid_cladocerans = NULL WHERE non_daphnid_cladoc
 UPDATE staging.limno SET non_colonial_rotifers = NULL WHERE non_colonial_rotifers = 'NA';
 ```
 
-* [*Alternatively*] Use the open file button to select the saved SQL file `4_clean_up_NA_in_limno.sql` and then run it
+* [*Alternatively*] Use the open file button to select the saved SQL file `4_clean_up_NA_in_limno.sql` and then run it.
 
 ***
 
@@ -182,19 +180,17 @@ UPDATE staging.limno SET non_colonial_rotifers = NULL WHERE non_colonial_rotifer
 
 Now that the `staging.limno` data are cleaned up and ready to go, we need to make our final data table where the cleaned up data will reside. This will be an otherwise identical table to `staging.limno` except we will
 
-1) drop the `year` and `month` fields and instead include our newly created `year_month` field
+1) Drop the `year` and `month` fields and instead include our newly created `year_month` field
 
-2) set `year_month` as the primary key
+2) Set `year_month` as the primary key
 
-3) change the data fields from `text` to `numeric`
+3) Change the data fields from `text` to `numeric`
 
 We'll use `CREATE TABLE` in SQL to do this.
 
 * Copy/paste the following code into **pgAdmin and press the play button
 
 ```
--- drop table public.limno;
-
 CREATE TABLE public.limno
 (
     year_month integer primary key,
@@ -230,7 +226,7 @@ ALTER TABLE public.limno
 
 # Move from staging to public
 
-Our last step for the `limno` data is to write the data from `staging.limno` to `public.limno`. For thsi step, we'll use the `INSERT INTO` command in SQL
+Our last step for the `limno` data is to write the data from `staging.limno` to `public.limno`. For this step, we'll use the `INSERT INTO` command in SQL
 
 ```
 INSERT INTO public.limno(
@@ -264,41 +260,9 @@ INSERT INTO public.limno(
 
 ***
 
-# Add PDO data
-
-The good news is that the data in `pdo_data.csv` are already clean and can be written directly into `public.pdo`. To do so, we'll again use `CREATE TABLE`.
-
-Our SQL script for creating the table and inserting the data from the csv was [created earlier](lec_14_intro_databases.html#pdo_sql_csv) with the [Convert CSV to SQL](https://www.convertcsv.com/csv-to-sql.htm) website. The head of this script looks like this:
-
-```
-CREATE TABLE public.pdo(
-   date INTEGER  NOT NULL PRIMARY KEY
-  ,pdo  NUMERIC(5,2) NOT NULL
-);
-INSERT INTO public.pdo(date,pdo) VALUES
- (185401,0.11)
-,(185402,-0.24)
-,(185403,-0.4)
-,(185404,-0.44)
-,(185405,-0.54)
-,(185406,-0.3)
-,(185407,-0.1)
-,(185408,-1.24)
-,(185409,-1)
-,(185410,-2.23)
-,(185411,-1.68)
-,(185412,-1.76)
-```
-
-* Because this script is quite long, use the open file button in **pgAdmin** to select the saved SQL file `pdo_data.sql` and then run it
-
-* [*Alternatively*] Use the open file button to select the saved SQL file `7_create_insert_public_pdo.sql` and then run it
-
-***
-
 # Join `limno` and `pdo`
 
-Now we both of our data tables cleaned up and ready to be queried and joined. We can now bring the `pdo` and `limno` data together into a single result set for analysis. To begin, let's run the following script to view the result set and verify that everything looks right.
+We now have both the `pdo` and `limno` tables cleaned up, so we can join them together into a single result set for future analysis. To begin, let's run the following script to view the result set and verify that everything looks right.
 
 * Copy/paste the following code into the query editor in **pgAdmin**
 
@@ -366,7 +330,10 @@ FROM public.limno JOIN public.pdo ON limno.year_month = pdo.date;
 
 We can now check in the **pgAdmin** browser to see that our newly created view called `pdo_and_limno` is there.
 
-![](images/create_view.png)
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/create_view.png")
+```
 <br>
 
 
