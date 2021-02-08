@@ -186,6 +186,10 @@ The first line is the actual **Git** command for pushing to a remote repo, and t
 
 You've now successfully pushed a change on your local computer to your remote repo on **GitHub**.
 
+## Personal access token (PAT)
+
+Assuming this is your first time working with a remote repo on **GitHub**, you were very likely to have been asked to enter your password when attempting to push from your local computer up to **GitHub**. There's a good
+
 ## Viewing your changes on GitHub
 
 You can now check to see that your committed `.gitignore` file was indeed pushed up to **GitHub**. Switch over to your browser and navigate back to the **testing** repo at `https://github.com/YOUR-USER-NAME/testing`. You will now see the `.gitignore` file listed along with the `README.md` file and the other folders. Next to the file name, you will also see the commit message you used and a time stamp for how long ago you made the commit and push. (Note: if you don't see the file, try refreshing the view on your browser.)
