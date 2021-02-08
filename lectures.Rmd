@@ -45,17 +45,17 @@ week_lecs$L13 <- databases_1
 week_lecs$L14 <- databases_2
 week_lecs$L15 <- databases_3
 ## week 6: Feb 8-12
-week_lecs$L16 <- metadata
-week_lecs$L17 <- visualization
-week_lecs$L18 <- analysis
+week_lecs$L16 <- review
+week_lecs$L17 <- metadata
+week_lecs$L18 <- analysis_visualization
 ## week 7: Feb 15-19
 week_lecs$L19 <- holiday_2
-week_lecs$L20 <- packages_1
-week_lecs$L21 <- packages_2
+week_lecs$L20 <- markdown_1
+week_lecs$L21 <- markdown_2
 ## week 8: Feb 22-26
 week_lecs$L22 <- guest_stawitz
-week_lecs$L23 <- markdown_1
-week_lecs$L24 <- markdown_2
+week_lecs$L23 <- packages_1
+week_lecs$L24 <- packages_2
 ## week 9: Mar 1-5
 week_lecs$L25 <- shiny_1
 week_lecs$L26 <- shiny_2
