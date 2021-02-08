@@ -276,7 +276,7 @@ which can be found in the `data` directory [here](https://github.com/sureL/postg
 
 Generally we need to know the field (column) names in the data files and what type of data are contained in each field before we can set up the tables. Fortunately for us, some nice people made a [free tool](https://www.convertcsv.com/csv-to-sql.htm) that will give you the **SQL** for a `.csv` file that we can use to quickstart the process.
 
-## Pacific Decadal Oscillation {#pdo_sql_csv}
+## Pacific Decadal Oscillation {#create_pdo}
 
 We'll begin by bringing in the PDO data located in `pdo_data`.
 
@@ -428,7 +428,88 @@ We'll begin by bringing in the PDO data located in `pdo_data`.
 
 # Creating the tables
 
-We now need to create the tables for the data within the database. 
+## PDO
+
+We now need to create the tables for the data within the database. We'll begin with the PDO data.
+
+- In **pgAdmin**, click the `Tools` tab at the top and then select `Query Tool`
+
+<br>
+![](images/query_tool_1.png)
+<br><br>
+
+- A query editor window will open in **pgAdmin**
+
+- Click on the open folder icon, which will allow you to select the SQL file we [saved above](#create-pdo)
+
+<br>
+![](images/query_tool_2.png)
+<br><br>
+
+- Navigate to the location where you saved your `pdo_data.sql`, select it, and then click the blue **Select** button
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/query_tool_3a.png")
+```
+<br><br>
+
+- You will now see the SQL code in the editor window, that begins with 
+
+```
+CREATE TABLE public.pdo(
+   date INTEGER  NOT NULL PRIMARY KEY 
+  ,pdo  NUMERIC(5,2) NOT NULL
+);
+INSERT INTO public.pdo(date,pdo) VALUES
+ (185401,0.11)
+,(185402,-0.24)
+,(185403,-0.4)
+,(185404,-0.44)
+,(185405,-0.54)
+,(185406,-0.3)
+```
+
+<br>
+![](images/run_sql_1a.png)
+<br><br>
+
+- Click the triangular play button at the top to execute the **SQL**
+
+- The code should execute now and **pgAdmin** should respond
+
+```
+INSERT 0 2004
+
+Query returned successfully in 42 msec.
+```
+
+(Note that the time it took the query to run will depend on your computer resources.)
+
+<br>
+![](images/run_sql_2a.png)
+<br><br>
+
+- In the **pgAdmin** object browser, click on `Schemas > public > Tables > pdo` to see the contents of your new table `pdo`
+
+- Right click on the `pdo` table and then click `View/Edit Data` and then `All Rows`
+
+<br>
+![](images/view_table_1a.png)
+<br><br>
+
+- The query editor will show you the following query used to call all records for the table in the upper pane and show the result set for that query in the lower pane. 
+
+```
+SELECT * FROM public.pdo
+ORDER BY date ASC
+```
+
+<br>
+![](images/view_table_2a.png)
+<br><br>
+
+## Limnology 
 
 - In **pgAdmin**, click the `Tools` tab at the top and then select `Query Tool`
 
@@ -460,12 +541,11 @@ CREATE TABLE staging.limno(
   ,Month                 INTEGER  NOT NULL
 ```
 
-- Click the triangular play button at the top to execute the **SQL**
-
 <br>
 ![](images/run_sql_1.png)
 <br><br>
 
+- Click the triangular play button at the top to execute the **SQL**
 
 - The code should execute now and **pgAdmin** should respond
 
@@ -499,11 +579,13 @@ SELECT * FROM staging.limno
 ![](images/view_table_2.png)
 <br><br>
 
-## The Truman options
+***
+
+# The Truman options
 
 There can be times when it simply seems easiest to burn it all down and start over, so don't feel bad if you find yourself here.
 
-### Delete a database{#truman_1}
+## Delete a database{#truman_1}
 
 If, for whatever reason, you want to delete a database, do this in **pgAdmin**
 
@@ -515,7 +597,7 @@ knitr::include_graphics("images/db_drop.png")
 ```
 <br>
 
-### Delete a user
+## Delete a user
 
 You cannot delete a user while you are logged in as that person. To remove the `lake_wa` user we created here, we'll have to first disconnect from the database, and then log back in as the `postgres` super user. To do so in **pgAdmin**, follow these steps
 
