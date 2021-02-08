@@ -1,5 +1,5 @@
 ---
-title: "Set up a PostgreSQL database with ecological data"
+title: "Set up a PostgreSQL database (Part 1)"
 author: "Jennifer Scheuerell, Mark Scheuerell"
 date: "3 February 2021"
 output:
