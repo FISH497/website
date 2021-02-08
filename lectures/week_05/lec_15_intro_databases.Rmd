@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE,
 
 # Background 
 
-We [saw previously](lec_14_intro_databases.html) how to create a PostgreSQL database for staging our data. We also created a `staging` schema in our database, which  allowed us to write and clean our limnology data before writing it into our final table with numeric data types. Recall that we used the [Convert CSV to SQL](https://www.convertcsv.com/csv-to-sql.htm) website to generate the `CREATE TABLE` and `INSERT INTO` SQL statements we then ran in **pgAdmin** to write our csv data into the database.  
+We [saw previously](lec_14_intro_databases.html) how to create a PostgreSQL database for staging our data. We also created a `staging` schema in our database where we brought in the limnology data from the `lwa_limno.csv` file. The `staging` schema provides a clear place in our workflow where we can now manipulate and clean up the limnology data before writing it into the final table form with numeric data types in the `public` schema.  Recall that we used the [Convert CSV to SQL](https://www.convertcsv.com/csv-to-sql.htm) website to generate the `CREATE TABLE` and `INSERT INTO` SQL statements we then ran in **pgAdmin** to write our csv data into the database.  
 
 Here we will learn how to:
 
@@ -77,14 +77,14 @@ To standardize between the two tables, we are going to create a new field in the
 ![](images/create_field_1.png)
 <br>
 
-* Copy/paste the following SQL code into the editor window
+* Copy/paste the following SQL code into the editor window and then run it by pressing the triangular play button
 
 ```
 ALTER TABLE staging.limno
 ADD COLUMN year_month text;
 ```
 
-* [*Alternatively*] Use the open file button to select the saved SQL file `2_alter_table_staging_limno.sql` and then run it
+* [*Alternatively*] Use the open file button to select the saved SQL file `1_alter_table_staging_limno.sql` and then run it
 
 ***
 
@@ -132,10 +132,11 @@ That all looks good, so now we can add the new `year_month` column to our table 
 
 ```
 UPDATE staging.limno
-SET year_month = year::text || CASE WHEN month < 10 then '0' ELSE '' END || month::text;
+SET year_month = year::text || CASE WHEN month < 10 THEN '0'
+ELSE '' END || month::text;
 ```
 
- * [*Alternatively*] Use the open file button to select the saved SQL file `3__staging_limno.sql` and then run it
+ * [*Alternatively*] Use the open file button to select the saved SQL file `2_update_staging_limno.sql` and then run it
 
 ***
 
@@ -143,7 +144,7 @@ SET year_month = year::text || CASE WHEN month < 10 then '0' ELSE '' END || mont
 
 Recall that the notion of a missing value in a SQL database is different than in **R**. In **R** we use `NA` to designate a missing values,but in SQL we use `NULL`. Therefore, we need to clean up the `limno` table by replacing the text `NA` with `NULL`. Because we are updating data in a table, we again will use the SQL `UPDATE` command. We can string all of our `UPDATE` commands together in one script and change all of the `NA` values for each field.
 
-* Copy/paste the following code into the SQL editor in **pgAdmin** (recall that you can use `/*` to delineate the start/end a comment in SQL)
+* Copy/paste the following code into the SQL editor in **pgAdmin** (recall that you can use `/*` to delineate the start/end a comment in SQL) and then run it
 
 ```
 /*
@@ -172,7 +173,7 @@ UPDATE staging.limno SET non_daphnid_cladocerans = NULL WHERE non_daphnid_cladoc
 UPDATE staging.limno SET non_colonial_rotifers = NULL WHERE non_colonial_rotifers = 'NA';
 ```
 
-* [*Alternatively*] Use the open file button to select the saved SQL file `4_clean_up_NA_in_limno.sql` and then run it.
+* [*Alternatively*] Use the open file button to select the saved SQL file `3_clean_up_NA_in_limno.sql` and then run it.
 
 ***
 
@@ -220,13 +221,13 @@ ALTER TABLE public.limno
     OWNER to lake_wa;
 ```
 
-* [*Alternatively*] Use the open file button to select the saved SQL file `5_create_table_public_limno.sql` and then run it
+* [*Alternatively*] Use the open file button to select the saved SQL file `4_create_table_public_limno.sql` and then run it
 
 ***
 
 # Move from staging to public
 
-Our last step for the `limno` data is to write the data from `staging.limno` to `public.limno`. For this step, we'll use the `INSERT INTO` command in SQL
+Our last step for the `limno` data is to write the data from `staging.limno` to `public.limno`. For this step, we'll use the `INSERT INTO` command in SQL. Copy the following code into the query editor and then run it.
 
 ```
 INSERT INTO public.limno(
@@ -256,7 +257,7 @@ INSERT INTO public.limno(
 	FROM staging.limno;
 ```
 
-* [*Alternatively*] Use the open file button to select the saved SQL file `6_write_clean_data_into_public_limno.sql` and then run it
+* [*Alternatively*] Use the open file button to select the saved SQL file `5_write_clean_data_into_public_limno.sql` and then run it
 
 ***
 
@@ -264,7 +265,7 @@ INSERT INTO public.limno(
 
 We now have both the `pdo` and `limno` tables cleaned up, so we can join them together into a single result set for future analysis. To begin, let's run the following script to view the result set and verify that everything looks right.
 
-* Copy/paste the following code into the query editor in **pgAdmin**
+* Copy/paste the following code into the query editor in **pgAdmin** and then run it
 
 ```
 SELECT 
@@ -326,7 +327,7 @@ SELECT
 FROM public.limno JOIN public.pdo ON limno.year_month = pdo.date;
 ```
 
-* [*Alternatively*] Use the open file button to select the saved SQL file `8_join_pdo_limno.sql` and then run it
+* [*Alternatively*] Use the open file button to select the saved SQL file `6_join_pdo_limno.sql` and then run it
 
 We can now check in the **pgAdmin** browser to see that our newly created view called `pdo_and_limno` is there.
 
