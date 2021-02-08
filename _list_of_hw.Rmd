@@ -38,7 +38,7 @@ getting_help <- list(
   rmd = "homework/week_03/hw_03_getting_help.Rmd",
   html = "homework/week_03/hw_03_getting_help.html",
   data = "",
-  key = ""
+  key = "homework/week_03/hw_03_getting_help_key.html"
 )
 
 ## week 5
@@ -46,8 +46,8 @@ databases <- list(
   title = "Databases",
   topics = c("Relational databases"),
   pdf = "",
-  rmd = "",
-  html = "",
+  rmd = "homework/week_04/hw_04_databases.Rmd",
+  html = "homework/week_04/hw_04_databases.html",
   data = "",
   key = ""
 )
