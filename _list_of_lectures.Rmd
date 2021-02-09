@@ -201,12 +201,12 @@ databases_3 <- list(
 ## day 16 ####
 review <- list(
   title = "Topic reviews",
-  topics = c("<b>Review session</b>", "Workflows", "Reprex", "Databases"),
+  topics = c("<b>Review session</b>", "Workflows", "Reprexes", "Databases"),
   pdf = c(""),
   rmd = "",
   html = "",
   background = "",
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/dofKQ94pbeLgSeR7FqiQVhYpQYqyNK6vHQguZcq7w4cGvPGLGrtdMDPxVyX0c4SN.ay324bng75auPu22"
 )
 
 ## day 17 ####
