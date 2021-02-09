@@ -283,7 +283,7 @@ head(data_raw)
 Excel is very popular for entering and storing data, although we've already seen some of the pitfalls that you might encounter. There is a great package called [`readxl`](https://readxl.tidyverse.org/) that allows you to read Excel files directly into **R**. 
 Here's an example that uses an Excel file called `world_bank_climate_change.xls` from the World Bank's [website](https://datacatalog.worldbank.org/dataset/climate-change-data). It looks like this:
 
-![](wb_excel_view.png)
+![](images/wb_excel_view.png)
 
 <br>
 
