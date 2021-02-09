@@ -54,9 +54,9 @@ Reproducibility can be further broken down
 
 1. Project organization should follow the conventions of the scientific community
 
-> - The community might be a lab group
+    > - The community might be a lab group
 
-> - The convention(s) support tool building
+    > - The convention(s) support tool building
 
 
 ## 3 principles of research compendia
@@ -65,9 +65,9 @@ Reproducibility can be further broken down
 
 2. Maintain a clear separation of data, methods and output
 
-> - Separate data from code
+    > - Separate data from code
 
-> - Separate cleaning, analysis & output code
+    > - Separate cleaning, analysis & output code
 
 
 ## Example file structure
@@ -94,9 +94,9 @@ Reproducibility can be further broken down
 
 3. Specify the computational environment
 
-> - Which software/package(s) and what version(s)?
+    > - Which software/package(s) and what version(s)?
 
-> - Ranges from simple text description to self-contained environments
+    > - Ranges from simple text description to self-contained environments
 
 
 ## Why use a research compendium?
@@ -113,22 +113,22 @@ Reproducibility can be further broken down
 Organize your compendium so another person knows what to expect from the plain meaning of the file and directory names
 
 
-## Simple compendium {data-background=compendium_1.png data-background-size=45% .citation}
+## Simple compendium {data-background=images/compendium_1.png data-background-size=45% .citation}
 
 Marwick et al (2018)
 
 
-## Simple compendium {data-background=compendium_2.png data-background-size=45% .citation}
+## Simple compendium {data-background=images/compendium_2.png data-background-size=45% .citation}
 
 Marwick et al (2018)
 
 
-## Medium compendium {data-background=compendium_3.png data-background-size=30% .citation}
+## Medium compendium {data-background=images/compendium_3.png data-background-size=30% .citation}
 
 Marwick et al (2018)
 
 
-## Large {data-background=compendium_4.png data-background-size=30% .citation}
+## Large {data-background=images/compendium_4.png data-background-size=30% .citation}
 
 Marwick et al (2018)
 
@@ -137,11 +137,11 @@ Marwick et al (2018)
 
 1. Licensing
 
-> - Who can (re)use the work?
+    > - Who can (re)use the work?
 
-> - Are there restrictions?
+    > - Are there restrictions?
 
-> - Many depositories require Creative Commons licenses
+    > - Many depositories require Creative Commons licenses
 
 
 ## Sharing a research compendium | 4 things to consider
@@ -150,9 +150,9 @@ Marwick et al (2018)
 
 2. Version control
 
-> - Facilitates private collaboration among colleagues on the project
+    > - Facilitates private collaboration among colleagues on the project
 
-> - Allows for distribution and maintenance of the compendium in the future
+    > - Allows for distribution and maintenance of the compendium in the future
 
 
 ## Sharing a research compendium | 4 things to consider
@@ -163,9 +163,9 @@ Marwick et al (2018)
 
 3. Persistence
 
-> - Consider the "life span" of the analysis
-
-> - A Digital Object Identifier (DOI) is more permanent than a URL
+    > - Consider the "life span" of the analysis
+ 
+    > - A Digital Object Identifier (DOI) is more permanent than a URL
 
 
 
@@ -179,9 +179,9 @@ Marwick et al (2018)
 
 4. Metadata
 
-> - Publishing data with a DOI requires a description of the data themselves
+    > - Publishing data with a DOI requires a description of the data themselves
 
-> - Who, what, where, when, how
+    > - Who, what, where, when, how
 
 
 ## Tools for creating a compendium
@@ -240,9 +240,9 @@ The [{here}](https://cran.r-project.org/web/packages/here/index.html) package ma
 
 1. Human readable
 
-> - The name should convey concise info
+    > - The name should convey concise info
 
-> - Longer is better
+    > - Longer is better
 
 
 ## File & code names | 3 principles
@@ -251,11 +251,11 @@ The [{here}](https://cran.r-project.org/web/packages/here/index.html) package ma
 
 2. Machine readable
 
-> - Easy to ID with *regular expressions* or *globbing*
+    > - Easy to ID with *regular expressions* or *globbing*
 
-> - Avoid spaces, capitalization, punctuation, special characters
+    > - Avoid spaces, capitalization, punctuation, special characters
 
-> - Consider `_` and `-` as delimiters
+    > - Consider `_` and `-` as delimiters
 
 
 ## A cautionary tale from the real world
@@ -312,11 +312,11 @@ The pipe | was the only character available for use as a delimiter in a plain te
 
 3. Works with default ordering
 
-> - Use a number at the beginning of a name
+    > - Use a number at the beginning of a name
 
-> - Use the ISO standard for dates (YYYY-MM-DD)
+    > - Use the ISO standard for dates (YYYY-MM-DD)
 
-> - "zero-pad" numbers
+    > - "zero-pad" numbers
 
 
 ## Example file names
