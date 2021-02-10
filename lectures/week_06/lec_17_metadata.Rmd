@@ -55,6 +55,45 @@ knitr::opts_chunk$set(echo = TRUE,
 * sending & receiving IP addresses  
 
 
+## Benefits of metadata
+
+Metadata benefits science by
+
+1) increased data longevity
+
+    > - long-term studies outlast investigators/students
+    
+    > - many scientists contribute info from many areas
+
+
+## Benefits of metadata
+
+Metadata benefits science by
+
+1) increased data longevity
+
+2) increased data reuse & sharing 
+
+    > - info helps others know if/how they could them
+    
+    > - facilitates meta-analyses
+
+
+## Benefits of metadata
+
+Metadata benefits science by
+
+1) increased data longevity
+
+2) increased data reuse & sharing 
+
+3) expanded scales/scopes of analyses
+
+    > - short-term evolve into long-term
+    
+    > - facilitates creativity
+
+
 ## Kinds of metadata | Descriptive
 
 *Descriptive metadata* is information about a resource that is used for searching & identification
@@ -150,6 +189,9 @@ Describes the collection and any processing of the data
 > - reproducible workflows
 
 
+## Process metadata | Michener (2005){data-background=images/eco_metadata.png data-background-position="50% 60%" data-background-size=90%}
+
+
 ## Kinds of metadata | Accessibility
 
 Information about improved access to data
@@ -162,4 +204,44 @@ Information about improved access to data
 ## Section 508{data-background=images/section508.png data-background-position="50% 60%" data-background-size=70%}
 
 
+## How much metadata is enough?
+
+Two factors to consider
+
+1) effort involved in creating the metadata
+
+2) value derived from it
+
+In general, assume that "more is better"
+
+
+## No metadata{data-background=images/metadata_ex1.png data-background-position="50% 40%" data-background-size=90%} 
+
+
+## Minimal metadata{data-background=images/metadata_ex2.png data-background-position="50% 40%" data-background-size=90%} 
+
+
+## Extensive{data-background=images/metadata_ex3.png data-background-position="70% 50%" data-background-size=50%} 
+
+
+# Ecological Metadata Language
+
+
+## Ecological Metadata Language
+
+EML describes a range of essential aspects of ecological data
+
+> - names & definitions of variables  
+> - units of measurement  
+> - date/time/location of data collection  
+> - identity/contact for individual who collected the data  
+> - sampling design
+
+
+## Ecological Metadata Language
+
+EML reduces ambiguity & uncertainty by formalizing metadata concepts
+
+> - uses comprehensive **and** standardized set of terms  
+> - uses definitions intended specifically for ecological data
 
