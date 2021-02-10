@@ -57,12 +57,60 @@ a shorthand representation of the data to which they refer
 
 ## Kinds of metadata | Descriptive
 
-Descriptive metadata is descriptive information about a resource. It is used for discovery and identification. It includes elements such as title, abstract, author, and keywords.
+*Descriptive metadata* is information about a resource that is used for searching & identification
+
+> - title  
+> - abstract  
+> - author  
+> - keywords
 
 
 ## Kinds of metadata | Structural
 
-Structural metadata is metadata about containers of data and indicates how compound objects are put together, for example, how pages are ordered to form chapters. It describes the types, versions, relationships and other characteristics of digital materials.
+*Structural metadata* indicates how 2+ objects are connected
+
+> - tables    
+> - fields 
+> - keys  
+> - relationships  
+
+
+## Entity–relationship model
+
+Structural metadata are often conceptualized in an *entity–relationship model* 
+
+
+## Entity–relationship model | Entity
+
+An *entity* exists either physically or logically
+
+> - physical entities actually exist (eg, lake, fish)
+
+> - logical entities could exist (eg, a sampling event)
+
+> - entities have attributes (eg, depth, mass, date)
+
+
+## Entity–relationship model | Relationship
+
+Entities are connected via a *relationship*
+
+> - relationships can be thought of as verbs
+
+> - Sarah *supervises* Mark
+
+> - Omar *samples* Lake Washington
+
+
+## Entity–relationship diagram
+
+ER models are usually drawn as boxes (entities) connected by lines (relationships)
+
+
+## Entity–relationship diagram{data-background=images/ER_model_1.png data-background-size=90%}
+
+
+## Entity–relationship diagram{data-background=images/ER_model_2.png data-background-size=90%}
 
 
 ## Kinds of metadata | Administrative
