@@ -214,9 +214,10 @@ metadata <- list(
   title = "Metadata",
   topics = c("<b>Metadata</b>", "Data about data", "Ecological metadata language"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
+  rmd = "lectures/week_06/lec_17_metadata.Rmd",
+  html = "lectures/week_06/lec_17_metadata.html",
+  background = c("[EML specification](https://eml.ecoinformatics.org/)",
+                 "[EML package](https://docs.ropensci.org/EML/index.html)"),
   zoom = ""
 )
 
