@@ -212,12 +212,14 @@ review <- list(
 ## day 17 ####
 metadata <- list(
   title = "Metadata",
-  topics = c("<b>Metadata</b>", "Data about data", "Ecological metadata language"),
+  topics = c("<b>Metadata</b>", "Types of metadata", "Ecological metadata language"),
   pdf = c(""),
   rmd = "lectures/week_06/lec_17_metadata.Rmd",
   html = "lectures/week_06/lec_17_metadata.html",
-  background = c("[EML specification](https://eml.ecoinformatics.org/)",
-                 "[EML package](https://docs.ropensci.org/EML/index.html)"),
+  background = c("[Michener (2005)](references/Michener_2005_meta_info_concepts.pdf)",
+                 "[Fegraus et al (2005)](references/Fegraus_2005_intro_EML.pdf)",
+                 "[EML specification](https://eml.ecoinformatics.org/)",
+                 "[EML package]()"),
   zoom = ""
 )
 
