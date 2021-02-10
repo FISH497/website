@@ -355,4 +355,78 @@ Contains information about a rectangular table
 ## Data table{data-background=images/metadata_data.png data-background-position="50% 60%" data-background-size=70%} 
 
 
+## &nbsp;{data-background=images/KNB.png data-background-position="50% 50%" data-background-size=100%} 
+
+
+## Knowledge Network for Biocomplexity
+
+The [KNB](https://knb.ecoinformatics.org/) is an international repository intended to facilitate ecological & environmental research
+
+> - you can upload/publish data with a DOI
+
+> - you can write EML
+
+
+## [\{dataone\}](https://github.com/DataONEorg/rdataone) package
+
+Provides read & write access to data and metadata from [DataONE network](https://www.dataone.org/)
+
+> - KNB Data Repository  
+> - Dryad  
+> - NEON
+> - USGS
+> - NOAA
+
+
+## [\{EML\}](https://docs.ropensci.org/EML/index.html) package
+
+```{r eval = FALSE}
+## username
+me <- list(individualName = list(givenName = "Mark",
+                                 surName = "Scheuerell"))
+
+## list of attributes
+my_eml <- list(
+  dataset = list(
+    title = "A Minimal Valid EML Dataset",
+    creator = me,
+    contact = me
+  )
+)
+
+## inspect the EML
+my_eml
+```
+
+
+## \{EML\} output {.smaller}
+
+```
+$dataset
+$dataset$title
+[1] "A Minimal Valid EML Dataset"
+
+$dataset$creator
+$dataset$creator$individualName
+$dataset$creator$individualName$givenName
+[1] "Mark"
+
+$dataset$creator$individualName$surName
+[1] "Scheuerell"
+
+
+
+$dataset$contact
+$dataset$contact$individualName
+$dataset$contact$individualName$givenName
+[1] "Mark"
+
+$dataset$contact$individualName$surName
+[1] "Scheuerell"
+```
+
+
+## What's next?
+
+We'll discuss data analysis and visualization
 
