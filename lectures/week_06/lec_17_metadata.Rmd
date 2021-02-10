@@ -269,6 +269,25 @@ Contains concepts that
 > - describe the purpose of the data collection  
 > - describe the questions the data were intended to address
 
+
+## General{data-background=images/metadata_general.png data-background-position="80% 50%" data-background-size=65%} 
+
+
+## Geographic{data-background=images/metadata_geo.png data-background-position="50% 40%" data-background-size=85%} 
+
+
+## Temporal{data-background=images/metadata_temporal.png data-background-position="50% 30%" data-background-size=85%} 
+
+
+## Taxonomic{data-background=images/metadata_taxon.png data-background-position="50% 60%" data-background-size=85%} 
+
+
+## Methods{data-background=images/metadata_methods.png data-background-position="50% 50%" data-background-size=85%} 
+
+
+## Data table{data-background=images/metadata_data.png data-background-position="50% 60%" data-background-size=70%} 
+
+
 ## Ecological Metadata Language | Geographic
 
 Contains information about *where*
@@ -334,3 +353,6 @@ Contains information about a rectangular table
 > - *attribute domain description* defines codes & domain of values
   > - `BVA = Bear Valley Creek`  
   > - `Length` is a positive, real value
+  
+
+
