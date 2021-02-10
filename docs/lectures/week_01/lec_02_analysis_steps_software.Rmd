@@ -72,7 +72,7 @@ This is usually the most time intensive step
 It's also the most important & the hardest to teach
 
 
-## &nbsp; {data-background=twitter_data_cleaning.png data-background-size=85% .futnote}
+## &nbsp; {data-background=images/twitter_data_cleaning.png data-background-size=80% .futnote}
 
 [See this on Twitter](https://twitter.com/vboykis/status/1089920316644704256)
 
@@ -137,12 +137,12 @@ Soften the edges of the raw results
 > - Narrow your conclusions
 
 
-## &nbsp; {data-background=tt_logo.png data-background-size=100% .futnote}
+## &nbsp; {data-background=images/tt_logo.png data-background-size=90% .futnote}
 
 [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
 
 
-## &nbsp; {data-background=siple_tt_post.jpeg data-background-size=75% .futnote}
+## &nbsp; {data-background=images/siple_tt_post.jpeg data-background-size=75% .futnote}
 
 [M Siple on Twitter](https://twitter.com/margaretsiple/status/1332827208721821698)
 
@@ -256,7 +256,7 @@ Most of R's current capabilities come from *packages*
 > - Built-in tools & GUIs for **Git** & **R Markdown**
 
 
-## &nbsp; {data-background=RStudio_desktop.png data-background-size=cover}
+## &nbsp; {data-background=images/RStudio_desktop.png data-background-size=cover}
 
 
 ## RStudio benefits
@@ -268,7 +268,7 @@ Most of R's current capabilities come from *packages*
 ### [Webinars, links, etc](https://resources.rstudio.com/)
 
 
-## &nbsp; {data-background=RStudio_cheatsheet.png data-background-size=cover}
+## &nbsp; {data-background=images/RStudio_cheatsheet.png data-background-size=cover}
 
 
 ## GitHub | Cloud-based code repository & collaboration platform
@@ -280,10 +280,10 @@ Most of R's current capabilities come from *packages*
 > - Uses **Git** for version control
 
 
-## &nbsp; {data-background=gh_signup.png data-background-size=100%}
+## &nbsp; {data-background=images/gh_signup.png data-background-size=100%}
 
 
-## &nbsp; {data-background=GitHub_repo.png data-background-size=100%}
+## &nbsp; {data-background=images/GitHub_repo.png data-background-size=100%}
 
 
 ## Git | Version control system (VCS)

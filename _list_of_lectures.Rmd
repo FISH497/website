@@ -212,7 +212,7 @@ review <- list(
 ## day 17 ####
 metadata <- list(
   title = "Metadata",
-  topics = c("<b>Metadata</b>", "Types of metadata", "Ecological metadata language"),
+  topics = c("<b>Metadata</b>", "Types of metadata", "Ecological Metadata Language"),
   pdf = c(""),
   rmd = "lectures/week_06/lec_17_metadata.Rmd",
   html = "lectures/week_06/lec_17_metadata.html",

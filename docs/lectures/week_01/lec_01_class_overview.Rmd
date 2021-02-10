@@ -122,7 +122,7 @@ What is *data science*?
 **Making this reproducible**  
 
 
-## &nbsp; {data-background=data_sci_overview.png data-background-size=90%}
+## &nbsp; {data-background=images/data_sci_overview.png data-background-size=90%}
 
 
 ## {.flexbox .vcenter}
@@ -139,7 +139,7 @@ Questions in data science
 </font>
 
 
-## {data-background=leek_peng_Q.png data-background-size=80% .futnote}
+## {data-background=images/leek_peng_Q.png data-background-size=80% .futnote}
 
 Leek & Peng (2015) *Science*
 
