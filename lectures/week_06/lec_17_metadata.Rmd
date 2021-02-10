@@ -273,21 +273,6 @@ Contains concepts that
 ## General{data-background=images/metadata_general.png data-background-position="80% 50%" data-background-size=65%} 
 
 
-## Geographic{data-background=images/metadata_geo.png data-background-position="50% 40%" data-background-size=85%} 
-
-
-## Temporal{data-background=images/metadata_temporal.png data-background-position="50% 30%" data-background-size=85%} 
-
-
-## Taxonomic{data-background=images/metadata_taxon.png data-background-position="50% 60%" data-background-size=85%} 
-
-
-## Methods{data-background=images/metadata_methods.png data-background-position="50% 50%" data-background-size=85%} 
-
-
-## Data table{data-background=images/metadata_data.png data-background-position="50% 60%" data-background-size=70%} 
-
-
 ## Ecological Metadata Language | Geographic
 
 Contains information about *where*
@@ -295,6 +280,9 @@ Contains information about *where*
 > - the research project took place  
 > - the samples were collected  
 > - spatial or geographic references (UTM, lat/lon)
+
+
+## Geographic{data-background=images/metadata_geo.png data-background-position="50% 40%" data-background-size=85%} 
 
 
 ## Ecological Metadata Language | Temporal
@@ -306,12 +294,18 @@ Contains information about *when*
 > - gaps in time (no data from July 2020 because of power loss)
 
 
+## Temporal{data-background=images/metadata_temporal.png data-background-position="50% 30%" data-background-size=85%} 
+
+
 ## Ecological Metadata Language | Taxonomic
 
 Contains information about
 
 > - taxonomic authority (book or system used to identify species)  
 > - taxonomic rank (family, genus, species)
+
+
+## Taxonomic{data-background=images/metadata_taxon.png data-background-position="50% 60%" data-background-size=85%} 
 
 
 ## Ecological Metadata Language | Methods
@@ -331,6 +325,9 @@ Contains information about *what happened*
 * units of the samples
 
 Unlike the Methods section of a publication, *fully detailed descriptions* can be included
+
+
+## Methods{data-background=images/metadata_methods.png data-background-position="50% 50%" data-background-size=85%} 
 
 
 ## Ecological Metadata Language | Data table
@@ -354,5 +351,8 @@ Contains information about a rectangular table
   > - `BVA = Bear Valley Creek`  
   > - `Length` is a positive, real value
   
+
+## Data table{data-background=images/metadata_data.png data-background-position="50% 60%" data-background-size=70%} 
+
 
 
