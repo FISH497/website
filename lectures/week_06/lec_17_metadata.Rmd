@@ -227,7 +227,7 @@ In general, assume that "more is better"
 # Ecological Metadata Language
 
 
-## Ecological Metadata Language
+## Ecological Metadata Language | Fegraus et al (2005)
 
 EML describes a range of essential aspects of ecological data
 
@@ -238,10 +238,99 @@ EML describes a range of essential aspects of ecological data
 > - sampling design
 
 
-## Ecological Metadata Language
+## Ecological Metadata Language | Fegraus et al (2005)
 
 EML reduces ambiguity & uncertainty by formalizing metadata concepts
 
 > - uses comprehensive **and** standardized set of terms  
 > - uses definitions intended specifically for ecological data
 
+
+## Ecological Metadata Language | Categories
+
+1) General dataset
+
+2) Geographic
+
+3) Temporal
+
+4) Taxonomic
+
+5) Methods
+
+6) Data table
+
+
+## Ecological Metadata Language | General dataset
+
+Contains concepts that
+
+> - identify and name the dataset  
+> - describe the purpose of the data collection  
+> - describe the questions the data were intended to address
+
+## Ecological Metadata Language | Geographic
+
+Contains information about *where*
+
+> - the research project took place  
+> - the samples were collected  
+> - spatial or geographic references (UTM, lat/lon)
+
+
+## Ecological Metadata Language | Temporal
+
+Contains information about *when*
+
+> - range of dates (monthly between June 2019 and Dec 2020)  
+> - specific time periods (01 May 2019, 08:00–12:00)  
+> - gaps in time (no data from July 2020 because of power loss)
+
+
+## Ecological Metadata Language | Taxonomic
+
+Contains information about
+
+> - taxonomic authority (book or system used to identify species)  
+> - taxonomic rank (family, genus, species)
+
+
+## Ecological Metadata Language | Methods
+
+Contains information about *what happened*
+
+> - instruments or devices used to collect data  
+> - protocols
+> - units of the samples
+
+## Ecological Metadata Language | Methods
+
+Contains information about *what happened*
+
+* instruments or devices used to collect data  
+* protocols
+* units of the samples
+
+Unlike the Methods section of a publication, *fully detailed descriptions* can be included
+
+
+## Ecological Metadata Language | Data table
+
+Contains information about a rectangular table
+
+> - file name  
+> - number of records
+> - structure of the table (attributes of fields/columns)
+
+
+## Ecological Metadata Language | Data table
+
+> - *name* is a unique name for the field/column (`date`)  
+> - *label* describes the field/column ("date of sample collection)  
+> - *definition* indicates what the values represent (length of a fish)  
+> - *units* (grams, meters)  
+> - *type* (`numeric`, `character`)  
+> - *precision* (mm)  
+> - *attribute domain description* defines codes & domain of values
+  > - `BVA = Bear Valley Creek`  
+  > - `Length` is a positive, real value
