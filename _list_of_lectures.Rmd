@@ -220,7 +220,7 @@ metadata <- list(
                  "[Fegraus et al (2005)](references/Fegraus_2005_intro_EML.pdf)",
                  "[EML specification](https://eml.ecoinformatics.org/)",
                  "[EML package]()"),
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/7jutnTJtdxq_b5ZIrmLNaDbmqju6pWbIgT9jevHYixXFcfssentuxGGkYMLfLIUo._7SSKy-t0zhQxw_N"
 )
 
 ## day 18a ####
@@ -239,9 +239,10 @@ analysis_visualization <- list(
   title = "Data analysis & visualization",
   topics = c("<b>Data analysis & visualization</b>", "Data summaries", "Design principles", "Exploratory figures", "Expository figures"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
+  rmd = "lectures/week_06/lec_18_analysis_viz.Rmd",
+  html = "lectures/week_06/lec_18_analysis_viz.html",
+  background = c("[R Graph Gallery](https://www.r-graph-gallery.com/)",
+                 "[High Quality Graphics in R](https://web.stanford.edu/class/bios221/book/Chap-Graphics.html)"),
   zoom = ""
 )
 
