@@ -23,6 +23,8 @@ knitr::opts_chunk$set(echo = TRUE,
 
 Analysis and reporting are a large and important part of the data science process. Communicating what you did and how you did it is critical to a reproducible workflow.
 
+***
+
 # Example analysis
 
 Here is an example of an exploratory analysis based on a re-examination of some count data on seastars obtained before and after a wasting syndrome. The original analysis was conducted and published by [Schultz (2016)](https://peerj.com/articles/1980/). Here is the abstract from their paper.
@@ -41,6 +43,8 @@ knitr::include_graphics("images/seastars.png")
 
 
 **Figure 3**. Mean abundance (per m2) of (A) sunflower stars and (B) green sea urchins, and (C) percent cover of kelp on rocky reefs in Howe Sound, British Columbia, on 80 transects before and after the mass mortality of sea stars in 2013. Error bars represent standard error. The dominant kelp was the sea colander kelp, *Agarum fimbriatum*.
+
+<br>
 
 ## Models for count data
 
@@ -87,7 +91,27 @@ $$
 $$
 such that the variance converges to the mean as $r \rightarrow \infty$, and the negative binomial converges to the Poisson.
 
-# Requirements
+#### Aside on equations
+
+The above equations are written in **LaTeX** form, which can be a bit tricky to figure out when you're first learning. There is a neat package called [equatiomatic](https://datalorax.github.io/equatiomatic/index.html), which will take the results from a fitted model in **R** and transform it into the corresponding **LaTeX** code. For example, this code fits a simple linear regression model from the `mtcars` dataset and then writes the equation.
+
+```{r equatiomatic, results = "hold"}
+library(equatiomatic)
+
+## Fit a simple linear regression model
+model_fit <- lm(mpg ~ cyl + disp, mtcars)
+
+## Give the results to extract_eq
+extract_eq(model_fit)
+
+## raw result
+## $$
+## \operatorname{mpg} = \alpha + \beta_{1}(\operatorname{cyl}) + \beta_{2}(\operatorname{disp}) + \epsilon
+## $$
+```
+
+
+## Requirements
 
 I rely on a number of packages for reading, munging, and plotting the data, which include:
 
@@ -113,11 +137,11 @@ library(patchwork)
 library(R2jags)
 ```
 
-# Data
+## Data
 
 Schultz et al. were very considerate in posting the data they used for the analyses and figures in their paper. Those data are available in MS Excel format from _PeerJ_'s server in a file called [Schultz_data_ver2.xlsx](https://peerj.com/articles/1980/#supp-1).
 
-## Step 1: Convert Excel workbook to csv files
+### Step 1: Convert Excel workbook to csv files
 
 The [code](https://peerj.com/articles/1980/#supp-2) provided by the authors works with various data files in .csv format, so I begin by extracting those from the .xlsx file.
 
@@ -137,7 +161,7 @@ if(length(list.files(data_dir, "csv")) == 0) {
 }
 ```
 
-## Step 2: Load count data
+### Step 2: Load count data
 
 The data arise from a series of samples before and after the seastar wasting event, with counts of various species obtained within 0.25 m^2^ quadrats at 15 locations along each of 4 transects at 20 different sites. The counts reported by the authors have been summed across all of the 15 quadrats for each transect/site combination, so the data frame has a total of (2 periods) x (4 transects) x (20 sites) = 160 rows.
 
@@ -156,17 +180,17 @@ stars_tidy <- stars_wide %>%
   gather(key = time, value = count)
 ```
 
-## Step 3: Plot the data
+### Step 3: Plot the data
 
-These data contain a lot of zeros, so visualization can be a bit tricky. Here are two options: a jittered dot plot (left) and violin plot (right).
+These data contain a lot of zeros, so visualization can be a bit tricky. Here are two options: a jittered dot plot (left) and violin plot (right). These are rough *exploratory* figures.
 
-```{r plot_data, fig.height=4, fig.width=7}
+```{r plot_data, fig.height=5, fig.width=8}
 ## base plot
 pp <- ggplot(stars_tidy, aes(x=time, y=count, color=time))
 ## jittered dotplot
-p1 <- pp + geom_jitter(shape=16, position=position_jitter(0.3))
+p1 <- pp + geom_jitter(shape=16, position=position_jitter(0.3)) + theme_bw()
 ## violin plot
-p2 <- pp + geom_violin()
+p2 <- pp + geom_violin() + theme_bw()
 ## combine plots
 p1 + p2 &
   theme(legend.position="none") &
@@ -175,14 +199,18 @@ p1 + p2 &
 ```
 
 
-# Analyses
+## Analyses
 
-## Poisson models 
+### Poisson models 
+
+We need to define the total survey area, so we can use it as an offset in our statistical models.
 
 ```{r glm_1}
 ## total survey area in m^2
 area <- 3.75
 ```
+
+Here's the **JAGS** code for fitting a Poisson distribution to the data.
 
 ```{r pois_fit_jags, message=FALSE, cache=TRUE}
 ## define Poisson model in JAGS
@@ -231,7 +259,7 @@ mod_jags <- list(data = dat_jags,
 po_fit_jags <- do.call(jags.parallel, mod_jags)
 ```
 
-#### Examine parameter estimates
+### Examine parameter estimates
 
 The first thing we can do is examine a summary table of the posterior samples.
 
@@ -241,7 +269,7 @@ print(po_fit_jags)
 
 Visual summaries of the results can also be useful. Here are histograms of the posterior samples (left) and a summary of the median and 95% credible interval of the posterior samples (right).
 
-```{r plot_pois_fit_jags, fig.height=4, fig.width=7, message=FALSE}
+```{r plot_pois_fit_jags, fig.height=5, fig.width=8, message=FALSE}
 ## gather posteriors samples
 pdat <- data.frame(Time = rep(c("before","after"), ea=mcmc_samp),
                    samples = c(po_fit_jags$BUGSoutput$sims.list$lambda_bef,
@@ -254,10 +282,12 @@ pdat2 <- pdat %>%
             hi = quantile(samples, 0.975))
 ## histogram of posteriors
 p1 <- ggplot(pdat, aes(samples, fill = Time)) +
+  theme_bw() +
   geom_histogram(bins = 100) +
   guides(fill = guide_legend(reverse=TRUE)) +
   labs(x = expression(Density~(m^-2)), y = "Count")
 p2 <- ggplot(pdat2, aes(x=Time, y=med, color=Time)) +
+  theme_bw() +
   geom_point(aes(size=1.5)) +
   geom_errorbar(aes(ymin=lo, ymax=hi), width=0) +
   scale_x_discrete(limits=c("before","after")) +
@@ -267,7 +297,9 @@ p2 <- ggplot(pdat2, aes(x=Time, y=med, color=Time)) +
 p1 + p2
 ```
 
-## Negative binomial models
+### Negative binomial models
+
+Here is the **JAGS** code for fitting a negative binomial model to the data.
 
 ```{r nb_fit_jags, message=FALSE, cache=TRUE}
 ## define negative binomial model in JAGS
@@ -312,7 +344,7 @@ mod_jags$parameters.to.save <- par_jags
 nb_fit_jags <- do.call(jags.parallel, mod_jags)
 ```
 
-#### Examine parameter estimates
+### Examine parameter estimates
 
 Again we can examine a summary table of the parameter estimates. Notice that in this case, we also have estimates for mean and variance of the density of stars per 3.75 m^2^.
 
@@ -322,7 +354,7 @@ print(nb_fit_jags)
 
 This time I use a frequency plot instead of a histogram because the overlap in the distributions makes them hard to discern otherwise.
 
-```{r plot_nb_fit_jags, fig.height=4, fig.width=7, message=FALSE}
+```{r plot_nb_fit_jags, fig.height=5, fig.width=8, message=FALSE}
 ## gather posteriors samples
 pdat <- data.frame(Time = rep(c("before","after"), ea=mcmc_samp),
                    samples = c(nb_fit_jags$BUGSoutput$sims.list$lambda_bef,
@@ -338,10 +370,12 @@ pdat <- pdat %>%
   filter(samples <= 2)
 ## histogram of posteriors
 p1 <- ggplot(pdat, aes(samples, color = Time)) +
+  theme_bw() +
   geom_freqpoly(bins = 50) +
   guides(color = guide_legend(reverse=TRUE)) +
   labs(x = expression(Density~(m^-2)), y = "Count")
 p2 <- ggplot(pdat2, aes(x=Time, y=med, color=Time)) +
+  theme_bw() +
   geom_point(aes(size=1.5)) +
   geom_errorbar(aes(ymin=lo, ymax=hi), width=0) +
   scale_x_discrete(limits=c("before","after")) +
@@ -350,48 +384,74 @@ p2 <- ggplot(pdat2, aes(x=Time, y=med, color=Time)) +
 p1 + p2
 ```
 
+## Summary
+
+These results are clearly different from those from the original paper.
 
 
-
-
-# Reporting
-
-[equatiomatic](https://datalorax.github.io/equatiomatic/index.html)
-
-[reactable](https://glin.github.io/reactable/index.html)
-
-
-# Exploratory vs expository figures
-
-
+***
 
 # Graphic design concepts
 
-[Tufte in R](http://motioninsocial.com/tufte/)
+In the world of graphic design, Edward Tufte has long been considered the authoritative source of do's and don'ts. He has a very popular book called [*The Visual Display of Quantitative Information*](https://www.edwardtufte.com/tufte/books_vdqi), which is worth perusing. I can also recommend Lukasz Piwek's wonderful online treatment of some Tufte-esque designs, [Tufte in R](http://motioninsocial.com/tufte/), which include options for making plots in both **base graphics** and **ggplot**. If you'd like to take a much deeper dive into plot design, I suggest you consider taking [Trevor Branch](https://fish.uw.edu/faculty/trevor-branch/)'s course [FISH 554: Beautiful Graphics in R](https://canvas.uw.edu/courses/1355148/assignments/syllabus).
 
+## Kinds of figures
 
-## Things to avoid
+If you're interested in exploring the different kinds of plots/figures available for different data types, I highly recommend the [**R Graph Gallery**](https://www.r-graph-gallery.com/). You can click through the examples and see all of the code necessary to produce them, often via **base graphics** or **ggplot2**.
 
-### Color palettes
+## Exploratory vs expository figures
 
-[Colorbrewer](https://colorbrewer2.org/)
+Check out [this wonderful vignette](http://jtleek.com/ads2020/week-10.html#creating-expository-graphs) by Jeff Leek of transitioning from exploratory to expository figures.
 
-[Color Palette Helper](https://gka.github.io/palettes)
+## Color palettes
 
-[Viridis palettes](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html)
+Color choice in figures is a combination of art and science. You'd like your figures to visually appeal to a wide audience, which includes people with visual disabilities. There are a variety of **R** packages that focus exclusively on color schemes. For example,
 
-[Color Oracle](http://www.colororacle.org/index.html)
+* David Miller's [**Beyonce**](https://github.com/dill/beyonce)
 
-[Color Blindness Simulator](https://www.color-blindness.com/coblis-color-blindness-simulator/)
+* Jake Lawlor's [**PNWColor**](https://github.com/jakelawlor/PNWColors)
 
+* Cianna Bedford-Petersen's [**2021 Inauguration**](https://github.com/ciannabp/inauguration)
+
+However, these are not necessarily "colorblind safe". If you want some colorblind safe palettes, then I suggest you consider the
+
+* [Viridis palettes](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html)
+
+If you'd like to test what an image will look like to people with different forms of colorblindness, you can use the
+
+* [Color Blindness Simulator](https://www.color-blindness.com/coblis-color-blindness-simulator/)
+
+to upload an image and it will transform it into the appropriate hues.
+
+### Color selectors
+
+There are some nice online tools to help you choose color palettes. One of the most popular is 
+
+* [Colorbrewer](https://colorbrewer2.org/)
+
+which allows you to choose from *sequential* or *diverging* palettes, and even screen for those that are colorblind safe. Another good option is
+
+* [Color Palette Helper](https://gka.github.io/palettes)
+
+which allows you to specify beginning and end colors and the number of steps you'd like in between.
+
+#### Diverging palettes
+
+Diverging palettes should be used when there is a clear midpoint in the data, such that values above or below the midpoint take on different shades of a unique hue.
+
+#### Sequential palettes
+
+Sequential palettes should be used with one-sided data when there is a clear endpoint, often zero, such that values extend from some minimum to 
+
+## Pie charts
+
+Although the use of pie charts is very common, there have been numerous cognitive studies that suggest people actually have a hard time discerning how the area of the various slices relates to actual percentages. If you feel really tempted to use a pie chart, ask yourself whether or not the data would be better displayed in a table.
 
 ### Waffleplots
 
-Although the use of pie charts is very common, there have been numerous cognitive studies that suggest people actually have a hard time discerning how the area of the various slices relates to actual percentages. So-called *waffle plots* offer an alternative. Waffle plots are square or rectangular representations of proportion data.
+So-called *waffle plots* offer an alternative to pie charts. Waffle plots are square or rectangular representations of proportion data. Here's an example of some waffle plots created with Bob Rudis' [**waffle** package](https://github.com/hrbrmstr/waffle). The data are summaries of the sources, forms, and fates of greenhouse gas emissions.from the Intergovernmental Panel on Climate Change (IPCC).
 
-Here's an example of some waffle plots created with Bob Rudis' [**waffle** package](https://github.com/hrbrmstr/waffle). The data are summaries of the sources, forms, and fates of greenhouse gas emissions.
-
-```{r ex_waffle_ghg, fig.height = 8, fig.width = 4}
+```{r ex_waffle_ghg, fig.height = 8, fig.width = 5}
 library(hrbrthemes)
 library(waffle)
 
@@ -469,8 +529,5 @@ ghg_p3 <- ggplot(ghg_3,
 ## stick the plots together
 iron(ghg_p1, ghg_p2, ghg_p3)
 ```
-
-
-### Dynamite plots
 
 
