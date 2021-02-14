@@ -264,7 +264,7 @@ markdown_1 <- list(
   pdf = c(""),
   rmd = "",
   html = "",
-  background = "{Intro to R Markdown[(lectures/week_07/intro_markdown.html)",
+  background = "[Intro to R Markdown](lectures/week_07/intro_markdown.html)",
   zoom = ""
 )
 
