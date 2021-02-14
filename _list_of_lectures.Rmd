@@ -243,7 +243,7 @@ analysis_visualization <- list(
   html = "lectures/week_06/lec_18_analysis_viz.html",
   background = c("[R Graph Gallery](https://www.r-graph-gallery.com/)",
                  "[High Quality Graphics in R](https://web.stanford.edu/class/bios221/book/Chap-Graphics.html)"),
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/s5YfpRvm4KmodyPyiQXryHHqw5DeZbL7lAdnu0UCa0Nf4W91eU1JXJlhgVtIqCUK.xv-3d00E-6911Nk_"
 )
 
 ## day 19 ####
