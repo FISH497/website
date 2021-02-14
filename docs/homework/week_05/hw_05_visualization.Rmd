@@ -60,5 +60,5 @@ A data frame with 780 observations on the following 8 variables.
 
 # Using R Markdown
 
-You are welcome to use **R Markdown** to complete this assignment, but if you'd rather not, I will also happily accept a combination of a `.R` script with your plotting code and a saved version of your figure in a format such as `.png`, `.jpg`, or `.pdf`. Click [here](../../lectures/week_07/intro_markdown.html) for an introduction to **R Markdown**.
+You are welcome to use **R Markdown** to complete this assignment, but if you'd rather not, I will also happily accept a combination of a `.R` script with your plotting code and a saved version of your figure in a format such as `.png`, `.jpg`, or `.pdf`. Click [here](../../lectures/week_07/intro_rmarkdown.html) for an introduction to **R Markdown**.
 
