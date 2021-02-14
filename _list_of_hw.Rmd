@@ -57,9 +57,9 @@ data_viz <- list(
   title = "Data visualization",
   topics = c("Data visualization"),
   pdf = "",
-  rmd = "",
-  html = "",
-  data = "",
+  rmd = "homework/week_05/hw_05_visualization.Rmd",
+  html = "homework/week_05/hw_05_visualization.html",
+  data = "homework/week_05/data/siscowet.csv",
   key = ""
 )
 
