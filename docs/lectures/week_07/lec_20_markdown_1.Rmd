@@ -53,7 +53,7 @@ The errors are normally distributed, such that $e_{i,j} \sim \text{N}(0, \sigma^
 
 will render as
 
-"The errors are normally distributed, such that as $e_{i,j} \sim \text{N}(0, \sigma^2)$."
+"The errors are normally distributed, such that $e_{i,j} \sim \text{N}(0, \sigma^2)$."
 
 ## Stand alone
 
@@ -288,6 +288,24 @@ To export a reference library from **EndNote**, do the following
 * Click **Save** when you're finished
 
 ![](images/endnote_4.png)
+
+### Export from Mendeley
+
+To export a reference library from **Mendeley**, do the following
+
+* Go to the Mendeley `Preferences` menu  
+
+* Click on the BibTeX tab  
+
+* Check the box next to `Enable BibTeX syncing`  
+
+* Click the radio button next to `Create one BibTeX file per group`
+
+* Change the `Path` to your desired location for the library files
+
+* Click **OK** when you are finished
+
+![](images/mendeley.png)
 
 ## Citations
 
