@@ -265,7 +265,7 @@ markdown_1 <- list(
   rmd = "lectures/week_07/lec_20_markdown_1.Rmd",
   html = "lectures/week_07/lec_20_markdown_1.html",
   background = "[Intro to R Markdown](lectures/week_07/intro_rmarkdown.html)",
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/QF-zGzZK-aSZfl2xOkO5wFeDof7A42z3naC5okXGNxAbAKzC8tNztYtBmfZSZfXx.KLbWIwsJcBdOGI5o"
 )
 
 ## day 21 ####
