@@ -276,7 +276,7 @@ markdown_2 <- list(
   rmd = "lectures/week_07/lec_21_markdown_2.Rmd",
   html = "lectures/week_07/lec_21_markdown_2.html",
   background = "[Chap 6 of Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/latex-output.html)",
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/8gEgJTfkcIhFieTuEqmSe9DeMGlv3yaGwDwiCDk7njLzhKJri1qboFyBGALhkj-B.nei0dsPjr8H-u5xe"
 )
 
 ## day 22 ####
