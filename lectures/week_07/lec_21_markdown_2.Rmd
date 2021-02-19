@@ -196,7 +196,7 @@ linestretch: 2
 fontsize: 12pt
 ```
 
-Then the document will use the Arial font. You may see https://tug.org/FontCatalogue/ for a list of many other **LaTeX** font packages. If your **LaTeX** distribution is **TinyTeX** and the required font packages have not been installed, they should be automatically installed when the document is compiled.
+Then the document will use the Arial font. If your **LaTeX** distribution is **TinyTeX** and the required font packages have not been installed, they should be automatically installed when the document is compiled.
 
 If you use the **LaTeX** engine **xelatex** or **lualatex**, you will be able to select fonts that are available on your local computer, and do not have to install additional LaTeX packages. To do so, use the `mainfont` argument like this:
 
@@ -223,7 +223,7 @@ You can add so-call *front matter* to your document, such as a table of contents
 
 ## Table of contents
 
-To automatically create a table of contents, set the `toc` argument to `true`. You can control how many heading levels you want to display in the table of contents with the `toc-depth` argument. For example, here is a double-spaced `report` with 1-inch margins, 12-point foint, and a table of contents that shows the first two heading levels.
+To automatically create a table of contents, set the `toc` argument to `true`. You can control how many heading levels you want to display in the table of contents with the `toc-depth` argument. For example, here is a double-spaced `report` with 1-inch margins, 12-point font, and a table of contents that shows the first two heading levels.
 
 ```{r toc, eval = FALSE}
 title: "Example template for exploring formatting options"
@@ -289,7 +289,7 @@ title: "Example template for exploring formatting options"
 author: "First Last"
 date: "2/19/2021"
 output: pdf_document
-documentclass: report
+documentclass: article
 geometry: margin=1in
 linestretch: 2
 fontsize: 12pt
@@ -308,7 +308,7 @@ title: "Example template for exploring formatting options"
 author: "First Last"
 date: "2/19/2021"
 output: pdf_document
-documentclass: report
+documentclass: article
 geometry: margin=1in
 linestretch: 2
 fontsize: 12pt
@@ -351,7 +351,7 @@ title: "Example template for exploring formatting options"
 author: "First Last"
 date: "2/19/2021"
 output: pdf_document
-documentclass: report
+documentclass: article
 geometry: margin=1in
 linestretch: 2
 fontsize: 12pt
@@ -387,7 +387,7 @@ For example, the following code will place the text "The document header" at the
 \fancyfoot[LE,RO]{\thepage}
 ```
 
-By default, headers and footers will not be displayed on the first page of your PDF document. If you want wish to show our footer on the front page, we must include an additional line `\fancypagestyle{plain}{\pagestyle{fancy}}`.
+By default, headers and footers are not displayed on the first page of a `.pdf` document. If you want to include them, use this line `\fancypagestyle{plain}{\pagestyle{fancy}}`.
 
 
 
