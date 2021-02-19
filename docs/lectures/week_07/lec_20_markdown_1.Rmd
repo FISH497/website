@@ -1,5 +1,6 @@
 ---
 title: "Using R Markdown for publications"
+subtitle: "Part 1"
 author: "Mark Scheuerell"
 date: "17 February 2021"
 output:
