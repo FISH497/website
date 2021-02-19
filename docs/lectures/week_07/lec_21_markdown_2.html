@@ -405,7 +405,7 @@ documentclass: article
 geometry: margin=1in
 linestretch: 2
 fontsize: 12pt</code></pre>
-<p>Then the document will use the Arial font. You may see <a href="https://tug.org/FontCatalogue/" class="uri">https://tug.org/FontCatalogue/</a> for a list of many other <strong>LaTeX</strong> font packages. If your <strong>LaTeX</strong> distribution is <strong>TinyTeX</strong> and the required font packages have not been installed, they should be automatically installed when the document is compiled.</p>
+<p>Then the document will use the Arial font. If your <strong>LaTeX</strong> distribution is <strong>TinyTeX</strong> and the required font packages have not been installed, they should be automatically installed when the document is compiled.</p>
 <p>If you use the <strong>LaTeX</strong> engine <strong>xelatex</strong> or <strong>lualatex</strong>, you will be able to select fonts that are available on your local computer, and do not have to install additional LaTeX packages. To do so, use the <code>mainfont</code> argument like this:</p>
 <pre class="r"><code>title: &quot;Example template for exploring formatting options&quot;
 author: &quot;First Last&quot;
@@ -427,7 +427,7 @@ fontsize: 12pt</code></pre>
 <p>You can add so-call <em>front matter</em> to your document, such as a table of contents.</p>
 <div id="table-of-contents" class="section level2">
 <h2>Table of contents</h2>
-<p>To automatically create a table of contents, set the <code>toc</code> argument to <code>true</code>. You can control how many heading levels you want to display in the table of contents with the <code>toc-depth</code> argument. For example, here is a double-spaced <code>report</code> with 1-inch margins, 12-point foint, and a table of contents that shows the first two heading levels.</p>
+<p>To automatically create a table of contents, set the <code>toc</code> argument to <code>true</code>. You can control how many heading levels you want to display in the table of contents with the <code>toc-depth</code> argument. For example, here is a double-spaced <code>report</code> with 1-inch margins, 12-point font, and a table of contents that shows the first two heading levels.</p>
 <pre class="r"><code>title: &quot;Example template for exploring formatting options&quot;
 author: &quot;First Last&quot;
 date: &quot;2/19/2021&quot;
@@ -476,7 +476,7 @@ toc-depth: 2</code></pre>
 author: &quot;First Last&quot;
 date: &quot;2/19/2021&quot;
 output: pdf_document
-documentclass: report
+documentclass: article
 geometry: margin=1in
 linestretch: 2
 fontsize: 12pt
@@ -492,7 +492,7 @@ header-includes:
 author: &quot;First Last&quot;
 date: &quot;2/19/2021&quot;
 output: pdf_document
-documentclass: report
+documentclass: article
 geometry: margin=1in
 linestretch: 2
 fontsize: 12pt
@@ -525,7 +525,7 @@ plot.ts(rnorm(30))
 author: &quot;First Last&quot;
 date: &quot;2/19/2021&quot;
 output: pdf_document
-documentclass: report
+documentclass: article
 geometry: margin=1in
 linestretch: 2
 fontsize: 12pt
@@ -564,7 +564,7 @@ header-includes:
 \fancyhead[CO,CE]{The document header}
 \fancyfoot[CO,CE]{A fancy footer}
 \fancyfoot[LE,RO]{\thepage}</code></pre>
-<p>By default, headers and footers will not be displayed on the first page of your PDF document. If you want wish to show our footer on the front page, we must include an additional line <code>\fancypagestyle{plain}{\pagestyle{fancy}}</code>.</p>
+<p>By default, headers and footers are not displayed on the first page of a <code>.pdf</code> document. If you want to include them, use this line <code>\fancypagestyle{plain}{\pagestyle{fancy}}</code>.</p>
 </div>
 
 
