@@ -273,9 +273,9 @@ markdown_2 <- list(
   title = "R Markdown",
   topics = c("<b>R Markdown</b>", "Publishing papers", "Reporting"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
+  rmd = "lectures/week_07/lec_21_markdown_2.Rmd",
+  html = "lectures/week_07/lec_21_markdown_2.html",
+  background = "[Chap 6 of Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/latex-output.html)",
   zoom = ""
 )
 
