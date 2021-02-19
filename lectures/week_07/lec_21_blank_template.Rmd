@@ -7,7 +7,6 @@ output: pdf_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
 ```
 
 # Introduction
@@ -56,5 +55,4 @@ Eget arcu amet aptent, sed auctor ut blandit ac. Congue risus, vitae sapien plat
 
 Euismod mi diam potenti. Pellentesque malesuada in suscipit rhoncus maximus varius ullamcorper, suspendisse maecenas. Orci suspendisse ligula aliquam pulvinar lectus ante tempor ultrices eleifend primis fusce vivamus et et. Porta ac volutpat vel, a eget. Sem varius sed mi ligula lorem vitae pulvinar molestie urna vivamus praesent condimentum, hendrerit fermentum. Odio cubilia ipsum maximus posuere. Ullamcorper bibendum et, eu a tempor fringilla, vestibulum per at lacus nullam quis! Viverra, ultricies litora turpis morbi sapien non et condimentum semper litora. Elementum lacus, lorem nisl nunc duis finibus aliquet. Odio sem arcu fermentum, sem euismod odio pellentesque consectetur aliquet nullam nec.
 
-# References
 
