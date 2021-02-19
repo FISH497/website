@@ -448,12 +448,123 @@ toc-depth: 2</code></pre>
 <hr />
 </div>
 </div>
-<div id="figure-layouts" class="section level1">
-<h1>Figure layouts</h1>
+<div id="figure-placement" class="section level1">
+<h1>Figure placement</h1>
+<p>Unlike Microsoft Word, in which figures are placed directly where the user specifies, <strong>LaTeX</strong> will attempt to place a figure in a position that does not violate certain typographic rules. Thus, figures may “float away” from where they are referenced in the text. These so-called <em>floats</em> are used as containers for figures (and tables) that cannot be broken across pages.</p>
+<p>In *R Markdown<strong>, figures are actually generated with the figure environment in </strong>LaTeX**. For example, Pandoc will convert the following Markdown code for specifying an image</p>
+<pre><code>![This is an image.](images/my_picture.jpg)</code></pre>
+<p>to the following <strong>LaTeX</strong> code:</p>
+<pre><code>\begin{figure}
+  \includegraphics{images/cool.jpg}
+  \caption{This is an image.}
+\end{figure}</code></pre>
+<p>If the figure or table cannot be contained in the space left on the current page, <strong>LaTeX</strong> will try to place it at the top of the next page. If the figure is tall enough, it may occupy the whole next page, even if there is still space left for a few lines of text. The float’s behavior can be controlled by using placement controls in square brackets like <code>\begin{figure}[]</code>. Here are some possible controls:</p>
+<ul>
+<li><code>h</code>: Place the float here (or close to it)<br />
+</li>
+<li><code>t</code>: Position at the top of the page<br />
+</li>
+<li><code>b</code>: Position at the bottom of the page<br />
+</li>
+<li><code>p</code>: Put on a special page for floats only</li>
+</ul>
+<p>You can override the default placement by prefacing the control with an exclamation point (eg, <code>[!t]</code>).</p>
+<p>If you want to place the float at <em>exactly the location</em> in the <strong>LaTeX</strong> code, you will need to include a call to the <code>float</code> package in the <code>YAML</code> and then set the <code>fig.pos = &quot;!H&quot;</code> chunk option in the code block. For example,</p>
+(
+<p>).</p>
+<pre class="r"><code>title: &quot;Example template for exploring formatting options&quot;
+author: &quot;First Last&quot;
+date: &quot;2/19/2021&quot;
+output: pdf_document
+documentclass: report
+geometry: margin=1in
+linestretch: 2
+fontsize: 12pt
+toc: TRUE
+toc-depth: 2
+header-includes:
+  - \usepackage{float}</code></pre>
+</div>
+<div id="sub-figures" class="section level1">
+<h1>Sub-figures</h1>
+<p>Sometimes you may want to include multiple images in a single figure environment. Sub-figures allow us to achieve this by arranging multiple images within a single environment and providing each with its own sub-caption. Sub-figures require the <strong>LaTeX</strong> package <code>subfig</code>, which you can call in the <code>YAML</code>, such as</p>
+<pre class="r"><code>title: &quot;Example template for exploring formatting options&quot;
+author: &quot;First Last&quot;
+date: &quot;2/19/2021&quot;
+output: pdf_document
+documentclass: report
+geometry: margin=1in
+linestretch: 2
+fontsize: 12pt
+toc: TRUE
+toc-depth: 2
+header-includes:
+  - \usepackage{subfig}</code></pre>
+<p>To arrange all plots from a code chunk into sub-figures, you have to set the following chunk options</p>
+<ul>
+<li><p><code>fig.cap</code>: the caption for the whole figure environment</p></li>
+<li><p><code>fig.subcap</code>: a <code>character</code> vector of the captions for each of the sub-figures</p></li>
+</ul>
+<p>In addition, you will probably want to set the following options</p>
+<ul>
+<li><p><code>fig.ncol</code>: number of columns of sub-figures (by default, all plots are arranged in a single row)</p></li>
+<li><p><code>out.width</code>: output width of individual plots, which normally equals 100% divided by the number of columns</p></li>
+</ul>
+<p>For example, this code chunk will produce 3 subplots:</p>
+<pre><code>```{r subplot, fig.cap=&#39;A figure with 3 subplots.&#39;, fig.subcap=c(&#39;The numbers 1 through 10.&#39;, &#39;Speed versus distance.&#39;, &#39;Time series of white noise.&#39;), fig.ncol = 2, out.width = &quot;50%&quot;, fig.align = &quot;center&quot;, echo = FALSE}
+plot(1:10, pch = 16)
+plot(cars)
+plot.ts(rnorm(30))
+```</code></pre>
 <hr />
 </div>
 <div id="headers-footers" class="section level1">
 <h1>Headers &amp; footers</h1>
+<p>You can use the <strong>LaTeX</strong> package <code>fancyhdr</code> to customize the header and footer of your document. As with other packages, we have to first make a call to it in the <code>YAML</code> and set the additional argument <code>\pagestyle{fancy}</code>.</p>
+<pre class="r"><code>title: &quot;Example template for exploring formatting options&quot;
+author: &quot;First Last&quot;
+date: &quot;2/19/2021&quot;
+output: pdf_document
+documentclass: report
+geometry: margin=1in
+linestretch: 2
+fontsize: 12pt
+toc: TRUE
+toc-depth: 2
+header-includes:
+- \usepackage{fancyhdr}</code></pre>
+<p>The syntax for the formatting is <code>\fancyhead[selectors]{output text}</code>, where <code>selectors</code> specify the part of the header that we wish to customize. We can use the following selectors for the page locators:</p>
+<ul>
+<li><code>E</code> for even pages<br />
+</li>
+<li><code>O</code> for odd pages<br />
+</li>
+<li><code>L</code> for the left side<br />
+</li>
+<li><code>C</code> for the center<br />
+</li>
+<li><code>R</code> for the right side</li>
+</ul>
+<p>For example, <code>\fancyhead[LE,RO]{First Last}</code> will print the text “First Last” on the left side of the header for even pages, and the right side for odd pages. We can combine this with additional LaTeX commands to extract details from our document for each page:</p>
+<ul>
+<li><code>\thepage</code>: the number of the current page<br />
+</li>
+<li><code>\thechapter</code>: the number of the current chapter<br />
+</li>
+<li><code>\thesection</code>: the number of the current section<br />
+</li>
+<li><code>\chaptername</code>: the word “Chapter” in English, or its equivalent in the current language, or the text that the author specified by redefining this command<br />
+</li>
+<li><code>\leftmark</code>: the name and number of the current top-level structure in uppercase letters<br />
+</li>
+<li><code>\rightmark</code>: the name and number of the current next to top-level structure in uppercase letters</li>
+</ul>
+<p>For example, the following code will place the text “The document header” at the top center of all pages, “A fancy footer” at the bottom center of all pages, and the page number on the left of even pages and right of odd pages</p>
+<pre><code>\pagestyle{fancy}
+\fancyhead[CO,CE]{The document header}
+\fancyfoot[CO,CE]{A fancy footer}
+\fancyfoot[LE,RO]{\thepage}</code></pre>
+<p>By default, headers and footers will not be displayed on the first page of your PDF document. If you want wish to show our footer on the front page, we must include an additional line <code>\fancypagestyle{plain}{\pagestyle{fancy}}</code>.</p>
 </div>
 
 

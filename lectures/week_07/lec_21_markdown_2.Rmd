@@ -252,14 +252,142 @@ that will render to
 
 ***
 
-# Figure layouts
+# Figure placement
 
+Unlike Microsoft Word, in which figures are placed directly where the user specifies, **LaTeX** will attempt to place a figure in a position that does not violate certain typographic rules. Thus, figures may "float away" from where they are referenced in the text. These so-called *floats* are used as containers for figures (and tables) that cannot be broken across pages.
+
+In *R Markdown**, figures are actually generated with the figure environment in **LaTeX**. For example, Pandoc will convert the following Markdown code for specifying an image
+
+```
+![This is an image.](images/my_picture.jpg)
+```
+
+to the following **LaTeX** code:
+
+```
+\begin{figure}
+  \includegraphics{images/cool.jpg}
+  \caption{This is an image.}
+\end{figure}
+```
+
+If the figure or table cannot be contained in the space left on the current page, **LaTeX** will try to place it at the top of the next page. If the figure is tall enough, it may occupy the whole next page, even if there is still space left for a few lines of text. The float's behavior can be controlled by using placement controls in square brackets like `\begin{figure}[]`. Here are some possible controls:
+
+* `h`: Place the float here (or close to it)    
+* `t`: Position at the top of the page  
+* `b`: Position at the bottom of the page  
+* `p`: Put on a special page for floats only  
+
+You can override the default placement by prefacing the control with an exclamation point (eg, `[!t]`).
+
+If you want to place the float at *exactly the location* in the **LaTeX** code, you will need to include a call to the `float` package in the `YAML` and then set the `fig.pos = "!H"` chunk option in the code block. For example,
+
+(\usepackage{float}).
+
+```{r float, eval = FALSE}
+title: "Example template for exploring formatting options"
+author: "First Last"
+date: "2/19/2021"
+output: pdf_document
+documentclass: report
+geometry: margin=1in
+linestretch: 2
+fontsize: 12pt
+toc: TRUE
+toc-depth: 2
+header-includes:
+  - \usepackage{float}
+```
+
+# Sub-figures
+
+Sometimes you may want to include multiple images in a single figure environment. Sub-figures allow us to achieve this by arranging multiple images within a single environment and providing each with its own sub-caption. Sub-figures require the **LaTeX** package `subfig`, which you can call in the `YAML`, such as
+
+```{r subfigs, eval = FALSE}
+title: "Example template for exploring formatting options"
+author: "First Last"
+date: "2/19/2021"
+output: pdf_document
+documentclass: report
+geometry: margin=1in
+linestretch: 2
+fontsize: 12pt
+toc: TRUE
+toc-depth: 2
+header-includes:
+  - \usepackage{subfig}
+```
+
+To arrange all plots from a code chunk into sub-figures, you have to set the following chunk options
+
+* `fig.cap`: the caption for the whole figure environment
+
+* `fig.subcap`: a `character` vector of the captions for each of the sub-figures
+
+In addition, you will probably want to set the following options
+
+* `fig.ncol`: number of columns of sub-figures (by default, all plots are arranged in a single row)
+
+* `out.width`: output width of individual plots, which normally equals 100% divided by the number of columns
+
+For example, this code chunk will produce 3 subplots:
+
+````
+`r ''````{r subplot, fig.cap='A figure with 3 subplots.', fig.subcap=c('The numbers 1 through 10.', 'Speed versus distance.', 'Time series of white noise.'), fig.ncol = 2, out.width = "50%", fig.align = "center", echo = FALSE}
+plot(1:10, pch = 16)
+plot(cars)
+plot.ts(rnorm(30))
+```
+````
 
 ***
 
 # Headers & footers
 
+You can use the **LaTeX** package `fancyhdr` to customize the header and footer of your document. As with other packages, we have to first make a call to it in the `YAML` and set the additional argument `\pagestyle{fancy}`.
 
+```{r headfoot, eval = FALSE}
+title: "Example template for exploring formatting options"
+author: "First Last"
+date: "2/19/2021"
+output: pdf_document
+documentclass: report
+geometry: margin=1in
+linestretch: 2
+fontsize: 12pt
+toc: TRUE
+toc-depth: 2
+header-includes:
+- \usepackage{fancyhdr}
+```
+
+The syntax for the formatting is `\fancyhead[selectors]{output text}`, where `selectors` specify the part of the header that we wish to customize. We can use the following selectors for the page locators:
+
+* `E` for even pages  
+* `O` for odd pages  
+* `L` for the left side  
+* `C` for the center  
+* `R` for the right side  
+
+For example, `\fancyhead[LE,RO]{First Last}` will print the text “First Last” on the left side of the header for even pages, and the right side for odd pages. We can combine this with additional LaTeX commands to extract details from our document for each page:
+
+* `\thepage`: the number of the current page    
+* `\thechapter`: the number of the current chapter  
+* `\thesection`: the number of the current section  
+* `\chaptername`: the word “Chapter” in English, or its equivalent in the current language, or the text that the author specified by redefining this command  
+* `\leftmark`: the name and number of the current top-level structure in uppercase letters  
+* `\rightmark`: the name and number of the current next to top-level structure in uppercase letters  
+
+For example, the following code will place the text "The document header" at the top center of all pages, "A fancy footer" at the bottom center of all pages, and the page number on the left of even pages and right of odd pages
+
+```
+\pagestyle{fancy}
+\fancyhead[CO,CE]{The document header}
+\fancyfoot[CO,CE]{A fancy footer}
+\fancyfoot[LE,RO]{\thepage}
+```
+
+By default, headers and footers will not be displayed on the first page of your PDF document. If you want wish to show our footer on the front page, we must include an additional line `\fancypagestyle{plain}{\pagestyle{fancy}}`.
 
 
 
