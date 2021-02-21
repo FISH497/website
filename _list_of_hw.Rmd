@@ -59,18 +59,18 @@ data_viz <- list(
   pdf = "",
   rmd = "homework/week_05/hw_05_visualization.Rmd",
   html = "homework/week_05/hw_05_visualization.html",
-  data = "homework/week_05/data/siscowet.csv",
+  data = "",
   key = ""
 )
 
 ## week 7
-packages <- list(
-  title = "R packages",
-  topics = c("Building R packages"),
+publishing <- list(
+  title = "Publishing with R Markdown",
+  topics = c("Publishing iwth R Markdown"),
   pdf = "",
-  rmd = "",
-  html = "",
-  data = "",
+  rmd = "homework/week_06/hw_06_publishing.Rmd",
+  html = "homework/week_06/hw_06_publishing.html",
+  data = "homework/week_06/hw_06_template.Rmd",
   key = ""
 )
 
