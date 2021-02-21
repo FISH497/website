@@ -61,11 +61,11 @@ You will need to insert 3 equations into the template document at the locations 
 
 #### Eqns 2 & 3 (two lines)
 
-![](images/eqn_2.png)  
+![](images/eqn_23.png)  
 
-#### Eqn 3 (single line)
+#### Eqn 4 (single line)
 
-![](images/eqn_3.png)  
+![](images/eqn_4.png)  
 
 ### References
 
