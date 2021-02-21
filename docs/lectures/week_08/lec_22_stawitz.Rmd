@@ -1,5 +1,5 @@
 ---
-title: "Data science for fun and non-profit"
+title: "Data science tools for a career in fisheries management"
 subtitle: "Intro to Environmental Data Science<br>FISH 497A"
 author: "Dr. Christine Stawitz"
 date: "22 January 2021"
@@ -31,8 +31,4 @@ knitr::opts_chunk$set(echo = TRUE,
 * NOAA Fisheries
 
 
-## {.flexbox .vcenter}
 
-<p style="font-size:2em">
-[**Data science for fun and nonprofit**](https://karawoo.com/data-science-for-fun-and-nonprofit/index.html#1)
-</p>
