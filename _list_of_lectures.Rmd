@@ -286,7 +286,7 @@ guest_stawitz <- list(
              "Guest presentation"),
   pdf = c(""),
   rmd = "",
-  html = "",
+  html = "lectures/week_08/lec_22_stawitz.html",
   background = "",
   zoom = ""
 )
