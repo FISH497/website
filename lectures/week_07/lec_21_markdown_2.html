@@ -286,7 +286,7 @@ div.tocify {
 author: &quot;First Last&quot;
 date: &quot;19 February 2021&quot;
 output: pdf_document</code></pre>
-<p>You can also add a subtitle with the <code>subtitle</code> argument and set the data to automatically update with the inline <strong>R</strong> code 2021-02-19. You can create a custom format for the date as well. For example, the following <code>date</code> option will print as <code>day full_month_name four_digit_year</code>. Check out the options for <code>format()</code> to see how to change the date format.</p>
+<p>You can also add a subtitle with the <code>subtitle</code> argument and set the data to automatically update with the inline <strong>R</strong> code 2021-02-21. You can create a custom format for the date as well. For example, the following <code>date</code> option will print as <code>day full_month_name four_digit_year</code>. Check out the options for <code>format()</code> to see how to change the date format.</p>
 <pre class="r"><code>title: &quot;A catchy title&quot;
 subtitle: &quot;A pithy subtitle&quot;
 author: &quot;First Last&quot;
@@ -444,7 +444,7 @@ toc-depth: 2</code></pre>
 <p>For some documents, I prefer to set a custom <em>version</em> number based on the date rather than set the <code>date</code> argument explicitly. To do so, simply include a line in the <em>main document</em> similar to something like this:</p>
 <pre class="r"><code>This is version `r paste0(&#39;0.&#39;,format(Sys.time(), &#39;%y.%m.%d&#39;))`.</code></pre>
 <p>that will render to</p>
-<p>“This is version 0.21.02.19.”</p>
+<p>“This is version 0.21.02.21.”</p>
 <hr />
 </div>
 </div>
