@@ -360,6 +360,9 @@ library("knitcitations")
 
 ## clean out any existing .bib files
 cleanbib()
+
+## set pandoc for formatting
+options("citation_format" = "pandoc")
 ```
 
 ## Cite by DOI

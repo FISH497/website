@@ -10,13 +10,10 @@ output:
     toc: true
     toc_float: true
     toc_depth: 3
-bibliography: "references.bib"
-csl: "ecology.csl"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(magrittr)
 ```
 
 ***
@@ -281,8 +278,6 @@ If the figure or table cannot be contained in the space left on the current page
 You can override the default placement by prefacing the control with an exclamation point (eg, `[!t]`).
 
 If you want to place the float at *exactly the location* in the **LaTeX** code, you will need to include a call to the `float` package in the `YAML` and then set the `fig.pos = "!H"` chunk option in the code block. For example,
-
-(\usepackage{float}).
 
 ```{r float, eval = FALSE}
 title: "Example template for exploring formatting options"
