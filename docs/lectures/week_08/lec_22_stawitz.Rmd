@@ -31,15 +31,6 @@ knitr::opts_chunk$set(echo = TRUE,
 * NOAA Fisheries
 
 
-## An influencer{data-background=woo_twitter.png data-background-position="50% 60%" data-background-size=70%}
-
-
-## An exemplar{data-background=woo_impactstory.png data-background-position="50% 70%" data-background-size=75%}
-
-
-## A curator{data-background=woo_aart.png data-background-position="50% 65%" data-background-size=80%}
-
-
 ## {.flexbox .vcenter}
 
 <p style="font-size:2em">
