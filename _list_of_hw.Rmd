@@ -66,7 +66,7 @@ data_viz <- list(
 ## week 7
 publishing <- list(
   title = "Publishing with R Markdown",
-  topics = c("Publishing iwth R Markdown"),
+  topics = c("Publishing with R Markdown"),
   pdf = "",
   rmd = "homework/week_06/hw_06_publishing.Rmd",
   html = "homework/week_06/hw_06_publishing.html",
