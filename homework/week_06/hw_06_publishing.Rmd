@@ -59,7 +59,7 @@ You will need to insert 3 equations into the template document at the locations 
 
 ![](images/eqn_1.png)  
 
-#### Eqn 2 (two lines)
+#### Eqns 2 & 3 (two lines)
 
 ![](images/eqn_2.png)  
 
