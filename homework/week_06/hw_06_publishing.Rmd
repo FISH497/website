@@ -71,3 +71,13 @@ You will need to insert 3 equations into the template document at the locations 
 
 You will need to insert 2 citations into the **Discussion** section at the locations indicated on the template, and create a list of automatically formatted references in the **References** section. You should use the style template for the journal *Ecology*.
 
+
+# Submission
+
+You should create a new **GitHub** repo called `Assignment-6` that includes both your `.Rmd` source file and the resulting `.pdf`. When you are finished,
+
+1) invite Mark as a collaborator to your repo;
+
+2) create a new issue that briefly describes what you've done; and 
+
+3) tag Mark in the issue so he can check out your work.
