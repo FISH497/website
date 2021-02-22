@@ -288,7 +288,7 @@ guest_stawitz <- list(
   rmd = "",
   html = "lectures/week_08/lec_22_stawitz.html",
   background = "",
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/CSvg9I-vr88ff2-Wg37pkPutfcs7kr6Hl7hdPXJwRXxgeR2huvPG9NAeu_klZ_Nw.ZWwkVgXfJOBcdvuT"
 )
 
 ## day 23 ####
