@@ -59,7 +59,7 @@ data_viz <- list(
   pdf = "",
   rmd = "homework/week_05/hw_05_visualization.Rmd",
   html = "homework/week_05/hw_05_visualization.html",
-  data = "",
+  data = "homework/week_05/data/siscowet.csv",
   key = ""
 )
 
