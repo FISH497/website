@@ -294,11 +294,11 @@ guest_stawitz <- list(
 ## day 23 ####
 packages_1 <- list(
   title = "R packages",
-  topics = c("<b>R packages</b>", "Functions", "Unit tests"),
+  topics = c("<b>R packages</b>", "Functions", "Documentation"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
+  rmd = "lectures/week_08/lec_23_packages_1.Rmd",
+  html = "lectures/week_08/lec_23_packages_1.html",
+  background = "[Wickham & Bryan (2020)](https://r-pkgs.org/index.html)",
   zoom = ""
 )
 
