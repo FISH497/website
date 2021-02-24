@@ -299,7 +299,7 @@ packages_1 <- list(
   rmd = "lectures/week_08/lec_23_packages_1.Rmd",
   html = "lectures/week_08/lec_23_packages_1.html",
   background = "[Wickham & Bryan (2020)](https://r-pkgs.org/index.html)",
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/_Ib7UQ-ZvANkMQLt3Xz8NuUv3uQ0hqD4zlqNoaZrmb6m7skvYHvbK7U1CN4YolPm.3qUZMSKGOIpc3fQJ"
 )
 
 ## day 24 ####
