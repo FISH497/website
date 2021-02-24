@@ -83,9 +83,7 @@ Fortunately for us, there are variety of tools available to assist us in develop
 
 2) a `.gitignore` file
 
-3) an MIT license
-
-Once you are finished, create a new project in **RStudio** based upon this repo.
+You can skip the license for now. Once you are finished, create a new project in **RStudio** based upon this repo.
 
 ## Rstudio project
 
