@@ -305,7 +305,7 @@ packages_1 <- list(
 ## day 24 ####
 packages_2 <- list(
   title = "R packages",
-  topics = c("<b>R packages</b>", "Documentation", "Vignettes", "Websites"),
+  topics = c("<b>R packages</b>", "Unit tests", "Vignettes", "Websites"),
   pdf = c(""),
   rmd = "",
   html = "",
