@@ -73,6 +73,8 @@ add <- function(x, y) {
 
 When building packages, we will also include some additional information that describes what the function does and how it works. This information will become part of the documentation that is returned when someone types `?function_name`.
 
+***
+
 # Getting started
 
 ## GitHub repository
@@ -94,6 +96,8 @@ library(devtools)
 ```
 
 which will allow us to access the package development tools in `devtools`.
+
+***
 
 # Create package framework
 
@@ -163,6 +167,8 @@ At this point, go ahead and quit both instances of the **RStudio** `pets` projec
 ```{r reload_devtools}
 library(devtools)
 ```
+
+***
 
 # Write a function
 
@@ -237,6 +243,8 @@ exists("cats", where = globalenv(), inherits = FALSE)
 
 This is a good time to go ahead and commit the files we created as part of `create_package()` and our definition of the `cats()` function. Make sure to give your commit(s) a short but descriptive name(s).
 
+***
+
 # Checking a function
 
 At this point, we have every reason to believe that `cats()` works as expected, but should really verify that all of the elements of the `pets` package indeed work. This may seem silly to check, after such a small addition, but it's good to establish the habit of checking this often.
@@ -267,6 +275,8 @@ It is **very important** to read over all of this information, as it will report
 which is OK for now, as we'll address that later.
 
 Note that you can also run a package check via the **Build** pane in **RStudio**.
+
+***
 
 # Edit `DESCRIPTION`
 
@@ -320,6 +330,8 @@ Encoding: UTF-8
 LazyData: true
 ```
 
+***
+
 # Add a license
 
 We should add a license to our package, as it's considered a best practice (here we'll use the MIT license). We'll use the helper function `use_mit_license()` to do so. Make sure to use your own name in the argument.
@@ -340,6 +352,8 @@ COPYRIGHT HOLDER: Mark Scheuerell
 ```
 
 `use_mit_license()` will also put a copy of the full license in `LICENSE.md` and adds this file to `.Rbuildignore`.
+
+***
 
 # Writing documentation
 
@@ -464,6 +478,8 @@ In addition to converting `cats()`'s special comments into `man/cats.Rd`, the ca
 
 export(cats)
 ```
+
+***
 
 # Check & install
 
