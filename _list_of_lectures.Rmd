@@ -307,9 +307,9 @@ packages_2 <- list(
   title = "R packages",
   topics = c("<b>R packages</b>", "Unit tests", "Vignettes", "Websites"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
+  rmd = "lectures/week_08/lec_24_packages_2.Rmd",
+  html = "lectures/week_08/lec_24_packages_2.html",
+  background = "[Wickham & Bryan (2020)](https://r-pkgs.org/index.html)",
   zoom = ""
 )
 
