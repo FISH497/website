@@ -368,7 +368,68 @@ Now let's commit our changes and push them to **GitHub**. After doing so, naviga
 
 # Hex sticker
 
+Let's be honest--[hex stickers](https://swag.rstudio.com/s/shop) are all the rage when it comes to **R** packages. We can make our own hex sticker for our `{pets}` package with the [`{hexSticker}`](https://github.com/GuangchuangYu/hexSticker) package. The function `sticker()` will do all of the work for us.
 
+Here we'll include an image of a silhouette cata and dog on our sticker. To do so, you will need to download the `cat_and_dog.png` image [here]() and place it in the working directory for your `{pets}` package. Next load `{hexSticker}` and make the following call to `sticker()` (you can type `?sticker` to see all of the function arguments).
 
+```{r make_sticker}
+## load hexSticker
+library(hexSticker)
 
+## create sticker image
+sticker("cat_and_dog.png",
+        ## package name
+        package="pets",
+        ## heights & widths
+        p_size = 8, s_x = 0.95, s_y = 0.9, asp = 0.85,
+        s_width = 0.65, s_height = 0.65, p_y = 1.6,
+        ## text color
+        p_color = "#4b2e83",
+        ## fill color
+        h_fill = "white",
+        ## border color
+        h_color = "#85754d",
+        ## filename to save
+        filename="logo.png")
+```
 
+Now we can tell **R** to use our new image with `usethis::use_logo()`.
+
+```{r use_logo}
+usethis::use_logo("logo.png")
+✓ Creating 'man/figures/'
+✓ Resized 'logo.png' to 240x278
+● Add logo to your README with the following html:
+Warning: pkgdown config does not specify the site's url, which is optional but recommended
+  # pets <img src='man/figures/logo.png' align="right" height="139" />
+  [Copied to clipboard]
+```
+
+The last thing we need to do is edit our `README.Rmd` file to include a reference to the sticker. Go ahead and open the file and do two things. First, edit the `knitr::opts_chunk$set(...)` block at the top, such that `fig.path = "man/figures/"`
+
+````
+`r ''````{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/",
+  out.width = "100%"
+)
+```
+````
+
+and then add the following line of code to the right of the `# pets` heading.
+
+```
+# pets <img src="man/figures/logo.png" align="right" alt="" width="120" />
+```
+
+When you are finished, click the **Knit** button in **RStudio** to preview your new readme file.
+
+Lastly, we need to rebuild the website with `build_site()`.
+
+```{r}
+
+```
+
+When it finishes, go ahead and commit your changes and push them to **GitHub**. Next, navigate back to your `pets` repo on **GitHub** and preview your changes.
