@@ -370,7 +370,7 @@ Now let's commit our changes and push them to **GitHub**. After doing so, naviga
 
 Let's be honest--[hex stickers](https://swag.rstudio.com/s/shop) are all the rage when it comes to **R** packages. We can make our own hex sticker for our `{pets}` package with the [`{hexSticker}`](https://github.com/GuangchuangYu/hexSticker) package. The function `sticker()` will do all of the work for us.
 
-Here we'll include an image of a silhouette cata and dog on our sticker. To do so, you will need to download the `cat_and_dog.png` image [here]("https://github.com/FISH497/website/blob/main/lectures/week_08/cat_and_dog.png") and place it in the working directory for your `{pets}` package. Next load `{hexSticker}` and make the following call to `sticker()` (you can type `?sticker` to see all of the function arguments).
+Here we'll include an image of a silhouette cata and dog on our sticker. To do so, you will need to download the `cat_and_dog.png` image [here](https://github.com/FISH497/website/blob/main/lectures/week_08/cat_and_dog.png) and place it in the working directory for your `{pets}` package. Next load `{hexSticker}` and make the following call to `sticker()` (you can type `?sticker` to see all of the function arguments).
 
 ```{r make_sticker}
 ## load hexSticker
