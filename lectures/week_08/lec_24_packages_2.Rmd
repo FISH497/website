@@ -110,6 +110,102 @@ The testing report indicates how many total tests were run, and how many of them
 
 ***
 
+# Packages on GitHub
+
+The `pets` repo we created on **GitHub** contains our package skeleton in human-readable form. One of the neat things about this is that you (or anyone else) can now install the package directly from **GitHub** using either of these calls (replacing `YOUR_GITHUB_USERNAME` with your actual **GitHub** username):
+
+```{r install_gh}
+## original call using {devtools} still works
+devtools::install_github("YOUR_GITHUB_USERNAME/pets")
+
+## but {remotes} is the newer package with the function
+remotes::install_github("YOUR_GITHUB_USERNAME/pets")
+```
+
+Note that if you try either of these commands and get the following error
+
+```
+Using github PAT from envvar GITHUB_PAT
+Error: Failed to install 'pets' from GitHub:
+  HTTP error 401.
+  Bad credentials
+```
+
+go ahead a run `Sys.unsetenv("GITHUB_PAT")` and then try again.
+
+## Editing README
+
+Because our package now lives in a public space where others can find and use it, we should include some helpful information in the `README.md` file to describe the package contents and how it works. We can use the `use_readme_rmd()` function to create a **Markdown** file with a skeleton for us add information about our package.
+
+```{r use_readme}
+use_readme_rmd()
+✓ Writing 'README.Rmd'
+✓ Adding '^README\\.Rmd$' to '.Rbuildignore'
+● Modify 'README.Rmd'
+✓ Writing '.git/hooks/pre-commit'
+```
+
+The output above indicates that the function
+
+* created `README.Rmd`
+
+* added some lines to `.Rbuildignore`
+
+* created a **Git** *pre-commit hook* to keep `README.Rmd` and `README.md` synced with one another
+
+Let's go ahead and inspect the content of `README.Rmd`. You will see a number of sections with prompts asking for more information about the package, including a description of the package, how to install it, and example of its usage. Note that comments in **Markdown** are denoted by `<!-- some comment here -->`.
+
+In the first section `# pets`, go ahead and enter some descriptive text about the package contents (you can delete the comments about badges). For example,
+
+```
+# pets
+
+The goal of pets is to provide a simple means for people to express their feelings about pets. At present, the packge only contains one function: `cats()`.
+```
+
+In the next section on `## Installation`, delete the information about installing from **CRAN**, as our package doesn't exist there. You will note that the installation instructions for **GitHub** are already included.
+
+````
+## Installation
+
+You can install the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("mdscheuerell/pets")
+```
+````
+
+In the `## Example` section, fill in some information with example calls to `cats()`. For example,
+
+````
+## Example
+
+Here are two simple examples that allow you to express your feelings about cats:
+
+`r ''````{r example}
+library(pets)
+
+## if you like cats
+cats(TRUE)
+
+## if you don't like cats
+cats(FALSE)
+```
+````
+
+When you are finished editing `README.Rmd`, you can either knit it directly from within **RStudio** or uee the `build_readme()` function.
+
+```{r build_ _readme}
+build_readme()
+Installing pets in temporary library
+Building /Users/scheuerl/Documents/GitHub/pets/README.Rmd
+```
+
+Now go ahead and commit **both** `README.Rmd` **and** `README.md`, and then push them to **GitHub**. When you are finished, check out your `pets` repo on **GitHub** to see the new changes to your `README.md`.
+
+***
+
 # Vignettes
 
 

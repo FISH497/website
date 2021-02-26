@@ -335,8 +335,72 @@ Testing pets
 Duration: 0.1 s
 
 [ FAIL 0 | WARN 0 | SKIP 0 | PASS 4 ]</code></pre>
-<p>The testing report indicates how many total tests were run, and how many of them failed (<code>FAIL</code>), issued a warning (<code>WARN</code>), were skipped (<code>SKIP</code>), and passed (<code>PASS</code>). Here we see that all four of our test passed, which is good news indeed.</p>
+<p>The testing report indicates how many total tests were run, and how many of them failed (<code>FAIL</code>), issued a warning (<code>WARN</code>), were skipped (<code>SKIP</code>), and passed (<code>PASS</code>). Here we see that all four of our tests passed, which is good news indeed.</p>
 <hr />
+</div>
+<div id="packages-on-github" class="section level1">
+<h1>Packages on GitHub</h1>
+<p>The <code>pets</code> repo we created on <strong>GitHub</strong> contains our package skeleton in human-readable form. One of the neat things about this is that you (or anyone else) can now install the package directly from <strong>GitHub</strong> using either of these calls (replacing <code>YOUR_GITHUB_USERNAME</code> with your actual <strong>GitHub</strong> username):</p>
+<pre class="r"><code>## original call using {devtools} still works
+devtools::install_github(&quot;YOUR_GITHUB_USERNAME/pets&quot;)
+
+## but {remotes} is the newer package with the function
+remotes::install_github(&quot;YOUR_GITHUB_USERNAME/pets&quot;)</code></pre>
+<p>Note that if you try either of these commands and get the following error</p>
+<pre><code>Using github PAT from envvar GITHUB_PAT
+Error: Failed to install &#39;pets&#39; from GitHub:
+  HTTP error 401.
+  Bad credentials</code></pre>
+<p>go ahead a run <code>Sys.unsetenv(&quot;GITHUB_PAT&quot;)</code> and then try again.</p>
+<div id="editing-readme" class="section level2">
+<h2>Editing README</h2>
+<p>Because our package now lives in a public space where others can find and use it, we should include some helpful information in the <code>README.md</code> file to describe the package contents and how it works. We can use the <code>use_readme_rmd()</code> function to create a <strong>Markdown</strong> file with a skeleton for us add information about our package.</p>
+<pre class="r"><code>use_readme_rmd()
+✓ Writing &#39;README.Rmd&#39;
+✓ Adding &#39;^README\\.Rmd$&#39; to &#39;.Rbuildignore&#39;
+● Modify &#39;README.Rmd&#39;
+✓ Writing &#39;.git/hooks/pre-commit&#39;</code></pre>
+<p>The output above indicates that the function</p>
+<ul>
+<li><p>created <code>README.Rmd</code></p></li>
+<li><p>added some lines to <code>.Rbuildignore</code></p></li>
+<li><p>created a <strong>Git</strong> <em>pre-commit hook</em> to keep <code>README.Rmd</code> and <code>README.md</code> synced with one another</p></li>
+</ul>
+<p>Let’s go ahead and inspect the content of <code>README.Rmd</code>. You will see a number of sections with prompts asking for more information about the package, including a description of the package, how to install it, and example of its usage. Note that comments in <strong>Markdown</strong> are denoted by <code>&lt;!-- some comment here --&gt;</code>.</p>
+<p>In the first section <code># pets</code>, go ahead and enter some descriptive text about the package contents (you can delete the comments about badges). For example,</p>
+<pre><code># pets
+
+The goal of pets is to provide a simple means for people to express their feelings about pets. At present, the packge only contains one function: `cats()`.</code></pre>
+<p>In the next section on <code>## Installation</code>, delete the information about installing from <strong>CRAN</strong>, as our package doesn’t exist there. You will note that the installation instructions for <strong>GitHub</strong> are already included.</p>
+<pre><code>## Installation
+
+You can install the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages(&quot;devtools&quot;)
+devtools::install_github(&quot;mdscheuerell/pets&quot;)
+```</code></pre>
+<p>In the <code>## Example</code> section, fill in some information with example calls to <code>cats()</code>. For example,</p>
+<pre><code>## Example
+
+Here are two simple examples that allow you to express your feelings about cats:
+
+```{r example}
+library(pets)
+
+## if you like cats
+cats(TRUE)
+
+## if you don&#39;t like cats
+cats(FALSE)
+```</code></pre>
+<p>When you are finished editing <code>README.Rmd</code>, you can either knit it directly from within <strong>RStudio</strong> or uee the <code>build_readme()</code> function.</p>
+<pre class="r"><code>build_readme()
+Installing pets in temporary library
+Building /Users/scheuerl/Documents/GitHub/pets/README.Rmd</code></pre>
+<p>Now go ahead and commit <strong>both</strong> <code>README.Rmd</code> <strong>and</strong> <code>README.md</code>, and then push them to <strong>GitHub</strong>. When you are finished, check out your <code>pets</code> repo on <strong>GitHub</strong> to see the new changes to your <code>README.md</code>.</p>
+<hr />
+</div>
 </div>
 <div id="vignettes" class="section level1">
 <h1>Vignettes</h1>
