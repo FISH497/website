@@ -45,6 +45,10 @@ Fortunately, `{devtools}` helps us with this process via some built-in functions
 * adds the script `tests/testthat.R`
 
 ```{r testthat}
+## load devtools
+library(devtools)
+
+## set testing framework
 use_testthat()
 ✓ Adding 'testthat' to Suggests field in DESCRIPTION
 ✓ Setting Config/testthat/edition field in DESCRIPTION to '3'
@@ -107,6 +111,7 @@ Duration: 0.1 s
 
 The testing report indicates how many total tests were run, and how many of them failed (`FAIL`), issued a warning (`WARN`), were skipped (`SKIP`), and passed (`PASS`). Here we see that all four of our tests passed, which is good news indeed.
 
+Now is a good time to commit your changes and push them to **GitHub**.
 
 ***
 
@@ -290,8 +295,14 @@ Building pets vignettes
 --- re-building ‘example-usage.Rmd’ using rmarkdown
 --- finished re-building ‘example-usage.Rmd’
 
+✓ Creating 'doc/'
+✓ Adding '^doc$' to '.Rbuildignore'
+✓ Adding 'doc' to '.gitignore'
 Moving example-usage.html, example-usage.R to doc/
 Copying example-usage.Rmd to doc/
+✓ Creating 'Meta/'
+✓ Adding '^Meta$' to '.Rbuildignore'
+✓ Adding 'Meta' to '.gitignore'
 Building vignette index
 ```
 
@@ -324,6 +335,33 @@ It looks like everything is in working order, so go ahead and commit your change
 ***
 
 # Website
+
+If you've spent some time searching the web for information on packages, there's a good chance you come across a specific form of package website. For example, [here](https://usethis.r-lib.org/) is the wesbite for the `{usethis}` package that we've used to build our `{pets}` package. These websites are created with the [`{pkgdown}`](https://pkgdown.r-lib.org/index.html) package, which we can use to create a website for `{pets}`.
+
+To do so, we'll begin by configuring our package to use `{pkgdown}`.
+
+```{r init_pkgdown}
+## load library
+library(pkgdown)
+
+## initialize package to use pkgdown
+use_pkgdown()
+● Record your site's url in the pkgdown config file (optional, but recommended)
+● Modify '_pkgdown.yml'
+```
+
+This command will add a new file called `_pkgdown.yml`, which is empty at the moment.
+
+Now we can use `pkgdown::build_site()` to create the actual website for the package. When you call this function, you'll see a verbose response from **R** followed by a preview of your site opened in your web browser.
+
+Before doing so, however, we need to make a small change to our `.gitignore` file. When we run `build_site()`, it creates the necessary html and supporting files in the `/docs` directory, so we need to remove it from `.gitignore` so that we can commit its contents and push the changes to **GitHub**.
+
+
+```{r build_site}
+build_site()
+```
+
+Now let's commit our changes and push them to **GitHub**. After doing so, navigate to your `pets` repo on **GitHub** and click on the **Settings** tab. Scroll down to the section title **GitHub Pages** and under **Source** select `Branch: main` and `Select folder: /docs`.
 
 
 ***

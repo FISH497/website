@@ -294,7 +294,11 @@ div.tocify {
 <li><p>creates the directory <code>tests/testthat/</code></p></li>
 <li><p>adds the script <code>tests/testthat.R</code></p></li>
 </ul>
-<pre class="r"><code>use_testthat()
+<pre class="r"><code>## load devtools
+library(devtools)
+
+## set testing framework
+use_testthat()
 ✓ Adding &#39;testthat&#39; to Suggests field in DESCRIPTION
 ✓ Setting Config/testthat/edition field in DESCRIPTION to &#39;3&#39;
 ✓ Creating &#39;tests/testthat/&#39;
@@ -336,6 +340,7 @@ Duration: 0.1 s
 
 [ FAIL 0 | WARN 0 | SKIP 0 | PASS 4 ]</code></pre>
 <p>The testing report indicates how many total tests were run, and how many of them failed (<code>FAIL</code>), issued a warning (<code>WARN</code>), were skipped (<code>SKIP</code>), and passed (<code>PASS</code>). Here we see that all four of our tests passed, which is good news indeed.</p>
+<p>Now is a good time to commit your changes and push them to <strong>GitHub</strong>.</p>
 <hr />
 </div>
 <div id="packages-on-github" class="section level1">
@@ -460,8 +465,14 @@ Building pets vignettes
 --- re-building ‘example-usage.Rmd’ using rmarkdown
 --- finished re-building ‘example-usage.Rmd’
 
+✓ Creating &#39;doc/&#39;
+✓ Adding &#39;^doc$&#39; to &#39;.Rbuildignore&#39;
+✓ Adding &#39;doc&#39; to &#39;.gitignore&#39;
 Moving example-usage.html, example-usage.R to doc/
 Copying example-usage.Rmd to doc/
+✓ Creating &#39;Meta/&#39;
+✓ Adding &#39;^Meta$&#39; to &#39;.Rbuildignore&#39;
+✓ Adding &#39;Meta&#39; to &#39;.gitignore&#39;
 Building vignette index</code></pre>
 <p>We should now rebuild our package and run our checks.</p>
 <pre class="r"><code>## re-build package
@@ -485,6 +496,20 @@ Duration: 8.7s
 </div>
 <div id="website" class="section level1">
 <h1>Website</h1>
+<p>If you’ve spent some time searching the web for information on packages, there’s a good chance you come across a specific form of package website. For example, <a href="https://usethis.r-lib.org/">here</a> is the wesbite for the <code>{usethis}</code> package that we’ve used to build our <code>{pets}</code> package. These websites are created with the <a href="https://pkgdown.r-lib.org/index.html"><code>{pkgdown}</code></a> package, which we can use to create a website for <code>{pets}</code>.</p>
+<p>To do so, we’ll begin by configuring our package to use <code>{pkgdown}</code>.</p>
+<pre class="r"><code>## load library
+library(pkgdown)
+
+## initialize package to use pkgdown
+use_pkgdown()
+● Record your site&#39;s url in the pkgdown config file (optional, but recommended)
+● Modify &#39;_pkgdown.yml&#39;</code></pre>
+<p>This command will add a new file called <code>_pkgdown.yml</code>, which is empty at the moment.</p>
+<p>Now we can use <code>pkgdown::build_site()</code> to create the actual website for the package. When you call this function, you’ll see a verbose response from <strong>R</strong> followed by a preview of your site opened in your web browser.</p>
+<p>Before doing so, however, we need to make a small change to our <code>.gitignore</code> file. When we run <code>build_site()</code>, it creates the necessary html and supporting files in the <code>/docs</code> directory, so we need to remove it from <code>.gitignore</code> so that we can commit its contents and push the changes to <strong>GitHub</strong>.</p>
+<pre class="r"><code>build_site()</code></pre>
+<p>Now let’s commit our changes and push them to <strong>GitHub</strong>. After doing so, navigate to your <code>pets</code> repo on <strong>GitHub</strong> and click on the <strong>Settings</strong> tab. Scroll down to the section title <strong>GitHub Pages</strong> and under <strong>Source</strong> select <code>Branch: main</code> and <code>Select folder: /docs</code>.</p>
 <hr />
 </div>
 <div id="hex-sticker" class="section level1">
