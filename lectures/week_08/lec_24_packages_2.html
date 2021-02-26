@@ -404,6 +404,83 @@ Building /Users/scheuerl/Documents/GitHub/pets/README.Rmd</code></pre>
 </div>
 <div id="vignettes" class="section level1">
 <h1>Vignettes</h1>
+<p>Vignettes offer a longer description of a pacakge’s utility. They aren’t at all a necessary component of a package, but rather one of the “bells and whistles”. Vignettes are written in <strong>Markdown</strong> and can be accessed via <code>vignette(name)</code> where <code>name</code> is the name of the vignette. You can see a list of all of the vignettes within a particular package with <code>browseVignettes(&quot;packagename&quot;)</code>.</p>
+<p>To create a vignette, use the <code>use_vignette()</code> function by passing it the name of the vignette file to create.</p>
+<pre class="r"><code>use_vignette(&quot;example-usage&quot;)
+✓ Adding &#39;knitr&#39; to Suggests field in DESCRIPTION
+✓ Setting VignetteBuilder field in DESCRIPTION to &#39;knitr&#39;
+✓ Adding &#39;inst/doc&#39; to &#39;.gitignore&#39;
+✓ Creating &#39;vignettes/&#39;
+✓ Adding &#39;*.html&#39;, &#39;*.R&#39; to &#39;vignettes/.gitignore&#39;
+✓ Adding &#39;rmarkdown&#39; to Suggests field in DESCRIPTION
+✓ Writing &#39;vignettes/example-usage.Rmd&#39;
+● Modify &#39;vignettes/example-usage.Rmd&#39;</code></pre>
+<p>Running <code>use_vignette()</code> will</p>
+<ul>
+<li><p>create a <code>vignettes/</code> directory</p></li>
+<li><p>add the necessary dependencies to <code>DESCRIPTION</code></p></li>
+<li><p>create the skeleton file <code>vignettes/example-usage.Rmd</code></p></li>
+</ul>
+<p>Go ahead and inspect the contents of <code>example-usage.Rmd</code> and you’ll some <code>YAML</code> and two code chunks. The <code>YAML</code> looks like this</p>
+<pre><code>---
+title: &quot;example-usage&quot;
+output: rmarkdown::html_vignette
+vignette: &gt;
+  %\VignetteIndexEntry{example-usage}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---</code></pre>
+<p>Let’s change the title to be a little more informative:</p>
+<pre><code>title: &quot;Using the pets package&quot;</code></pre>
+<p>and then change <code>%\VignetteIndexEntry{example-usage}</code> to match our new title</p>
+<pre><code>%\VignetteIndexEntry{Using the pets package}</code></pre>
+<p>Now let’s add some more details to the body of the vignette. For example,</p>
+<pre><code># Background
+
+The `{pets}` package was designed to allow people to express their feelings about pets. At present, the package is rather cat-centric, in that it only contains one function: `cats()`.
+
+# Usage
+
+To use `{pets}`, first load the package and then call the function `cats()` with a logical/boolean argument. For example, 
+
+```{r setup}
+## load pets package
+library(pets)
+
+## if you love cats
+cats(TRUE)
+
+## if you&#39;re not a big fan of cats
+cats(FALSE)
+```</code></pre>
+<p>When you are finished, go ahead and click on the <strong>Knit</strong> button in <strong>RStudio</strong> to preview the html version of the vignette.</p>
+<p>At this point, we’ve created our vignette, but we still need to build it into the package itself. To do so, we’ll use the <code>build_vignettes()</code> function.</p>
+<pre class="r"><code>build_vignettes()
+Building pets vignettes
+--- re-building ‘example-usage.Rmd’ using rmarkdown
+--- finished re-building ‘example-usage.Rmd’
+
+Moving example-usage.html, example-usage.R to doc/
+Copying example-usage.Rmd to doc/
+Building vignette index</code></pre>
+<p>We should now rebuild our package and run our checks.</p>
+<pre class="r"><code>## re-build package
+build()
+✓  checking for file ‘/Users/scheuerl/Documents/GitHub/pets/DESCRIPTION’ ...
+─  preparing ‘pets’:
+✓  checking DESCRIPTION meta-information ...
+─  installing the package to build vignettes
+✓  creating vignettes (1.3s)
+─  checking for LF line-endings in source and make files and shell scripts
+─  checking for empty or unneeded directories
+─  building ‘pets_0.0.0.9000.tar.gz’</code></pre>
+<pre class="r"><code>## run check
+check()
+── R CMD check results ────────────────────────────── pets 0.0.0.9000 ────
+Duration: 8.7s
+
+0 errors ✓ | 0 warnings ✓ | 0 notes ✓</code></pre>
+<p>It looks like everything is in working order, so go ahead and commit your changes and push them to <strong>GitHub</strong>.</p>
 <hr />
 </div>
 <div id="website" class="section level1">
