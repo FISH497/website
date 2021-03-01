@@ -71,16 +71,16 @@ publishing <- list(
   rmd = "homework/week_06/hw_06_publishing.Rmd",
   html = "homework/week_06/hw_06_publishing.html",
   data = "homework/week_06/hw_06_template.Rmd",
-  key = ""
+  key = "homework/week_06/hw_06_publishing_key.Rmd"
 )
 
 ## week 8
 markdown <- list(
-  title = "R Markdown",
-  topics = c("Applications of R Markdown"),
+  title = "R packages",
+  topics = c("R packages"),
   pdf = "",
-  rmd = "",
-  html = "",
+  rmd = "homework/week_07/hw_07_packages.Rmd",
+  html = "homework/week_07/hw_07_packages.html",
   data = "",
   key = ""
 )
