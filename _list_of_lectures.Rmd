@@ -322,7 +322,7 @@ shiny_1 <- list(
   html = "lectures/week_09/lec_25_intro_shiny_1.html",
   background = c("[RStudio Shiny apps](https://shiny.rstudio.com/)",
                  "[Sievert (2019)](https://plotly-r.com/)"),
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/i9PPdoq-VwdBae-aYoooGcsG0h4Eida1igeMDTM-uVqlpho24SAZBK6b9azH8yWp.07ASvnI98cjij7-H"
 )
 
 ## day 26 ####
