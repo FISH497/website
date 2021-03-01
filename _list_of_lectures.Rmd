@@ -318,9 +318,10 @@ shiny_1 <- list(
   title = "Shiny apps",
   topics = c("<i>Dr. Margaret Siple</i>", "<b>Shiny apps</b>", "Introduction"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
+  rmd = "lectures/week_09/lec_25_intro_shiny_1.Rmd",
+  html = "lectures/week_09/lec_25_intro_shiny_1.html",
+  background = c("[RStudio Shiny apps](https://shiny.rstudio.com/)",
+                 "[Sievert (2019)](https://plotly-r.com/)"),
   zoom = ""
 )
 
