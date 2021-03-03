@@ -1,0 +1,23 @@
+---
+title: "Creating presentations"
+author: "Mark Scheuerell"
+date: "5 March 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r set_defaults, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+***
+
+# Background
+
+
+
