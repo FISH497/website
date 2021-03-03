@@ -330,9 +330,9 @@ shiny_2 <- list(
   title = "Shiny apps",
   topics = c("<i>Dr. Margaret Siple</i>", "<b>Shiny apps</b>", "Development", "Deployment"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
+  rmd = "lectures/week_09/lec_26_intro_shiny_2.Rmd",
+  html = "lectures/week_09/lec_26_intro_shiny_2.html",
+  background = "[Shiny App Contest](https://blog.rstudio.com/2020/07/13/winners-of-the-2nd-shiny-contest/)",
   zoom = ""
 )
 
