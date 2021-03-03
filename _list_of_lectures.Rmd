@@ -333,7 +333,7 @@ shiny_2 <- list(
   rmd = "lectures/week_09/lec_26_intro_shiny_2.Rmd",
   html = "lectures/week_09/lec_26_intro_shiny_2.html",
   background = "[Shiny App Contest](https://blog.rstudio.com/2020/07/13/winners-of-the-2nd-shiny-contest/)",
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/_Tw0mwNHyf2SvoqH4lWPMd8avlPEkZI9hCY186Q_N2amq5GhV25rt6N9kWvnBz4a.t6oMeARozWdnMRu5"
 )
 
 ## day 27 ####
