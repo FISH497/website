@@ -344,10 +344,10 @@ markdown_3 <- list(
   rmd = "lectures/week_09/lec_27_presentations.Rmd",
   html = "lectures/week_09/lec_27_presentations.html",
   background = ("[Chap 4 of Xie et al. (2014)](https://bookdown.org/yihui/rmarkdown/presentations.html)"),
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/Ni7iNj1hIRn96chAVOIcL8M_zFB9BfFSv9o8clmauIad00V_aHzyOYDPTAM0BKiW.pCEB5Bylr9_ICc59"
 )
 
-## extra ####
+## day 28 ####
 markdown_4 <- list(
   title = "R Markdown",
   topics = c("<b>R Markdown</b>", "Building websites"),
