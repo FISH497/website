@@ -339,15 +339,26 @@ shiny_2 <- list(
 ## day 27 ####
 markdown_3 <- list(
   title = "R Markdown",
-  topics = c("<b>R Markdown</b>", "Designing presentations", "Building websites"),
+  topics = c("<b>R Markdown</b>", "Designing presentations"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
+  rmd = "lectures/week_09/lec_27_presentations.Rmd",
+  html = "lectures/week_09/lec_27_presentations.html",
+  background = ("[Chap 4 of Xie et al. (2014)](https://bookdown.org/yihui/rmarkdown/presentations.html)"),
   zoom = ""
 )
 
-## day 28 ####
+## extra ####
+markdown_4 <- list(
+  title = "R Markdown",
+  topics = c("<b>R Markdown</b>", "Building websites"),
+  pdf = c(""),
+  rmd = "",
+  html = "",
+  background = c(""),
+  zoom = ""
+)
+
+## day 29 ####
 code_reviews <- list(
   title = "Code reviews",
   topics = c("<b>Code reviews</b>", "Checklists", "Do's and Don'ts"),
@@ -358,7 +369,7 @@ code_reviews <- list(
   zoom = ""
 )
 
-## day 29 ####
+## day 30 ####
 ethics <- list(
   title = "Ethics in data science",
   topics = c("<b>Ethics in data science</b>", "Data selection", "Analysis & inference"),
@@ -369,21 +380,10 @@ ethics <- list(
   zoom = ""
 )
 
-## day 30 ####
+## extra ####
 wrap_up <- list(
   title = "Course wrap up",
   topics = c("<b>Course wrap up</b>"),
-  pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
-  zoom = ""
-)
-
-## extra ####
-future <- list(
-  title = "Future considerations",
-  topics = c("<b>Future considerations</b>"),
   pdf = c(""),
   rmd = "",
   html = "",

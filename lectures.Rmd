@@ -61,9 +61,9 @@ week_lecs$L25 <- shiny_1
 week_lecs$L26 <- shiny_2
 week_lecs$L27 <- markdown_3
 ## week 10: Mar 8-12
-week_lecs$L28 <- code_reviews
-week_lecs$L29 <- ethics
-week_lecs$L30 <- wrap_up
+week_lecs$L28 <- markdown_4
+week_lecs$L29 <- code_reviews
+week_lecs$L30 <- ethics
 ```
 
 ```{r topics, include = FALSE, eval = FALSE}
