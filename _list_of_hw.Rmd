@@ -86,12 +86,12 @@ markdown <- list(
 )
 
 ## week 9
-shiny_apps <- list(
+presentations <- list(
   title = "Shiny apps",
   topics = c("Shiny apps"),
   pdf = "",
-  rmd = "",
-  html = "",
+  rmd = "homework/week_08/hw_08_presentations.Rmd",
+  html = "homework/week_08/hw_08_presentations.html",
   data = "",
   key = ""
 )
