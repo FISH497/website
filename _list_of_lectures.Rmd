@@ -356,7 +356,7 @@ markdown_4 <- list(
   html = "lectures/week_10/lec_28_websites.html",
   background = c("[GitHub Pages](https://pages.github.com/)",
                  "[Chap 17 of HGG](https://happygitwithr.com/existing-github-last.html)"),
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/cvw0vd4mEmi4XVrJ1ofebGhwuhr9OCw2DG3JH-r5J_SdQPlaZbirW_Vrf4kCY_b8.h16lsErJXauP_-rl"
 )
 
 ## day 29 ####
