@@ -29,7 +29,7 @@ For this exercise, we'll create a simple personal website and host it on **GitHu
 
 ## Create a repo
 
-Create a new repo on GitHub called `your_user_name` where `your_user_name` is your actual GitHub username. As soon as you've typed your full username into the `Repository name` box, GitHub should respond with a message in a green box below it about you having just found a secret and that this is a special repo (see image below).
+Create a new repo on GitHub called `USERNAME.github.io` where `USERNAME` is your actual GitHub username.
 
 In the **Description** box, type (or copy/paste) "This is the development repo for my personal website".
 
@@ -38,12 +38,6 @@ Make the repo **Public**.
 Despite GitHub's urging, **DO NOT** add a README, .gitignore or license file.
 
 Click the green **Create repository** button when you're finished.
-
-```{r gh_create_repo, echo = FALSE, out.width = "90%", fig.align = "center"}
-knitr::include_graphics("img/gh_create_repo.png")
-```
-
-<br>
 
 ## Create RStudio project
 
@@ -200,7 +194,6 @@ knitr::include_graphics("img/rs_git_pane.png")
 
 <br>
 
-
 Before we commit the files, let's go ahead and delete the picture of Frank that was included in the project when it was created. In the **File** pane in **RStudio** check the box next to `frank.jpg` and then click the `Delete` button.
 
 ```{r rs_delete_frank, echo = FALSE, out.width = "70%", fig.align = "center"}
@@ -233,7 +226,7 @@ knitr::include_graphics("img/rs_setup_gh_2.png")
 
 <br>
 
-* In the field for `Remote Name:` enter `origin` and in the field for `Remote URL:` copy/paste the URL of your **GitHub** repo (this should be `https://github.com/USERNAME/USERNAME` where `USERNAME` is your actual **GitHub** username).
+* In the field for `Remote Name:` enter `origin` and in the field for `Remote URL:` copy/paste the URL of your **GitHub** repo (this should be `https://github.com/USERNAME/USERNAME.github.io` where `USERNAME` is your actual **GitHub** username).
 
 ```{r rs_setup_gh_3, echo = FALSE, out.width = "70%", fig.align = "center"}
 knitr::include_graphics("img/rs_setup_gh_3.png")
