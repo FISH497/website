@@ -206,7 +206,7 @@ Now go ahead and commit your local changes to all of the files in the **Git** pa
 
 ***
 
-# Publishing to GitHub
+# Connecting to GitHub
 
 Now that you have a draft of your website, it's time to connect this local **RStudio** project to the **GitHub** repo we created at the beginning of this exercise. To do so, follow these steps:
 
@@ -236,6 +236,8 @@ knitr::include_graphics("img/rs_setup_gh_3.png")
 
 When you are finished, click **Add** and **RStudio** will respond with a window showing you that your local `main` branch is set up to track the remote branch on **GitHub**, and that files you committed above have been pushed to your **GitHub** repo.
 
+**Note**: If clicking **Add** instead takes you back to the ***RStudio** doesn not allow to click the **New bracnh** window and the **Create** button is grayed out, enter `main` in `Branch name:` field and then click **Create**.
+
 ```{r rs_setup_gh_4, echo = FALSE, out.width = "70%", fig.align = "center"}
 knitr::include_graphics("img/rs_setup_gh_4.png")
 ```
@@ -249,6 +251,16 @@ knitr::include_graphics("img/gh_refresh.png")
 ```
 
 <br>
+
+***
+
+# Viewing on GitHub
+
+To view your website on **GitHub**, simply navigate over to `USERNAME.github.io` where `USERNAME` is your actual GitHub username. You should see something like this.
+
+```{r gh_finished_view, echo = FALSE, out.width = "100%", fig.align = "center"}
+knitr::include_graphics("img/gh_finished_view.png")
+```
 
 
 
