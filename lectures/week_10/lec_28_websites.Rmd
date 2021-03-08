@@ -167,6 +167,95 @@ knitr::include_graphics("img/postcards_final.png")
 
 <br>
 
+***
+
+# Set up version control
+
+Once you have a complete draft of your website, it would be a good time to commit our local changes. Before we can do so, though, we need to place this project under version control with **Git**. There are 3 different ways to do this, each of which is equally effective.
+
+1) In the shell, navigate via `cd` to the project's directory and type `git init`.
+
+2) At the command prompt in **RStudio**, type `usethis::use_git()`.
+
+3) From the main menu in **RStudio**,
+
+    - select `Tools > Project Options...`   
+    - click on `Git/SVN` in the left column  
+    - select `Git` from the `Version control system:` dropdown menu  
+    - click **OK** when you are finished  
+    - you will be asked if you want to create a git repository; select **Yes**  
+    - you will be asked if you want to restart **RStudio**; select **Yes**  
+
+```{r rs_proj_options, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("img/rs_proj_options.png")
+```
+
+<br>
+
+You should now see a **Git** pane in **RStudio** several untracked files waiting to be committed.
+
+```{r rs_git_pane, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("img/rs_git_pane.png")
+```
+
+<br>
+
+
+Before we commit the files, let's go ahead and delete the picture of Frank that was included in the project when it was created. In the **File** pane in **RStudio** check the box next to `frank.jpg` and then click the `Delete` button.
+
+```{r rs_delete_frank, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("img/rs_delete_frank.png")
+```
+
+<br>
+
+Now go ahead and commit your local changes to all of the files in the **Git** pane. Note, though, that we haven't yet connected this repo to **GitHub**, so you can't actually push your changes to the cloud.
+
+***
+
+# Publishing to GitHub
+
+Now that you have a draft of your website, it's time to connect this local **RStudio** project to the **GitHub** repo we created at the beginning of this exercise. To do so, follow these steps:
+
+* Click on the two purple boxes and a white square in the **Git** pane.
+
+```{r rs_setup_gh_1, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("img/rs_setup_gh_1.png")
+```
+
+<br>
+
+* Click `Add remote...`
+
+```{r rs_setup_gh_2, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("img/rs_setup_gh_2.png")
+```
+
+<br>
+
+* In the field for `Remote Name:` enter `origin` and in the field for `Remote URL:` copy/paste the URL of your **GitHub** repo (this should be `https://github.com/USERNAME/USERNAME` where `USERNAME` is your actual **GitHub** username).
+
+```{r rs_setup_gh_3, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("img/rs_setup_gh_3.png")
+```
+
+<br>
+
+When you are finished, click **Add** and **RStudio** will respond with a window showing you that your local `main` branch is set up to track the remote branch on **GitHub**, and that files you committed above have been pushed to your **GitHub** repo.
+
+```{r rs_setup_gh_4, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("img/rs_setup_gh_4.png")
+```
+
+<br>
+
+Let's verify that everything has indeed been pushed to **GitHub** by navigating to your repo there and refreshing the browser. You should now see several files listed there.
+
+```{r gh_refresh, echo = FALSE, out.width = "90%", fig.align = "center"}
+knitr::include_graphics("img/gh_refresh.png")
+```
+
+<br>
 
 
 
