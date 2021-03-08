@@ -350,11 +350,12 @@ markdown_3 <- list(
 ## day 28 ####
 markdown_4 <- list(
   title = "R Markdown",
-  topics = c("<b>R Markdown</b>", "Building websites"),
+  topics = c("<b>R Markdown</b>", "Building simple websites"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = c(""),
+  rmd = "lectures/week_10/lec_28_webites.html",
+  html = "lectures/week_10/lec_28_webites.html",
+  background = c("[GitHub Pages](https://pages.github.com/)",
+                 "[Chap 17 of HGG](https://happygitwithr.com/existing-github-last.html)"),
   zoom = ""
 )
 
