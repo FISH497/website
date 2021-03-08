@@ -141,6 +141,35 @@ knitr::include_graphics("img/postcards_preview.png")
 
 <br>
 
+From here on, anytime you make a change to the content in `index.Rmd` you can just click the `Knit` button to instantly generate a preview.
+
+***
+
+# Personal details
+
+Now it's time to edit `index.Rmd` so it contains information about you instead of Frank. At present there are headings and content for these sections:
+
+* **Bio**
+
+* **Education**
+
+* **Experience**
+
+You can edit any of these heading names and corresponding content to meet your personal preferences. Because this information is all written with standard **Markdown**, you can take advantage of any of the additional formatting options.
+
+For example, the university and company names in the example template are enclosed with double-asterisks (`**`) so that they render in **bold** type. You could add an (un)ordered list, different heading levels, links to other URLs, equations, or additional images.
+
+Here is an example of what your website could look like after you've edited the sections and content.
+
+```{r postcards_final, echo = FALSE, out.width = "100%", fig.align = "center"}
+knitr::include_graphics("img/postcards_final.png")
+```
+
+<br>
+
+
+
+
 
 
 
