@@ -262,8 +262,31 @@ To view your website on **GitHub**, simply navigate over to `USERNAME.github.io`
 knitr::include_graphics("img/gh_finished_view.png")
 ```
 
+<br>
 
+***
 
+# Other layouts
+
+## Postcards
+
+At this point you should be all set up to make changes to your website design in **RStudio** and push them to **GitHub** when you're finished. For example, we chose the `Trestles` template for our layout, but there are others available (see Sean Kross' [postcard templates](https://github.com/seankross/postcards#the-templates)). To switch to a different theme, simply change the YAML line
+
+```markdown
+output:
+  postcards::trestles
+```
+
+to be something like
+
+```markdown
+output:
+  postcards::jolla_blue
+```
+
+## Other formats
+
+You could also specify a completely different format/layout/template, save it as `index.html`, and then that new site would render instead of the `{postcards}` site we just created.
 
 
 
