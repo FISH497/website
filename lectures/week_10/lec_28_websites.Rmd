@@ -77,4 +77,73 @@ knitr::include_graphics("img/rs_postcards_details.png")
 
 <br>
 
-# 
+# Postcards website
+
+You now have a very simply **RStudio** project with 3 files:
+
+1) `index.Rmd`
+
+2) `frank.jpg`
+
+3) `YOUR_USERNAME.Rproj` (where `YOUR_USERNAME` is your **GitHub** username)
+
+## Content
+
+The `index.Rmd` file contains the information to be displayed on your website. When first created, it should look like this:
+
+```{r postcards_index_blank, echo = FALSE, out.width = "100%", fig.align = "center"}
+knitr::include_graphics("img/postcards_index_blank.png")
+```
+
+<br>
+
+The top section is a standard YAML that contains 4 fields:
+
+1) `title`
+
+2) `image`
+
+3) `links`
+
+4) `output`
+
+### Title
+
+The `title` field in `index.Rmd` is the title of your website that will be displayed at the top. Go ahead and change this from `Frank Mermosillo` to something relative to you. For example, your first and last names would be good options.
+
+### Image
+
+The `image` field in `index.Rmd` shows the name of the picture that will be displayed on your website. At present, it's set to `frank.jpg`, so you should change this to be the name of a picture/photo you'd rather have displayed. A headshot is always a great choice, but you could use an avatar or any other image you'd like.
+
+**Note**: whatever name/file you choose, you'll need to move or copy that image file to the folder/directory where this project lives.
+
+### Links
+
+The next block that begins with `links` contains a list of `label/url` pairs. These will be buttons on your website that someone could click to direct them to other information about you elsewhere. The last `label/url` pair is for your email address. Not all of these `label/url` pairs are necessary, so you can delete any of them if you'd like. You can also add more of them if you'd like evern more options for others. Go ahead and edit/delete/add any options you'd like here.
+
+When you are finished, your YAML section should resemble something like this:
+
+```{r postcards_yaml, echo = FALSE, out.width = "100%", fig.align = "center"}
+knitr::include_graphics("img/postcards_yaml.png")
+```
+
+<br>
+
+*** 
+
+# Build the site
+
+Let's go ahead and preview our website, which simply requires you to press the `Knit` button in the editor pane. When you do, **RStudio** will open a preview of your website in a new viewer window that should look something like this:
+
+```{r postcards_preview, echo = FALSE, out.width = "100%", fig.align = "center"}
+knitr::include_graphics("img/postcards_preview.png")
+```
+
+<br>
+
+
+
+
+
+
+
