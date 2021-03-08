@@ -1,0 +1,80 @@
+---
+title: "Creating websites with R Markdown"
+author: "Mark Scheuerell"
+date: "8 March 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r set_defaults, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+***
+
+# Background
+
+One of the great features of **R Markdown** is using it to create static websites. These websites can be quite simple with only a single page or more complex with multiple pages and options, such as the website for this course. Websites created with **R Markdown** can be viewed/hosted directly on **GitHub** or [**Netlify**](https://www.netlify.com/), or copied over to a server such as http://students.washington.edu.
+
+***
+
+# Setup
+
+For this exercise, we'll create a simple personal website and host it on **GitHub**. Although you can disply a static website from any **GitHub** repo, we'll use special repo with the same name as your **GitHub** username.
+
+## Create a repo
+
+Create a new repo on GitHub called `your_user_name` where `your_user_name` is your actual GitHub username. As soon as you've typed your full username into the `Repository name` box, GitHub should respond with a message in a green box below it about you having just found a secret and that this is a special repo (see image below).
+
+In the **Description** box, type (or copy/paste) "This is the development repo for my personal website".
+
+Make the repo **Public**.
+
+Despite GitHub's urging, **DO NOT** add a README, .gitignore or license file.
+
+Click the green **Create repository** button when you're finished.
+
+```{r gh_create_repo, echo = FALSE, out.width = "90%", fig.align = "center"}
+knitr::include_graphics("img/gh_create_repo.png")
+```
+
+<br>
+
+## Create RStudio project
+
+The next step is to create a new project in **RStudio**. However, rather than base this new project on an existing repo, as we've done in the past, we'll instead choose **New Directory**.
+
+```{r rs_new_proj, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("img/rs_new_project.png")
+```
+
+<br>
+
+Scroll down the options for **Project Type** and select `Postcards Website`.
+
+```{r rs_postcards, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("img/rs_postcards.png")
+```
+
+<br>
+
+In the next **Create Postcards Website** window, enter your own **GitHub** username in the field for `Directory name:`
+
+Choose the location where you'd like this new project to live.
+
+Select the `Trestles` template from the drop-down menu.
+
+When you are finished, check the box next to `Open in new session` and click the **Create Project** button.
+
+```{r rs_postcards_details, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("img/rs_postcards_details.png")
+```
+
+<br>
+
+# 
