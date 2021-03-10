@@ -250,9 +250,43 @@ Organizations or labs should set clear expectations and guidelines
 
 Improvements should not be limited to code, but to processes as well
 
+> - "lots of people are confused by this"
+
+> - "we keep making the same mistake"
+
 
 # Reviews in practice
 
 
+## How?
+
+Embrace collaboration platforms like GitHub
+
+> - Issues
+
+> - Pull requests
+
+> - Gists
+
+
+## Simple requests
+
+Options include:
+
+* code snippet in an email
+
+* post to Slack
+
+
+## Formal requests
+
+Recall our discussion of *minimal working examples*
+
+> - general cry for help
+
+> - specific ask
+
+
+## rOpenSci
 
 
