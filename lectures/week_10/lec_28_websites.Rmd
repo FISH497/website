@@ -286,7 +286,7 @@ output:
 
 ## Other formats
 
-You could also specify a completely different format/layout/template, save it as `index.html` and then that new site would render instead of the site we just created.
+You could also specify a completely different format/layout/template, save it as `index.html`, and then that new site would render instead of the `{postcards}` site we just created.
 
 
 
