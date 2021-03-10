@@ -352,7 +352,7 @@ markdown_4 <- list(
   title = "R Markdown",
   topics = c("<b>R Markdown</b>", "Building simple websites"),
   pdf = c(""),
-  rmd = "lectures/week_10/lec_28_websites.html",
+  rmd = "lectures/week_10/lec_28_websites.Rmd",
   html = "lectures/week_10/lec_28_websites.html",
   background = c("[GitHub Pages](https://pages.github.com/)",
                  "[Chap 17 of HGG](https://happygitwithr.com/existing-github-last.html)"),
@@ -364,9 +364,9 @@ code_reviews <- list(
   title = "Code reviews",
   topics = c("<b>Code reviews</b>", "Checklists", "Do's and Don'ts"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
+  rmd = "lectures/week_10/lec_29_code_reviews.Rmd",
+  html = "lectures/week_10/lec_29_code_reviews.html",
+  background = c("[rOpenSci Guide](https://devguide.ropensci.org/index.html)"),
   zoom = ""
 )
 
