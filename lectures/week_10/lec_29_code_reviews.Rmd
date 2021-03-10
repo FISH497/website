@@ -81,11 +81,18 @@ What you said:
 
 * "you misspelled `easy`"
 
+
+## Avoid "you"
+
+What you said:
+
+* "you misspelled `easy`"
+
 What they heard:
 
-* "Oops--honest typo"
+* Option 1: "Oops--honest typo"
 
-> - "You are dumb"
+> - Option 2: "You are dumb"
 
 
 ## Requests vs commands
@@ -311,6 +318,8 @@ Uses GitHub's infrastructure with a focus on issues for package reviews
 Be kind
 
 Be thorough
+
+Be honest
 
 Be supportive
 
