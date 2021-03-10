@@ -1,0 +1,63 @@
+---
+title: "Code reviews"
+subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+author: "Mark Scheuerell"
+date: "10 March 2021"
+output:
+  ioslides_presentation:
+    css: lecture_slides.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## What is a code review?
+
+Inspecting someone's code with an eye towards improvement
+
+
+## What is a code review?
+
+Inspecting someone's code with an eye towards improvement
+
+It's not unlike peer review of scientific publications
+
+
+## Actors
+
+Author: writes the code and sends it for review
+
+Reviewer: reads the code and makes comments/suggestions
+
+
+## Areas covered
+
+
+## Tone
+
+
+## Approving vs requesting
+
+
+## Communication
+
+
+## Nitpicks
+
+
+## New people
+
+
+## Remote connections
+
+
+## Support
+
+
+## Silver linings
+
+
+
+
+
