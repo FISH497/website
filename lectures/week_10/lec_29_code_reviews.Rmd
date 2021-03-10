@@ -26,36 +26,118 @@ It's not unlike peer review of scientific publications
 
 ## Actors
 
-Author: writes the code and sends it for review
+**Author**: writes the code and sends it for review
 
-Reviewer: reads the code and makes comments/suggestions
+<br>
+
+**Reviewer**: reads the code and makes comments/suggestions
 
 
 ## Areas covered
 
+* correctness of the code (are there bugs or errors?)
+
+> - test coverage (do unit tests span the full range of options?)
+
+> - functionality changes (does change to `A()` affect `B()`?)
+
+> - coding guides (does it follow best practices?)
+
 
 ## Tone
 
+"Be tough on the code, but easy on the author"
 
-## Approving vs requesting
+> - be empathetic, kind & positive
+
+> - consider both intent and impact
+
+> - ask open-ended questions
+
+
+## Approving changes
+
+
 
 
 ## Communication
 
+Most code reviews are done asynchronously (eg, pull request on GitHub)
 
-## Nitpicks
+> - leave meaningful comments & ask judicious questions
+
+> - *N*<sub>comments</sub> $\propto$ level of misunderstanding
+
+> - at some point, a spoken conversation is best
+
+
+## Nitpicks | Unimportant comments
+
+* often involve adherence to a style guide
+
+> - alphabetical or hierarchical structuring of declarations
+
+> - placement of comments, brackets, function args
+
+
+## Nitpicks {.smaller}
+
+```{r eval = FALSE, echo = TRUE}
+a <- 1
+b <- 2
+a + b
+c <- 3
+(c - a) / b
+```
+
+becomes
+
+```{r eval = FALSE, echo = TRUE}
+## parameter definitions
+a <- 1
+b <- 2
+c <- 3
+
+## step 1: addition
+a + b
+
+## step 2: division
+(c - a) / b
+```
+
+
+## A note of caution
+
+<br>
+
+<div class="centered" style="font-size:1.5em">
+**Nitpicks can be microaggressions**
+</div>
 
 
 ## New people
 
+Newcomers can be overwhelmed with styles, culture, people
 
-## Remote connections
+> - good reviews apply the same metrics/qualities to **everyone**
+
+> - try to place people in a position to succeed
 
 
 ## Support
 
+Organizations or labs should set clear expectations and guidelines
 
-## Silver linings
+> - What are people's roles?
+
+> - What are expectations for people's time?
+
+> - Who has final say? Individual or Team?
+
+
+## Innovation
+
+Improvements should not be limited to code, but to the processes as well
 
 
 
