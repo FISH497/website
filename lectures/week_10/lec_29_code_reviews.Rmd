@@ -289,4 +289,31 @@ Recall our discussion of *minimal working examples*
 
 ## rOpenSci
 
+"fosters a culture that values **open** and **reproducible** research using **shared** data and reusable software"
+
+
+## rOpenSci
+
+Uses GitHub's infrastructure with a focus on issues for package reviews
+
+
+## {data-background=img/ros_readme.png data-background-size=80% data-background-position="50% 40%"}
+
+
+## Reviewer {data-background=img/review_template.png data-background-size=60% data-background-position="75% 50%"}
+
+
+## Editor {data-background=img/editor_template.png data-background-size=75% data-background-position="50% 50%"}
+
+
+## Summary
+
+Be kind
+
+Be thorough
+
+Be supportive
+
+Be timely
+
 
