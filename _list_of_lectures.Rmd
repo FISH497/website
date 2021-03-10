@@ -367,7 +367,7 @@ code_reviews <- list(
   rmd = "lectures/week_10/lec_29_code_reviews.Rmd",
   html = "lectures/week_10/lec_29_code_reviews.html",
   background = c("[rOpenSci Guide](https://devguide.ropensci.org/index.html)"),
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/x1gjVBS3JV-ppHUMrUaW2zrcAz7T684HBJWBn3_V9jFzrSM29E3TKwWnnbhXFLr5.87of5JJdYt5n3Z4B"
 )
 
 ## day 30 ####
