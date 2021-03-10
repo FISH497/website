@@ -195,6 +195,34 @@ slide:not(.current) .plotly.html-widget{
 
 <p><strong>Reviewer</strong>: reads the code and makes comments/suggestions</p>
 
+</article></slide><slide class=""><hgroup><h2>The ask</h2></hgroup><article  id="the-ask">
+
+<p>Author and reviewer should be clear on roles &amp; expectations</p>
+
+<ul class = 'build'>
+<li>Be specific (&ldquo;Please look over my changes to function <code>f()</code> on lines 11-20&rdquo;)</li>
+</ul>
+
+<ul class = 'build'>
+<li>Be aware of subject expertise</li>
+</ul>
+
+<ul class = 'build'>
+<li>Be thoughtful of time (&ldquo;This should only take a few minutes&rdquo;)</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>The response</h2></hgroup><article  id="the-response">
+
+<p>Be honest and direct</p>
+
+<ul class = 'build'>
+<li>address the intent of the review</li>
+</ul>
+
+<ul class = 'build'>
+<li>don’t redo the analysis</li>
+</ul>
+
 </article></slide><slide class=""><hgroup><h2>Areas covered</h2></hgroup><article  id="areas-covered">
 
 <ul>
@@ -206,7 +234,7 @@ slide:not(.current) .plotly.html-widget{
 </ul>
 
 <ul class = 'build'>
-<li>functionality changes (does change to <code>A()</code> affect <code>B()</code>?)</li>
+<li>functionality changes (does change to <code>f()</code> affect <code>g()</code>?)</li>
 </ul>
 
 <ul class = 'build'>
@@ -229,22 +257,97 @@ slide:not(.current) .plotly.html-widget{
 <li>ask open-ended questions</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Approving changes</h2></hgroup><article  id="approving-changes">
+</article></slide><slide class=""><hgroup><h2>Avoid &ldquo;you&rdquo;</h2></hgroup><article  id="avoid-you">
 
-</article></slide><slide class=""><hgroup><h2>Communication</h2></hgroup><article  id="communication">
+<p>What you said:</p>
 
-<p>Most code reviews are done asynchronously (eg, pull request on GitHub)</p>
+<ul>
+<li>&ldquo;you misspelled <code>easy</code>&rdquo;</li>
+</ul>
 
-<ul class = 'build'>
-<li>leave meaningful comments &amp; ask judicious questions</li>
+<p>What they heard:</p>
+
+<ul>
+<li>&ldquo;Oops–honest typo&rdquo;</li>
 </ul>
 
 <ul class = 'build'>
-<li><em>N</em><sub>comments</sub> \(\propto\) level of misunderstanding</li>
+<li>&ldquo;You are dumb&rdquo;</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Requests vs commands</h2></hgroup><article  id="requests-vs-commands">
+
+<p>Consider these 2 statements:</p>
+
+<ol>
+<li><p>&ldquo;Change <code>A</code> to <code>a</code>&rdquo;</p></li>
+<li><p>&ldquo;Perhaps we could change uppercase parameter names to lowercase?&rdquo;</p></li>
+</ol>
+
+<p><br></p>
+
+<p>#1 is <em>combative</em> whereas #2 is <em>cooperative</em></p>
+
+</article></slide><slide class=""><hgroup><h2>Principles vs opinions</h2></hgroup><article  id="principles-vs-opinions">
+
+<p>Attach reasons to requests</p>
+
+<ul class = 'build'>
+<li>&ldquo;We should consider lowercase letters for parameter names to distinguish them from variable names that are generally written in uppercase&rdquo;</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Bring solutions</h2></hgroup><article  id="bring-solutions">
+
+<p>Receiving feedback can be tough, so offer concrete solutions to soften the blow</p>
+
+<ul class = 'build'>
+<li>&ldquo;I found this code block hard to understand. What if we used pipes <code>%&gt;%</code> instead of nested functions?&rdquo;</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>High to low</h2></hgroup><article  id="high-to-low">
+
+<p>Begin reviews with high-level comments</p>
+
+<ul>
+<li>&ldquo;This might be more clear to others if we split <code>f()</code> into <code>g()</code> and <code>h()</code>&rdquo;</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>High to low</h2></hgroup><article  id="high-to-low-1">
+
+<p>Begin reviews with high-level comments</p>
+
+<ul>
+<li>&ldquo;This might be more clear to others if we split <code>f()</code> into <code>g()</code> and <code>h()</code>&rdquo;</li>
+</ul>
+
+<p>and then focus on details</p>
+
+<ul>
+<li>&ldquo;We could change line 11 to instead be <code>b &lt;- a + 1</code>&rdquo;</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Keep it in scope</h2></hgroup><article  id="keep-it-in-scope">
+
+<p>You’re asked to review function <code>f()</code></p>
+
+<ul class = 'build'>
+<li>only consider <code>g()</code> if it affects <code>f()</code></li>
 </ul>
 
 <ul class = 'build'>
-<li>at some point, a spoken conversation is best</li>
+<li>avoid &ldquo;<code>f()</code> looks great but I found a bug in <code>h()</code>&rdquo;</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Limit comments</h2></hgroup><article  id="limit-comments">
+
+<p>Imagine <code>easy</code> is misspelled everywhere</p>
+
+<ul class = 'build'>
+<li>Option 1: flag <em>every</em> occurrence with &ldquo;change <code>eesy</code> to <code>easy</code>&rdquo;</li>
+</ul>
+
+<ul class = 'build'>
+<li>Option 2: &ldquo;Here (and elsewhere) we should change <code>eesy</code> to <code>easy</code>&rdquo;</li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>Nitpicks </h2><h3> Unimportant comments</h3></hgroup><article  id="nitpicks-unimportant-comments">
@@ -261,7 +364,7 @@ slide:not(.current) .plotly.html-widget{
 <li>placement of comments, brackets, function args</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Nitpicks</h2></hgroup><article  id="nitpicks" class="smaller">
+</article></slide><slide class=""><hgroup><h2>Nitpicks</h2></hgroup><article  class="smaller" id="nitpicks">
 
 <pre class = 'prettyprint lang-r'>a &lt;- 1
 b &lt;- 2
@@ -286,8 +389,48 @@ a + b
 
 <p><br></p>
 
-<div style="font-size:1.5em" class="centered">
+<div class="centered" style="font-size:1.5em">
 <p><strong>Nitpicks can be microaggressions</strong></p></div>
+
+</article></slide><slide class=""><hgroup><h2>Humility</h2></hgroup><article  id="humility">
+
+<p><em>[P]rogrammers are very unlikable people… In aviation, for example, people who greatly overestimate their level of skill are all dead.</em></p>
+
+<p>– Philip Greenspun</p>
+
+</article></slide><slide class=""><hgroup><h2>The sweetest of all sounds is praise</h2></hgroup><article  id="the-sweetest-of-all-sounds-is-praise">
+
+<p>By design, reviews target faults</p>
+
+<p>Litter your review with the things you like</p>
+
+<ul class = 'build'>
+<li>&ldquo;I’d never seen this trick before!&rdquo;</li>
+</ul>
+
+<ul class = 'build'>
+<li>&ldquo;This is a much more elegant solution than I would have used.&rdquo;</li>
+</ul>
+
+<ul class = 'build'>
+<li>&ldquo;I really like how you broke this problem down.&rdquo;</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Communication</h2></hgroup><article  id="communication">
+
+<p>Most code reviews are done asynchronously (eg, pull request on GitHub)</p>
+
+<ul class = 'build'>
+<li>leave meaningful comments &amp; ask judicious questions</li>
+</ul>
+
+<ul class = 'build'>
+<li><em>N</em><sub>comments</sub> \(\propto\) level of misunderstanding</li>
+</ul>
+
+<ul class = 'build'>
+<li>at some point, a spoken conversation is best</li>
+</ul>
 
 </article></slide><slide class=""><hgroup><h2>New people</h2></hgroup><article  id="new-people">
 
@@ -319,7 +462,9 @@ a + b
 
 </article></slide><slide class=""><hgroup><h2>Innovation</h2></hgroup><article  id="innovation">
 
-<p>Improvements should not be limited to code, but to the processes as well</p></article></slide>
+<p>Improvements should not be limited to code, but to processes as well</p>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Reviews in practice</h2></hgroup><article  id="reviews-in-practice"></article></slide>
 
 
   <slide class="backdrop"></slide>
