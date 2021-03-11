@@ -87,8 +87,8 @@ markdown <- list(
 
 ## week 9
 presentations <- list(
-  title = "Shiny apps",
-  topics = c("Shiny apps"),
+  title = "Markdown presentations",
+  topics = c("Markdown presentations"),
   pdf = "",
   rmd = "homework/week_08/hw_08_presentations.Rmd",
   html = "homework/week_08/hw_08_presentations.html",
