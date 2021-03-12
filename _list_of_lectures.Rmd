@@ -381,18 +381,7 @@ ethics <- list(
                  "[CARE data principles](https://static1.squarespace.com/static/5d3799de845604000199cd24/t/5da9f4479ecab221ce848fb2/1571419335217/CARE+Principles_One+Pagers+FINAL_Oct_17_2019.pdf)",
                  "[Lum (2018) Bias in data](https://www.youtube.com/watch?v=5zxDwA99soA)",
                  "[Fox (2020) Faculty job market](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/bes2.1624)"),
-  zoom = ""
-)
-
-## extra ####
-wrap_up <- list(
-  title = "Course wrap up",
-  topics = c("<b>Course wrap up</b>"),
-  pdf = c(""),
-  rmd = "",
-  html = "",
-  background = c(""),
-  zoom = ""
+  zoom = "https://washington.zoom.us/rec/share/mfLndwhlTCPRDEt7Wxw0pb-Ysmm6nXIZtGHIXXTEhzgHGEP5FMx_67PabnU_7gKA.udvgmxJvDrgP5vjP"
 )
 ```
 
