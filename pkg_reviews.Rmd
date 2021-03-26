@@ -282,7 +282,9 @@ The vignettes and tutorials make it surprisingly simple to use. The main help pa
 
 Overall, I think this package is amazing, I highly recommend it, and it can do far more than I've used it for!
 
-*** # `{patchwork}`
+***
+
+# `{patchwork}`
 
 Contributed by J Morris
 
